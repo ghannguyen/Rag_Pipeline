@@ -290,9 +290,6 @@ Rag_Pipeline/
 │   ├── processed/              # elements, chunks, captions (JSONL)
 │   ├── images/                 # Extracted figures per document
 │   └── vectorstore/chroma/     # ChromaDB (not in git)
-├── docs/
-│   ├── RAG_PROJECT_TECHNICAL_OVERVIEW.md
-│   └── system_overview/
 ├── evaluation/
 │   ├── tc_common.py
 │   ├── run_tc_excel.py

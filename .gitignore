@@ -36,3 +36,6 @@ data/processed/.load_*/
 .DS_Store
 :memory:*
 *.ses
+
+# Internal docs (local only)
+docs/
