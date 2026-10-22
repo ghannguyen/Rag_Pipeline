@@ -15,7 +15,6 @@ __pycache__/
 
 # Vector database & Large local data
 data/vectorstore/
-data/raw/
 *.pdf
 *.bin
 *.sqlite3
