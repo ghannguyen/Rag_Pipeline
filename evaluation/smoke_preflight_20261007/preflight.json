@@ -1,0 +1,18 @@
+{
+  "backend_health": "PASS",
+  "pipeline_status": "PASS",
+  "chunks": 695,
+  "vectors": 695,
+  "chat_http": 500,
+  "chat_error": {
+    "detail": "RAG Chat lỗi: We couldn't connect to 'https://huggingface.co' to load the files, and couldn't find them in the cached files.\nCheck your internet connection or see how to run the library in offline mode at 'https://huggingface.co/docs/transformers/installation#offline-mode'."
+  },
+  "testcases_scored": 0,
+  "metrics": null,
+  "blockers": [
+    "Missing cached BAAI/bge-reranker-v2-m3; backend offline",
+    "ragas and langchain-google-genai missing; dependency conflict with rich 15.0.0",
+    "Excel input missing; existing JSON references previous RAG knowledge base"
+  ],
+  "source_files_modified": []
+}

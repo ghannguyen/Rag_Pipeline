@@ -2,24 +2,24 @@ from __future__ import annotations
 
 import json
 import os
-import shutil
+import sys
+import tempfile
 import time
 from pathlib import Path
 from typing import Any
 
-import torch
-from fastapi import FastAPI, HTTPException
+# This app uses no Pydantic plugins; avoid scanning every installed distribution.
+os.environ.setdefault("PYDANTIC_DISABLE_PLUGINS", "__all__")
+
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
-from src.data.pdf_loader import convert_pdf
-from src.data.image_captioner import caption_elements
-from src.data.chunker_optimized import ChunkConfig, process_chunking
-from src.rag.indexer import build_index
-from src.rag.retriever import load_vector_db
-from src.rag.rag_pipeline import answer_query
+from src.env import load_env
 
+# Load .env before reading module-level settings such as EMBEDDING_MODEL.
+load_env()
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW_DIR = ROOT / "data" / "raw"
@@ -41,6 +41,13 @@ app = FastAPI(
 )
 
 app.mount("/images", StaticFiles(directory=str(IMAGES_DIR)), name="images")
+
+
+@app.middleware("http")
+async def reload_env(request: Request, call_next):
+    # Pick up .env edits (thresholds, device, preferred sources) without a restart.
+    load_env()
+    return await call_next(request)
 
 app.add_middleware(
     CORSMiddleware,
@@ -65,7 +72,9 @@ class ChunkRequest(BaseModel):
 
 
 class EmbedRequest(BaseModel):
-    reset_db: bool = True
+    # False = incremental (embed only new/changed chunks, drop stale ones).
+    # True = wipe the collection and re-embed everything.
+    reset_db: bool = False
 
 
 class SearchRequest(BaseModel):
@@ -78,6 +87,42 @@ def count_jsonl(path: Path) -> int:
         return 0
     with path.open("r", encoding="utf-8") as f:
         return sum(1 for line in f if line.strip())
+
+
+def count_documents(path: Path) -> int:
+    if not path.exists():
+        return 0
+    with path.open("r", encoding="utf-8") as f:
+        return len({record_document_id(json.loads(line)) for line in f if line.strip()})
+
+
+def record_document_id(record: dict[str, Any]) -> str | None:
+    # elements/image records use document_id; pdf_extract pages use metadata.title.
+    return record.get("document_id") or record.get("metadata", {}).get("title")
+
+
+def upsert_jsonl(target: Path, new_file: Path, document_ids: set[str]) -> None:
+    """Replace records of document_ids in target with new_file, keeping other documents."""
+    kept = []
+    if target.exists():
+        with target.open("r", encoding="utf-8") as f:
+            kept = [
+                line.rstrip("\n")
+                for line in f
+                if line.strip() and record_document_id(json.loads(line)) not in document_ids
+            ]
+
+    added = []
+    if new_file.exists():
+        with new_file.open("r", encoding="utf-8") as f:
+            added = [line.rstrip("\n") for line in f if line.strip()]
+
+    target.parent.mkdir(parents=True, exist_ok=True)
+    tmp = target.with_name(target.name + ".tmp")
+    with tmp.open("w", encoding="utf-8") as f:
+        for line in kept + added:
+            f.write(line + "\n")
+    os.replace(tmp, target)
 
 
 def read_chunk_preview(limit: int = 3) -> list[dict[str, Any]]:
@@ -103,20 +148,32 @@ def read_chunk_preview(limit: int = 3) -> list[dict[str, Any]]:
 
 
 def vector_count() -> int:
-    if not VECTOR_DIR.exists():
+    if not (VECTOR_DIR / "chroma.sqlite3").exists():
         return 0
     try:
-        db = load_vector_db(VECTOR_DIR, EMBEDDING_MODEL)
-        return int(db._collection.count())
+        import chromadb
+
+        client = chromadb.PersistentClient(path=str(VECTOR_DIR))
+        collection = client.get_collection(COLLECTION_NAME, embedding_function=None)
+        return int(collection.count())
     except Exception:
         return 0
+
+
+def current_device() -> str:
+    # Status must not import PyTorch; report the device only once a model loaded it.
+    if "torch" not in sys.modules:
+        return os.getenv("TORCH_DEVICE", "").strip().lower() or "not_loaded"
+    from src.rag.device import pick_device
+
+    return pick_device()
 
 
 @app.get("/health")
 def health():
     return {
         "status": "ok",
-        "device": "cuda" if torch.cuda.is_available() else "cpu",
+        "device": current_device(),
     }
 
 
@@ -145,12 +202,13 @@ def list_files():
 @app.get("/api/pipeline/status")
 def pipeline_status():
     return {
-        "pdf_documents": count_jsonl(PDF_EXTRACT),
+        "pdf_documents": count_documents(ELEMENTS_FILE),
+        "pages": count_jsonl(PDF_EXTRACT),
         "elements": count_jsonl(ELEMENTS_FILE),
         "chunks": count_jsonl(CHUNKED),
         "vectors": vector_count(),
         "embedding_model": EMBEDDING_MODEL,
-        "device": "cuda" if torch.cuda.is_available() else "cpu",
+        "device": current_device(),
         "paths": {
             "raw": str(RAW_DIR),
             "elements": str(ELEMENTS_FILE),
@@ -171,14 +229,38 @@ def run_load(request: LoadRequest):
             detail=f"Không tìm thấy file: {pdf_path}",
         )
 
+    document_id = pdf_path.stem
     start = time.perf_counter()
 
     try:
-        convert_pdf(pdf_path, PDF_EXTRACT, ELEMENTS_FILE)
-        try:
-            caption_elements(ELEMENTS_FILE)
-        except Exception as cap_err:
-            print(f"! Captioner warning: {cap_err}")
+        from src.data.pdf_loader import convert_pdfs
+
+        PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
+        # Parse into a staging dir, then upsert only this document's records so
+        # previously loaded PDFs stay in the knowledge base.
+        with tempfile.TemporaryDirectory(dir=PROCESSED_DIR, prefix=".load_") as tmp:
+            tmp_dir = Path(tmp)
+            tmp_elements = tmp_dir / ELEMENTS_FILE.name
+            convert_pdfs(pdf_path, tmp_dir / PDF_EXTRACT.name, tmp_elements, images_root=IMAGES_DIR)
+
+            doc_elements = count_jsonl(tmp_elements)
+            if doc_elements == 0:
+                raise HTTPException(
+                    status_code=500,
+                    detail=f"Loader lỗi: không trích xuất được element nào từ {pdf_path.name}. Dữ liệu cũ được giữ nguyên.",
+                )
+
+            try:
+                from src.data.image_captioner import caption_elements
+
+                caption_elements(tmp_elements)
+            except Exception as cap_err:
+                print(f"! Captioner warning: {cap_err}")
+
+            for name in (ELEMENTS_FILE.name, PDF_EXTRACT.name, "image_metadata.jsonl", "image_captions.jsonl"):
+                upsert_jsonl(PROCESSED_DIR / name, tmp_dir / name, {document_id})
+    except HTTPException:
+        raise
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f"Loader lỗi: {exc}") from exc
 
@@ -188,11 +270,12 @@ def run_load(request: LoadRequest):
     return {
         "stage": "loading",
         "status": "success",
-        "message": f"Đã load {request.file_name} ({elements_cnt} elements & BLIP captions)",
+        "message": f"Đã load {request.file_name} ({doc_elements} elements & BLIP captions)",
         "duration_ms": round(duration_ms, 2),
         "details": {
-            "elements": elements_cnt,
-            "documents": count_jsonl(PDF_EXTRACT),
+            "elements": doc_elements,
+            "total_elements": elements_cnt,
+            "documents": count_documents(ELEMENTS_FILE),
             "output": str(ELEMENTS_FILE),
         },
     }
@@ -207,6 +290,8 @@ def run_chunk(request: ChunkRequest):
             status_code=400,
             detail="Chưa có elements.jsonl hoặc pdf_extract.jsonl. Hãy chạy Loading trước.",
         )
+
+    from src.data.chunker_optimized import ChunkConfig, process_chunking
 
     config = ChunkConfig(
         strategy=request.strategy,
@@ -248,18 +333,44 @@ def run_embed(request: EmbedRequest):
             detail="Chưa có chunked.jsonl. Hãy chạy Chunking trước.",
         )
 
-    if request.reset_db and VECTOR_DIR.exists():
-        shutil.rmtree(VECTOR_DIR)
+    from src.rag.indexer import IndexBusyError, acquire_index_lock, build_index
 
     start = time.perf_counter()
 
+    # Refuse a second run up front, before reset_db could wipe a collection
+    # another run is still writing to.
+    VECTOR_DIR.mkdir(parents=True, exist_ok=True)
     try:
+        acquire_index_lock(VECTOR_DIR).close()
+    except IndexBusyError as exc:
+        raise HTTPException(status_code=409, detail=str(exc)) from exc
+
+    try:
+        if request.reset_db and VECTOR_DIR.exists():
+            import chromadb
+
+            # Keep the database/schema alive while Chroma clients are cached.
+            client = chromadb.PersistentClient(path=str(VECTOR_DIR))
+            try:
+                client.delete_collection(COLLECTION_NAME)
+            except chromadb.errors.NotFoundError:
+                pass
+
+            retriever = sys.modules.get("src.rag.retriever")
+            if retriever is not None:
+                cache = retriever._VECTOR_DB_CACHE
+                for key in list(cache):
+                    if Path(key[0]).resolve() == VECTOR_DIR.resolve():
+                        del cache[key]
+
         db = build_index(
             input_file=CHUNKED,
             persist_dir=VECTOR_DIR,
             model_name=EMBEDDING_MODEL,
         )
         vectors = int(db._collection.count())
+    except IndexBusyError as exc:
+        raise HTTPException(status_code=409, detail=str(exc)) from exc
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f"Embedding/Indexing lỗi: {exc}") from exc
 
@@ -273,7 +384,7 @@ def run_embed(request: EmbedRequest):
         "details": {
             "vectors": vectors,
             "model": EMBEDDING_MODEL,
-            "device": "cuda" if torch.cuda.is_available() else "cpu",
+            "device": current_device(),
             "database": str(VECTOR_DIR),
         },
     }
@@ -306,6 +417,8 @@ def search_top_k(request: SearchRequest):
 
     load_start = time.perf_counter()
     try:
+        from src.rag.retriever import load_vector_db
+
         db = load_vector_db(VECTOR_DIR, EMBEDDING_MODEL)
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f"Không load được ChromaDB: {exc}") from exc
@@ -400,15 +513,18 @@ def search_top_k(request: SearchRequest):
 
 class ChatRequest(BaseModel):
     query: str = Field(..., description="Câu hỏi người dùng")
-    top_k: int = Field(default=15, description="Số lượng candidate từ Vector Search")
-    top_n: int = Field(default=5, description="Số lượng chunk giữ lại sau Re-ranking")
-    threshold: float = Field(default=0.35, description="Ngưỡng điểm RERANK_THRESHOLD")
-    provider: str = Field(default="gemini", description="LLM Provider: gemini | openai | ollama | mock")
+    # None = use RETRIEVAL_TOP_K / RERANK_TOP_N / RERANK_THRESHOLD / LLM_PROVIDER from .env.
+    top_k: int | None = Field(default=None, ge=1, le=30, description="Số lượng candidate từ Vector Search")
+    top_n: int | None = Field(default=None, ge=1, le=10, description="Số lượng chunk giữ lại sau Re-ranking")
+    threshold: float | None = Field(default=None, ge=0.0, le=1.0, description="Ngưỡng điểm RERANK_THRESHOLD")
+    provider: str | None = Field(default=None, description="LLM Provider: gemini | openai | ollama | mock")
 
 
 @app.post("/api/rag/chat")
 def run_chat(request: ChatRequest):
     try:
+        from src.rag.rag_pipeline import answer_query
+
         res = answer_query(
             query=request.query,
             top_k=request.top_k,
@@ -419,4 +535,3 @@ def run_chat(request: ChatRequest):
         return res
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f"RAG Chat lỗi: {exc}") from exc
-

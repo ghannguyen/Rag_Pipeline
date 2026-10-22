@@ -1,0 +1,16 @@
+# Evaluation scripts (run_rag_evaluation.py, src/eval/, evaluation/).
+# Install together with requirements.txt.
+
+pandas
+openpyxl
+requests
+python-dotenv
+jsonschema
+# SIMILARITY_METHOD = "embedding" (khuyến nghị, chính xác hơn):
+sentence-transformers
+torch
+# SIMILARITY_METHOD = "tfidf" (offline, không cần tải model):
+scikit-learn
+# evaluation/evaluate_rag.py: Ragas với Gemini làm judge
+ragas>=0.4
+langchain-google-genai>=4.0

@@ -6,7 +6,10 @@ Context Builder Subsystem
 3. SOURCE ID Mapping: Assigns explicit [SOURCE_X] IDs for citation tracking.
 """
 
+import os
+import re
 import sys
+import unicodedata
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 from difflib import SequenceMatcher
@@ -28,6 +31,64 @@ def is_duplicate(text: str, existing_texts: List[str], threshold: float = 0.82) 
         if ratio >= threshold:
             return True
     return False
+
+
+def shingles(text: str, size: int = 8) -> set:
+    """Word n-grams of a chunk body (the "Section: ..." header differs across documents)."""
+    body = text.split("\n---\n", 1)[-1]
+    words = re.findall(r"\w+", unicodedata.normalize("NFC", body).lower())
+    return {" ".join(words[i:i + size]) for i in range(len(words) - size + 1)}
+
+
+def is_near_duplicate(a: set, b: set, threshold: float = 0.6) -> bool:
+    if not a or not b:
+        return False
+    return len(a & b) / min(len(a), len(b)) >= threshold
+
+
+def doc_source(doc: Dict[str, Any]) -> str:
+    return (doc.get("metadata") or {}).get("source") or doc.get("source") or ""
+
+
+def preferred_sources_from_env() -> List[str]:
+    return [s.strip() for s in os.getenv("PREFERRED_SOURCES", "").split(",") if s.strip()]
+
+
+def dedupe_with_source_preference(
+    documents: List[Dict[str, Any]],
+    preferred_sources: List[str] = None,
+) -> List[Dict[str, Any]]:
+    """
+    Drop near-duplicate chunks (e.g. the same Điều in two PDFs). When a later
+    duplicate comes from a preferred source (such as the consolidated law), it
+    takes the slot of the better-ranked copy instead of being dropped.
+    """
+    # NFC on both sides: macOS file names may arrive decomposed (NFD).
+    preferred = {unicodedata.normalize("NFC", s) for s in (preferred_sources or [])}
+
+    def is_preferred(doc):
+        source = unicodedata.normalize("NFC", doc_source(doc))
+        return source in preferred or Path(source).stem in preferred
+
+    kept: List[Tuple[Dict[str, Any], set]] = []
+    for doc in documents:
+        grams = shingles(doc.get("content") or doc.get("page_content") or "")
+        match = next(
+            (i for i, (_, kept_grams) in enumerate(kept) if is_near_duplicate(grams, kept_grams)),
+            None,
+        )
+        if match is None:
+            kept.append((doc, grams))
+            continue
+
+        kept_doc = kept[match][0]
+        if is_preferred(doc) and not is_preferred(kept_doc):
+            print(f"⏩ [Source Preference] {doc.get('chunk_id')} replaces duplicate {kept_doc.get('chunk_id')}")
+            kept[match] = (doc, grams)
+        else:
+            print(f"⏩ [Cross-Document Dedup] Skipped {doc.get('chunk_id')} (duplicate of {kept_doc.get('chunk_id')})")
+
+    return [doc for doc, _ in kept]
 
 
 def build_context(

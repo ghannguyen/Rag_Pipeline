@@ -1,0 +1,932 @@
+{
+ "ingestion": {
+  "ILO-VCCI_Labour-Law-Guide-Book-V04-Final.pdf": {
+   "pdf_pages": 131,
+   "chunks": 354,
+   "pages_covered": 131,
+   "pages_missing": 0,
+   "pages_missing_list": [],
+   "fragment_rate": 7.8,
+   "fragment_ok": true,
+   "odd_chars": 4,
+   "junk_chunks": 0,
+   "junk_examples": [],
+   "repeated_lines": []
+  },
+  "Văn-bản-hợp-nhất-18-VBHN-VPQH.pdf": {
+   "pdf_pages": 86,
+   "chunks": 290,
+   "pages_covered": 86,
+   "pages_missing": 0,
+   "pages_missing_list": [],
+   "fragment_rate": 2.2,
+   "fragment_ok": true,
+   "odd_chars": 0,
+   "junk_chunks": 0,
+   "junk_examples": [],
+   "repeated_lines": []
+  },
+  "giao trinh Luat lao dong CB 2005 (1).pdf": {
+   "pdf_pages": 210,
+   "chunks": 623,
+   "pages_covered": 210,
+   "pages_missing": 0,
+   "pages_missing_list": [],
+   "fragment_rate": 3.8,
+   "fragment_ok": true,
+   "odd_chars": 0,
+   "junk_chunks": 0,
+   "junk_examples": [],
+   "repeated_lines": []
+  },
+  "luu-ban-nhap-tu-dong-3-4.pdf": {
+   "pdf_pages": 951,
+   "chunks": 3286,
+   "pages_covered": 951,
+   "pages_missing": 0,
+   "pages_missing_list": [],
+   "fragment_rate": 8.0,
+   "fragment_ok": true,
+   "odd_chars": 12,
+   "junk_chunks": 36,
+   "junk_examples": [
+    "luu-ban-nhap-tu-dong-3-4_sec_2060_chunk_2060",
+    "luu-ban-nhap-tu-dong-3-4_sec_3108_chunk_3108",
+    "luu-ban-nhap-tu-dong-3-4_sec_3848_chunk_3848",
+    "luu-ban-nhap-tu-dong-3-4_sec_3862_chunk_3862",
+    "luu-ban-nhap-tu-dong-3-4_sec_3872_chunk_3872"
+   ],
+   "repeated_lines": [
+    {
+     "line": "IMkapalaue web:",
+     "chunks": 461
+    },
+    {
+     "line": "fdva va vn",
+     "chunks": 416
+    }
+   ]
+  },
+  "so-tay-kien-thuc-phap-luat-lao-dong-cdi.pdf": {
+   "pdf_pages": 56,
+   "chunks": 101,
+   "pages_covered": 52,
+   "pages_missing": 0,
+   "pages_missing_list": [],
+   "fragment_rate": 2.0,
+   "fragment_ok": true,
+   "odd_chars": 0,
+   "junk_chunks": 0,
+   "junk_examples": [],
+   "repeated_lines": [
+    {
+     "line": "### Trả lời:",
+     "chunks": 33
+    },
+    {
+     "line": "AI Description:",
+     "chunks": 8
+    }
+   ]
+  }
+ },
+ "chunking": {
+  "chunks": 4654,
+  "unique_ids": 4654,
+  "tokens_p50": 421,
+  "tokens_max": 794,
+  "issues": {
+   "starts_mid_sentence": {
+    "count": 695,
+    "examples": [
+     "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_02_chunk_02",
+     "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_26_chunk_26",
+     "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_56_chunk_56",
+     "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_72_chunk_72",
+     "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_78_chunk_78"
+    ]
+   }
+  }
+ },
+ "citations": {
+  "answered": 75,
+  "with_citation": 70,
+  "no_citation": [
+   "LAW_C_008",
+   "LAW_D_007",
+   "LAW_D_010",
+   "LAW_E_001",
+   "LAW_E_016"
+  ],
+  "combined_tag_cases": [
+   "LAW_A_011",
+   "LAW_C_008",
+   "LAW_D_007",
+   "LAW_D_010",
+   "LAW_D_011",
+   "LAW_D_019",
+   "LAW_E_001",
+   "LAW_E_016"
+  ],
+  "dropped_tag_cases": [
+   "LAW_C_008",
+   "LAW_D_007",
+   "LAW_D_010",
+   "LAW_D_011",
+   "LAW_E_001",
+   "LAW_E_016"
+  ],
+  "invented_tag_cases": [],
+  "cites_expected_doc": 59,
+  "rows": [
+   {
+    "id": "LAW_A_001",
+    "group": "A",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 3,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_A_002",
+    "group": "A",
+    "n_citations": 4,
+    "combined_tags": [],
+    "single_tags": 7,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_A_003",
+    "group": "A",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 8,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_A_004",
+    "group": "A",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 1,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_A_005",
+    "group": "A",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 3,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_A_006",
+    "group": "A",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 1,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_A_007",
+    "group": "A",
+    "n_citations": 3,
+    "combined_tags": [],
+    "single_tags": 7,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_A_008",
+    "group": "A",
+    "n_citations": 5,
+    "combined_tags": [],
+    "single_tags": 5,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_A_009",
+    "group": "A",
+    "n_citations": 5,
+    "combined_tags": [],
+    "single_tags": 5,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_A_010",
+    "group": "A",
+    "n_citations": 4,
+    "combined_tags": [],
+    "single_tags": 4,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_A_011",
+    "group": "A",
+    "n_citations": 2,
+    "combined_tags": [
+     "[SOURCE_3, SOURCE_4]",
+     "[SOURCE_3, SOURCE_4]"
+    ],
+    "single_tags": 5,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": false
+   },
+   {
+    "id": "LAW_A_012",
+    "group": "A",
+    "n_citations": 2,
+    "combined_tags": [],
+    "single_tags": 5,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_A_013",
+    "group": "A",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 5,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_A_014",
+    "group": "A",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 1,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_A_015",
+    "group": "A",
+    "n_citations": 2,
+    "combined_tags": [],
+    "single_tags": 2,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_A_016",
+    "group": "A",
+    "n_citations": 2,
+    "combined_tags": [],
+    "single_tags": 3,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_A_017",
+    "group": "A",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 5,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_A_018",
+    "group": "A",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 2,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_A_020",
+    "group": "A",
+    "n_citations": 3,
+    "combined_tags": [],
+    "single_tags": 11,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_B_001",
+    "group": "B",
+    "n_citations": 2,
+    "combined_tags": [],
+    "single_tags": 2,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_B_002",
+    "group": "B",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 3,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_B_003",
+    "group": "B",
+    "n_citations": 4,
+    "combined_tags": [],
+    "single_tags": 4,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_B_005",
+    "group": "B",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 1,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_B_008",
+    "group": "B",
+    "n_citations": 4,
+    "combined_tags": [],
+    "single_tags": 5,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_B_009",
+    "group": "B",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 2,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_B_010",
+    "group": "B",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 1,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_B_011",
+    "group": "B",
+    "n_citations": 2,
+    "combined_tags": [],
+    "single_tags": 2,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": false
+   },
+   {
+    "id": "LAW_B_012",
+    "group": "B",
+    "n_citations": 5,
+    "combined_tags": [],
+    "single_tags": 5,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_B_013",
+    "group": "B",
+    "n_citations": 2,
+    "combined_tags": [],
+    "single_tags": 2,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_B_017",
+    "group": "B",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 2,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_C_001",
+    "group": "C",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 1,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_C_006",
+    "group": "C",
+    "n_citations": 2,
+    "combined_tags": [],
+    "single_tags": 2,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_C_007",
+    "group": "C",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 1,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_C_008",
+    "group": "C",
+    "n_citations": 0,
+    "combined_tags": [
+     "[SOURCE_2, SOURCE_4]"
+    ],
+    "single_tags": 0,
+    "dropped": [
+     "SOURCE_2",
+     "SOURCE_4"
+    ],
+    "invented": [],
+    "cites_expected_doc": false
+   },
+   {
+    "id": "LAW_C_009",
+    "group": "C",
+    "n_citations": 2,
+    "combined_tags": [],
+    "single_tags": 7,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": false
+   },
+   {
+    "id": "LAW_C_010",
+    "group": "C",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 1,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": false
+   },
+   {
+    "id": "LAW_C_011",
+    "group": "C",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 1,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_C_012",
+    "group": "C",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 1,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_C_013",
+    "group": "C",
+    "n_citations": 2,
+    "combined_tags": [],
+    "single_tags": 2,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_C_014",
+    "group": "C",
+    "n_citations": 4,
+    "combined_tags": [],
+    "single_tags": 4,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_C_017",
+    "group": "C",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 4,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": false
+   },
+   {
+    "id": "LAW_D_001",
+    "group": "D",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 1,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_D_002",
+    "group": "D",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 1,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_D_003",
+    "group": "D",
+    "n_citations": 2,
+    "combined_tags": [],
+    "single_tags": 6,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_D_005",
+    "group": "D",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 2,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_D_006",
+    "group": "D",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 1,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_D_007",
+    "group": "D",
+    "n_citations": 0,
+    "combined_tags": [
+     "[SOURCE_2, SOURCE_3, SOURCE_5]",
+     "[SOURCE_2, SOURCE_5]"
+    ],
+    "single_tags": 0,
+    "dropped": [
+     "SOURCE_2",
+     "SOURCE_3",
+     "SOURCE_5"
+    ],
+    "invented": [],
+    "cites_expected_doc": false
+   },
+   {
+    "id": "LAW_D_008",
+    "group": "D",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 2,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_D_009",
+    "group": "D",
+    "n_citations": 2,
+    "combined_tags": [],
+    "single_tags": 2,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_D_010",
+    "group": "D",
+    "n_citations": 0,
+    "combined_tags": [
+     "[SOURCE_1, SOURCE_2]",
+     "[SOURCE_1, SOURCE_2]"
+    ],
+    "single_tags": 0,
+    "dropped": [
+     "SOURCE_1",
+     "SOURCE_2"
+    ],
+    "invented": [],
+    "cites_expected_doc": false
+   },
+   {
+    "id": "LAW_D_011",
+    "group": "D",
+    "n_citations": 2,
+    "combined_tags": [
+     "[SOURCE_3, SOURCE_4]"
+    ],
+    "single_tags": 6,
+    "dropped": [
+     "SOURCE_3",
+     "SOURCE_4"
+    ],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_D_012",
+    "group": "D",
+    "n_citations": 4,
+    "combined_tags": [],
+    "single_tags": 4,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_D_014",
+    "group": "D",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 1,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_D_016",
+    "group": "D",
+    "n_citations": 2,
+    "combined_tags": [],
+    "single_tags": 3,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_D_019",
+    "group": "D",
+    "n_citations": 2,
+    "combined_tags": [
+     "[SOURCE_2, SOURCE_3]"
+    ],
+    "single_tags": 2,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_E_001",
+    "group": "E",
+    "n_citations": 0,
+    "combined_tags": [
+     "[SOURCE_2, SOURCE_4]"
+    ],
+    "single_tags": 0,
+    "dropped": [
+     "SOURCE_2",
+     "SOURCE_4"
+    ],
+    "invented": [],
+    "cites_expected_doc": false
+   },
+   {
+    "id": "LAW_E_002",
+    "group": "E",
+    "n_citations": 4,
+    "combined_tags": [],
+    "single_tags": 8,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_E_003",
+    "group": "E",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 1,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_E_004",
+    "group": "E",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 1,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_E_005",
+    "group": "E",
+    "n_citations": 2,
+    "combined_tags": [],
+    "single_tags": 3,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_E_006",
+    "group": "E",
+    "n_citations": 2,
+    "combined_tags": [],
+    "single_tags": 2,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_E_007",
+    "group": "E",
+    "n_citations": 2,
+    "combined_tags": [],
+    "single_tags": 2,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_E_008",
+    "group": "E",
+    "n_citations": 3,
+    "combined_tags": [],
+    "single_tags": 3,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_E_009",
+    "group": "E",
+    "n_citations": 2,
+    "combined_tags": [],
+    "single_tags": 2,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": false
+   },
+   {
+    "id": "LAW_E_010",
+    "group": "E",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 1,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": false
+   },
+   {
+    "id": "LAW_E_011",
+    "group": "E",
+    "n_citations": 3,
+    "combined_tags": [],
+    "single_tags": 3,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": false
+   },
+   {
+    "id": "LAW_E_012",
+    "group": "E",
+    "n_citations": 3,
+    "combined_tags": [],
+    "single_tags": 3,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_E_013",
+    "group": "E",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 3,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": false
+   },
+   {
+    "id": "LAW_E_014",
+    "group": "E",
+    "n_citations": 1,
+    "combined_tags": [],
+    "single_tags": 1,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": false
+   },
+   {
+    "id": "LAW_E_015",
+    "group": "E",
+    "n_citations": 4,
+    "combined_tags": [],
+    "single_tags": 4,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_E_016",
+    "group": "E",
+    "n_citations": 0,
+    "combined_tags": [
+     "[SOURCE_1, SOURCE_2]"
+    ],
+    "single_tags": 0,
+    "dropped": [
+     "SOURCE_1",
+     "SOURCE_2"
+    ],
+    "invented": [],
+    "cites_expected_doc": false
+   },
+   {
+    "id": "LAW_E_017",
+    "group": "E",
+    "n_citations": 3,
+    "combined_tags": [],
+    "single_tags": 11,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_E_018",
+    "group": "E",
+    "n_citations": 3,
+    "combined_tags": [],
+    "single_tags": 14,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   },
+   {
+    "id": "LAW_E_019",
+    "group": "E",
+    "n_citations": 4,
+    "combined_tags": [],
+    "single_tags": 10,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": false
+   },
+   {
+    "id": "LAW_E_020",
+    "group": "E",
+    "n_citations": 3,
+    "combined_tags": [],
+    "single_tags": 3,
+    "dropped": [],
+    "invented": [],
+    "cites_expected_doc": true
+   }
+  ]
+ }
+}

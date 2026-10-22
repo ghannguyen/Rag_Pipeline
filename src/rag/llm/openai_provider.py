@@ -10,9 +10,11 @@ from src.rag.llm.base import BaseLLMProvider
 
 
 class OpenAIProvider(BaseLLMProvider):
-    def __init__(self, api_key: str = None, model_name: str = "gpt-4o-mini"):
+    DEFAULT_MODEL = "gpt-4o-mini"
+
+    def __init__(self, api_key: str = None, model_name: str = None):
         self.api_key = api_key or os.getenv("OPENAI_API_KEY", "")
-        self.model_name = model_name or os.getenv("LLM_MODEL", "gpt-4o-mini")
+        self.model_name = model_name or self.DEFAULT_MODEL
 
     def generate(self, messages: List[Dict[str, str]], **kwargs: Any) -> str:
         if not self.api_key:

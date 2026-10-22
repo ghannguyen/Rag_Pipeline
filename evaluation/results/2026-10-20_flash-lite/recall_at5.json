@@ -1,0 +1,3070 @@
+{
+ "summary": {
+  "all": {
+   "n": 100,
+   "with_gold": 95,
+   "recall_at5_context": 0.45438596491228067,
+   "recall_at5_ranked": 0.5719298245614035,
+   "hit_at5_ranked": 0.6526315789473685,
+   "mrr_at5": 0.4708771929824562,
+   "gold_in_candidates": 0.7894736842105263
+  },
+  "by_group": {
+   "A": {
+    "n": 20,
+    "with_gold": 19,
+    "recall_at5_context": 0.7017543859649124,
+    "recall_at5_ranked": 0.7017543859649124,
+    "hit_at5_ranked": 0.7894736842105263,
+    "mrr_at5": 0.6096491228070176,
+    "gold_in_candidates": 0.8421052631578947
+   },
+   "B": {
+    "n": 20,
+    "with_gold": 19,
+    "recall_at5_context": 0.20175438596491227,
+    "recall_at5_ranked": 0.38596491228070173,
+    "hit_at5_ranked": 0.47368421052631576,
+    "mrr_at5": 0.3394736842105263,
+    "gold_in_candidates": 0.5789473684210527
+   },
+   "C": {
+    "n": 20,
+    "with_gold": 18,
+    "recall_at5_context": 0.3148148148148148,
+    "recall_at5_ranked": 0.5462962962962963,
+    "hit_at5_ranked": 0.6111111111111112,
+    "mrr_at5": 0.4305555555555556,
+    "gold_in_candidates": 0.8333333333333334
+   },
+   "D": {
+    "n": 20,
+    "with_gold": 19,
+    "recall_at5_context": 0.3859649122807018,
+    "recall_at5_ranked": 0.4385964912280702,
+    "hit_at5_ranked": 0.5789473684210527,
+    "mrr_at5": 0.40350877192982454,
+    "gold_in_candidates": 0.8421052631578947
+   },
+   "E": {
+    "n": 20,
+    "with_gold": 20,
+    "recall_at5_context": 0.65,
+    "recall_at5_ranked": 0.775,
+    "hit_at5_ranked": 0.8,
+    "mrr_at5": 0.5641666666666666,
+    "gold_in_candidates": 0.85
+   }
+  },
+  "by_difficulty": {
+   "Easy": {
+    "n": 35,
+    "with_gold": 35,
+    "recall_at5_context": 0.5142857142857142,
+    "recall_at5_ranked": 0.638095238095238,
+    "hit_at5_ranked": 0.7428571428571429,
+    "mrr_at5": 0.5452380952380953,
+    "gold_in_candidates": 0.8285714285714286
+   },
+   "Medium": {
+    "n": 35,
+    "with_gold": 35,
+    "recall_at5_context": 0.4523809523809524,
+    "recall_at5_ranked": 0.5238095238095238,
+    "hit_at5_ranked": 0.5714285714285714,
+    "mrr_at5": 0.4023809523809524,
+    "gold_in_candidates": 0.7428571428571429
+   },
+   "Hard": {
+    "n": 30,
+    "with_gold": 25,
+    "recall_at5_context": 0.37333333333333335,
+    "recall_at5_ranked": 0.5466666666666667,
+    "hit_at5_ranked": 0.64,
+    "mrr_at5": 0.46266666666666667,
+    "gold_in_candidates": 0.8
+   }
+  },
+  "stages": {
+   "OK": 44,
+   "WRONG_SOURCE_ANSWER": 16,
+   "LLM_ANSWER": 15,
+   "THRESHOLD_CUT": 9,
+   "RETRIEVAL_MISS": 7,
+   "NO_GOLD": 5,
+   "RERANK_DROP": 4
+  },
+  "stage_labels": {
+   "OK": "Đạt",
+   "NO_GOLD": "Không gán được đoạn đúng (câu hỏi ngoài khả năng retrieval / cần xem lại test)",
+   "RETRIEVAL_MISS": "Không tìm thấy: đoạn đúng không có trong ứng viên hybrid",
+   "RERANK_DROP": "Có trong ứng viên nhưng rerank đẩy khỏi top 5",
+   "THRESHOLD_CUT": "Có trong top 5 nhưng điểm rerank dưới ngưỡng 0,35",
+   "LLM_REFUSAL": "LLM từ chối dù đoạn đúng có trong ngữ cảnh",
+   "LLM_ANSWER": "Đoạn đúng có trong ngữ cảnh nhưng câu trả lời sai/thiếu",
+   "WRONG_SOURCE_ANSWER": "Không có đoạn đúng trong ngữ cảnh nhưng LLM vẫn trả lời (từ nguồn khác)",
+   "CITATION": "Trả lời đạt nhưng mất trích dẫn"
+  },
+  "method": {
+   "gold_min": 0.5,
+   "gold_margin": 0.1,
+   "gold_max": 3,
+   "k": 5
+  }
+ },
+ "results": [
+  {
+   "id": "LAW_A_001",
+   "group": "A",
+   "category": "Definition",
+   "difficulty": "Easy",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_749_chunk_749",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_754_chunk_754"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 0.5,
+   "recall_at5_ranked": 0.5,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_749_chunk_749",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_762_chunk_762",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_761_chunk_761",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_753_chunk_753",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_758_chunk_758"
+   ],
+   "ranked_top5": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_749_chunk_749",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_762_chunk_762",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_761_chunk_761",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_753_chunk_753",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_758_chunk_758"
+   ]
+  },
+  {
+   "id": "LAW_A_002",
+   "group": "A",
+   "category": "Definition",
+   "difficulty": "Easy",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_751_chunk_751",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_750_chunk_750"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.5,
+   "gold_in_candidates": true,
+   "context": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_779_chunk_779",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_750_chunk_750",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_751_chunk_751",
+    "luu-ban-nhap-tu-dong-3-4_sec_1689_chunk_1689",
+    "luu-ban-nhap-tu-dong-3-4_sec_1697_chunk_1697"
+   ],
+   "ranked_top5": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_779_chunk_779",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_750_chunk_750",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_751_chunk_751",
+    "luu-ban-nhap-tu-dong-3-4_sec_1689_chunk_1689",
+    "luu-ban-nhap-tu-dong-3-4_sec_1697_chunk_1697"
+   ]
+  },
+  {
+   "id": "LAW_A_003",
+   "group": "A",
+   "category": "List",
+   "difficulty": "Easy",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_754_chunk_754"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_754_chunk_754",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_779_chunk_779",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_751_chunk_751",
+    "luu-ban-nhap-tu-dong-3-4_sec_1697_chunk_1697",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_752_chunk_752"
+   ],
+   "ranked_top5": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_754_chunk_754",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_779_chunk_779",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_751_chunk_751",
+    "luu-ban-nhap-tu-dong-3-4_sec_1697_chunk_1697",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_752_chunk_752"
+   ]
+  },
+  {
+   "id": "LAW_A_004",
+   "group": "A",
+   "category": "Definition",
+   "difficulty": "Easy",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_781_chunk_781"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.5,
+   "gold_in_candidates": true,
+   "context": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_779_chunk_779",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_781_chunk_781",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_783_chunk_783",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_782_chunk_782",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_794_chunk_794"
+   ],
+   "ranked_top5": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_779_chunk_779",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_781_chunk_781",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_783_chunk_783",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_782_chunk_782",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_794_chunk_794"
+   ]
+  },
+  {
+   "id": "LAW_A_005",
+   "group": "A",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_755_chunk_755"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_755_chunk_755",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_754_chunk_754"
+   ],
+   "ranked_top5": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_755_chunk_755",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_754_chunk_754",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_779_chunk_779",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_757_chunk_757",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_752_chunk_752"
+   ]
+  },
+  {
+   "id": "LAW_A_006",
+   "group": "A",
+   "category": "Concept",
+   "difficulty": "Easy",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_756_chunk_756"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_756_chunk_756",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_757_chunk_757"
+   ],
+   "ranked_top5": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_756_chunk_756",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_757_chunk_757",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_822_chunk_822",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_754_chunk_754",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_820_chunk_820"
+   ]
+  },
+  {
+   "id": "LAW_A_007",
+   "group": "A",
+   "category": "Definition",
+   "difficulty": "Easy",
+   "status": "PARTIAL",
+   "stage": "WRONG_SOURCE_ANSWER",
+   "gold": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_770_chunk_770"
+   ],
+   "gold_score": 0.895,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": true,
+   "context": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_779_chunk_779",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_910_chunk_910",
+    "luu-ban-nhap-tu-dong-3-4_sec_1504_chunk_1504"
+   ],
+   "ranked_top5": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_779_chunk_779",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_910_chunk_910",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_214_chunk_214",
+    "luu-ban-nhap-tu-dong-3-4_sec_3065_chunk_3065",
+    "luu-ban-nhap-tu-dong-3-4_sec_1793_chunk_1793"
+   ]
+  },
+  {
+   "id": "LAW_A_008",
+   "group": "A",
+   "category": "Direct Fact",
+   "difficulty": "Medium",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_913_chunk_913",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_972_chunk_972"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.5,
+   "gold_in_candidates": true,
+   "context": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_28_chunk_28",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_913_chunk_913",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_222_chunk_222",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_666_chunk_666",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_972_chunk_972"
+   ],
+   "ranked_top5": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_28_chunk_28",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_913_chunk_913",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_222_chunk_222",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_666_chunk_666",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_972_chunk_972"
+   ]
+  },
+  {
+   "id": "LAW_A_009",
+   "group": "A",
+   "category": "Direct Fact",
+   "difficulty": "Medium",
+   "status": "PARTIAL",
+   "stage": "LLM_ANSWER",
+   "gold": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_913_chunk_913",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_972_chunk_972"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.25,
+   "gold_in_candidates": true,
+   "context": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_28_chunk_28",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_222_chunk_222",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_666_chunk_666",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_913_chunk_913",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_972_chunk_972"
+   ],
+   "ranked_top5": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_28_chunk_28",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_222_chunk_222",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_666_chunk_666",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_913_chunk_913",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_972_chunk_972"
+   ]
+  },
+  {
+   "id": "LAW_A_010",
+   "group": "A",
+   "category": "Direct Fact",
+   "difficulty": "Medium",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_913_chunk_913",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_972_chunk_972"
+   ],
+   "gold_score": 0.975,
+   "recall_at5_context": 0.5,
+   "recall_at5_ranked": 0.5,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.5,
+   "gold_in_candidates": true,
+   "context": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_28_chunk_28",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_913_chunk_913",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_222_chunk_222",
+    "luu-ban-nhap-tu-dong-3-4_sec_3071_chunk_3071",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_666_chunk_666"
+   ],
+   "ranked_top5": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_28_chunk_28",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_913_chunk_913",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_222_chunk_222",
+    "luu-ban-nhap-tu-dong-3-4_sec_3071_chunk_3071",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_666_chunk_666"
+   ]
+  },
+  {
+   "id": "LAW_A_011",
+   "group": "A",
+   "category": "Rule",
+   "difficulty": "Medium",
+   "status": "PARTIAL",
+   "stage": "WRONG_SOURCE_ANSWER",
+   "gold": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_967_chunk_967",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_972_chunk_972"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": false,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_695_chunk_695",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_696_chunk_696",
+    "luu-ban-nhap-tu-dong-3-4_sec_1809_chunk_1809",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_693_chunk_693"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_695_chunk_695",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_696_chunk_696",
+    "luu-ban-nhap-tu-dong-3-4_sec_1809_chunk_1809",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_693_chunk_693",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_231_chunk_231"
+   ]
+  },
+  {
+   "id": "LAW_A_012",
+   "group": "A",
+   "category": "Concept",
+   "difficulty": "Medium",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_763_chunk_763",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_764_chunk_764"
+   ],
+   "gold_score": 0.981,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_764_chunk_764",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_763_chunk_763",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_884_chunk_884"
+   ],
+   "ranked_top5": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_764_chunk_764",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_763_chunk_763",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_884_chunk_884",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1296_chunk_1296",
+    "luu-ban-nhap-tu-dong-3-4_sec_1396_chunk_1396"
+   ]
+  },
+  {
+   "id": "LAW_A_013",
+   "group": "A",
+   "category": "Comparison",
+   "difficulty": "Medium",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_764_chunk_764"
+   ],
+   "gold_score": 0.757,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_764_chunk_764",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_763_chunk_763"
+   ],
+   "ranked_top5": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_764_chunk_764",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_763_chunk_763",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1339_chunk_1339",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1306_chunk_1306",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_873_chunk_873"
+   ]
+  },
+  {
+   "id": "LAW_A_014",
+   "group": "A",
+   "category": "Concept",
+   "difficulty": "Medium",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_756_chunk_756"
+   ],
+   "gold_score": 1.08,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_756_chunk_756",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_757_chunk_757",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1020_chunk_1020",
+    "luu-ban-nhap-tu-dong-3-4_sec_1551_chunk_1551"
+   ],
+   "ranked_top5": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_756_chunk_756",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_757_chunk_757",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1020_chunk_1020",
+    "luu-ban-nhap-tu-dong-3-4_sec_1551_chunk_1551",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1016_chunk_1016"
+   ]
+  },
+  {
+   "id": "LAW_A_015",
+   "group": "A",
+   "category": "Scenario-based",
+   "difficulty": "Hard",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_756_chunk_756",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_757_chunk_757"
+   ],
+   "gold_score": 1.062,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_757_chunk_757",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_756_chunk_756",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1020_chunk_1020",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_415_chunk_415",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1015_chunk_1015"
+   ],
+   "ranked_top5": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_757_chunk_757",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_756_chunk_756",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1020_chunk_1020",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_415_chunk_415",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1015_chunk_1015"
+   ]
+  },
+  {
+   "id": "LAW_A_016",
+   "group": "A",
+   "category": "Scenario-based",
+   "difficulty": "Hard",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_755_chunk_755"
+   ],
+   "gold_score": 1.023,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": false,
+   "context": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_749_chunk_749",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_753_chunk_753",
+    "luu-ban-nhap-tu-dong-3-4_sec_1700_chunk_1700"
+   ],
+   "ranked_top5": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_749_chunk_749",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_753_chunk_753",
+    "luu-ban-nhap-tu-dong-3-4_sec_1700_chunk_1700",
+    "luu-ban-nhap-tu-dong-3-4_sec_3601_chunk_3601",
+    "luu-ban-nhap-tu-dong-3-4_sec_1375_chunk_1375"
+   ]
+  },
+  {
+   "id": "LAW_A_017",
+   "group": "A",
+   "category": "Multi-hop",
+   "difficulty": "Hard",
+   "status": "PARTIAL",
+   "stage": "WRONG_SOURCE_ANSWER",
+   "gold": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_752_chunk_752"
+   ],
+   "gold_score": 1.049,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": false,
+   "context": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_764_chunk_764",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_762_chunk_762",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1282_chunk_1282"
+   ],
+   "ranked_top5": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_764_chunk_764",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_762_chunk_762",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1282_chunk_1282",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_417_chunk_417",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_457_chunk_457"
+   ]
+  },
+  {
+   "id": "LAW_A_018",
+   "group": "A",
+   "category": "Multi-hop",
+   "difficulty": "Hard",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_760_chunk_760"
+   ],
+   "gold_score": 1.07,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_760_chunk_760",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_779_chunk_779",
+    "luu-ban-nhap-tu-dong-3-4_sec_1648_chunk_1648",
+    "luu-ban-nhap-tu-dong-3-4_sec_1929_chunk_1929"
+   ],
+   "ranked_top5": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_760_chunk_760",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_779_chunk_779",
+    "luu-ban-nhap-tu-dong-3-4_sec_1648_chunk_1648",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_355_chunk_355",
+    "luu-ban-nhap-tu-dong-3-4_sec_1929_chunk_1929"
+   ]
+  },
+  {
+   "id": "LAW_A_019",
+   "group": "A",
+   "category": "Source-awareness",
+   "difficulty": "Hard",
+   "status": "FAIL",
+   "stage": "NO_GOLD",
+   "gold": [],
+   "gold_score": 0.391,
+   "recall_at5_context": null,
+   "recall_at5_ranked": null,
+   "hit_at5_ranked": null,
+   "rr_at5": null,
+   "gold_in_candidates": null,
+   "context": [],
+   "ranked_top5": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_972_chunk_972",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_696_chunk_696",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_695_chunk_695",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_970_chunk_970",
+    "luu-ban-nhap-tu-dong-3-4_sec_1809_chunk_1809"
+   ]
+  },
+  {
+   "id": "LAW_A_020",
+   "group": "A",
+   "category": "Synthesis",
+   "difficulty": "Hard",
+   "status": "PARTIAL",
+   "stage": "LLM_ANSWER",
+   "gold": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1103_chunk_1103",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_754_chunk_754",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_783_chunk_783"
+   ],
+   "gold_score": 0.75,
+   "recall_at5_context": 0.3333333333333333,
+   "recall_at5_ranked": 0.3333333333333333,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.3333333333333333,
+   "gold_in_candidates": true,
+   "context": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_751_chunk_751",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_753_chunk_753",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_754_chunk_754",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_779_chunk_779",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_749_chunk_749"
+   ],
+   "ranked_top5": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_751_chunk_751",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_753_chunk_753",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_754_chunk_754",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_779_chunk_779",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_749_chunk_749"
+   ]
+  },
+  {
+   "id": "LAW_B_001",
+   "group": "B",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_10_chunk_10"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_10_chunk_10",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_81_chunk_81",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_122_chunk_122",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_842_chunk_842",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_05_chunk_05"
+   ],
+   "ranked_top5": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_10_chunk_10",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_81_chunk_81",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_122_chunk_122",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_842_chunk_842",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_05_chunk_05"
+   ]
+  },
+  {
+   "id": "LAW_B_002",
+   "group": "B",
+   "category": "Concept",
+   "difficulty": "Easy",
+   "status": "PARTIAL",
+   "stage": "WRONG_SOURCE_ANSWER",
+   "gold": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_12_chunk_12",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_68_chunk_68"
+   ],
+   "gold_score": 0.753,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": true,
+   "context": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_13_chunk_13"
+   ],
+   "ranked_top5": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_13_chunk_13",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_11_chunk_11",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_03_chunk_03",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_05_chunk_05",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_835_chunk_835"
+   ]
+  },
+  {
+   "id": "LAW_B_003",
+   "group": "B",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_05_chunk_05",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_59_chunk_59",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_17_chunk_17"
+   ],
+   "gold_score": 0.85,
+   "recall_at5_context": 0.3333333333333333,
+   "recall_at5_ranked": 0.3333333333333333,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.25,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_443_chunk_443",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_446_chunk_446",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_130_chunk_130",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_17_chunk_17",
+    "luu-ban-nhap-tu-dong-3-4_sec_1713_chunk_1713"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_443_chunk_443",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_446_chunk_446",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_130_chunk_130",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_17_chunk_17",
+    "luu-ban-nhap-tu-dong-3-4_sec_1713_chunk_1713"
+   ]
+  },
+  {
+   "id": "LAW_B_004",
+   "group": "B",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "FAIL",
+   "stage": "RETRIEVAL_MISS",
+   "gold": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_05_chunk_05",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_80_chunk_80",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_19_chunk_19"
+   ],
+   "gold_score": 0.933,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": false,
+   "context": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1719_chunk_1719",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_135_chunk_135",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_430_chunk_430"
+   ],
+   "ranked_top5": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1719_chunk_1719",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_135_chunk_135",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_430_chunk_430",
+    "luu-ban-nhap-tu-dong-3-4_sec_3552_chunk_3552",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_03_chunk_03"
+   ]
+  },
+  {
+   "id": "LAW_B_005",
+   "group": "B",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_27_chunk_27",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_05_chunk_05"
+   ],
+   "gold_score": 0.9,
+   "recall_at5_context": 0.5,
+   "recall_at5_ranked": 0.5,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_27_chunk_27",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_913_chunk_913",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_666_chunk_666",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_665_chunk_665",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_662_chunk_662"
+   ],
+   "ranked_top5": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_27_chunk_27",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_913_chunk_913",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_666_chunk_666",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_665_chunk_665",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_662_chunk_662"
+   ]
+  },
+  {
+   "id": "LAW_B_006",
+   "group": "B",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "FAIL",
+   "stage": "RETRIEVAL_MISS",
+   "gold": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_05_chunk_05"
+   ],
+   "gold_score": 0.822,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": false,
+   "context": [],
+   "ranked_top5": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_234_chunk_234",
+    "luu-ban-nhap-tu-dong-3-4_sec_1811_chunk_1811",
+    "luu-ban-nhap-tu-dong-3-4_sec_3985_chunk_3985",
+    "luu-ban-nhap-tu-dong-3-4_sec_3652_chunk_3652",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_981_chunk_981"
+   ]
+  },
+  {
+   "id": "LAW_B_007",
+   "group": "B",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "FAIL",
+   "stage": "RETRIEVAL_MISS",
+   "gold": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_06_chunk_06"
+   ],
+   "gold_score": 0.957,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": false,
+   "context": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1066_chunk_1066",
+    "luu-ban-nhap-tu-dong-3-4_sec_1963_chunk_1963",
+    "luu-ban-nhap-tu-dong-3-4_sec_1850_chunk_1850",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1069_chunk_1069",
+    "luu-ban-nhap-tu-dong-3-4_sec_2054_chunk_2054"
+   ],
+   "ranked_top5": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1066_chunk_1066",
+    "luu-ban-nhap-tu-dong-3-4_sec_1963_chunk_1963",
+    "luu-ban-nhap-tu-dong-3-4_sec_1850_chunk_1850",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1069_chunk_1069",
+    "luu-ban-nhap-tu-dong-3-4_sec_2054_chunk_2054"
+   ]
+  },
+  {
+   "id": "LAW_B_008",
+   "group": "B",
+   "category": "Scenario-based",
+   "difficulty": "Medium",
+   "status": "PARTIAL",
+   "stage": "LLM_ANSWER",
+   "gold": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_09_chunk_09"
+   ],
+   "gold_score": 0.804,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.5,
+   "gold_in_candidates": true,
+   "context": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_10_chunk_10",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_09_chunk_09",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_842_chunk_842",
+    "luu-ban-nhap-tu-dong-3-4_sec_1706_chunk_1706",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_81_chunk_81"
+   ],
+   "ranked_top5": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_10_chunk_10",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_09_chunk_09",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_842_chunk_842",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_122_chunk_122",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_81_chunk_81"
+   ]
+  },
+  {
+   "id": "LAW_B_009",
+   "group": "B",
+   "category": "Concept",
+   "difficulty": "Medium",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_12_chunk_12"
+   ],
+   "gold_score": 0.906,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_12_chunk_12",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_835_chunk_835",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_890_chunk_890",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_884_chunk_884",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1316_chunk_1316"
+   ],
+   "ranked_top5": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_12_chunk_12",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_835_chunk_835",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_890_chunk_890",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_884_chunk_884",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1316_chunk_1316"
+   ]
+  },
+  {
+   "id": "LAW_B_010",
+   "group": "B",
+   "category": "Navigation",
+   "difficulty": "Medium",
+   "status": "PARTIAL",
+   "stage": "WRONG_SOURCE_ANSWER",
+   "gold": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_07_chunk_07"
+   ],
+   "gold_score": 1.038,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": false,
+   "context": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_80_chunk_80"
+   ],
+   "ranked_top5": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_80_chunk_80",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_81_chunk_81",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_03_chunk_03",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_513_chunk_513",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_59_chunk_59"
+   ]
+  },
+  {
+   "id": "LAW_B_011",
+   "group": "B",
+   "category": "Navigation",
+   "difficulty": "Medium",
+   "status": "PARTIAL",
+   "stage": "WRONG_SOURCE_ANSWER",
+   "gold": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_07_chunk_07"
+   ],
+   "gold_score": 0.975,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": false,
+   "context": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_357_chunk_357",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1359_chunk_1359"
+   ],
+   "ranked_top5": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_357_chunk_357",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1359_chunk_1359",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1357_chunk_1357",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_364_chunk_364",
+    "luu-ban-nhap-tu-dong-3-4_sec_1931_chunk_1931"
+   ]
+  },
+  {
+   "id": "LAW_B_012",
+   "group": "B",
+   "category": "Navigation",
+   "difficulty": "Medium",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_07_chunk_07"
+   ],
+   "gold_score": 1.038,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": false,
+   "context": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_62_chunk_62",
+    "luu-ban-nhap-tu-dong-3-4_sec_3142_chunk_3142",
+    "luu-ban-nhap-tu-dong-3-4_sec_1868_chunk_1868",
+    "luu-ban-nhap-tu-dong-3-4_sec_2343_chunk_2343",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_273_chunk_273"
+   ],
+   "ranked_top5": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_62_chunk_62",
+    "luu-ban-nhap-tu-dong-3-4_sec_3142_chunk_3142",
+    "luu-ban-nhap-tu-dong-3-4_sec_1868_chunk_1868",
+    "luu-ban-nhap-tu-dong-3-4_sec_2343_chunk_2343",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_273_chunk_273"
+   ]
+  },
+  {
+   "id": "LAW_B_013",
+   "group": "B",
+   "category": "Navigation",
+   "difficulty": "Medium",
+   "status": "PARTIAL",
+   "stage": "WRONG_SOURCE_ANSWER",
+   "gold": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_07_chunk_07",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_54_chunk_54"
+   ],
+   "gold_score": 0.75,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_525_chunk_525",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_524_chunk_524",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_57_chunk_57",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_407_chunk_407",
+    "luu-ban-nhap-tu-dong-3-4_sec_3092_chunk_3092"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_525_chunk_525",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_524_chunk_524",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_57_chunk_57",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_407_chunk_407",
+    "luu-ban-nhap-tu-dong-3-4_sec_3092_chunk_3092"
+   ]
+  },
+  {
+   "id": "LAW_B_014",
+   "group": "B",
+   "category": "Navigation",
+   "difficulty": "Medium",
+   "status": "FAIL",
+   "stage": "RETRIEVAL_MISS",
+   "gold": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_07_chunk_07"
+   ],
+   "gold_score": 0.953,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": false,
+   "context": [],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_511_chunk_511",
+    "luu-ban-nhap-tu-dong-3-4_sec_3081_chunk_3081",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_406_chunk_406",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_578_chunk_578",
+    "luu-ban-nhap-tu-dong-3-4_sec_3058_chunk_3058"
+   ]
+  },
+  {
+   "id": "LAW_B_015",
+   "group": "B",
+   "category": "Multi-hop",
+   "difficulty": "Hard",
+   "status": "FAIL",
+   "stage": "RETRIEVAL_MISS",
+   "gold": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_05_chunk_05"
+   ],
+   "gold_score": 1.0,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": false,
+   "context": [],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_666_chunk_666",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_667_chunk_667",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_28_chunk_28",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_913_chunk_913",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_672_chunk_672"
+   ]
+  },
+  {
+   "id": "LAW_B_016",
+   "group": "B",
+   "category": "Multi-hop",
+   "difficulty": "Hard",
+   "status": "FAIL",
+   "stage": "THRESHOLD_CUT",
+   "gold": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_03_chunk_03",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_07_chunk_07"
+   ],
+   "gold_score": 0.786,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.5,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [],
+   "ranked_top5": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_03_chunk_03",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1143_chunk_1143",
+    "luu-ban-nhap-tu-dong-3-4_sec_2037_chunk_2037",
+    "luu-ban-nhap-tu-dong-3-4_sec_2038_chunk_2038",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_49_chunk_49"
+   ]
+  },
+  {
+   "id": "LAW_B_017",
+   "group": "B",
+   "category": "False Premise",
+   "difficulty": "Hard",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_10_chunk_10"
+   ],
+   "gold_score": 0.9,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.2,
+   "gold_in_candidates": true,
+   "context": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_81_chunk_81",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_122_chunk_122",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_842_chunk_842"
+   ],
+   "ranked_top5": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_81_chunk_81",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_122_chunk_122",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_842_chunk_842",
+    "luu-ban-nhap-tu-dong-3-4_sec_2751_chunk_2751",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_10_chunk_10"
+   ]
+  },
+  {
+   "id": "LAW_B_018",
+   "group": "B",
+   "category": "Source-awareness",
+   "difficulty": "Hard",
+   "status": "FAIL",
+   "stage": "NO_GOLD",
+   "gold": [],
+   "gold_score": 0.439,
+   "recall_at5_context": null,
+   "recall_at5_ranked": null,
+   "hit_at5_ranked": null,
+   "rr_at5": null,
+   "gold_in_candidates": null,
+   "context": [],
+   "ranked_top5": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_10_chunk_10",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_81_chunk_81",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_378_chunk_378",
+    "luu-ban-nhap-tu-dong-3-4_sec_2209_chunk_2209",
+    "luu-ban-nhap-tu-dong-3-4_sec_3919_chunk_3919"
+   ]
+  },
+  {
+   "id": "LAW_B_019",
+   "group": "B",
+   "category": "Synthesis",
+   "difficulty": "Hard",
+   "status": "FAIL",
+   "stage": "THRESHOLD_CUT",
+   "gold": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_03_chunk_03"
+   ],
+   "gold_score": 0.9,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [],
+   "ranked_top5": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_03_chunk_03",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_02_chunk_02",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_99_chunk_99",
+    "luu-ban-nhap-tu-dong-3-4_sec_3738_chunk_3738",
+    "luu-ban-nhap-tu-dong-3-4_sec_4097_chunk_4097"
+   ]
+  },
+  {
+   "id": "LAW_B_020",
+   "group": "B",
+   "category": "Synthesis",
+   "difficulty": "Hard",
+   "status": "FAIL",
+   "stage": "THRESHOLD_CUT",
+   "gold": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_07_chunk_07"
+   ],
+   "gold_score": 0.85,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.5,
+   "gold_in_candidates": true,
+   "context": [],
+   "ranked_top5": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_62_chunk_62",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_07_chunk_07",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_733_chunk_733",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_270_chunk_270",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_63_chunk_63"
+   ]
+  },
+  {
+   "id": "LAW_C_001",
+   "group": "C",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "PARTIAL",
+   "stage": "LLM_ANSWER",
+   "gold": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1369_chunk_1369"
+   ],
+   "gold_score": 0.85,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1369_chunk_1369"
+   ],
+   "ranked_top5": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1369_chunk_1369",
+    "luu-ban-nhap-tu-dong-3-4_sec_3113_chunk_3113",
+    "luu-ban-nhap-tu-dong-3-4_sec_3021_chunk_3021",
+    "luu-ban-nhap-tu-dong-3-4_sec_3329_chunk_3329",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_03_chunk_03"
+   ]
+  },
+  {
+   "id": "LAW_C_002",
+   "group": "C",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "FAIL",
+   "stage": "THRESHOLD_CUT",
+   "gold": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1372_chunk_1372",
+    "luu-ban-nhap-tu-dong-3-4_sec_1371_chunk_1371",
+    "luu-ban-nhap-tu-dong-3-4_sec_1370_chunk_1370"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [],
+   "ranked_top5": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1370_chunk_1370",
+    "luu-ban-nhap-tu-dong-3-4_sec_1372_chunk_1372",
+    "luu-ban-nhap-tu-dong-3-4_sec_1371_chunk_1371",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_551_chunk_551",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1367_chunk_1367"
+   ]
+  },
+  {
+   "id": "LAW_C_003",
+   "group": "C",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "FAIL",
+   "stage": "RERANK_DROP",
+   "gold": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1370_chunk_1370"
+   ],
+   "gold_score": 1.033,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": true,
+   "context": [
+    "luu-ban-nhap-tu-dong-3-4_sec_3656_chunk_3656",
+    "luu-ban-nhap-tu-dong-3-4_sec_2049_chunk_2049",
+    "luu-ban-nhap-tu-dong-3-4_sec_2048_chunk_2048",
+    "luu-ban-nhap-tu-dong-3-4_sec_2127_chunk_2127",
+    "luu-ban-nhap-tu-dong-3-4_sec_2095_chunk_2095"
+   ],
+   "ranked_top5": [
+    "luu-ban-nhap-tu-dong-3-4_sec_3656_chunk_3656",
+    "luu-ban-nhap-tu-dong-3-4_sec_2049_chunk_2049",
+    "luu-ban-nhap-tu-dong-3-4_sec_2048_chunk_2048",
+    "luu-ban-nhap-tu-dong-3-4_sec_2127_chunk_2127",
+    "luu-ban-nhap-tu-dong-3-4_sec_2095_chunk_2095"
+   ]
+  },
+  {
+   "id": "LAW_C_004",
+   "group": "C",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "FAIL",
+   "stage": "THRESHOLD_CUT",
+   "gold": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1370_chunk_1370"
+   ],
+   "gold_score": 1.009,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.5,
+   "gold_in_candidates": true,
+   "context": [],
+   "ranked_top5": [
+    "luu-ban-nhap-tu-dong-3-4_sec_2480_chunk_2480",
+    "luu-ban-nhap-tu-dong-3-4_sec_1370_chunk_1370",
+    "luu-ban-nhap-tu-dong-3-4_sec_1371_chunk_1371",
+    "luu-ban-nhap-tu-dong-3-4_sec_2472_chunk_2472",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_03_chunk_03"
+   ]
+  },
+  {
+   "id": "LAW_C_005",
+   "group": "C",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "FAIL",
+   "stage": "THRESHOLD_CUT",
+   "gold": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1370_chunk_1370"
+   ],
+   "gold_score": 1.009,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.25,
+   "gold_in_candidates": true,
+   "context": [],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_551_chunk_551",
+    "luu-ban-nhap-tu-dong-3-4_sec_2542_chunk_2542",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1297_chunk_1297",
+    "luu-ban-nhap-tu-dong-3-4_sec_1370_chunk_1370",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1299_chunk_1299"
+   ]
+  },
+  {
+   "id": "LAW_C_006",
+   "group": "C",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1377_chunk_1377"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.5,
+   "gold_in_candidates": true,
+   "context": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1717_chunk_1717",
+    "luu-ban-nhap-tu-dong-3-4_sec_1377_chunk_1377",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1364_chunk_1364",
+    "luu-ban-nhap-tu-dong-3-4_sec_3690_chunk_3690",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_96_chunk_96"
+   ],
+   "ranked_top5": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1717_chunk_1717",
+    "luu-ban-nhap-tu-dong-3-4_sec_1377_chunk_1377",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1364_chunk_1364",
+    "luu-ban-nhap-tu-dong-3-4_sec_3690_chunk_3690",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_96_chunk_96"
+   ]
+  },
+  {
+   "id": "LAW_C_007",
+   "group": "C",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1379_chunk_1379",
+    "luu-ban-nhap-tu-dong-3-4_sec_1378_chunk_1378",
+    "luu-ban-nhap-tu-dong-3-4_sec_1377_chunk_1377"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 0.3333333333333333,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1378_chunk_1378",
+    "luu-ban-nhap-tu-dong-3-4_sec_1618_chunk_1618"
+   ],
+   "ranked_top5": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1378_chunk_1378",
+    "luu-ban-nhap-tu-dong-3-4_sec_1618_chunk_1618",
+    "luu-ban-nhap-tu-dong-3-4_sec_1377_chunk_1377",
+    "luu-ban-nhap-tu-dong-3-4_sec_1379_chunk_1379",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_325_chunk_325"
+   ]
+  },
+  {
+   "id": "LAW_C_008",
+   "group": "C",
+   "category": "Definition",
+   "difficulty": "Medium",
+   "status": "PARTIAL",
+   "stage": "LLM_ANSWER",
+   "gold": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1388_chunk_1388"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.5,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_440_chunk_440",
+    "luu-ban-nhap-tu-dong-3-4_sec_1388_chunk_1388",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_421_chunk_421",
+    "luu-ban-nhap-tu-dong-3-4_sec_1690_chunk_1690",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_480_chunk_480"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_440_chunk_440",
+    "luu-ban-nhap-tu-dong-3-4_sec_1388_chunk_1388",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_421_chunk_421",
+    "luu-ban-nhap-tu-dong-3-4_sec_1690_chunk_1690",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_480_chunk_480"
+   ]
+  },
+  {
+   "id": "LAW_C_009",
+   "group": "C",
+   "category": "Definition",
+   "difficulty": "Medium",
+   "status": "PARTIAL",
+   "stage": "WRONG_SOURCE_ANSWER",
+   "gold": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1388_chunk_1388"
+   ],
+   "gold_score": 1.009,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_419_chunk_419",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_107_chunk_107",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_420_chunk_420",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_477_chunk_477",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_466_chunk_466"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_419_chunk_419",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_107_chunk_107",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_420_chunk_420",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_477_chunk_477",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_466_chunk_466"
+   ]
+  },
+  {
+   "id": "LAW_C_010",
+   "group": "C",
+   "category": "Direct Fact",
+   "difficulty": "Medium",
+   "status": "PARTIAL",
+   "stage": "WRONG_SOURCE_ANSWER",
+   "gold": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1393_chunk_1393",
+    "luu-ban-nhap-tu-dong-3-4_sec_1392_chunk_1392"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": false,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_698_chunk_698",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_587_chunk_587",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_420_chunk_420",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_547_chunk_547",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_483_chunk_483"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_698_chunk_698",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_587_chunk_587",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_420_chunk_420",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_547_chunk_547",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_483_chunk_483"
+   ]
+  },
+  {
+   "id": "LAW_C_011",
+   "group": "C",
+   "category": "Navigation",
+   "difficulty": "Medium",
+   "status": "PARTIAL",
+   "stage": "LLM_ANSWER",
+   "gold": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1371_chunk_1371"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1371_chunk_1371",
+    "luu-ban-nhap-tu-dong-3-4_sec_1373_chunk_1373",
+    "luu-ban-nhap-tu-dong-3-4_sec_3327_chunk_3327",
+    "luu-ban-nhap-tu-dong-3-4_sec_2928_chunk_2928"
+   ],
+   "ranked_top5": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1371_chunk_1371",
+    "luu-ban-nhap-tu-dong-3-4_sec_1373_chunk_1373",
+    "luu-ban-nhap-tu-dong-3-4_sec_1370_chunk_1370",
+    "luu-ban-nhap-tu-dong-3-4_sec_3327_chunk_3327",
+    "luu-ban-nhap-tu-dong-3-4_sec_2928_chunk_2928"
+   ]
+  },
+  {
+   "id": "LAW_C_012",
+   "group": "C",
+   "category": "Navigation",
+   "difficulty": "Medium",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1372_chunk_1372"
+   ],
+   "gold_score": 1.052,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1372_chunk_1372",
+    "luu-ban-nhap-tu-dong-3-4_sec_3021_chunk_3021",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_456_chunk_456",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_643_chunk_643"
+   ],
+   "ranked_top5": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1372_chunk_1372",
+    "luu-ban-nhap-tu-dong-3-4_sec_1370_chunk_1370",
+    "luu-ban-nhap-tu-dong-3-4_sec_3021_chunk_3021",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_456_chunk_456",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_643_chunk_643"
+   ]
+  },
+  {
+   "id": "LAW_C_013",
+   "group": "C",
+   "category": "Navigation",
+   "difficulty": "Medium",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1377_chunk_1377"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": true,
+   "context": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_93_chunk_93",
+    "luu-ban-nhap-tu-dong-3-4_sec_3678_chunk_3678",
+    "luu-ban-nhap-tu-dong-3-4_sec_3685_chunk_3685",
+    "luu-ban-nhap-tu-dong-3-4_sec_3645_chunk_3645",
+    "luu-ban-nhap-tu-dong-3-4_sec_3679_chunk_3679"
+   ],
+   "ranked_top5": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_93_chunk_93",
+    "luu-ban-nhap-tu-dong-3-4_sec_3678_chunk_3678",
+    "luu-ban-nhap-tu-dong-3-4_sec_3685_chunk_3685",
+    "luu-ban-nhap-tu-dong-3-4_sec_3645_chunk_3645",
+    "luu-ban-nhap-tu-dong-3-4_sec_3679_chunk_3679"
+   ]
+  },
+  {
+   "id": "LAW_C_014",
+   "group": "C",
+   "category": "Navigation",
+   "difficulty": "Medium",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1382_chunk_1382",
+    "luu-ban-nhap-tu-dong-3-4_sec_1381_chunk_1381",
+    "luu-ban-nhap-tu-dong-3-4_sec_1380_chunk_1380"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 0.3333333333333333,
+   "recall_at5_ranked": 0.3333333333333333,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.5,
+   "gold_in_candidates": true,
+   "context": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_94_chunk_94",
+    "luu-ban-nhap-tu-dong-3-4_sec_1380_chunk_1380",
+    "luu-ban-nhap-tu-dong-3-4_sec_4162_chunk_4162",
+    "luu-ban-nhap-tu-dong-3-4_sec_4157_chunk_4157",
+    "luu-ban-nhap-tu-dong-3-4_sec_4158_chunk_4158"
+   ],
+   "ranked_top5": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_94_chunk_94",
+    "luu-ban-nhap-tu-dong-3-4_sec_1380_chunk_1380",
+    "luu-ban-nhap-tu-dong-3-4_sec_4162_chunk_4162",
+    "luu-ban-nhap-tu-dong-3-4_sec_4157_chunk_4157",
+    "luu-ban-nhap-tu-dong-3-4_sec_4158_chunk_4158"
+   ]
+  },
+  {
+   "id": "LAW_C_015",
+   "group": "C",
+   "category": "Multi-hop",
+   "difficulty": "Hard",
+   "status": "FAIL",
+   "stage": "RERANK_DROP",
+   "gold": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1370_chunk_1370"
+   ],
+   "gold_score": 0.541,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": true,
+   "context": [],
+   "ranked_top5": [
+    "luu-ban-nhap-tu-dong-3-4_sec_2095_chunk_2095",
+    "luu-ban-nhap-tu-dong-3-4_sec_2137_chunk_2137",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1046_chunk_1046",
+    "luu-ban-nhap-tu-dong-3-4_sec_2142_chunk_2142",
+    "luu-ban-nhap-tu-dong-3-4_sec_2115_chunk_2115"
+   ]
+  },
+  {
+   "id": "LAW_C_016",
+   "group": "C",
+   "category": "Temporal Reasoning",
+   "difficulty": "Hard",
+   "status": "FAIL",
+   "stage": "NO_GOLD",
+   "gold": [],
+   "gold_score": 0.384,
+   "recall_at5_context": null,
+   "recall_at5_ranked": null,
+   "hit_at5_ranked": null,
+   "rr_at5": null,
+   "gold_in_candidates": null,
+   "context": [],
+   "ranked_top5": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_102_chunk_102",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_378_chunk_378",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_377_chunk_377",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_295_chunk_295",
+    "luu-ban-nhap-tu-dong-3-4_sec_1370_chunk_1370"
+   ]
+  },
+  {
+   "id": "LAW_C_017",
+   "group": "C",
+   "category": "False Premise",
+   "difficulty": "Hard",
+   "status": "PARTIAL",
+   "stage": "WRONG_SOURCE_ANSWER",
+   "gold": [
+    "luu-ban-nhap-tu-dong-3-4_sec_2561_chunk_2561",
+    "luu-ban-nhap-tu-dong-3-4_sec_4231_chunk_4231",
+    "luu-ban-nhap-tu-dong-3-4_sec_3488_chunk_3488"
+   ],
+   "gold_score": 0.723,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": false,
+   "context": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_102_chunk_102"
+   ],
+   "ranked_top5": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_102_chunk_102",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_393_chunk_393",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_394_chunk_394",
+    "luu-ban-nhap-tu-dong-3-4_sec_1370_chunk_1370",
+    "luu-ban-nhap-tu-dong-3-4_sec_1682_chunk_1682"
+   ]
+  },
+  {
+   "id": "LAW_C_018",
+   "group": "C",
+   "category": "Source Selection",
+   "difficulty": "Hard",
+   "status": "FAIL",
+   "stage": "NO_GOLD",
+   "gold": [],
+   "gold_score": 0.294,
+   "recall_at5_context": null,
+   "recall_at5_ranked": null,
+   "hit_at5_ranked": null,
+   "rr_at5": null,
+   "gold_in_candidates": null,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_552_chunk_552",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_552_chunk_552",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_540_chunk_540",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_420_chunk_420",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_393_chunk_393"
+   ]
+  },
+  {
+   "id": "LAW_C_019",
+   "group": "C",
+   "category": "Multi-document",
+   "difficulty": "Hard",
+   "status": "FAIL",
+   "stage": "RETRIEVAL_MISS",
+   "gold": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1373_chunk_1373"
+   ],
+   "gold_score": 0.947,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": false,
+   "context": [],
+   "ranked_top5": [
+    "luu-ban-nhap-tu-dong-3-4_sec_3799_chunk_3799",
+    "luu-ban-nhap-tu-dong-3-4_sec_2943_chunk_2943",
+    "luu-ban-nhap-tu-dong-3-4_sec_3786_chunk_3786",
+    "luu-ban-nhap-tu-dong-3-4_sec_2914_chunk_2914",
+    "luu-ban-nhap-tu-dong-3-4_sec_2913_chunk_2913"
+   ]
+  },
+  {
+   "id": "LAW_C_020",
+   "group": "C",
+   "category": "Multi-document",
+   "difficulty": "Hard",
+   "status": "FAIL",
+   "stage": "THRESHOLD_CUT",
+   "gold": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1379_chunk_1379",
+    "luu-ban-nhap-tu-dong-3-4_sec_1374_chunk_1374"
+   ],
+   "gold_score": 0.828,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.5,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.5,
+   "gold_in_candidates": true,
+   "context": [],
+   "ranked_top5": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1166_chunk_1166",
+    "luu-ban-nhap-tu-dong-3-4_sec_1379_chunk_1379",
+    "luu-ban-nhap-tu-dong-3-4_sec_4117_chunk_4117",
+    "luu-ban-nhap-tu-dong-3-4_sec_1692_chunk_1692",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_110_chunk_110"
+   ]
+  },
+  {
+   "id": "LAW_D_001",
+   "group": "D",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "PARTIAL",
+   "stage": "LLM_ANSWER",
+   "gold": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_398_chunk_398",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_493_chunk_493",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_456_chunk_456"
+   ],
+   "gold_score": 0.955,
+   "recall_at5_context": 0.3333333333333333,
+   "recall_at5_ranked": 0.3333333333333333,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.5,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_398_chunk_398",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_401_chunk_401"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_398_chunk_398",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_401_chunk_401",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_04_chunk_04"
+   ]
+  },
+  {
+   "id": "LAW_D_002",
+   "group": "D",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_744_chunk_744",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_734_chunk_734",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_731_chunk_731"
+   ],
+   "gold_score": 1.0,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": false,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_401_chunk_401",
+    "luu-ban-nhap-tu-dong-3-4_sec_1370_chunk_1370"
+   ]
+  },
+  {
+   "id": "LAW_D_003",
+   "group": "D",
+   "category": "List",
+   "difficulty": "Easy",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400"
+   ],
+   "gold_score": 0.975,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_457_chunk_457",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_398_chunk_398"
+   ]
+  },
+  {
+   "id": "LAW_D_004",
+   "group": "D",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "FAIL",
+   "stage": "THRESHOLD_CUT",
+   "gold": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_690_chunk_690",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_555_chunk_555"
+   ],
+   "gold_score": 1.0,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.3333333333333333,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.3333333333333333,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_457_chunk_457",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_410_chunk_410"
+   ]
+  },
+  {
+   "id": "LAW_D_005",
+   "group": "D",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_402_chunk_402"
+   ],
+   "gold_score": 1.017,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": false,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_428_chunk_428",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_135_chunk_135"
+   ]
+  },
+  {
+   "id": "LAW_D_006",
+   "group": "D",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_410_chunk_410",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_409_chunk_409",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_408_chunk_408"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 0.6666666666666666,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_408_chunk_408",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_410_chunk_410",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_408_chunk_408",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_410_chunk_410",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_409_chunk_409",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745"
+   ]
+  },
+  {
+   "id": "LAW_D_007",
+   "group": "D",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "PARTIAL",
+   "stage": "LLM_ANSWER",
+   "gold": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_411_chunk_411",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_671_chunk_671",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_674_chunk_674"
+   ],
+   "gold_score": 0.957,
+   "recall_at5_context": 0.3333333333333333,
+   "recall_at5_ranked": 0.3333333333333333,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.5,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_411_chunk_411",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_222_chunk_222",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_662_chunk_662"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_411_chunk_411",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_222_chunk_222",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_662_chunk_662"
+   ]
+  },
+  {
+   "id": "LAW_D_008",
+   "group": "D",
+   "category": "Concept",
+   "difficulty": "Medium",
+   "status": "PARTIAL",
+   "stage": "LLM_ANSWER",
+   "gold": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400"
+   ],
+   "gold_score": 0.862,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_398_chunk_398",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_619_chunk_619",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_398_chunk_398",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_619_chunk_619",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399"
+   ]
+  },
+  {
+   "id": "LAW_D_009",
+   "group": "D",
+   "category": "Navigation",
+   "difficulty": "Medium",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_402_chunk_402"
+   ],
+   "gold_score": 1.067,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.5,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_417_chunk_417",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_402_chunk_402",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_418_chunk_418"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_417_chunk_417",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_402_chunk_402",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_418_chunk_418",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_751_chunk_751",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_799_chunk_799"
+   ]
+  },
+  {
+   "id": "LAW_D_010",
+   "group": "D",
+   "category": "Navigation",
+   "difficulty": "Medium",
+   "status": "PARTIAL",
+   "stage": "WRONG_SOURCE_ANSWER",
+   "gold": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_407_chunk_407",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_406_chunk_406",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_405_chunk_405"
+   ],
+   "gold_score": 1.04,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_483_chunk_483",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_482_chunk_482",
+    "luu-ban-nhap-tu-dong-3-4_sec_3044_chunk_3044",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_524_chunk_524",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_726_chunk_726"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_483_chunk_483",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_482_chunk_482",
+    "luu-ban-nhap-tu-dong-3-4_sec_3044_chunk_3044",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_524_chunk_524",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_726_chunk_726"
+   ]
+  },
+  {
+   "id": "LAW_D_011",
+   "group": "D",
+   "category": "Navigation",
+   "difficulty": "Medium",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_405_chunk_405"
+   ],
+   "gold_score": 1.081,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_487_chunk_487",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_502_chunk_502",
+    "luu-ban-nhap-tu-dong-3-4_sec_3047_chunk_3047",
+    "luu-ban-nhap-tu-dong-3-4_sec_3048_chunk_3048",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_581_chunk_581"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_487_chunk_487",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_502_chunk_502",
+    "luu-ban-nhap-tu-dong-3-4_sec_3047_chunk_3047",
+    "luu-ban-nhap-tu-dong-3-4_sec_3048_chunk_3048",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_581_chunk_581"
+   ]
+  },
+  {
+   "id": "LAW_D_012",
+   "group": "D",
+   "category": "Navigation",
+   "difficulty": "Medium",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_410_chunk_410",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_408_chunk_408"
+   ],
+   "gold_score": 1.072,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": true,
+   "context": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1008_chunk_1008",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_541_chunk_541",
+    "luu-ban-nhap-tu-dong-3-4_sec_3081_chunk_3081",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1005_chunk_1005",
+    "luu-ban-nhap-tu-dong-3-4_sec_1544_chunk_1544"
+   ],
+   "ranked_top5": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1008_chunk_1008",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_541_chunk_541",
+    "luu-ban-nhap-tu-dong-3-4_sec_3081_chunk_3081",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1005_chunk_1005",
+    "luu-ban-nhap-tu-dong-3-4_sec_1544_chunk_1544"
+   ]
+  },
+  {
+   "id": "LAW_D_013",
+   "group": "D",
+   "category": "Navigation",
+   "difficulty": "Medium",
+   "status": "FAIL",
+   "stage": "RETRIEVAL_MISS",
+   "gold": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_412_chunk_412",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_411_chunk_411"
+   ],
+   "gold_score": 0.989,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": false,
+   "context": [],
+   "ranked_top5": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_221_chunk_221",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_657_chunk_657",
+    "luu-ban-nhap-tu-dong-3-4_sec_1798_chunk_1798",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_656_chunk_656",
+    "luu-ban-nhap-tu-dong-3-4_sec_3562_chunk_3562"
+   ]
+  },
+  {
+   "id": "LAW_D_014",
+   "group": "D",
+   "category": "Scope",
+   "difficulty": "Medium",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399"
+   ],
+   "gold_score": 0.983,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399",
+    "luu-ban-nhap-tu-dong-3-4_sec_2095_chunk_2095",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_172_chunk_172",
+    "luu-ban-nhap-tu-dong-3-4_sec_2821_chunk_2821"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399",
+    "luu-ban-nhap-tu-dong-3-4_sec_2095_chunk_2095",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_172_chunk_172",
+    "luu-ban-nhap-tu-dong-3-4_sec_2821_chunk_2821"
+   ]
+  },
+  {
+   "id": "LAW_D_015",
+   "group": "D",
+   "category": "Multi-hop",
+   "difficulty": "Hard",
+   "status": "FAIL",
+   "stage": "RERANK_DROP",
+   "gold": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_515_chunk_515"
+   ],
+   "gold_score": 0.905,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_493_chunk_493",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_500_chunk_500",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_485_chunk_485",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_405_chunk_405",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_498_chunk_498"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_493_chunk_493",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_500_chunk_500",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_485_chunk_485",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_405_chunk_405",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_498_chunk_498"
+   ]
+  },
+  {
+   "id": "LAW_D_016",
+   "group": "D",
+   "category": "Multi-hop",
+   "difficulty": "Hard",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399"
+   ],
+   "gold_score": 1.007,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_668_chunk_668",
+    "luu-ban-nhap-tu-dong-3-4_sec_3072_chunk_3072",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_28_chunk_28"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_668_chunk_668",
+    "luu-ban-nhap-tu-dong-3-4_sec_3072_chunk_3072",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_28_chunk_28"
+   ]
+  },
+  {
+   "id": "LAW_D_017",
+   "group": "D",
+   "category": "Comparison",
+   "difficulty": "Hard",
+   "status": "FAIL",
+   "stage": "RERANK_DROP",
+   "gold": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_428_chunk_428",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_521_chunk_521",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_482_chunk_482"
+   ],
+   "gold_score": 0.692,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": true,
+   "context": [],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_401_chunk_401",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_491_chunk_491"
+   ]
+  },
+  {
+   "id": "LAW_D_018",
+   "group": "D",
+   "category": "Source-awareness",
+   "difficulty": "Hard",
+   "status": "FAIL",
+   "stage": "NO_GOLD",
+   "gold": [],
+   "gold_score": 0.392,
+   "recall_at5_context": null,
+   "recall_at5_ranked": null,
+   "hit_at5_ranked": null,
+   "rr_at5": null,
+   "gold_in_candidates": null,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_398_chunk_398"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_398_chunk_398",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_645_chunk_645",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_491_chunk_491"
+   ]
+  },
+  {
+   "id": "LAW_D_019",
+   "group": "D",
+   "category": "Synthesis",
+   "difficulty": "Hard",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_398_chunk_398"
+   ],
+   "gold_score": 0.778,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.3333333333333333,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_398_chunk_398",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_745_chunk_745",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_398_chunk_398",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_401_chunk_401"
+   ]
+  },
+  {
+   "id": "LAW_D_020",
+   "group": "D",
+   "category": "Scenario-based",
+   "difficulty": "Hard",
+   "status": "FAIL",
+   "stage": "THRESHOLD_CUT",
+   "gold": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_404_chunk_404",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_555_chunk_555"
+   ],
+   "gold_score": 0.82,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.3333333333333333,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.5,
+   "gold_in_candidates": true,
+   "context": [],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_400_chunk_400",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_399_chunk_399",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_402_chunk_402",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_433_chunk_433",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_401_chunk_401"
+   ]
+  },
+  {
+   "id": "LAW_E_001",
+   "group": "E",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "PARTIAL",
+   "stage": "LLM_ANSWER",
+   "gold": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_102_chunk_102"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.25,
+   "gold_in_candidates": true,
+   "context": [
+    "luu-ban-nhap-tu-dong-3-4_sec_3109_chunk_3109",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_389_chunk_389",
+    "luu-ban-nhap-tu-dong-3-4_sec_3111_chunk_3111",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_102_chunk_102",
+    "luu-ban-nhap-tu-dong-3-4_sec_1954_chunk_1954"
+   ],
+   "ranked_top5": [
+    "luu-ban-nhap-tu-dong-3-4_sec_3109_chunk_3109",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_389_chunk_389",
+    "luu-ban-nhap-tu-dong-3-4_sec_3111_chunk_3111",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_102_chunk_102",
+    "luu-ban-nhap-tu-dong-3-4_sec_1954_chunk_1954"
+   ]
+  },
+  {
+   "id": "LAW_E_002",
+   "group": "E",
+   "category": "Definition",
+   "difficulty": "Easy",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_105_chunk_105"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_105_chunk_105",
+    "luu-ban-nhap-tu-dong-3-4_sec_1687_chunk_1687",
+    "luu-ban-nhap-tu-dong-3-4_sec_2474_chunk_2474",
+    "luu-ban-nhap-tu-dong-3-4_sec_3545_chunk_3545",
+    "luu-ban-nhap-tu-dong-3-4_sec_2694_chunk_2694"
+   ],
+   "ranked_top5": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_105_chunk_105",
+    "luu-ban-nhap-tu-dong-3-4_sec_1687_chunk_1687",
+    "luu-ban-nhap-tu-dong-3-4_sec_2474_chunk_2474",
+    "luu-ban-nhap-tu-dong-3-4_sec_3545_chunk_3545",
+    "luu-ban-nhap-tu-dong-3-4_sec_2694_chunk_2694"
+   ]
+  },
+  {
+   "id": "LAW_E_003",
+   "group": "E",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "PARTIAL",
+   "stage": "LLM_ANSWER",
+   "gold": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_105_chunk_105"
+   ],
+   "gold_score": 0.808,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_105_chunk_105",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_788_chunk_788"
+   ],
+   "ranked_top5": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_105_chunk_105",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_788_chunk_788",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_716_chunk_716",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_277_chunk_277",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1163_chunk_1163"
+   ]
+  },
+  {
+   "id": "LAW_E_004",
+   "group": "E",
+   "category": "Definition",
+   "difficulty": "Easy",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_325_chunk_325",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_345_chunk_345"
+   ],
+   "gold_score": 1.0,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": false,
+   "context": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_754_chunk_754",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_106_chunk_106",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1326_chunk_1326",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_752_chunk_752",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_753_chunk_753"
+   ],
+   "ranked_top5": [
+    "giao trinh Luat lao dong CB 2005 (1)_sec_754_chunk_754",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_106_chunk_106",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1326_chunk_1326",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_752_chunk_752",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_753_chunk_753"
+   ]
+  },
+  {
+   "id": "LAW_E_005",
+   "group": "E",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_125_chunk_125"
+   ],
+   "gold_score": 0.976,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_125_chunk_125",
+    "luu-ban-nhap-tu-dong-3-4_sec_3214_chunk_3214",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_515_chunk_515",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_81_chunk_81",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_475_chunk_475"
+   ],
+   "ranked_top5": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_125_chunk_125",
+    "luu-ban-nhap-tu-dong-3-4_sec_3214_chunk_3214",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_515_chunk_515",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_81_chunk_81",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_475_chunk_475"
+   ]
+  },
+  {
+   "id": "LAW_E_006",
+   "group": "E",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_129_chunk_129"
+   ],
+   "gold_score": 1.0,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.5,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_436_chunk_436",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_129_chunk_129",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_469_chunk_469",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_478_chunk_478",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_467_chunk_467"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_436_chunk_436",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_129_chunk_129",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_469_chunk_469",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_478_chunk_478",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_467_chunk_467"
+   ]
+  },
+  {
+   "id": "LAW_E_007",
+   "group": "E",
+   "category": "Direct Fact",
+   "difficulty": "Easy",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_135_chunk_135"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.5,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_427_chunk_427",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_135_chunk_135",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_424_chunk_424",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_429_chunk_429",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_869_chunk_869"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_427_chunk_427",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_135_chunk_135",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_424_chunk_424",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_429_chunk_429",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_869_chunk_869"
+   ]
+  },
+  {
+   "id": "LAW_E_008",
+   "group": "E",
+   "category": "Rule",
+   "difficulty": "Medium",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_136_chunk_136"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.3333333333333333,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_425_chunk_425",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_424_chunk_424",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_136_chunk_136",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_426_chunk_426",
+    "luu-ban-nhap-tu-dong-3-4_sec_3012_chunk_3012"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_425_chunk_425",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_424_chunk_424",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_136_chunk_136",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_426_chunk_426",
+    "luu-ban-nhap-tu-dong-3-4_sec_3012_chunk_3012"
+   ]
+  },
+  {
+   "id": "LAW_E_009",
+   "group": "E",
+   "category": "Rule",
+   "difficulty": "Medium",
+   "status": "PARTIAL",
+   "stage": "LLM_ANSWER",
+   "gold": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_140_chunk_140",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_141_chunk_141"
+   ],
+   "gold_score": 1.013,
+   "recall_at5_context": 0.5,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.5,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_527_chunk_527",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_141_chunk_141",
+    "luu-ban-nhap-tu-dong-3-4_sec_3040_chunk_3040",
+    "luu-ban-nhap-tu-dong-3-4_sec_1724_chunk_1724"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_527_chunk_527",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_141_chunk_141",
+    "luu-ban-nhap-tu-dong-3-4_sec_3040_chunk_3040",
+    "luu-ban-nhap-tu-dong-3-4_sec_1724_chunk_1724",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_140_chunk_140"
+   ]
+  },
+  {
+   "id": "LAW_E_010",
+   "group": "E",
+   "category": "Rule",
+   "difficulty": "Medium",
+   "status": "PARTIAL",
+   "stage": "WRONG_SOURCE_ANSWER",
+   "gold": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_152_chunk_152",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_151_chunk_151"
+   ],
+   "gold_score": 0.995,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": false,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_482_chunk_482",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_468_chunk_468",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_478_chunk_478",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_493_chunk_493",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_467_chunk_467"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_482_chunk_482",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_468_chunk_468",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_478_chunk_478",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_493_chunk_493",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_467_chunk_467"
+   ]
+  },
+  {
+   "id": "LAW_E_011",
+   "group": "E",
+   "category": "Rule",
+   "difficulty": "Medium",
+   "status": "PARTIAL",
+   "stage": "WRONG_SOURCE_ANSWER",
+   "gold": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_152_chunk_152",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_151_chunk_151"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": false,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_469_chunk_469",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_468_chunk_468",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_478_chunk_478",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_482_chunk_482",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_858_chunk_858"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_469_chunk_469",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_468_chunk_468",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_478_chunk_478",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_482_chunk_482",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_858_chunk_858"
+   ]
+  },
+  {
+   "id": "LAW_E_012",
+   "group": "E",
+   "category": "Rule",
+   "difficulty": "Medium",
+   "status": "PARTIAL",
+   "stage": "LLM_ANSWER",
+   "gold": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_165_chunk_165",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_166_chunk_166"
+   ],
+   "gold_score": 0.881,
+   "recall_at5_context": 0.5,
+   "recall_at5_ranked": 0.5,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_165_chunk_165",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_868_chunk_868",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_26_chunk_26",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_870_chunk_870"
+   ],
+   "ranked_top5": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_165_chunk_165",
+    "luu-ban-nhap-tu-dong-3-4_sec_1748_chunk_1748",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_868_chunk_868",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_26_chunk_26",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_870_chunk_870"
+   ]
+  },
+  {
+   "id": "LAW_E_013",
+   "group": "E",
+   "category": "Rule",
+   "difficulty": "Medium",
+   "status": "PARTIAL",
+   "stage": "WRONG_SOURCE_ANSWER",
+   "gold": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_166_chunk_166"
+   ],
+   "gold_score": 0.607,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.5,
+   "gold_in_candidates": true,
+   "context": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1449_chunk_1449",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_819_chunk_819",
+    "luu-ban-nhap-tu-dong-3-4_sec_3114_chunk_3114",
+    "luu-ban-nhap-tu-dong-3-4_sec_2357_chunk_2357"
+   ],
+   "ranked_top5": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1449_chunk_1449",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_166_chunk_166",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_819_chunk_819",
+    "luu-ban-nhap-tu-dong-3-4_sec_3114_chunk_3114",
+    "luu-ban-nhap-tu-dong-3-4_sec_2357_chunk_2357"
+   ]
+  },
+  {
+   "id": "LAW_E_014",
+   "group": "E",
+   "category": "Definition",
+   "difficulty": "Medium",
+   "status": "PARTIAL",
+   "stage": "WRONG_SOURCE_ANSWER",
+   "gold": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_214_chunk_214"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.5,
+   "gold_in_candidates": true,
+   "context": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1793_chunk_1793",
+    "luu-ban-nhap-tu-dong-3-4_sec_3064_chunk_3064"
+   ],
+   "ranked_top5": [
+    "luu-ban-nhap-tu-dong-3-4_sec_1793_chunk_1793",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_214_chunk_214",
+    "luu-ban-nhap-tu-dong-3-4_sec_3064_chunk_3064",
+    "luu-ban-nhap-tu-dong-3-4_sec_2064_chunk_2064",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_936_chunk_936"
+   ]
+  },
+  {
+   "id": "LAW_E_015",
+   "group": "E",
+   "category": "Scenario-based",
+   "difficulty": "Hard",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_222_chunk_222"
+   ],
+   "gold_score": 1.1,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_222_chunk_222",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_666_chunk_666",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_28_chunk_28",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_667_chunk_667",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_664_chunk_664"
+   ],
+   "ranked_top5": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_222_chunk_222",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_666_chunk_666",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_28_chunk_28",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_667_chunk_667",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_664_chunk_664"
+   ]
+  },
+  {
+   "id": "LAW_E_016",
+   "group": "E",
+   "category": "Scenario-based",
+   "difficulty": "Hard",
+   "status": "PARTIAL",
+   "stage": "LLM_ANSWER",
+   "gold": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_222_chunk_222"
+   ],
+   "gold_score": 0.911,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_222_chunk_222",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_666_chunk_666",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_667_chunk_667",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_28_chunk_28",
+    "luu-ban-nhap-tu-dong-3-4_sec_3071_chunk_3071"
+   ],
+   "ranked_top5": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_222_chunk_222",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_666_chunk_666",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_667_chunk_667",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_28_chunk_28",
+    "luu-ban-nhap-tu-dong-3-4_sec_3071_chunk_3071"
+   ]
+  },
+  {
+   "id": "LAW_E_017",
+   "group": "E",
+   "category": "Multi-hop",
+   "difficulty": "Hard",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_229_chunk_229"
+   ],
+   "gold_score": 1.083,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_229_chunk_229",
+    "luu-ban-nhap-tu-dong-3-4_sec_1807_chunk_1807",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_679_chunk_679",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_695_chunk_695"
+   ],
+   "ranked_top5": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_229_chunk_229",
+    "luu-ban-nhap-tu-dong-3-4_sec_1807_chunk_1807",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_679_chunk_679",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_695_chunk_695",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_969_chunk_969"
+   ]
+  },
+  {
+   "id": "LAW_E_018",
+   "group": "E",
+   "category": "Multi-hop",
+   "difficulty": "Hard",
+   "status": "PARTIAL",
+   "stage": "LLM_ANSWER",
+   "gold": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_238_chunk_238"
+   ],
+   "gold_score": 0.975,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 0.2,
+   "gold_in_candidates": true,
+   "context": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_38_chunk_38",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_704_chunk_704",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_706_chunk_706",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_238_chunk_238"
+   ],
+   "ranked_top5": [
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_38_chunk_38",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_704_chunk_704",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_706_chunk_706",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_41_chunk_41",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_238_chunk_238"
+   ]
+  },
+  {
+   "id": "LAW_E_019",
+   "group": "E",
+   "category": "Procedure",
+   "difficulty": "Hard",
+   "status": "PARTIAL",
+   "stage": "WRONG_SOURCE_ANSWER",
+   "gold": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_250_chunk_250"
+   ],
+   "gold_score": 0.91,
+   "recall_at5_context": 0.0,
+   "recall_at5_ranked": 0.0,
+   "hit_at5_ranked": false,
+   "rr_at5": 0.0,
+   "gold_in_candidates": true,
+   "context": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_543_chunk_543",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_542_chunk_542",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1003_chunk_1003",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_53_chunk_53",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_544_chunk_544"
+   ],
+   "ranked_top5": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_543_chunk_543",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_542_chunk_542",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1003_chunk_1003",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_53_chunk_53",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_544_chunk_544"
+   ]
+  },
+  {
+   "id": "LAW_E_020",
+   "group": "E",
+   "category": "Scenario-based",
+   "difficulty": "Hard",
+   "status": "PASS",
+   "stage": "OK",
+   "gold": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_254_chunk_254"
+   ],
+   "gold_score": 0.906,
+   "recall_at5_context": 1.0,
+   "recall_at5_ranked": 1.0,
+   "hit_at5_ranked": true,
+   "rr_at5": 1.0,
+   "gold_in_candidates": true,
+   "context": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_254_chunk_254",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_55_chunk_55",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_458_chunk_458",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1007_chunk_1007",
+    "luu-ban-nhap-tu-dong-3-4_sec_1830_chunk_1830"
+   ],
+   "ranked_top5": [
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_254_chunk_254",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi_sec_55_chunk_55",
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final_sec_458_chunk_458",
+    "giao trinh Luat lao dong CB 2005 (1)_sec_1007_chunk_1007",
+    "luu-ban-nhap-tu-dong-3-4_sec_1830_chunk_1830"
+   ]
+  }
+ ]
+}

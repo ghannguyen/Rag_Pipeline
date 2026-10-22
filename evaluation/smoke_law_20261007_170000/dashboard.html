@@ -1,0 +1,550 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAG evaluation</title><style>
+body{font:15px system-ui,sans-serif;background:#f4f6fa;color:#17243c;margin:0;padding:32px}main{max-width:1440px;margin:auto}h1{margin:0;font-size:30px}p{line-height:1.6;color:#516077}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:24px 0}article{background:white;border:1px solid #dce3ee;border-radius:12px;padding:22px}strong{display:block;font-size:34px;margin:12px 0}small,label{display:block;color:#516077}svg{width:100%;fill:#4576df}svg text{fill:#516077;font-size:11px}table{border-collapse:collapse;width:100%;background:white}td,th{padding:12px;text-align:left;border-bottom:1px solid #e1e7f0;vertical-align:top}th{font-size:12px;color:#516077}.scroll{overflow:auto;border-radius:10px;margin:20px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px system-ui;max-width:700px}summary{cursor:pointer;min-width:260px}h3{font-size:16px}input{padding:12px;border:1px solid #ccd5e5;border-radius:8px;width:min(400px,90%)}.note{background:#fff5de;padding:16px;border-radius:10px}
+</style><main><h1>RAG evaluation</h1><p>2026-10-07T16:39:51.359065+07:00 · gemini-3.6-flash · 3/3 testcase đã xử lý · 0 đủ 4 điểm · 3 có lỗi</p><p class="note">Contexts lấy từ search trước rerank, không đảm bảo trùng context chat thực sự sử dụng. Faithfulness đo với tập context này. Bốn metric không phải bộ chấm riêng cho hành vi từ chối trả lời. Điểm lỗi để trống, không đổi thành 0. Trung bình chỉ tính điểm hợp lệ; OK nghĩa là chấm thành công, không có nghĩa PASS.</p><div class="grid"><article><label>faithfulness</label><strong>1.000</strong><small>1/3 có điểm</small></article><article><label>answer_relevancy</label><strong>0.000</strong><small>1/3 có điểm</small></article><article><label>context_precision</label><strong>—</strong><small>0/3 có điểm</small></article><article><label>context_recall</label><strong>—</strong><small>0/3 có điểm</small></article></div><div class="grid"><article><h3>faithfulness</h3><svg role="img" aria-label="Phân bố điểm faithfulness" viewBox="0 0 420 190"><rect x="35" y="155.0" width="26" height="0.0" rx="3"><title>0.0–0.1: 0 case</title></rect><text x="48" y="148.0" text-anchor="middle">0</text><rect x="71" y="155.0" width="26" height="0.0" rx="3"><title>0.1–0.2: 0 case</title></rect><text x="84" y="148.0" text-anchor="middle">0</text><rect x="107" y="155.0" width="26" height="0.0" rx="3"><title>0.2–0.3: 0 case</title></rect><text x="120" y="148.0" text-anchor="middle">0</text><rect x="143" y="155.0" width="26" height="0.0" rx="3"><title>0.3–0.4: 0 case</title></rect><text x="156" y="148.0" text-anchor="middle">0</text><rect x="179" y="155.0" width="26" height="0.0" rx="3"><title>0.4–0.5: 0 case</title></rect><text x="192" y="148.0" text-anchor="middle">0</text><rect x="215" y="155.0" width="26" height="0.0" rx="3"><title>0.5–0.6: 0 case</title></rect><text x="228" y="148.0" text-anchor="middle">0</text><rect x="251" y="155.0" width="26" height="0.0" rx="3"><title>0.6–0.7: 0 case</title></rect><text x="264" y="148.0" text-anchor="middle">0</text><rect x="287" y="155.0" width="26" height="0.0" rx="3"><title>0.7–0.8: 0 case</title></rect><text x="300" y="148.0" text-anchor="middle">0</text><rect x="323" y="155.0" width="26" height="0.0" rx="3"><title>0.8–0.9: 0 case</title></rect><text x="336" y="148.0" text-anchor="middle">0</text><rect x="359" y="25.0" width="26" height="130.0" rx="3"><title>0.9–1.0: 1 case</title></rect><text x="372" y="18.0" text-anchor="middle">1</text><text x="35" y="180">0</text><text x="370" y="180">1.0</text></svg></article><article><h3>answer_relevancy</h3><svg role="img" aria-label="Phân bố điểm answer_relevancy" viewBox="0 0 420 190"><rect x="35" y="25.0" width="26" height="130.0" rx="3"><title>0.0–0.1: 1 case</title></rect><text x="48" y="18.0" text-anchor="middle">1</text><rect x="71" y="155.0" width="26" height="0.0" rx="3"><title>0.1–0.2: 0 case</title></rect><text x="84" y="148.0" text-anchor="middle">0</text><rect x="107" y="155.0" width="26" height="0.0" rx="3"><title>0.2–0.3: 0 case</title></rect><text x="120" y="148.0" text-anchor="middle">0</text><rect x="143" y="155.0" width="26" height="0.0" rx="3"><title>0.3–0.4: 0 case</title></rect><text x="156" y="148.0" text-anchor="middle">0</text><rect x="179" y="155.0" width="26" height="0.0" rx="3"><title>0.4–0.5: 0 case</title></rect><text x="192" y="148.0" text-anchor="middle">0</text><rect x="215" y="155.0" width="26" height="0.0" rx="3"><title>0.5–0.6: 0 case</title></rect><text x="228" y="148.0" text-anchor="middle">0</text><rect x="251" y="155.0" width="26" height="0.0" rx="3"><title>0.6–0.7: 0 case</title></rect><text x="264" y="148.0" text-anchor="middle">0</text><rect x="287" y="155.0" width="26" height="0.0" rx="3"><title>0.7–0.8: 0 case</title></rect><text x="300" y="148.0" text-anchor="middle">0</text><rect x="323" y="155.0" width="26" height="0.0" rx="3"><title>0.8–0.9: 0 case</title></rect><text x="336" y="148.0" text-anchor="middle">0</text><rect x="359" y="155.0" width="26" height="0.0" rx="3"><title>0.9–1.0: 0 case</title></rect><text x="372" y="148.0" text-anchor="middle">0</text><text x="35" y="180">0</text><text x="370" y="180">1.0</text></svg></article><article><h3>context_precision</h3><svg role="img" aria-label="Phân bố điểm context_precision" viewBox="0 0 420 190"><rect x="35" y="155.0" width="26" height="0.0" rx="3"><title>0.0–0.1: 0 case</title></rect><text x="48" y="148.0" text-anchor="middle">0</text><rect x="71" y="155.0" width="26" height="0.0" rx="3"><title>0.1–0.2: 0 case</title></rect><text x="84" y="148.0" text-anchor="middle">0</text><rect x="107" y="155.0" width="26" height="0.0" rx="3"><title>0.2–0.3: 0 case</title></rect><text x="120" y="148.0" text-anchor="middle">0</text><rect x="143" y="155.0" width="26" height="0.0" rx="3"><title>0.3–0.4: 0 case</title></rect><text x="156" y="148.0" text-anchor="middle">0</text><rect x="179" y="155.0" width="26" height="0.0" rx="3"><title>0.4–0.5: 0 case</title></rect><text x="192" y="148.0" text-anchor="middle">0</text><rect x="215" y="155.0" width="26" height="0.0" rx="3"><title>0.5–0.6: 0 case</title></rect><text x="228" y="148.0" text-anchor="middle">0</text><rect x="251" y="155.0" width="26" height="0.0" rx="3"><title>0.6–0.7: 0 case</title></rect><text x="264" y="148.0" text-anchor="middle">0</text><rect x="287" y="155.0" width="26" height="0.0" rx="3"><title>0.7–0.8: 0 case</title></rect><text x="300" y="148.0" text-anchor="middle">0</text><rect x="323" y="155.0" width="26" height="0.0" rx="3"><title>0.8–0.9: 0 case</title></rect><text x="336" y="148.0" text-anchor="middle">0</text><rect x="359" y="155.0" width="26" height="0.0" rx="3"><title>0.9–1.0: 0 case</title></rect><text x="372" y="148.0" text-anchor="middle">0</text><text x="35" y="180">0</text><text x="370" y="180">1.0</text></svg></article><article><h3>context_recall</h3><svg role="img" aria-label="Phân bố điểm context_recall" viewBox="0 0 420 190"><rect x="35" y="155.0" width="26" height="0.0" rx="3"><title>0.0–0.1: 0 case</title></rect><text x="48" y="148.0" text-anchor="middle">0</text><rect x="71" y="155.0" width="26" height="0.0" rx="3"><title>0.1–0.2: 0 case</title></rect><text x="84" y="148.0" text-anchor="middle">0</text><rect x="107" y="155.0" width="26" height="0.0" rx="3"><title>0.2–0.3: 0 case</title></rect><text x="120" y="148.0" text-anchor="middle">0</text><rect x="143" y="155.0" width="26" height="0.0" rx="3"><title>0.3–0.4: 0 case</title></rect><text x="156" y="148.0" text-anchor="middle">0</text><rect x="179" y="155.0" width="26" height="0.0" rx="3"><title>0.4–0.5: 0 case</title></rect><text x="192" y="148.0" text-anchor="middle">0</text><rect x="215" y="155.0" width="26" height="0.0" rx="3"><title>0.5–0.6: 0 case</title></rect><text x="228" y="148.0" text-anchor="middle">0</text><rect x="251" y="155.0" width="26" height="0.0" rx="3"><title>0.6–0.7: 0 case</title></rect><text x="264" y="148.0" text-anchor="middle">0</text><rect x="287" y="155.0" width="26" height="0.0" rx="3"><title>0.7–0.8: 0 case</title></rect><text x="300" y="148.0" text-anchor="middle">0</text><rect x="323" y="155.0" width="26" height="0.0" rx="3"><title>0.8–0.9: 0 case</title></rect><text x="336" y="148.0" text-anchor="middle">0</text><rect x="359" y="155.0" width="26" height="0.0" rx="3"><title>0.9–1.0: 0 case</title></rect><text x="372" y="148.0" text-anchor="middle">0</text><text x="35" y="180">0</text><text x="370" y="180">1.0</text></svg></article></div><h2>Theo Is Answerable</h2><p>Unknown: sheet không có nhãn hoặc ô trống. Nhóm No cần đọc riêng vì đáp án kỳ vọng là từ chối.</p><div class="scroll"><table><thead><tr><th>Is Answerable</th><th>Cases</th><th>faithfulness</th><th>answer_relevancy</th><th>context_precision</th><th>context_recall</th></tr></thead><tbody><tr><td>Yes</td><td>3</td><td>1.000 (n=1)</td><td>0.000 (n=1)</td><td>—</td><td>—</td></tr><tr><td>No</td><td>0</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>Unknown</td><td>0</td><td>—</td><td>—</td><td>—</td><td>—</td></tr></tbody></table></div><h2>Chi tiết testcase</h2><input id="filter" placeholder="Tìm case, câu hỏi hoặc lỗi"><div class="scroll"><table id="details"><thead><tr><th>Sheet</th><th>ID</th><th>Answerable</th><th>Status</th><th>faithfulness</th><th>answer_relevancy</th><th>context_precision</th><th>context_recall</th><th>Nội dung</th></tr></thead><tbody><tr><td>smoke_law_dataset.json</td><td>LAW_001</td><td>Yes</td><td>METRIC_ERROR</td><td>1.000</td><td>0.000</td><td>—</td><td>—</td><td><details><summary>Theo giáo trình Luật lao động 2005, ba yếu tố cấu thành hợp đồng lao động là gì?</summary><h4>Answer</h4><pre>Dựa trên tài liệu được cung cấp, tôi không tìm thấy thông tin để trả lời câu hỏi này.</pre><h4>Ground truth</h4><pre>Ba yếu tố là: có sự cung ứng một công việc; có sự trả công lao động dưới dạng tiền lương; có sự phụ thuộc về mặt pháp lý của người lao động trước người sử dụng lao động.</pre><h4>Contexts</h4><pre>Section: Giáo trình Lu ậ t Lao độ ng c ơ b ả n
+---
+### Giáo trình Lu ậ t Lao độ ng c ơ b ả n
+
+cu ộ c đ ình công này do các t ổ ch ứ c, c ơ quan có th ẩ m quy ề n th ự c hi ệ n (tùy t ừ ng lo ạ i tranh ch ấ p mà các c ơ quan có th ẩ m quy ề n là H ộ i đồ ng hòa gi ả i ở c ơ s ở , H ộ i đồ ng tr ọ ng tài lao độ ng c ấ p t ỉ nh hay Tòa án nhân dân), nh ằ m b ả o đả m quy ề n l ợ i cho c ả hai bên, đả m b ả o s ự hài hòa, ổ n đị nh c ủ a quan h ệ lao độ ng. Vì v ậ y, quan h ệ này thu ộ c đố i t ượ ng đ i ề u ch ỉ nh c ủ a Lu ậ t lao độ ng.
+
+Section: a. H ộ i đồ ng hòa gi ả i lao độ ng c ơ s ở ho ặ c hoà gi ả i viên lao độ ng c ấ p huy ệ n:
+---
+### a. H ộ i đồ ng hòa gi ả i lao độ ng c ơ s ở ho ặ c hoà gi ả i viên lao độ ng c ấ p huy ệ n:
+
+H ộ i đồ ng hoà gi ả i lao độ ng c ơ s ở ph ả i đượ c thành l ậ p trong các doanh nghi ệ p có công đ oàn c ơ s ở ho ặ c Ban ch ấ p hành công đ oàn lâm th ờ i g ồ m s ố đạ i di ệ n ngang nhau c ủ a bên ng ườ i lao độ ng và bên ng ườ i s ử d ụ ng lao độ ng. S ố l ượ ng thành viên c ủ a H ộ i đồ ng do hai bên tho ả thu ậ n.
+
+Nhi ệ m k ỳ c ủ a H ộ i đồ ng hoà gi ả i lao độ ng c ơ s ở là hai n ă m. Đạ i di ệ n c ủ a m ỗ i bên luân phiên làm Ch ủ t ị ch và Th ư ký H ộ i đồ ng. H ộ i đồ ng hoà gi ả i lao độ ng c ơ s ở làm vi ệ c theo nguyên t ắ c tho ả thu ậ n và nh ấ t trí.
+
+Trong tr ườ ng h ợ p hoà gi ả i không thành ho ặ c m ộ t bên tranh ch ấ p v ắ ng m ặ t đế n l ầ n th ứ hai theo gi ấ y tri ệ u t ậ p h ợ p l ệ mà không có lý do chính đ áng, thì H ộ i đồ ng hoà gi ả i lao độ ng c ơ s ở l ậ p biên b ả n hoà gi ả i không thành. B ả n sao biên b ả n ph ả i đượ c g ử i cho hai bên tranh ch ấ p trong th ờ i h ạ n ba ngày, k ể t ừ ngày hoà gi ả i không thành. M ỗ i bên tranh ch ấ p đề u có quy ề n yêu c ầ u Toà án nhân dân gi ả i quy ế t tranh ch ấ p. H ồ s ơ g ử i Toà án nhân dân ph ả i kèm theo biên b ả n hoà gi ả i không thành.
+
+Section: b. Hình th ứ c c ủ a h ợ p đồ ng lao độ ng
+---
+### b. Hình th ứ c c ủ a h ợ p đồ ng lao độ ng
+
+Có hai hình th ứ c h ợ p đồ ng lao độ ng là h ợ p đồ ng b ằ ng mi ệ ng và h ợ p đồ ng b ằ ng v ă n b ả n.
+
+H ợ p đồ ng b ằ ng mi ệ ng (b ằ ng l ờ i nói) ch ỉ áp d ụ ng v ớ i tính ch ấ t t ạ m th ờ i mà th ờ i h ạ n d ướ i ba tháng, ho ặ c đố i v ớ i lao độ ng giúp vi ệ c gia đ ình. Trong tr ườ ng h ợ p giao k ế t b ằ ng mi ệ ng, n ế u c ầ n ph ả i có ng ườ i th ứ ba ch ứ ng ki ế n thì do hai bên th ỏ a thu ậ n. Đồ ng th ờ i, các bên ph ả i đươ ng nhiên tuân theo các quy đị nh c ủ a pháp lu ậ t lao độ ng.
+
+H ợ p đồ ng lao độ ng b ằ ng v ă n b ả n đượ c giao k ế t hoàn toàn d ự a trên c ơ s ở s ự th ỏ a thu ậ n c ủ a các bên và ph ả i l ậ p b ằ ng v ă n b ả n có ch ữ ký c ủ a các bên. V ă n b ả n h ợ p đồ ng ph ả i theo m ẫ u th ố ng nh ấ t do B ộ Lao độ ng - Th ươ ng binh và Xã h ộ i ban hành và th ố ng nh ấ t qu ả n lý.
+
+H ợ p đồ ng lao độ ng b ằ ng v ă n b ả n đượ c áp d ụ ng cho lo ạ i h ợ p đồ ng không xác đị nh th ờ i h ạ n, h ợ p đồ ng xác đị nh th ờ i h ạ n t ừ 12 tháng đế n 36 tháng, h ợ p đồ ng lao độ ng theo công vi ệ c ho ặ c theo mùa v ụ mà th ờ i h ạ n xác đị nh d ướ i 12 tháng và ph ả i đượ c l ậ p thành hai b ả n, m ỗ i bên gi ữ m ộ t b ả n.
+
+Section: 3 - Nguyên t ắ c k ế t h ợ p hài hòa gi ữ a chính sách kinh t ế và chính sách xã h ộ i
+---
+### 3 - Nguyên t ắ c k ế t h ợ p hài hòa gi ữ a chính sách kinh t ế và chính sách xã h ộ i
+
+Ng ườ i lao độ ng là thành viên trong xã h ộ i, tham gia quan h ệ lao độ ng để đả m b ả o cu ộ c s ố ng cho b ả n thân và gia đ ình mình, nên các ch ế độ lao độ ng không ch ỉ liên quan đế n ng ườ i lao độ ng mà còn liên quan đế n toàn b ộ đờ i s ố ng xã h ộ i, do đ ó trong quá trình đ i ề u ch ỉ nh các quan h ệ lao độ ng, Lu ậ t lao độ ng ph ả i k ế t h ợ p hài hòa gi ữ a chính sách kinh t ế và chính sách xã h ộ i.
+
+Section: L Ờ I GI Ớ I THI Ệ U
+---
+Giáo trình Lu ậ t Lao độ ng c ơ b ả n đượ c biên so ạ n nh ằ m m ụ c đ ích ph ụ c v ụ vi ệ c h ọ c t ậ p, gi ả ng d ạ y, và nghiên c ứ u cho sinh viên, gi ả ng viên, và cán b ộ làm công tác liên quan đế n l ĩ nh v ự c lao độ ng.
+
+Trong quá trình biên so ạ n ch ắ c không tránh kh ỏ i nh ữ ng h ạ n ch ế nh ấ t đị nh, r ấ t mong nh ậ n đượ c ý ki ế n đ óng góp quý báu c ủ a b ạ n đọ c.
+
+Tác gi ả Th ạ c s ĩ Di ệ p Thành Nguyên ả ng viên Khoa Lu ậ t - Đ H. C ầ n Th ơ
+
+Gi
+
+Section: a. Th ự c hi ệ n h ợ p đồ ng lao độ ng
+---
+### a. Th ự c hi ệ n h ợ p đồ ng lao độ ng
+
+Trong quá trình th ự c hi ệ n h ợ p đồ ng các bên ph ả i tuân th ủ hai nguyên t ắ c c ơ b ả n là: ph ả i th ự c hi ệ n đ úng các đ i ề u kho ả n đ ã cam k ế t trên ph ươ ng di ệ n bình đẳ ng và ph ả i t ạ o ra nh ữ ng đ i ề u ki ệ n c ầ n thi ế t để bên kia có th ể th ự c hi ệ n các quy ề n và ngh ĩ a v ụ đ ó.
+
+Vi ệ c th ự c hi ệ n h ợ p đồ ng c ủ a ng ườ i lao độ ng ph ả i tuân th ủ tính đ ích danh ch ủ th ể , t ứ c là ph ả i do chính ng ườ i lao độ ng th ự c hi ệ n. Tuy nhiên, n ế u có s ự đồ ng ý c ủ a ng ườ i s ử d ụ ng lao độ ng thì ng ườ i lao độ ng có th ể chuy ể n giao vi ệ c th ự c hi ệ n cho ng ườ i khác; đồ ng th ờ i ng ườ i lao độ ng ph ả i tuân th ủ s ự đ i ề u hành h ợ p pháp c ủ a ng ườ i s ử d ụ ng lao độ ng, n ộ i quy, quy ch ế c ủ a đơ n v ị ...
+
+Trong tr ườ ng h ợ p sáp nh ậ p, h ợ p nh ấ t, chia, tách doanh nghi ệ p, chuy ể n quy ề n s ở h ữ u, quy ề n qu ả n lý ho ặ c quy ề n s ử d ụ ng tài s ả n c ủ a doanh nghi ệ p thì ng ườ i s ử d ụ ng lao độ ng k ế ti ế p ph ả i ch ị u trách nhi ệ m ti ế p t ụ c th ự c hi ệ n h ợ p đồ ng. Trong tr ườ ng h ợ p không s ử d ụ ng h ế t s ố lao độ ng hi ệ n có thì ph ả i có ph ươ ng án s ử d ụ ng lao độ ng theo quy đị nh c ủ a pháp lu ậ t.
+
+ng
+
+Khi h ợ p đồ ng lao độ ng h ế t th ờ i h ạ n mà hai bên không có giao k ế t h ợ p đồ m ớ i thì h ợ p đồ ng lao độ ng v ẫ n ti ế p t ụ c đượ c th ự c hi ệ n.
+
+Section: b3) Ch ươ ng trình và tài li ệ u
+---
+### b3) Ch ươ ng trình và tài li ệ u
+
+C ụ c Qu ả n lý Lao độ ng ngoài n ướ c qui đị nh ch ươ ng trình và phát hành tài li ệ u giáo d ụ c, đị nh h ướ ng đố i v ớ i ng ườ i lao độ ng.
+
+Ch ươ ng trình và tài li ệ u đố i v ớ i chuyên gia theo qui đị nh c ủ a B ộ qu ả n lý chuyên ngành.
+
+Ch ươ ng trình và tài li ệ u đố i v ớ i s ĩ quan, thu ỷ th ủ làm vi ệ c trên tàu v ậ n t ả i bi ể n theo qui đị nh c ủ a B ộ giao thông v ậ n t ả i
+
+Section: 3. H ợ p đồ ng h ọ c ngh ề :
+---
+### 3. H ợ p đồ ng h ọ c ngh ề :
+
+H ợ p đồ ng h ọ c ngh ề ph ả i đượ c giao k ế t gi ữ a ng ườ i h ọ c ngh ề v ớ i ng ườ i d ạ y ngh ề ho ặ c c ơ s ở d ạ y ngh ề . H ợ p đồ ng này có th ể giao k ế t b ằ ng mi ệ ng ho ặ c l ậ p thành v ă n b ả n.
+
+Đ ây là m ộ t đ i ể m khác bi ệ t c ă n b ả n gi ữ a h ọ c ngh ề t ạ i các tr ườ ng d ạ y ngh ề chính quy thu ộ c h ệ th ố ng giáo d ụ c và đ ào t ạ o. Th ầ y d ạ y ngh ề , c ơ s ở d ạ y ngh ề đượ c quy đị nh trong B ộ lu ậ t Lao độ ng r ấ t đ a d ạ ng, có doanh nghi ệ p, có trung tâm, có t ư nhân, t ổ ch ứ c thành l ớ p ho ặ c ch ỉ d ẫ n t ạ i nhà. H ọ c ngh ề ở đ ây ph ả i có h ợ p đồ ng để có th ể gi ả i quy ế t khi phát sinh tranh ch ấ p v ề th ự c hi ệ n h ợ p đồ ng và phí d ạ y ngh ề .
+
+Trong tr ườ ng h ợ p phát sinh tranh ch ấ p thì do hòa gi ả i viên lao độ ng c ủ a c ơ quan lao độ ng c ấ p huy ệ n gi ả i quy ế t ( Đ i ề u 165 B ộ lu ậ t Lao độ ng). Các n ướ c coi h ợ p đồ ng h ọ c ngh ề , t ậ p ngh ề là m ộ t lo ạ i h ợ p đồ ng lao độ ng đặ c bi ệ t, nh ấ t là lo ạ i h ợ p đồ ng h ọ c ngh ề giao k ế t v ớ i doanh nghi ệ p để r ồ i làm vi ệ c cho doanh nghi ệ p.
+
+N ộ i dung ch ủ y ế u c ủ a h ợ p đồ ng h ọ c ngh ề bao g ồ m m ụ c tiêu và n ộ i dung đ ào t ạ o, đị a đ i ể m h ọ c, m ứ c h ọ c phí, th ờ i h ạ n h ọ c, m ứ c b ồ i th ườ ng khi vi ph ạ m h ợ p đồ ng.
+
+Section: (2) Quan h ệ h ọ c ngh ề
+---
+### (2) Quan h ệ h ọ c ngh ề
+
+Trình độ chuyên môn là m ộ t y ế u t ố r ấ t c ầ n thi ế t cho ng ườ i lao độ ng, vì n ế u không có trình độ chuyên môn thì ng ườ i lao độ ng s ẽ ít có c ơ h ộ i tham gia quan h ệ lao độ ng, c ũ ng nh ư duy trì và ổ n đị nh quan h ệ lao độ ng. Công ngh ệ ngày nay đ ã có nh ữ ng b ướ c ti ế n m ạ nh m ẽ và nhanh chóng, đ òi h ỏ i trình độ chuyên môn c ủ a ng ườ i lao độ ng ph ả i ngày càng đượ c nâng cao. Quan h ệ h ọ c ngh ề vì th ế v ừ a có th ể là m ộ t quan h ệ độ c l ậ p, v ừ a có th ể là m ộ t quan h ệ ph ụ thu ộ c quan h ệ lao độ ng. Vi ệ c h ọ c ngh ề ph ả i tuân th ủ các quy đị nh c ủ a pháp lu ậ t lao độ ng.
+
+(3) Quan h ệ v ề b ồ i th ườ ng thi ệ t h ạ i Các ch ủ th ể khi tham gia quan h ệ lao độ ng có các quy ề n và ngh ĩ a v ụ pháp lý nh ấ t đị nh, ch ủ y ế u là các quy ề n và ngh ĩ a v ụ trong lao độ ng. Khi th ự c hi ệ n các quy ề n và ngh ĩ a v ụ này, n ế u m ộ t trong các ch ủ th ể gây thi ệ t h ạ i v ề s ứ c kh ỏ e, tính m ạ ng, tài s ả n, l ợ i ích c ủ a bên kia thì gi ữ a h ọ phát sinh quan h ệ v ề b ồ i th ườ ng thi ệ t h ạ i. Nh ữ ng quan h ệ v ề b ồ i th ườ ng thi ệ t h ạ i do các ch ủ th ể c ủ a quan h ệ lao độ ng gây thi ệ t h ạ i cho nhau khi th ự c hi ệ n quy ề n và ngh ĩ a v ụ lao độ ng đượ c pháp lu ậ t lao độ ng quy đị nh ch ặ t ch ẽ .
+
+Các quan h ệ pháp lu ậ t v ề b ồ i th ườ ng thi ệ t h ạ i này có th ể chia thành ba lo ạ i :
+
+Quan h ệ b ồ i th ườ ng thi ệ t h ạ i tài s ả n;
+
+Section: III. HÌNH TH Ứ C TR Ả L ƯƠ NG
+---
+### III. HÌNH TH Ứ C TR Ả L ƯƠ NG
+
+Ng ườ i s ử d ụ ng lao độ ng có quy ề n ch ọ n các hình th ứ c tr ả l ươ ng theo th ờ i gian (gi ờ , ngày, tu ầ n, tháng) , theo s ả n ph ẩ m , theo khoán nh ư ng ph ả i duy trì hình th ứ c tr ả l ươ ng đ ã ch ọ n trong m ộ t th ờ i gian nh ấ t đị nh và ph ả i thông báo cho ng ườ i lao độ ng bi ế t.
+
+Ng ườ i lao độ ng h ưở ng l ươ ng gi ờ , ngày, tu ầ n đượ c tr ả l ươ ng sau gi ờ , ngày, tu ầ n làm vi ệ c ấ y ho ặ c đượ c tr ả g ộ p do hai bên tho ả thu ậ n, nh ư ng ít nh ấ t 15 ngày ph ả i đượ c tr ả g ộ p m ộ t l ầ n.
+
+Ng ườ i lao độ ng h ưở ng l ươ ng tháng đượ c tr ả l ươ ng c ả tháng m ộ t l ầ n ho ặ c n ử a tháng m ộ t l ầ n.
+
+Ti ề n l ươ ng theo th ờ i gian đượ c tr ả cho ng ườ i lao độ ng c ă n c ứ vào th ờ i gian làm vi ệ c th ự c t ế , c ụ th ể nh ư sau:
+
+Ti ề n l ươ ng tháng đượ c tr ả cho m ộ t tháng làm vi ệ c xác đị nh trên c ơ s ở h ợ p đồ ng lao độ ng;
+
+Ti ề n l ươ ng tu ầ n đượ c tr ả cho m ộ t tu ầ n làm vi ệ c xác đị nh trên c ơ s ở ti ề n l ươ ng tháng nhân v ớ i 12 tháng và chia cho 52 tu ầ n;
+
+Ti ề n l ươ ng ngày đượ c tr ả cho m ộ t ngày làm vi ệ c xác đị nh trên c ơ s ở ti ề n l ươ ng tháng chia cho s ố ngày làm vi ệ c tiêu chu ẩ n trong tháng theo quy
+
+đị nh c ủ a pháp lu ậ t mà doanh nghi ệ p, c ơ quan l ự a ch ọ n, nh ư ng t ố i đ a không quá 26 ngày;
+
+Section: a. Pháp lu ậ t lao độ ng quy đị nh trách nhi ệ m c ủ a ng ườ i s ử d ụ ng lao độ ng khi s ử d ụ ng lao độ ng n ữ nh ư sau:
+---
+Không đượ c s ử d ụ ng lao độ ng n ữ có thai t ừ tháng th ứ 7 ho ặ c đ ang nuôi con nh ỏ d ướ i 12 tháng tu ổ i làm thêm gi ờ , làm vi ệ c ban đ êm ho ặ c đ i công tác xa.
+
+Ng ườ i s ử d ụ ng lao độ ng ph ả i đả m b ả o đ i ề u ki ệ n v ệ sinh riêng cho lao độ ng n ữ trong quá trình làm vi ệ c, (ph ả i có ch ỗ thay qu ầ n áo, bu ồ ng t ắ m và bu ồ ng v ệ sinh n ữ ). Ơ í nh ữ ng n ơ i s ử d ụ ng nhi ề u lao độ ng n ữ , ng ườ i s ử d ụ ng lao độ ng có trách nhi ệ m giúp đỡ t ổ ch ứ c nhà tr ẻ , l ớ p m ẫ u giáo ho ặ c h ỗ tr ợ m ộ t ph ầ n chi phí cho lao độ ng n ữ có con ở l ứ a tu ổ i g ử i tr ẻ , m ẫ u giáo.
+
+Ph ả i đả m b ả o ch ỗ làm vi ệ c cho lao độ ng n ữ sau th ờ i gian ngh ỉ thai s ả n.
+
+Section: a - Lo ạ i hình b ả o hi ể m xã h ộ i b ắ t bu ộ c
+---
+### a - Lo ạ i hình b ả o hi ể m xã h ộ i b ắ t bu ộ c
+
+Lo ạ i hình b ả o hi ể m xã h ộ i b ắ t bu ộ c đượ c áp d ụ ng đố i v ớ i doanh nghi ệ p, c ơ quan, t ổ ch ứ c có s ử d ụ ng lao độ ng làm vi ệ c theo h ợ p đồ ng lao độ ng có th ờ i h ạ n t ừ đủ ba tháng tr ở lên và h ợ p đồ ng lao độ ng không xác đị nh th ờ i h ạ n.
+
+Ơ í nh ữ ng doanh nghi ệ p, c ơ quan, t ổ ch ứ c này, ng ườ i s ử d ụ ng lao độ ng, ng ườ i lao độ ng ph ả i đ óng b ả o hi ể m xã h ộ i theo quy đị nh t ạ i Đ i ề u 149 c ủ a B ộ lu ậ t lao độ ng và ng ườ i lao độ ng đượ c h ưở ng các ch ế độ tr ợ c ấ p b ả o hi ể m xã h ộ i ố m đ au, tai n ạ n lao độ ng, b ệ nh ngh ề nghi ệ p, thai s ả n, h ư u trí và t ử tu ấ t.
+
+Section: b) Giai đ o ạ n ho ạ t độ ng xu ấ t kh ẩ u lao độ ng theo c ơ ch ế th ị tr ườ ng (t ừ 1991 đế n nay )
+---
+Bình quân hàng n ă m ch ỉ g ầ n 1 v ạ n ng ườ i lao độ ng đ i làm ở n ướ c ngoài. S ố lao độ ng ph ổ thông có xu h ướ ng gi ả m và yêu c ầ u đ òi h ỏ i ng ườ i lao độ ng tr ướ c khi đ i làm vi ệ c ở n ướ c ngoài ph ả i đượ c đ ào t ạ o. M ọ i ng ườ i lao độ ng tr ướ c khi đ i đề u đượ c tham d ự m ộ t khoá đ ào t ạ o do công ty cung ứ ng lao độ ng t ổ ch ứ c, th ờ i gian ch ủ y ế u là h ọ c ngo ạ i ng ữ c ủ a n ướ c mà lao độ ng s ẽ đế n làm vi ệ c. Ngoài ra còn h ọ c t ậ p v ề pháp lu ậ t c ủ a n ướ c đ ó, nh ữ ng đ i ề u c ầ n thi ế t v ề h ợ p đồ ng lao độ ng, tranh ch ấ p lao độ ng, quan h ệ ứ ng x ử , phong t ụ c t ậ p quán và an toàn v ệ sinh lao độ ng. Nh ờ đ ó, ch ấ t l ượ ng lao độ ng trong giai đ o ạ n này đượ c nâng cao h ơ n. Th ờ i k ỳ này, tuy s ố l ượ ng ng ườ i đ i lao độ ng xu ấ t kh ẩ u gi ả m nh ư ng th ị tr ườ ng l ạ i đượ c m ở ra h ơ n tr ướ c : Đ ã có g ầ n 40 n ướ c và lãnh th ổ ti ế p nh ậ n lao độ ng và chuyên gia Vi ệ t Nam. Qua h ơ n m ườ i n ă m ho ạ t độ ng XKL Đ và chuyên gia theo c ơ ch ế th ị tr ườ ng chúng ta đ ã đạ t đượ c m ộ t s ố thành tích đ áng k ể :
+
+Theo th ố ng kê. Tính đế n tháng 6 n ă m 2001 đ ã có 140.000 lao độ ng và chuyên gia đ i làm vi ệ c ở n ướ c ngoài. Riêng n ă m 2000 có trên 31.400 ng ườ i. N ă m 2002 là 46.120, n ă m2003 rên 75.000, n ă m 2004 67.440. Hi ệ n nay m ỗ i n ă m lao độ ng xu ấ t kh ẩ u g ử i v ề kho ả ng 1,5 t ỷ USD. (http:/vnepress.net/VietNam/Xa-hoi/2005)
+
+Section: 2. N ộ i dung c ủ a th ỏ a ướ c lao độ ng t ậ p th ể
+---
+### 2. N ộ i dung c ủ a th ỏ a ướ c lao độ ng t ậ p th ể
+
+V ề m ặ t khoa h ọ c pháp lý, b ả n th ỏ a ướ c lao độ ng t ậ p th ể mà hai bên ký k ế t có th ể bao g ồ m hai nhóm n ộ i dung:
+
+Nhóm th ứ nh ấ t là các n ộ i dung ch ủ y ế u c ủ a th ỏ a ướ c lao độ ng t ậ p th ể , bao g ồ m các cam k ế t c ủ a hai bên v ề vi ệ c làm và nh ữ ng bi ệ n pháp b ả o đả m vi ệ c làm, th ờ i gi ờ làm vi ệ c, th ờ i gi ờ ngh ỉ ng ơ i, ti ề n l ươ ng, ti ề n th ưở ng và các lo ạ i ph ụ c ấ p l ươ ng, đị nh m ứ c lao độ ng an toàn lao độ ng, v ệ sinh lao độ ng, các ch ế độ b ả o hi ể m xã h ộ i đố i v ớ i ng ườ i lao độ ng.
+
+Nhóm th ứ hai bao g ồ m các n ộ i dung khác mà trong quá trình th ươ ng l ượ ng th ỏ a thu ậ n, hai bên đồ ng ý đư a vào b ả n th ỏ a ướ c, đ ó có th ể là nh ữ ng v ấ n đề phúc l ợ i đố i v ớ i ng ườ i lao độ ng, v ề đ ào t ạ o, v ề trách nhi ệ m c ủ a t ậ p th ể ng ườ i lao độ ng đố i v ớ i s ự phát tri ể n c ủ a doanh nghi ệ p, v ề ph ươ ng th ứ c gi ả i quy ế t khi có tranh ch ấ p lao độ ng.
+
+Theo quy đị nh c ủ a pháp lu ậ t lao độ ng n ướ c ta n ộ i dung ch ủ y ế u c ủ a th ỏ a ướ c lao độ ng t ậ p th ể g ồ m nh ữ ng cam k ế t sau đ ây:
+
+Vi ệ c làm và b ả o đả m vi ệ c làm;
+
+Th ờ i gi ờ làm vi ệ c, th ờ i gi ờ ngh ỉ ng ơ i;
+
+Ti ề n l ươ ng, ti ề n th ưở ng, ph ụ c ấ p l ươ ng;
+
+Đị nh m ứ c lao độ ng;
+
+An toàn, v ệ sinh lao độ ng;
+
+B ả o hi ể m xã h ộ i đố i v ớ i ng ườ i lao độ ng
+
+Section: a. Khái ni ệ m tranh ch ấ p lao độ ng
+---
+### a. Khái ni ệ m tranh ch ấ p lao độ ng
+
+Trong quá trình th ự c hi ệ n quy ề n và ngh ĩ a v ụ lao độ ng, quan h ệ gi ữ a ng ườ i lao độ ng v ớ i ng ườ i s ử d ụ ng lao độ ng không ph ả i lúc nào c ũ ng di ễ n bi ế n m ộ t cách ổ n đị nh bình th ườ ng theo đ úng nh ữ ng th ỏ a thu ậ n. Gi ữ a h ọ có th ể s ẽ xu ấ t hi ệ n nh ữ ng b ấ t đồ ng v ề quy ề n và l ợ i ích trong lao độ ng. Có nh ữ ng b ấ t đồ ng đượ c các bên th ỏ a thu ậ n và gi ả i quy ế t đượ c song c ũ ng có th ể có nh ữ ng b ấ t đồ ng mà s ự th ươ ng l ượ ng c ủ a hai bên không th ể gi ả i quy ế t đượ c. Nh ữ ng b ấ t đồ ng, xung độ t n ế u đượ c gi ả i quy ế t t ố t thì s ẽ không tr ở thành mâu thu ẫ n, ng ượ c l ạ i, n ế u không đượ c gi ả i quy ế t thì d ễ tr ở thành nh ữ ng mâu thu ẫ n gay g ắ t. Lúc này, h ọ ph ả i c ầ n đế n m ộ t trung gian (ng ườ i th ứ th ứ ba ho ặ c m ộ t c ơ quan có th ẩ m quy ề n đượ c pháp lu ậ t quy đị nh) để gi ả i quy ế t.
+
+Pháp lu ậ t c ủ a h ầ u h ế t các n ướ c trên th ế gi ớ i đề u đị nh ra m ộ t c ơ ch ế gi ả i quy ế t nh ữ ng b ấ t đồ ng, xung độ t c ủ a hai bên ch ủ th ể trong m ố i quan h ệ lao độ ng. Do đ i ề u ki ệ n c ụ th ể c ủ a m ỗ i n ướ c mà quan ni ệ m v ề tranh ch ấ p lao độ ng ở các n ướ c có s ự khác bi ệ t. T ừ đ ó, m ỗ i n ướ c đị nh ra c ơ ch ế gi ả i quy ế t tranh ch ấ p lao độ ng khác nhau.</pre><p>Metric không có điểm: context_precision, context_recall | GoogleAPIError: 503 UNAVAILABLE. {&#x27;error&#x27;: {&#x27;code&#x27;: 503, &#x27;message&#x27;: &#x27;This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.&#x27;, &#x27;status&#x27;: &#x27;UNAVAILABLE&#x27;}}</p></details></td></tr><tr><td>smoke_law_dataset.json</td><td>LAW_002</td><td>Yes</td><td>BLOCKED_PROVIDER</td><td>—</td><td>—</td><td>—</td><td>—</td><td><details><summary>Theo giáo trình Luật lao động 2005, người làm ca đêm được nghỉ giữa ca ít nhất bao nhiêu phút và thời gian này có tính vào giờ làm việc không?</summary><h4>Answer</h4><pre>Theo giáo trình Luật lao động 2005, người làm ca đêm (từ 22 giờ đến 6 giờ hoặc từ 21 giờ đến 5 giờ) được nghỉ giữa ca ít nhất 45 phút và thời gian nghỉ này được tính vào giờ làm việc [SOURCE_1].</pre><h4>Ground truth</h4><pre>Người làm ca đêm được nghỉ giữa ca ít nhất 45 phút, tính vào giờ làm việc.</pre><h4>Contexts</h4><pre>Section: a) Th ờ i gi ờ ngh ỉ gi ữ a ca (ngh ỉ gi ả i lao)
+---
+### a) Th ờ i gi ờ ngh ỉ gi ữ a ca (ngh ỉ gi ả i lao)
+
+Theo quy đị nh c ủ a pháp lu ậ t lao độ ng, thì th ờ i gi ờ ngh ỉ gi ữ a ca đượ c tính nh ư sau:
+
+Ng ườ i lao độ ng làm vi ệ c 8 gi ờ liên t ụ c trong đ i ề u ki ệ n bình th ườ ng ho ặ c làm vi ệ c 7 gi ờ , 6 gi ờ liên t ụ c trong tr ườ ng h ợ p đượ c rút ng ắ n th ờ i gi ờ làm vi ệ c thì đượ c ngh ỉ ít nh ấ t n ử a gi ờ (30 phút), tính vào gi ờ làm vi ệ c;
+
+Ng ườ i làm ca đ êm ( t ừ 22 gi ờ đế n 6 gi ờ ho ặ c t ừ 21 gi ờ đế n 5 gi ờ ) đượ c ngh ỉ gi ữ a ca ít nh ấ t 45 phút, tính vào gi ờ làm vi ệ c;
+
+Ng ườ i lao độ ng làm vi ệ c theo ca đượ c ngh ỉ ít nh ấ t 12 gi ờ tr ướ c khi chuy ể n sang ca khác.
+
+Section: a. Ngày làm vi ệ c tiêu chu ẩ n
+---
+Th ờ i gi ờ ngh ỉ m ỗ i ngày 30 phút đố i v ớ i ng ườ i lao độ ng n ữ trong th ờ i gian hành kinh;
+
+Th ờ i gi ờ ph ả i ng ừ ng vi ệ c không do l ỗ i c ủ a ng ườ i lao độ ng;
+
+Th ờ i gi ờ h ọ c t ậ p, hu ấ n luy ệ n v ề an toàn lao độ ng, v ệ sinh lao độ ng;
+
+Th ờ i gi ờ h ộ i h ọ p, h ọ c t ậ p do yêu c ầ u c ủ a ng ườ i s ử d ụ ng lao độ ng ho ặ c đượ c ng ườ i s ử d ụ ng lao độ ng cho phép.
+
+Ng ườ i s ử d ụ ng lao độ ng có quy ề n xác đị nh th ờ i đ i ể m b ắ t đầ u ngày làm vi ệ c và th ờ i đ i ể m k ế t thúc ngày làm vi ệ c, th ờ i gian ngh ỉ ng ơ i gi ữ a ca. Tuy nhiên, các quy đị nh này ph ả i đượ c ghi vào n ộ i quy, đ i ề u l ệ doanh nghi ệ p và ph ả i thông báo cho t ừ ng ng ườ i lao độ ng bi ế t để th ự c hi ệ n.
+
+T ạ i th ờ i đ i ể m b ắ t đầ u ngày làm vi ệ c, ng ườ i lao độ ng ph ả i có m ặ t t ạ i đị a đ i ể m s ả n xu ấ t, công tác và b ắ t tay vào làm vi ệ c, th ự c hi ệ n ngh ĩ a v ụ lao độ ng c ủ a mình. Sau th ờ i đ i ể m k ế t thúc ngày làm vi ệ c, ng ườ i lao độ ng m ớ i có quy ề n r ờ i kh ỏ i n ơ i làm vi ệ c. Tr ườ ng h ợ p làm vi ệ c theo ca, kíp, đ ã h ế t gi ờ làm vi ệ c nh ư ng ch ư a có ng ườ i đế n nh ậ n ca thì ng ườ i lao độ ng không đượ c phép t ự ti ệ n đ óng máy ho ặ c b ỏ ra v ề , mà ph ả i báo ngay cho ng ườ i qu ả n lý bi ế t để gi ả i quy ế t.
+
+Section: a. Ngày làm vi ệ c tiêu chu ẩ n
+---
+### a. Ngày làm vi ệ c tiêu chu ẩ n
+
+Ngày làm vi ệ c tiêu chu ẩ n là lo ạ i ngày làm vi ệ c trong đ ó pháp lu ậ t quy đị nh c ụ th ể kho ả n th ờ i gian làm vi ệ c c ủ a ng ườ i lao độ ng trong m ộ t ngày đ êm.
+
+Có hai lo ạ i ngày làm vi ệ c tiêu chu ẩ n đượ c áp d ụ ng cho nh ữ ng đố i t ượ ng c ụ th ể nh ư sau:
+
+(1) Ngày làm vi ệ c bình th ườ ng : đượ c quy đị nh không quá 8 gi ờ m ộ t ngày, áp d ụ ng chung cho công vi ệ c bình th ườ ng. Trong nh ữ ng tr ườ ng h ợ p khác do tính ch ấ t s ả n xu ấ t, công tác, do đ i ề u ki ệ n th ờ i ti ế t, th ờ i v ụ ho ặ c do s ả n xu ấ t theo ca, kíp mà ph ả i phân b ổ l ạ i s ố gi ờ làm vi ệ c trong ngày ho ặ c trong tu ầ n, trong tháng cho thích h ợ p thì ng ườ i s ử d ụ ng lao độ ng ph ả i th ố ng nh ấ t v ớ i công đ oàn c ơ s ở trên c ơ s ở ký k ế t th ỏ a ướ c lao độ ng t ậ p th ể và nguyên t ắ c chung là th ờ i gian làm vi ệ c bình quân không quá 8 gi ờ /ngày ho ặ c 48 gi ờ /tu ầ n 6 .
+
+Th ờ i gi ờ đượ c tính vào th ờ i gi ờ làm vi ệ c có h ưở ng l ươ ng bao g ồ m:
+
+6 Hi ệ n nay gi ờ làm vi ệ c trong khu v ự c nhà n ướ c là 40h /1 tu ầ n.
+
+Th ờ i gi ờ ngh ỉ gi ữ a ca làm vi ệ c;
+
+Th ờ i gi ờ ngh ỉ gi ả i lao theo tính ch ấ t c ủ a công vi ệ c;
+
+Th ờ i gi ờ ngh ỉ c ầ n thi ế t trong quá trình lao độ ng đ ã đượ c tính trong đị nh m ứ c lao độ ng cho nhu c ầ u sinh lý t ự nhiên c ủ a con ng ườ i;
+
+Th ờ i gi ờ ngh ỉ m ỗ i ngày 60 phút đố i v ớ i ng ườ i lao độ ng n ữ nuôi con d ướ i 12 tháng tu ổ i;
+
+Section: · Các đ i ề u ki ệ n và nguyên t ắ c làm thêm đế n 200 gi ờ trong m ộ t n ă m:
+---
+T ổ ng s ố gi ờ làm thêm trong 4 ngày liên t ụ c không quá 14 gi ờ ; riêng đố i v ớ i ng ườ i lao độ ng làm các ngh ề , công vi ệ c đặ c bi ệ t n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m, thì t ổ ng s ố gi ờ làm thêm trong 4 ngày liên t ụ c không quá 10 gi ờ ;
+
+Hàng tu ầ n, ng ườ i lao độ ng đượ c ngh ỉ ít nh ấ t 1 ngày (24 gi ờ liên t ụ c). Trong tr ườ ng h ợ p đặ c bi ệ t do chu k ỳ lao độ ng không th ể b ố trí ngh ỉ hàng tu ầ n thì ph ả i b ả o đả m hàng tháng có ít nh ấ t 4 ngày ngh ỉ cho ng ườ i lao độ ng;
+
+Trong tr ườ ng h ợ p ng ườ i lao độ ng làm thêm trên 2 gi ờ trong ngày, thì tr ướ c khi làm thêm, ph ả i b ố trí cho h ọ đượ c ngh ỉ ít nh ấ t 30 phút tính vào gi ờ làm thêm;
+
+B ố trí cho ng ườ i lao độ ng đượ c ngh ỉ ho ặ c ngh ỉ bù đủ các ngày l ễ , t ế t, ngh ỉ hàng n ă m và các ngày ngh ỉ có h ưở ng l ươ ng khác đ úng theo qui đị nh c ủ a Pháp lu ậ t hi ệ n hành;
+
+Th ự c hi ệ n đ úng các quy đị nh t ạ i Đ i ề u 115, Đ i ề u 122, Đ i ề u 127 c ủ a B ộ lu ậ t Lao độ ng đ ã s ử a đổ i, b ổ sung v ề vi ệ c c ấ m ho ặ c h ạ n ch ế làm thêm gi ờ đố i v ớ i lao độ ng n ữ , lao độ ng ch ư a thành niên, lao độ ng là ng ườ i tàn t ậ t;
+
+Th ự c hi ệ n tr ả l ươ ng và các ch ế độ khác liên quan đế n làm thêm gi ờ đ úng theo quy đị nh c ủ a Pháp lu ậ t hi ệ n hành.
+
+Section: b. Th ờ i gi ờ làm vi ệ c ban đ êm :
+---
+### b. Th ờ i gi ờ làm vi ệ c ban đ êm :
+
+Th ờ i gi ờ làm vi ệ c đượ c tính là làm vi ệ c ban đ êm đượ c pháp lu ậ t lao độ ng n ướ c ta quy đị nh nh ư sau:
+
+T ừ Th ừ a Thiên Hu ế tr ở ra phía B ắ c đượ c tính t ừ 22 gi ờ đế n 6 gi ờ ;
+
+T ừ Đ à N ẵ ng tr ở vào phía Nam đượ c tính t ừ 21 gi ờ đế n 5 gi ờ .
+
+Ng ườ i lao độ ng làm vi ệ c vào ban đ êm thì đượ c tr ả thêm ít nh ấ t b ằ ng 30% c ủ a ti ề n l ươ ng làm vi ệ c vào ban ngày.
+
+Section: 4. Tr ả l ươ ng khi làm thêm gi ờ
+---
+### 4. Tr ả l ươ ng khi làm thêm gi ờ
+
+Ng ườ i lao độ ng làm thêm gi ờ nói đượ c tr ả l ươ ng làm thêm gi ờ theo đơ n giá ti ề n l ươ ng ho ặ c ti ề n l ươ ng th ự c tr ả c ủ a công vi ệ c đ ang làm nh ư sau:
+
+Vào ngày th ườ ng, ít nh ấ t b ằ ng 150%;
+
+Vào ngày ngh ỉ hàng tu ầ n quy đị nh t ạ i Đ i ề u 72 c ủ a B ộ lu ậ t Lao độ ng, ít nh ấ t b ằ ng 200%;
+
+Vào ngày l ễ , ngày ngh ỉ có h ưở ng l ươ ng quy đị nh t ạ i các Đ i ề u 73, 74, 75 và 78 c ủ a B ộ lu ậ t Lao độ ng, ít nh ấ t b ằ ng 300%.
+
+Ng ườ i lao độ ng làm vi ệ c vào ban đ êm quy đị nh t ạ i Đ i ề u 70 c ủ a B ộ lu ậ t Lao độ ng, thì đượ c tr ả thêm ít nh ấ t b ằ ng 30% ti ề n l ươ ng tính theo đơ n giá ti ề n l ươ ng ho ặ c ti ề n l ươ ng c ủ a công vi ệ c đ ang làm vào ban ngày. N ế u làm thêm gi ờ vào ban đ êm, thì ng ườ i lao độ ng còn đượ c tr ả ti ề n l ươ ng làm thêm gi ờ .
+
+Section: II. LAO ĐỘ NG CH Ư A THÀNH NIÊN
+---
+Lu ậ t b ả o v ệ , ch ă m sóc và giáo d ụ c tr ẻ em ban hành ngày 16-08-1991 quy đị nh c ấ m b ắ t tr ẻ em đ i xin ă n ho ặ c làm nh ữ ng công vi ệ c không lành m ạ nh để ki ế m ti ề n cho ng ườ i l ớ n, ng ườ i ch ư a thành niên khi tham gia quan h ệ lao độ ng ph ả i đượ c s ử d ụ ng vào nh ữ ng công vi ệ c thích h ợ p v ớ i sinh lý và c ơ th ể c ủ a h ọ .
+
+K ế th ừ a nh ữ ng quy đị nh v ừ a nên trên, B ộ lu ậ t Lao độ ng m ộ t m ặ t v ừ a t ổ ng h ợ p các quy đị nh này, v ừ a có nh ữ ng quy đị nh m ớ i đố i v ớ i ng ườ i ch ư a thành niên. B ộ lu ậ t Lao độ ng đ ã dành các đ i ề u t ừ 119 đế n 122 để quy đị nh nh ữ ng ch ế độ lao độ ng này, nh ằ m b ả o v ệ quy ề n và l ợ i ích h ợ p pháp c ủ a nh ữ ng ng ườ i lao độ ng này khi tham gia quan h ệ lao độ ng.
+
+Ch ế độ lao độ ng c ủ a ng ườ i ch ư a thành niên và trách nhi ệ m c ủ a ng ườ i s ử d ụ ng lao độ ng đượ c quy đị nh bao g ồ m:
+
+Th ờ i gian làm vi ệ c c ủ a ng ườ i lao độ ng ch ư a thành niên không đượ c quá 7 gi ờ m ộ t ngày ho ặ c 42 gi ờ m ộ t tu ầ n.
+
+Ng ườ i s ử d ụ ng lao độ ng ch ỉ đượ c s ử d ụ ng ng ườ i lao độ ng ch ư a thành niên làm thêm gi ờ , làm vi ệ c ban đ êm trong m ộ t s ố ngh ề , công vi ệ c do B ộ Lao độ ng - th ươ ng binh và Xã h ộ i quy đị nh.
+
+Section: * S ố ngày ngh ỉ hàng n ă m:
+---
+### * S ố ngày ngh ỉ hàng n ă m:
+
+Theo quy đị nh t ạ i Đ i ề u 74 B ộ lu ậ t lao độ ng n ướ c ta thì th ờ i gian ngh ỉ hàng n ă m đượ c chia ra làm 3 m ứ c là : 12, 14 và 16 ngày, c ụ th ể nh ư sau:
+
+12 ngày làm vi ệ c, đố i v ớ i ng ườ i làm công vi ệ c trong đ i ề u ki ệ n bình th ườ ng;
+
+14 ngày làm vi ệ c, đố i v ớ i ng ườ i làm công vi ệ c n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m ho ặ c làm vi ệ c ở nh ữ ng n ơ i có đ i ề u ki ệ n sinh s ố ng kh ắ c nghi ệ t và đố i v ớ i ng ườ i d ướ i 18 tu ổ i;
+
+16 ngày làm vi ệ c, đố i v ớ i ng ườ i làm công vi ệ c đặ c bi ệ t n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m; ng ườ i làm công vi ệ c n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m ở nh ữ ng n ơ i có đ i ề u ki ệ n sinh s ố ng kh ắ c nghi ệ t.
+
+Th ờ i gian đ i đườ ng không tính vào ngày ngh ỉ hàng n ă m. S ố ngày ngh ỉ hàng n ă m c ủ a ng ườ i lao độ ng còn đượ c t ă ng theo thâm niên làm vi ệ c t ạ i m ộ t doanh nghi ệ p, ho ặ c v ớ i m ộ t ng ườ i s ử d ụ ng lao độ ng, c ứ 5 n ă m đượ c ngh ỉ thêm 1 ngày. Trong th ờ i gian ngh ỉ hàng n ă m, ng ườ i lao độ ng đượ c h ưở ng nguyên l ươ ng c ộ ng ph ụ c ấ p l ươ ng. Ngoài ra, ng ườ i lao độ ng còn đượ c thanh toán ti ề n tàu xe đ i và v ề (n ế u có).
+
+Section: Tiêu chu ẩ n hóa th ờ i gi ờ làm vi ệ c
+---
+### Tiêu chu ẩ n hóa th ờ i gi ờ làm vi ệ c
+
+Tiêu chu ẩ n hóa th ờ i gi ờ làm vi ệ c là vi ệ c quy đị nh s ố gi ờ làm vi ệ c trong m ộ t ngày, trong m ộ t tu ầ n l ễ ; s ố ngày làm vi ệ c trong m ộ t tu ầ n, trong m ộ t tháng và trong m ộ t n ă m. Th ự c ch ấ t tiêu chu ẩ n hóa th ờ i gi ờ làm vi ệ c chính là vi ệ c quy đị nh độ dài ngày hay tu ầ n làm vi ệ c đố i v ớ i ng ườ i lao độ ng.
+
+Vi ệ c xác đị nh th ờ i gi ờ làm vi ệ c thông th ườ ng đượ c tính theo đơ n v ị gi ờ và t ừ đơ n v ị gi ờ tình ra độ dài c ủ a ngày, tu ầ n, tháng, n ă m làm vi ệ c.
+
+Trong s ả n xu ấ t kinh doanh, nh ằ m có th ể t ậ n d ụ ng t ố t đ a công su ấ t máy móc, thi ế t b ị , kh ắ c ph ụ c hao mòn vô hình, ho ặ c để đ áp ứ ng nhu c ầ u c ủ a khách hàng, ng ườ i s ử d ụ ng lao độ ng có th ể t ổ ch ứ c m ộ t hay luân phiên nhi ề u ca làm vi ệ c trong m ộ t ngày đ êm. Trong tr ườ ng h ợ p đ ó, độ dài ngày làm vi ệ c đượ c xác đị nh theo ca làm vi ệ c.
+
+Độ dài tu ầ n làm vi ệ c có th ể tính b ằ ng s ố gi ờ làm vi ệ c trong m ộ t ngày nhân v ớ i s ố ngày làm vi ệ c trong m ộ t tu ầ n. C ũ ng có th ể ấ n đị nh tr ướ c t ổ ng s ố gi ờ làm vi ệ c trong m ộ t tu ầ n làm vi ệ c, sau đ ó m ớ i xác đị nh làm vi ệ c bao nhiêu ngày trong m ộ t tu ầ n để có th ể phân b ố t ổ ng s ố gi ờ này cho các ngày.
+
+Section: b) Ngh ỉ hàng tu ầ n
+---
+### b) Ngh ỉ hàng tu ầ n
+
+M ỗ i tu ầ n l ễ , ng ườ i lao độ ng đượ c ngh ỉ ít nh ấ t m ộ t ngày (24 gi ờ liên t ụ c), th ườ ng là vào ngày ch ủ nh ậ t. Tuy nhiên, đố i v ớ i nh ữ ng c ơ quan, xí nghi ệ p do yêu c ầ u c ủ a s ả n xu ấ t, công tác ho ặ c ph ụ c v ụ nhân dân đ òi h ỏ i ph ả i làm vi ệ c liên t ụ c c ả tu ầ n, k ể c ả ch ủ nh ậ t thì ng ườ i s ử d ụ ng lao độ ng có th ể s ắ p x ế p ngày ngh ỉ hàng tu ầ n vào m ộ t ngày khác trong tu ầ n cho t ừ ng nhóm ng ườ i lao độ ng khác nhau.
+
+Tr ườ ng h ợ p do chu k ỳ lao độ ng không th ể ngh ỉ hàng tu ầ n, thì ng ườ i s ử d ụ ng lao độ ng ph ả i đả m b ả o cho ng ườ i lao độ ng ch ế độ ngh ỉ bù th ỏ a đ áng. Tính bình quân m ỗ i tháng, ng ườ i lao độ ng đượ c ngh ỉ ít nh ấ t 4 ngày.
+
+Section: - Th ự c hi ệ n các quy đị nh c ụ th ể v ề th ờ i gian làm vi ệ c và tr ậ t t ự trong đơ n v ị :
+---
+### - Th ự c hi ệ n các quy đị nh c ụ th ể v ề th ờ i gian làm vi ệ c và tr ậ t t ự trong đơ n v ị :
+
+Các đơ n v ị s ẽ c ă n c ứ vào nh ữ ng quy đị nh chung c ủ a pháp lu ậ t, nh ữ ng quy đị nh v ề th ờ i gian làm vi ệ c cho công ch ứ c viên ch ứ c và nh ữ ng th ỏ a thu ậ n trong th ỏ a ướ c để quy đị nh c ụ th ể v ề th ờ i gian làm vi ệ c trong ngày, trong tu ầ n, trong m ỗ i ca, s ố ngày làm thêm, gi ờ b ắ t đầ u làm vi ệ c, gi ờ ngh ỉ gi ả i lao và th ờ i đ i ể m k ế t thúc ngày, ca làm vi ệ c...Ng ườ i lao độ ng ph ả i th ự c hi ệ n các quy đị nh trên, đả m b ả o ho ạ t độ ng nh ị p nhàng cho quá trình t ổ ch ứ c lao độ ng c ủ a đơ n v ị , ng ườ i lao độ ng ph ả i tuân theo quy đị nh v ề đị a đ i ể m, ph ạ m vi làm vi ệ c, đ i l ạ i, giao ti ế p, ra vào c ổ ng... để gi ữ tr ậ t t ự chung trong c ơ quan, doanh nghi ệ p. Ngh ĩ a v ụ này v ừ a đả m b ả o k ỷ lu ậ t, tr ậ t t ự trong đơ n v ị , v ừ a t ạ o đ i ề u ki ệ n cho ng ườ i lao độ ng s ử d ụ ng h ợ p lý th ờ i gian, nâng cao n ă ng su ấ t lao độ ng, t ă ng thu nh ậ p cho h ọ và hi ệ u qu ả công vi ệ c trong đơ n v ị
+
+Section: đ . Các bi ệ n pháp khác
+---
+### đ . Các bi ệ n pháp khác
+
+Quy đị nh v ề th ờ i gi ờ làm vi ệ c h ợ p lý
+
+Đả m b ả o m ố i quan h ệ h ợ p lý gi ữ a th ờ i gi ờ làm vi ệ c và th ờ i gi ờ ngh ỉ ng ơ i cho ng ườ i lao độ ng.
+
+Áp d ụ ng ngày làm vi ệ c rút ng ắ n đố i v ớ i m ộ t s ố công vi ệ c mà m ứ c độ nguy hi ể m, độ c h ạ i cao (ví d ụ : th ợ l ặ n, ng ườ i làm vi ệ c trong h ầ m m ỏ . . . ).
+
+Tùy t ừ ng lo ạ i công vi ệ c có m ứ c độ n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m mà quy đị nh độ dài c ủ a ca làm vi ệ c, th ờ i gian ngh ỉ gi ữ a ca cho phù h ợ p.
+
+H ạ n ch ế ho ặ c không áp d ụ ng ch ế độ làm ca đ êm, làm thêm gi ờ đố i v ớ i m ộ t s ố đố i t ượ ng, m ộ t s ố lo ạ i công vi ệ c mà pháp lu ậ t đ ã quy đị nh.
+
+Quy ề n t ừ ch ố i làm vi ệ c, r ờ i kh ỏ i n ơ i làm vi ệ c khi th ấ y xu ấ t hi ệ n nguy c ơ
+
+Ng ườ i lao độ ng có quy ề n t ừ ch ố i làm công vi ệ c ho ặ c r ờ i b ỏ n ơ i làm vi ệ c khi th ấ y rõ có nguy c ơ đ e d ọ a nghiêm tr ọ ng tính m ạ ng ho ặ c s ứ c kh ỏ e c ủ a mình (nh ư ng ph ả i báo ngay v ớ i ng ườ i ph ụ trách tr ự c ti ế p) mà không coi là vi ph ạ m k ỷ lu ậ t lao độ ng.
+
+Section: a. Th ờ i gi ờ làm thêm
+---
+### a. Th ờ i gi ờ làm thêm
+
+Th ờ i gian làm thêm gi ờ là do có yêu c ầ u c ủ a ng ườ i s ử d ụ ng lao độ ng mà s ố th ờ i gian làm vi ệ c v ượ t quá s ố gi ờ tiêu chu ẩ n đ ã đượ c ấ n đị nh.
+
+Ng ườ i s ử d ụ ng lao độ ng và ng ườ i lao độ ng có th ể tho ả thu ậ n làm thêm gi ờ , nh ư ng không quá 4 gi ờ trong m ộ t ngày, 200 gi ờ trong m ộ t n ă m, tr ừ m ộ t s ố tr ườ ng h ợ p đặ c bi ệ t đượ c làm thêm không đượ c quá 300 gi ờ trong m ộ t n ă m.
+
+Section: b) Th ờ i gian đượ c h ưở ng và m ứ c h ưở ng tr ợ c ấ p thai s ả n
+---
+### b) Th ờ i gian đượ c h ưở ng và m ứ c h ưở ng tr ợ c ấ p thai s ả n
+
+Th ờ i gian ngh ỉ vi ệ c tr ướ c và sau khi sinh con đượ c pháp lu ậ t lao độ ng quy đị nh nh ư sau:
+
+4 tháng đố i v ớ i ng ườ i làm vi ệ c trong đ i ề u ki ệ n bình th ườ ng;
+
+5 tháng đố i v ớ i ng ườ i làm các ngh ề ho ặ c công vi ệ c n ặ ng nh ọ c, độ c h ạ i; làm vi ệ c theo ch ế độ 3 ca; làm vi ệ c ở n ơ i có ph ụ c ấ p khu v ự c h ệ s ố 0,5 và 0,7;
+
+6 tháng đố i v ớ i ng ườ i làm vi ệ c ở n ơ i có ph ụ c ấ p khu v ự c h ệ s ố 1,0; ng ườ i làm ngh ề ho ặ c công vi ệ c đặ c bi ệ t theo danh m ụ c do B ộ Lao độ ngTh ươ ng binh và Xã h ộ i ban hành.
+
+N ế u sinh đ ôi tr ở lên, thì tính t ừ con th ứ hai tr ở đ i, c ứ m ỗ i con, ng ườ i m ẹ đượ c ngh ỉ thêm 30 ngày.
+
+Trong tr ườ ng h ợ p khi sinh con, n ế u con d ướ i 60 ngày tu ổ i b ị ch ế t (k ể c ả tr ườ ng h ợ p đẻ thai ch ế t l ư u) thì ng ườ i m ẹ đượ c ngh ỉ vi ệ c 75 ngày tính t ừ ngày sinh; n ế u con t ừ 60 ngày tu ổ i tr ở lên b ị ch ế t thì đượ c ngh ỉ vi ệ c 15 ngày tính t ừ khi con ch ế t, nh ư ng không v ượ t quá th ờ i gian ngh ỉ vi ệ c tr ướ c và sau khi sinh con nh ư đ ã trình bày ở ph ầ n trên.
+
+Tr ườ ng h ợ p h ế t th ờ i h ạ n ngh ỉ vi ệ c sinh con nh ư đ ã trình bày ở trên, n ế u có nhu c ầ u thì s ả n ph ụ có th ể ngh ỉ thêm v ớ i đ i ề u ki ệ n đượ c ng ườ i s ử d ụ ng lao độ ng ch ấ p thu ậ n nh ư ng không đượ c h ưở ng tr ợ c ấ p b ả o hi ể m xã h ộ i.
+
+Section: d. B ồ i d ưỡ ng b ằ ng hi ệ n v ậ t
+---
+### d. B ồ i d ưỡ ng b ằ ng hi ệ n v ậ t
+
+Ng ườ i lao độ ng không phân bi ệ t gi ớ i tính, tu ổ i tác, n ơ i làm vi ệ c khi làm công vi ệ c có y ế u t ố nguy h ạ i v ượ t tiêu chu ẩ n v ệ sinh cho phép thì đượ c h ưở ng ch ế độ b ồ i d ưỡ ng b ằ ng hi ệ n v ậ t.
+
+Khi áp d ụ ng ch ế độ b ồ i d ưỡ ng b ằ ng hi ệ n v ậ t ph ả i tuân th ủ các nguyên t ắ c sau đ ây:
+
+Công vi ệ c, môi tr ườ ng có y ế u t ố , m ứ c độ độ c h ạ i nh ư nhau thì m ứ c b ồ i d ưỡ ng ngang nhau;
+
+Hi ệ n v ậ t dùng để b ồ i d ưỡ ng ph ả i là nh ữ ng lo ạ i th ự c ph ẩ m, hoa qu ả , n ướ c gi ả i khát v.v . . . góp ph ầ n ph ụ c h ồ i s ứ c kh ỏ e, t ă ng s ứ c đề kháng c ủ a c ơ th ể , gi ả m b ớ t kh ả n ă ng xâm nh ậ p c ủ a ch ấ t độ c vào c ơ th ể ho ặ c giúp cho quá trình th ả i nhanh ch ấ t độ c ra ngoài.
+
+C ấ m tr ả ti ề n thay b ồ i d ưỡ ng b ằ ng hi ệ n v ậ t và vi ệ c b ồ i d ưỡ ng ph ả i đượ c th ự c hi ệ n t ạ i ch ỗ theo ca làm vi ệ c.</pre><p>Không chấm: dừng sau Gemini judge 503 ở LAW_001.</p></details></td></tr><tr><td>smoke_law_dataset.json</td><td>LAW_003</td><td>Yes</td><td>BLOCKED_PROVIDER</td><td>—</td><td>—</td><td>—</td><td>—</td><td><details><summary>Theo giáo trình Luật lao động 2005, người làm công việc trong điều kiện bình thường được nghỉ hàng năm bao nhiêu ngày làm việc?</summary><h4>Answer</h4><pre>Dựa trên tài liệu được cung cấp, tôi không tìm thấy thông tin để trả lời câu hỏi này.</pre><h4>Ground truth</h4><pre>Người làm công việc trong điều kiện bình thường được nghỉ hàng năm 12 ngày làm việc.</pre><h4>Contexts</h4><pre>Section: b) Ngh ỉ hàng tu ầ n
+---
+### b) Ngh ỉ hàng tu ầ n
+
+M ỗ i tu ầ n l ễ , ng ườ i lao độ ng đượ c ngh ỉ ít nh ấ t m ộ t ngày (24 gi ờ liên t ụ c), th ườ ng là vào ngày ch ủ nh ậ t. Tuy nhiên, đố i v ớ i nh ữ ng c ơ quan, xí nghi ệ p do yêu c ầ u c ủ a s ả n xu ấ t, công tác ho ặ c ph ụ c v ụ nhân dân đ òi h ỏ i ph ả i làm vi ệ c liên t ụ c c ả tu ầ n, k ể c ả ch ủ nh ậ t thì ng ườ i s ử d ụ ng lao độ ng có th ể s ắ p x ế p ngày ngh ỉ hàng tu ầ n vào m ộ t ngày khác trong tu ầ n cho t ừ ng nhóm ng ườ i lao độ ng khác nhau.
+
+Tr ườ ng h ợ p do chu k ỳ lao độ ng không th ể ngh ỉ hàng tu ầ n, thì ng ườ i s ử d ụ ng lao độ ng ph ả i đả m b ả o cho ng ườ i lao độ ng ch ế độ ngh ỉ bù th ỏ a đ áng. Tính bình quân m ỗ i tháng, ng ườ i lao độ ng đượ c ngh ỉ ít nh ấ t 4 ngày.
+
+Section: * S ố ngày ngh ỉ hàng n ă m:
+---
+### * S ố ngày ngh ỉ hàng n ă m:
+
+Theo quy đị nh t ạ i Đ i ề u 74 B ộ lu ậ t lao độ ng n ướ c ta thì th ờ i gian ngh ỉ hàng n ă m đượ c chia ra làm 3 m ứ c là : 12, 14 và 16 ngày, c ụ th ể nh ư sau:
+
+12 ngày làm vi ệ c, đố i v ớ i ng ườ i làm công vi ệ c trong đ i ề u ki ệ n bình th ườ ng;
+
+14 ngày làm vi ệ c, đố i v ớ i ng ườ i làm công vi ệ c n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m ho ặ c làm vi ệ c ở nh ữ ng n ơ i có đ i ề u ki ệ n sinh s ố ng kh ắ c nghi ệ t và đố i v ớ i ng ườ i d ướ i 18 tu ổ i;
+
+16 ngày làm vi ệ c, đố i v ớ i ng ườ i làm công vi ệ c đặ c bi ệ t n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m; ng ườ i làm công vi ệ c n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m ở nh ữ ng n ơ i có đ i ề u ki ệ n sinh s ố ng kh ắ c nghi ệ t.
+
+Th ờ i gian đ i đườ ng không tính vào ngày ngh ỉ hàng n ă m. S ố ngày ngh ỉ hàng n ă m c ủ a ng ườ i lao độ ng còn đượ c t ă ng theo thâm niên làm vi ệ c t ạ i m ộ t doanh nghi ệ p, ho ặ c v ớ i m ộ t ng ườ i s ử d ụ ng lao độ ng, c ứ 5 n ă m đượ c ngh ỉ thêm 1 ngày. Trong th ờ i gian ngh ỉ hàng n ă m, ng ườ i lao độ ng đượ c h ưở ng nguyên l ươ ng c ộ ng ph ụ c ấ p l ươ ng. Ngoài ra, ng ườ i lao độ ng còn đượ c thanh toán ti ề n tàu xe đ i và v ề (n ế u có).
+
+Section: a. Ngày làm vi ệ c tiêu chu ẩ n
+---
+### a. Ngày làm vi ệ c tiêu chu ẩ n
+
+Ngày làm vi ệ c tiêu chu ẩ n là lo ạ i ngày làm vi ệ c trong đ ó pháp lu ậ t quy đị nh c ụ th ể kho ả n th ờ i gian làm vi ệ c c ủ a ng ườ i lao độ ng trong m ộ t ngày đ êm.
+
+Có hai lo ạ i ngày làm vi ệ c tiêu chu ẩ n đượ c áp d ụ ng cho nh ữ ng đố i t ượ ng c ụ th ể nh ư sau:
+
+(1) Ngày làm vi ệ c bình th ườ ng : đượ c quy đị nh không quá 8 gi ờ m ộ t ngày, áp d ụ ng chung cho công vi ệ c bình th ườ ng. Trong nh ữ ng tr ườ ng h ợ p khác do tính ch ấ t s ả n xu ấ t, công tác, do đ i ề u ki ệ n th ờ i ti ế t, th ờ i v ụ ho ặ c do s ả n xu ấ t theo ca, kíp mà ph ả i phân b ổ l ạ i s ố gi ờ làm vi ệ c trong ngày ho ặ c trong tu ầ n, trong tháng cho thích h ợ p thì ng ườ i s ử d ụ ng lao độ ng ph ả i th ố ng nh ấ t v ớ i công đ oàn c ơ s ở trên c ơ s ở ký k ế t th ỏ a ướ c lao độ ng t ậ p th ể và nguyên t ắ c chung là th ờ i gian làm vi ệ c bình quân không quá 8 gi ờ /ngày ho ặ c 48 gi ờ /tu ầ n 6 .
+
+Th ờ i gi ờ đượ c tính vào th ờ i gi ờ làm vi ệ c có h ưở ng l ươ ng bao g ồ m:
+
+6 Hi ệ n nay gi ờ làm vi ệ c trong khu v ự c nhà n ướ c là 40h /1 tu ầ n.
+
+Th ờ i gi ờ ngh ỉ gi ữ a ca làm vi ệ c;
+
+Th ờ i gi ờ ngh ỉ gi ả i lao theo tính ch ấ t c ủ a công vi ệ c;
+
+Th ờ i gi ờ ngh ỉ c ầ n thi ế t trong quá trình lao độ ng đ ã đượ c tính trong đị nh m ứ c lao độ ng cho nhu c ầ u sinh lý t ự nhiên c ủ a con ng ườ i;
+
+Th ờ i gi ờ ngh ỉ m ỗ i ngày 60 phút đố i v ớ i ng ườ i lao độ ng n ữ nuôi con d ướ i 12 tháng tu ổ i;
+
+Section: · Các đ i ề u ki ệ n và nguyên t ắ c làm thêm đế n 200 gi ờ trong m ộ t n ă m:
+---
+T ổ ng s ố gi ờ làm thêm trong 4 ngày liên t ụ c không quá 14 gi ờ ; riêng đố i v ớ i ng ườ i lao độ ng làm các ngh ề , công vi ệ c đặ c bi ệ t n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m, thì t ổ ng s ố gi ờ làm thêm trong 4 ngày liên t ụ c không quá 10 gi ờ ;
+
+Hàng tu ầ n, ng ườ i lao độ ng đượ c ngh ỉ ít nh ấ t 1 ngày (24 gi ờ liên t ụ c). Trong tr ườ ng h ợ p đặ c bi ệ t do chu k ỳ lao độ ng không th ể b ố trí ngh ỉ hàng tu ầ n thì ph ả i b ả o đả m hàng tháng có ít nh ấ t 4 ngày ngh ỉ cho ng ườ i lao độ ng;
+
+Trong tr ườ ng h ợ p ng ườ i lao độ ng làm thêm trên 2 gi ờ trong ngày, thì tr ướ c khi làm thêm, ph ả i b ố trí cho h ọ đượ c ngh ỉ ít nh ấ t 30 phút tính vào gi ờ làm thêm;
+
+B ố trí cho ng ườ i lao độ ng đượ c ngh ỉ ho ặ c ngh ỉ bù đủ các ngày l ễ , t ế t, ngh ỉ hàng n ă m và các ngày ngh ỉ có h ưở ng l ươ ng khác đ úng theo qui đị nh c ủ a Pháp lu ậ t hi ệ n hành;
+
+Th ự c hi ệ n đ úng các quy đị nh t ạ i Đ i ề u 115, Đ i ề u 122, Đ i ề u 127 c ủ a B ộ lu ậ t Lao độ ng đ ã s ử a đổ i, b ổ sung v ề vi ệ c c ấ m ho ặ c h ạ n ch ế làm thêm gi ờ đố i v ớ i lao độ ng n ữ , lao độ ng ch ư a thành niên, lao độ ng là ng ườ i tàn t ậ t;
+
+Th ự c hi ệ n tr ả l ươ ng và các ch ế độ khác liên quan đế n làm thêm gi ờ đ úng theo quy đị nh c ủ a Pháp lu ậ t hi ệ n hành.
+
+Section: a. Ngày làm vi ệ c tiêu chu ẩ n
+---
+(2) Ngày làm vi ệ c rút ng ắ n: để có th ể b ả o v ệ t ố t h ơ n s ứ c kh ỏ e cho nh ữ ng ng ườ i làm nh ữ ng ngh ề , công vi ệ c n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m ho ặ c nh ữ ng ng ườ i do sinh lý hay ch ứ c n ă ng có nh ữ ng đặ c đ i ể m riêng, nh ư lao độ ng n ữ thai nghén giáp k ỳ sinh con, lao độ ng ch ư a thành niên, ng ườ i tàn t ậ t, ng ườ i cao tu ổ i thì pháp lu ậ t quy đị nh rút ng ắ n th ờ i gi ờ làm vi ệ c ng ắ n h ơ n th ờ i gi ờ làm vi ệ c c ủ a ngày làm vi ệ c bình th ườ ng (t ứ c ít h ơ n 8 gi ờ /ngày) mà v ẫ n gi ữ nguyên l ươ ng..
+
+Ngày làm vi ệ c rút ng ắ n đượ c quy đị nh cho nh ữ ng ng ườ i làm nh ữ ng ngh ề n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m, ph ụ n ữ có thai t ừ tháng th ứ 7, lao độ ng n ữ có con d ướ i 12 tháng tu ổ i, lao độ ng ch ư a đủ 18 tu ổ i, lao độ ng là ng ườ i tàn t ậ t, lao độ ng là ng ườ i cao tu ổ i (nam t ừ 59 tu ổ i tr ở lên, n ữ t ừ 54 tu ổ i tr ở lên) - nh ữ ng đố i t ượ ng này th ờ i gian làm vi ệ c hàng ngày đượ c gi ả m ít nh ấ t 1 gi ờ .
+
+Ng ườ i làm ngh ề , công vi ệ c đặ c bi ệ t n ặ ng nh ọ c, đặ c bi ệ t độ c h ạ i ho ặ c đặ c bi ệ t nguy hi ể m thì th ờ i gian làm vi ệ c hàng ngày đượ c gi ả m ít nh ấ t 2 gi ờ .
+
+Section: c) Các ngày ngh ỉ l ễ , ngh ỉ t ế t
+---
+### c) Các ngày ngh ỉ l ễ , ngh ỉ t ế t
+
+Trong m ộ t n ă m, ng ườ i lao độ ng đượ c ngh ỉ l ễ , t ế t t ấ t c ả là 8 ngày, c ụ th ể là nh ữ ng ngày sau đ ây:
+
+T ế t d ươ ng l ị ch: 1 ngày (ngày 1 tháng 1 d ươ ng l ị ch);
+
+T ế t âm l ị ch: 4 ngày (1 ngày cu ố i n ă m, 3 ngày đầ u n ă m âm l ị ch);
+
+Ngày Chi ế n th ắ ng 30/4: 1 ngày;
+
+Ngày Qu ố c t ế lao độ ng: 1 ngày (ngày 1 tháng 5 d ươ ng l ị ch);
+
+Ngày Qu ố c khánh: 1 ngày ( ngày 2 tháng 9 d ươ ng l ị ch).
+
+N ế u nh ữ ng ngày ngh ỉ nói trên trùng vào ngày ngh ỉ hàng tu ầ n thì ng ườ i lao độ ng đượ c ngh ỉ bù vào ngày ti ế p theo. Trong nh ữ ng ngày ngh ỉ l ễ , ngh ỉ t ế t nói trên, ng ườ i lao độ ng đượ c h ưở ng nguyên l ươ ng. N ế u do yêu c ầ u c ủ a s ả n xu ấ t, công tác mà ng ườ i lao độ ng ph ả i làm vi ệ c trong các ngày này thì h ọ đượ c tr ả l ươ ng ít nh ấ t b ằ ng 300% c ủ a ti ề n l ươ ng gi ờ c ủ a ngày làm vi ệ c bình th ườ ng; tr ườ ng h ợ p h ọ đượ c b ố trí ngh ỉ bù, thì ng ườ i s ử d ụ ng lao độ ng ch ỉ ph ả i tr ả ph ầ n ti ề n chênh l ệ ch so v ớ i ti ề n l ươ ng gi ờ c ủ a ngày làm vi ệ c bình th ườ ng.
+
+Ngoài ra, n ế u ng ườ i lao độ ng là ng ườ i n ướ c ngoài thì h ọ đượ c ngh ỉ thêm 1 ngày qu ố c khánh và 1 ngày T ế t c ổ truy ề n dân t ộ c h ọ (n ế u có).
+
+Section: II. LAO ĐỘ NG CH Ư A THÀNH NIÊN
+---
+Lu ậ t b ả o v ệ , ch ă m sóc và giáo d ụ c tr ẻ em ban hành ngày 16-08-1991 quy đị nh c ấ m b ắ t tr ẻ em đ i xin ă n ho ặ c làm nh ữ ng công vi ệ c không lành m ạ nh để ki ế m ti ề n cho ng ườ i l ớ n, ng ườ i ch ư a thành niên khi tham gia quan h ệ lao độ ng ph ả i đượ c s ử d ụ ng vào nh ữ ng công vi ệ c thích h ợ p v ớ i sinh lý và c ơ th ể c ủ a h ọ .
+
+K ế th ừ a nh ữ ng quy đị nh v ừ a nên trên, B ộ lu ậ t Lao độ ng m ộ t m ặ t v ừ a t ổ ng h ợ p các quy đị nh này, v ừ a có nh ữ ng quy đị nh m ớ i đố i v ớ i ng ườ i ch ư a thành niên. B ộ lu ậ t Lao độ ng đ ã dành các đ i ề u t ừ 119 đế n 122 để quy đị nh nh ữ ng ch ế độ lao độ ng này, nh ằ m b ả o v ệ quy ề n và l ợ i ích h ợ p pháp c ủ a nh ữ ng ng ườ i lao độ ng này khi tham gia quan h ệ lao độ ng.
+
+Ch ế độ lao độ ng c ủ a ng ườ i ch ư a thành niên và trách nhi ệ m c ủ a ng ườ i s ử d ụ ng lao độ ng đượ c quy đị nh bao g ồ m:
+
+Th ờ i gian làm vi ệ c c ủ a ng ườ i lao độ ng ch ư a thành niên không đượ c quá 7 gi ờ m ộ t ngày ho ặ c 42 gi ờ m ộ t tu ầ n.
+
+Ng ườ i s ử d ụ ng lao độ ng ch ỉ đượ c s ử d ụ ng ng ườ i lao độ ng ch ư a thành niên làm thêm gi ờ , làm vi ệ c ban đ êm trong m ộ t s ố ngh ề , công vi ệ c do B ộ Lao độ ng - th ươ ng binh và Xã h ộ i quy đị nh.
+
+Section: Tiêu chu ẩ n hóa th ờ i gi ờ làm vi ệ c
+---
+### Tiêu chu ẩ n hóa th ờ i gi ờ làm vi ệ c
+
+Tiêu chu ẩ n hóa th ờ i gi ờ làm vi ệ c là vi ệ c quy đị nh s ố gi ờ làm vi ệ c trong m ộ t ngày, trong m ộ t tu ầ n l ễ ; s ố ngày làm vi ệ c trong m ộ t tu ầ n, trong m ộ t tháng và trong m ộ t n ă m. Th ự c ch ấ t tiêu chu ẩ n hóa th ờ i gi ờ làm vi ệ c chính là vi ệ c quy đị nh độ dài ngày hay tu ầ n làm vi ệ c đố i v ớ i ng ườ i lao độ ng.
+
+Vi ệ c xác đị nh th ờ i gi ờ làm vi ệ c thông th ườ ng đượ c tính theo đơ n v ị gi ờ và t ừ đơ n v ị gi ờ tình ra độ dài c ủ a ngày, tu ầ n, tháng, n ă m làm vi ệ c.
+
+Trong s ả n xu ấ t kinh doanh, nh ằ m có th ể t ậ n d ụ ng t ố t đ a công su ấ t máy móc, thi ế t b ị , kh ắ c ph ụ c hao mòn vô hình, ho ặ c để đ áp ứ ng nhu c ầ u c ủ a khách hàng, ng ườ i s ử d ụ ng lao độ ng có th ể t ổ ch ứ c m ộ t hay luân phiên nhi ề u ca làm vi ệ c trong m ộ t ngày đ êm. Trong tr ườ ng h ợ p đ ó, độ dài ngày làm vi ệ c đượ c xác đị nh theo ca làm vi ệ c.
+
+Độ dài tu ầ n làm vi ệ c có th ể tính b ằ ng s ố gi ờ làm vi ệ c trong m ộ t ngày nhân v ớ i s ố ngày làm vi ệ c trong m ộ t tu ầ n. C ũ ng có th ể ấ n đị nh tr ướ c t ổ ng s ố gi ờ làm vi ệ c trong m ộ t tu ầ n làm vi ệ c, sau đ ó m ớ i xác đị nh làm vi ệ c bao nhiêu ngày trong m ộ t tu ầ n để có th ể phân b ố t ổ ng s ố gi ờ này cho các ngày.
+
+Section: - Có thi ệ t h ạ i v ề tài s ả n cho ng ườ i s ử d ụ ng lao độ ng
+---
+### - Có thi ệ t h ạ i v ề tài s ả n cho ng ườ i s ử d ụ ng lao độ ng
+
+Thi ệ t h ạ i là s ự gi ả m b ớ t s ố l ượ ng ho ặ c giá tr ị c ủ a tài s ả n c ủ a ng ườ i s ử d ụ ng lao độ ng. Xác đị nh c ă n c ứ này là vi ệ c tìm ra tài s ả n b ị thi ệ t h ạ i là tài s ả n gì, tài s ả n đ ó b ị h ư h ỏ ng hay b ị m ấ t, s ố l ượ ng và giá tr ị c ủ a s ự thi ệ t h ạ i là bao nhiêu.
+
+Section: a. Đố i v ớ i lao độ ng là ng ườ i ch ư a thành niên
+---
+Aïp d ụ ng ngày làm vi ệ c rút ng ắ n đố i v ớ i lao độ ng ch ư a thành niên (không quá 7 gi ờ m ộ t ngày ho ặ c 42 gi ờ m ộ t tu ầ n), và ch ỉ đượ c phép s ử d ụ ng h ọ làm vi ệ c ban đ êm, làm thêm gi ờ trong m ộ t s ố ngh ề , công vi ệ c nh ấ t đị nh theo quy đị nh c ủ a pháp lu ậ t.
+
+Section: b) Th ờ i gian t ố i đ a đượ c h ưở ng và m ứ c h ưở ng tr ợ c ấ p ố m đ au
+---
+Ng ườ i lao độ ng b ị m ắ c b ệ nh c ầ n đ i ề u tr ị dài ngày theo danh m ụ c do B ộ Y t ế ban hành thì thì th ờ i gian đượ c h ưở ng tr ợ c ấ p t ố i đ a là 180 ngày trong m ộ t n ă m, không phân bi ệ t th ờ i gian đ óng b ả o hi ể m xã h ộ i nhi ề u hay ít. Tr ườ ng h ợ p này, m ứ c tr ợ c ấ p là 75% m ứ c ti ề n l ươ ng làm c ă n c ứ đ óng b ả o hi ể m xã h ộ i tr ướ c khi ngh ỉ vi ệ c
+
+Tr ườ ng h ợ p n ế u h ế t h ạ n 180 ngày mà còn ph ả i ti ế p t ụ c đ i ề u tr ị , thì th ờ i gian đ i ề u tr ị thêm đượ c h ưở ng tr ợ c ấ p b ằ ng 70% m ứ c ti ề n l ươ ng làm c ă n c ứ đ óng b ả o hi ể m xã h ộ i tr ướ c khi ngh ỉ vi ệ c n ế u đ ã đ óng b ả o hi ể m xã h ộ i t ừ 30 n ă m tr ở lên; và đượ c h ưở ng tr ợ c ấ p b ằ ng 65% m ứ c ti ề n l ươ ng làm c ă n c ứ đ óng b ả o hi ể m xã h ộ i tr ướ c khi ngh ỉ vi ệ c n ế u đ ã đ óng b ả o hi ể m xã h ộ i d ướ i 30 n ă m.
+
+Section: b) Giai đ o ạ n ho ạ t độ ng xu ấ t kh ẩ u lao độ ng theo c ơ ch ế th ị tr ườ ng (t ừ 1991 đế n nay )
+---
+Bình quân hàng n ă m ch ỉ g ầ n 1 v ạ n ng ườ i lao độ ng đ i làm ở n ướ c ngoài. S ố lao độ ng ph ổ thông có xu h ướ ng gi ả m và yêu c ầ u đ òi h ỏ i ng ườ i lao độ ng tr ướ c khi đ i làm vi ệ c ở n ướ c ngoài ph ả i đượ c đ ào t ạ o. M ọ i ng ườ i lao độ ng tr ướ c khi đ i đề u đượ c tham d ự m ộ t khoá đ ào t ạ o do công ty cung ứ ng lao độ ng t ổ ch ứ c, th ờ i gian ch ủ y ế u là h ọ c ngo ạ i ng ữ c ủ a n ướ c mà lao độ ng s ẽ đế n làm vi ệ c. Ngoài ra còn h ọ c t ậ p v ề pháp lu ậ t c ủ a n ướ c đ ó, nh ữ ng đ i ề u c ầ n thi ế t v ề h ợ p đồ ng lao độ ng, tranh ch ấ p lao độ ng, quan h ệ ứ ng x ử , phong t ụ c t ậ p quán và an toàn v ệ sinh lao độ ng. Nh ờ đ ó, ch ấ t l ượ ng lao độ ng trong giai đ o ạ n này đượ c nâng cao h ơ n. Th ờ i k ỳ này, tuy s ố l ượ ng ng ườ i đ i lao độ ng xu ấ t kh ẩ u gi ả m nh ư ng th ị tr ườ ng l ạ i đượ c m ở ra h ơ n tr ướ c : Đ ã có g ầ n 40 n ướ c và lãnh th ổ ti ế p nh ậ n lao độ ng và chuyên gia Vi ệ t Nam. Qua h ơ n m ườ i n ă m ho ạ t độ ng XKL Đ và chuyên gia theo c ơ ch ế th ị tr ườ ng chúng ta đ ã đạ t đượ c m ộ t s ố thành tích đ áng k ể :
+
+Theo th ố ng kê. Tính đế n tháng 6 n ă m 2001 đ ã có 140.000 lao độ ng và chuyên gia đ i làm vi ệ c ở n ướ c ngoài. Riêng n ă m 2000 có trên 31.400 ng ườ i. N ă m 2002 là 46.120, n ă m2003 rên 75.000, n ă m 2004 67.440. Hi ệ n nay m ỗ i n ă m lao độ ng xu ấ t kh ẩ u g ử i v ề kho ả ng 1,5 t ỷ USD. (http:/vnepress.net/VietNam/Xa-hoi/2005)
+
+Section: a. Ngày làm vi ệ c tiêu chu ẩ n
+---
+Th ờ i gi ờ ngh ỉ m ỗ i ngày 30 phút đố i v ớ i ng ườ i lao độ ng n ữ trong th ờ i gian hành kinh;
+
+Th ờ i gi ờ ph ả i ng ừ ng vi ệ c không do l ỗ i c ủ a ng ườ i lao độ ng;
+
+Th ờ i gi ờ h ọ c t ậ p, hu ấ n luy ệ n v ề an toàn lao độ ng, v ệ sinh lao độ ng;
+
+Th ờ i gi ờ h ộ i h ọ p, h ọ c t ậ p do yêu c ầ u c ủ a ng ườ i s ử d ụ ng lao độ ng ho ặ c đượ c ng ườ i s ử d ụ ng lao độ ng cho phép.
+
+Ng ườ i s ử d ụ ng lao độ ng có quy ề n xác đị nh th ờ i đ i ể m b ắ t đầ u ngày làm vi ệ c và th ờ i đ i ể m k ế t thúc ngày làm vi ệ c, th ờ i gian ngh ỉ ng ơ i gi ữ a ca. Tuy nhiên, các quy đị nh này ph ả i đượ c ghi vào n ộ i quy, đ i ề u l ệ doanh nghi ệ p và ph ả i thông báo cho t ừ ng ng ườ i lao độ ng bi ế t để th ự c hi ệ n.
+
+T ạ i th ờ i đ i ể m b ắ t đầ u ngày làm vi ệ c, ng ườ i lao độ ng ph ả i có m ặ t t ạ i đị a đ i ể m s ả n xu ấ t, công tác và b ắ t tay vào làm vi ệ c, th ự c hi ệ n ngh ĩ a v ụ lao độ ng c ủ a mình. Sau th ờ i đ i ể m k ế t thúc ngày làm vi ệ c, ng ườ i lao độ ng m ớ i có quy ề n r ờ i kh ỏ i n ơ i làm vi ệ c. Tr ườ ng h ợ p làm vi ệ c theo ca, kíp, đ ã h ế t gi ờ làm vi ệ c nh ư ng ch ư a có ng ườ i đế n nh ậ n ca thì ng ườ i lao độ ng không đượ c phép t ự ti ệ n đ óng máy ho ặ c b ỏ ra v ề , mà ph ả i báo ngay cho ng ườ i qu ả n lý bi ế t để gi ả i quy ế t.
+
+Section: · Các đ i ề u ki ệ n và nguyên t ắ c làm thêm đế n 200 gi ờ trong m ộ t n ă m:
+---
+### · Các đ i ề u ki ệ n và nguyên t ắ c làm thêm đế n 200 gi ờ trong m ộ t n ă m:
+
+Doanh nghi ệ p và đơ n v ị có th ể t ổ ch ứ c cho m ỗ i ng ườ i lao độ ng làm thêm đế n 200 gi ờ trong m ộ t n ă m khi b ả o đả m đầ y đủ các đ i ề u ki ệ n và nguyên t ắ c sau:
+
+Đ i ề u ki ệ n làm thêm đế n 200 gi ờ trong m ộ t n ă m:
+
+X ử lý s ự c ố s ả n xu ấ t ;
+
+Gi ả i quy ế t công vi ệ c c ấ p bách không th ể trì hoãn;
+
+X ử lý k ị p th ờ i các m ặ t hàng t ươ i s ố ng, công trình xây d ự ng và s ả n ph ẩ m do yêu c ầ u nghiêm ng ặ t không th ể b ỏ d ở đượ c;
+
+Gi ả i quy ế t công vi ệ c đ òi h ỏ i lao độ ng có trình độ chuyên môn k ỹ thu ậ t cao mà th ị tr ườ ng lao độ ng không cung ứ ng đầ y đủ , k ị p th ờ i đượ c.
+
+Nguyên t ắ c khi t ổ ch ứ c làm thêm đế n 200 gi ờ trong m ộ t n ă m:
+
+Ph ả i tho ả thu ậ n v ớ i t ừ ng ng ườ i lao độ ng làm thêm gi ờ ;
+
+S ố gi ờ làm thêm trong m ộ t ngày không quá 4 gi ờ ; riêng đố i v ớ i ng ườ i lao độ ng làm các ngh ề , công vi ệ c đặ c bi ệ t n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m, thì s ố gi ờ làm thêm trong m ộ t ngày không quá 3 gi ờ ;
+
+T ổ ng s ố gi ờ làm thêm trong m ộ t tu ầ n không quá 16 gi ờ ; riêng đố i v ớ i ng ườ i lao độ ng làm các ngh ề , công vi ệ c đặ c bi ệ t n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m, thì t ổ ng s ố gi ờ làm thêm trong m ộ t tu ầ n không quá 12 gi ờ ;
+
+Section: 1. Khái ni ệ m k ỷ lu ậ t lao độ ng
+---
+Theo quy đị nh c ủ a B ộ lu ậ t Lao độ ng &#x27;doanh nghi ệ p s ử d ụ ng t ừ 10 ng ườ i lao độ ng tr ở lên ph ả i có n ộ i quy lao độ ng b ằ ng v ă n b ả n&#x27;. Vi ệ c quy đị nh nh ư trên nh ằ m phù h ợ p v ớ i yêu c ầ u và kh ả n ă ng qu ả n lý v ĩ mô trong tình hình tr ướ c m ắ t và c ũ ng phù h ợ p chung v ớ i xu h ướ ng qu ả n lý lao độ ng hi ệ n t ạ i c ủ a nhi ề u n ướ c.
+
+B ả n n ộ i quy lao độ ng trong doanh nghi ệ p xây d ự ng ph ả i tuân th ủ các nguyên t ắ c nh ư : không trái pháp lu ậ t lao độ ng và pháp lu ậ t khác, tr ướ c khi ban hành ph ả i tham kh ả o ý ki ế n c ủ a Ban ch ấ p hành Công đ oàn c ơ s ở , ph ả i đượ c đă ng ký t ạ i c ơ quan lao độ ng c ấ p t ỉ nh.
+
+Ng ườ i s ử d ụ ng lao độ ng ph ả i đă ng ký b ả n n ộ i quy lao độ ng t ạ i c ơ quan lao độ ng c ấ p t ỉ nh. N ộ i quy lao độ ng có hi ệ u l ự c, k ể t ừ ngày đượ c đă ng ký. Ch ậ m nh ấ t là 10 ngày, k ể t ừ ngày nh ậ n đượ c b ả n n ộ i quy lao độ ng, c ơ quan qu ả n lý nhà n ướ c v ề lao độ ng c ấ p t ỉ nh ph ả i thông báo vi ệ c đă ng ký. N ế u h ế t th ờ i h ạ n trên mà không có thông báo, thì b ả n n ộ i quy lao độ ng đươ ng nhiên có hi ệ u l ự c.
+
+N ộ i dung c ủ a n ộ i quy lao độ ng ph ả i có nh ữ ng n ộ i dung ch ủ y ế u sau đ ây:
+
+Th ờ i gi ờ làm vi ệ c, th ờ i gi ờ gian ngh ỉ ng ơ i;
+
+Tr ậ t t ự trong doanh nghi ệ p;
+
+An toàn lao độ ng, v ệ sinh lao độ ng ở n ơ i làm vi ệ c;
+
+Vi ệ c b ả o v ệ tài s ả n và bí m ậ t công ngh ệ , kinh doanh c ủ a doanh nghi ệ p;</pre><p>Không chấm: dừng sau Gemini judge 503 ở LAW_001.</p></details></td></tr></tbody></table></div><p>OpenAPI SHA256: c6aa82a2ba405353f00766c75924e4faad7a5ac1b80fdab1b60de2a7d41e667a</p></main><script>document.getElementById("filter").addEventListener("input",function(){const q=this.value.toLowerCase();document.querySelectorAll("#details tbody tr").forEach(r=>r.hidden=!r.textContent.toLowerCase().includes(q));});</script></html>

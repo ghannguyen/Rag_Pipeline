@@ -10,9 +10,11 @@ from src.rag.llm.base import BaseLLMProvider
 
 
 class OllamaProvider(BaseLLMProvider):
-    def __init__(self, base_url: str = None, model_name: str = "qwen2.5:7b"):
+    DEFAULT_MODEL = "qwen2.5:7b"
+
+    def __init__(self, base_url: str = None, model_name: str = None):
         self.base_url = (base_url or os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")).rstrip("/")
-        self.model_name = model_name or os.getenv("LLM_MODEL", "qwen2.5:7b")
+        self.model_name = model_name or self.DEFAULT_MODEL
 
     def generate(self, messages: List[Dict[str, str]], **kwargs: Any) -> str:
         url = f"{self.base_url}/api/chat"

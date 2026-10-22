@@ -1,0 +1,12 @@
+{
+ "reviewer": "Claude (AI) - 21/10/2026; tester cần xác nhận",
+ "default": "OK",
+ "cases": {
+  "LAW_C_017": "Sai: gold là Điều 18 Luật Công đoàn (tr.297); đúng phải là mục lục bộ tổng hợp (tr.2-5)",
+  "LAW_D_017": "Sai: gold là đoạn hình thức thử việc (tr.13); đúng phải là phần giới thiệu cẩm nang (tr.3-4)",
+  "LAW_D_020": "Sai: gold là đoạn TCĐDNLĐCS (tr.58); đúng phải là mục lục Chương I và Chương III",
+  "LAW_A_017": "Thiếu: đoạn giáo trình tr.7 (phương pháp thỏa thuận) cũng chứa đáp án",
+  "LAW_D_010": "Thiếu: mục '3. Những điểm mới...' tr.32 cũng chứa đáp án",
+  "LAW_B_016": "Yếu: gold là phần giới thiệu tr.5; mục lục tr.6-7 phù hợp hơn"
+ }
+}

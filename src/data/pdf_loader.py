@@ -21,8 +21,11 @@ from typing import Any, Dict, List
 
 from docling.document_converter import DocumentConverter, PdfFormatOption
 from docling.datamodel.base_models import InputFormat
-from docling.datamodel.pipeline_options import PdfPipelineOptions
-
+from docling.datamodel.pipeline_options import (
+    PdfPipelineOptions,
+    TesseractCliOcrOptions,
+)
+from docling.backend.pypdfium2_backend import PyPdfiumDocumentBackend
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
@@ -38,19 +41,89 @@ def clean_text(text: str) -> str:
     return text.strip()
 
 
-def create_converter():
+VIETNAMESE_VOWELS = set(
+    "aăâeêioôơuưyàáảãạằắẳẵặầấẩẫậèéẻẽẹềếểễệìíỉĩịòóỏõọồốổỗộờớởỡợùúủũụừứửữựỳýỷỹỵ"
+)
+
+# Above this many broken fragments per 1000 words, try the other PDF backend.
+FRAGMENT_THRESHOLD = 50.0
+
+
+def fragment_rate(text: str) -> float:
+    """
+    Broken Vietnamese fragments per 1000 words. docling-parse splits some fonts
+    into pieces like "Nh ững điể m"; the lowercase vowel-less leftovers ("m",
+    "ng", "nh") almost never occur as standalone words in clean Vietnamese.
+    Uppercase abbreviations (NLĐ, HĐLĐ) are not counted.
+    """
+    words = re.findall(r"[^\W\d_]+", unicodedata.normalize("NFC", text or ""))
+    if not words:
+        return 0.0
+    broken = sum(
+        1 for w in words
+        if w.islower() and len(w) <= 3 and not (set(w) & VIETNAMESE_VOWELS)
+    )
+    return 1000.0 * broken / len(words)
+
+
+def document_fragment_rate(doc) -> float:
+    return fragment_rate(
+        " ".join(getattr(item, "text", "") or "" for item, _level in doc.iterate_items())
+    )
+
+
+def create_converter(backend: str = "docling_parse"):
     pipeline_options = PdfPipelineOptions()
-    pipeline_options.do_ocr = False
+
+    pipeline_options.do_ocr = True
+    pipeline_options.ocr_options = TesseractCliOcrOptions(
+        lang=["vie", "eng"],
+        force_full_page_ocr=False,
+    )
+
     pipeline_options.do_table_structure = True
     pipeline_options.generate_picture_images = True
     pipeline_options.generate_page_images = True
 
-    return DocumentConverter(
-        format_options={
-            InputFormat.PDF: PdfFormatOption(pipeline_options=pipeline_options)
-        }
-    )
+    format_option = PdfFormatOption(pipeline_options=pipeline_options)
+    if backend == "pypdfium2":
+        # Reads the PDF text layer with pdfium; keeps Vietnamese words intact
+        # for fonts that docling-parse breaks apart.
+        format_option = PdfFormatOption(
+            pipeline_options=pipeline_options,
+            backend=PyPdfiumDocumentBackend,
+        )
+    elif backend != "docling_parse":
+        raise ValueError(f"Unknown PDF backend: {backend}")
 
+    return DocumentConverter(format_options={InputFormat.PDF: format_option})
+
+
+def convert_best(pdf_path: Path, converters: Dict[str, Any], mode: str):
+    """
+    Convert with docling-parse; if the text looks broken, also try pypdfium2 and
+    keep whichever has fewer fragments. mode: auto | docling_parse | pypdfium2.
+    """
+    def run(backend):
+        if backend not in converters:
+            converters[backend] = create_converter(backend)
+        doc = converters[backend].convert(str(pdf_path)).document
+        rate = document_fragment_rate(doc)
+        print(f"  · backend {backend}: {rate:.1f} broken fragments / 1000 words")
+        return doc, rate
+
+    if mode != "auto":
+        doc, _rate = run(mode)
+        return doc, mode
+
+    doc, rate = run("docling_parse")
+    if rate <= FRAGMENT_THRESHOLD:
+        return doc, "docling_parse"
+
+    alt_doc, alt_rate = run("pypdfium2")
+    if alt_rate < rate:
+        return alt_doc, "pypdfium2"
+    return doc, "docling_parse"
 
 def extract_elements_from_docling(doc, pdf_stem: str, images_dir: Path) -> tuple[List[Dict[str, Any]], List[Dict[str, Any]]]:
     """
@@ -63,6 +136,9 @@ def extract_elements_from_docling(doc, pdf_stem: str, images_dir: Path) -> tuple
     fig_count = 0
 
     images_dir.mkdir(parents=True, exist_ok=True)
+    # Reloading a document replaces its elements, so drop its old figures too.
+    for old_figure in images_dir.glob("fig_*.png"):
+        old_figure.unlink()
 
     for item, _level in doc.iterate_items():
         elem_count += 1
@@ -174,7 +250,8 @@ def extract_elements_from_docling(doc, pdf_stem: str, images_dir: Path) -> tuple
 def convert_pdfs(
     input_path: Path,
     output_path: Path,
-    elements_output_path: Path = None
+    elements_output_path: Path = None,
+    images_root: Path = None
 ):
     if input_path.is_file():
         pdf_files = [input_path]
@@ -192,20 +269,23 @@ def convert_pdfs(
     all_image_records: List[Dict[str, Any]] = []
     all_page_records: List[Dict[str, Any]] = []
 
-    converter = create_converter()
+    converters: Dict[str, Any] = {}
+    backend_mode = os.getenv("PDF_BACKEND", "auto").strip().lower() or "auto"
 
     for pdf_path in pdf_files:
         print(f"\nProcessing: {pdf_path}")
         pdf_stem = pdf_path.stem
         try:
-            result = converter.convert(str(pdf_path))
-            document = result.document
+            document, backend = convert_best(pdf_path, converters, backend_mode)
+            print(f"  ✓ Using PDF backend: {backend}")
 
             # Thư mục lưu ảnh: data/images/<document_id>/
-            images_dir = output_path.parent.parent / "images" / pdf_stem
+            images_dir = (images_root or output_path.parent.parent / "images") / pdf_stem
 
             # 1. Trích xuất các elements chi tiết và lưu file PNG thực tế
             elements, image_records = extract_elements_from_docling(document, pdf_stem, images_dir)
+            for elem in elements:
+                elem["pdf_backend"] = backend
             print(f"  ✓ Extracted {len(elements)} elements & {len(image_records)} physical PNG images")
 
             all_elements.extend(elements)

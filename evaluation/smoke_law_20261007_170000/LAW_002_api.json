@@ -1,0 +1,457 @@
+{
+  "question": "Theo giáo trình Luật lao động 2005, người làm ca đêm được nghỉ giữa ca ít nhất bao nhiêu phút và thời gian này có tính vào giờ làm việc không?",
+  "retrieval": {
+    "query": "Theo giáo trình Luật lao động 2005, người làm ca đêm được nghỉ giữa ca ít nhất bao nhiêu phút và thời gian này có tính vào giờ làm việc không?",
+    "top_k": 15,
+    "total_vectors": 695,
+    "total_duration_ms": 5987.43,
+    "logs": [
+      {
+        "stage": "query",
+        "status": "success",
+        "message": "Nhận query: \"Theo giáo trình Luật lao động 2005, người làm ca đêm được nghỉ giữa ca ít nhất bao nhiêu phút và thời gian này có tính vào giờ làm việc không?\"",
+        "duration_ms": 0
+      },
+      {
+        "stage": "vector_db",
+        "status": "success",
+        "message": "Đã load ChromaDB và embedding model",
+        "duration_ms": 0.02
+      },
+      {
+        "stage": "retrieval",
+        "status": "success",
+        "message": "Đã lấy Top-15 chunks",
+        "duration_ms": 5987.32
+      },
+      {
+        "stage": "done",
+        "status": "success",
+        "message": "Hoàn thành Retrieval",
+        "duration_ms": 5987.43
+      }
+    ],
+    "results": [
+      {
+        "rank": 1,
+        "score": 0.031545,
+        "distance": 0.0,
+        "content": "Section: a) Th ờ i gi ờ ngh ỉ gi ữ a ca (ngh ỉ gi ả i lao)\n---\n### a) Th ờ i gi ờ ngh ỉ gi ữ a ca (ngh ỉ gi ả i lao)\n\nTheo quy đị nh c ủ a pháp lu ậ t lao độ ng, thì th ờ i gi ờ ngh ỉ gi ữ a ca đượ c tính nh ư sau:\n\nNg ườ i lao độ ng làm vi ệ c 8 gi ờ liên t ụ c trong đ i ề u ki ệ n bình th ườ ng ho ặ c làm vi ệ c 7 gi ờ , 6 gi ờ liên t ụ c trong tr ườ ng h ợ p đượ c rút ng ắ n th ờ i gi ờ làm vi ệ c thì đượ c ngh ỉ ít nh ấ t n ử a gi ờ (30 phút), tính vào gi ờ làm vi ệ c;\n\nNg ườ i làm ca đ êm ( t ừ 22 gi ờ đế n 6 gi ờ ho ặ c t ừ 21 gi ờ đế n 5 gi ờ ) đượ c ngh ỉ gi ữ a ca ít nh ấ t 45 phút, tính vào gi ờ làm vi ệ c;\n\nNg ườ i lao độ ng làm vi ệ c theo ca đượ c ngh ỉ ít nh ấ t 12 gi ờ tr ướ c khi chuy ể n sang ca khác.",
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 81,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_268_chunk_268",
+        "image_urls": [],
+        "metadata": {
+          "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+          "chunk_strategy": "structure_block_aware",
+          "page_start": 81,
+          "page": 81,
+          "section_path": "a) Th ờ i gi ờ ngh ỉ gi ữ a ca (ngh ỉ gi ả i lao)",
+          "title": "giao trinh Luat lao dong CB 2005 (1)",
+          "page_end": 81,
+          "section": "a) Th ờ i gi ờ ngh ỉ gi ữ a ca (ngh ỉ gi ả i lao)",
+          "doc_id": "giao trinh Luat lao dong CB 2005 (1)",
+          "element_types": "paragraph",
+          "element_ids": "e_1207,e_1208,e_1209,e_1210,e_1211",
+          "total_chunks": 695,
+          "token_count": 396,
+          "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_268_chunk_268"
+        }
+      },
+      {
+        "rank": 2,
+        "score": 0.031498,
+        "distance": 0.0,
+        "content": "Section: a. Ngày làm vi ệ c tiêu chu ẩ n\n---\nTh ờ i gi ờ ngh ỉ m ỗ i ngày 30 phút đố i v ớ i ng ườ i lao độ ng n ữ trong th ờ i gian hành kinh;\n\nTh ờ i gi ờ ph ả i ng ừ ng vi ệ c không do l ỗ i c ủ a ng ườ i lao độ ng;\n\nTh ờ i gi ờ h ọ c t ậ p, hu ấ n luy ệ n v ề an toàn lao độ ng, v ệ sinh lao độ ng;\n\nTh ờ i gi ờ h ộ i h ọ p, h ọ c t ậ p do yêu c ầ u c ủ a ng ườ i s ử d ụ ng lao độ ng ho ặ c đượ c ng ườ i s ử d ụ ng lao độ ng cho phép.\n\nNg ườ i s ử d ụ ng lao độ ng có quy ề n xác đị nh th ờ i đ i ể m b ắ t đầ u ngày làm vi ệ c và th ờ i đ i ể m k ế t thúc ngày làm vi ệ c, th ờ i gian ngh ỉ ng ơ i gi ữ a ca. Tuy nhiên, các quy đị nh này ph ả i đượ c ghi vào n ộ i quy, đ i ề u l ệ doanh nghi ệ p và ph ả i thông báo cho t ừ ng ng ườ i lao độ ng bi ế t để th ự c hi ệ n.\n\nT ạ i th ờ i đ i ể m b ắ t đầ u ngày làm vi ệ c, ng ườ i lao độ ng ph ả i có m ặ t t ạ i đị a đ i ể m s ả n xu ấ t, công tác và b ắ t tay vào làm vi ệ c, th ự c hi ệ n ngh ĩ a v ụ lao độ ng c ủ a mình. Sau th ờ i đ i ể m k ế t thúc ngày làm vi ệ c, ng ườ i lao độ ng m ớ i có quy ề n r ờ i kh ỏ i n ơ i làm vi ệ c. Tr ườ ng h ợ p làm vi ệ c theo ca, kíp, đ ã h ế t gi ờ làm vi ệ c nh ư ng ch ư a có ng ườ i đế n nh ậ n ca thì ng ườ i lao độ ng không đượ c phép t ự ti ệ n đ óng máy ho ặ c b ỏ ra v ề , mà ph ả i báo ngay cho ng ườ i qu ả n lý bi ế t để gi ả i quy ế t.",
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 77,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_256_chunk_256",
+        "image_urls": [],
+        "metadata": {
+          "total_chunks": 695,
+          "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_256_chunk_256",
+          "page_end": 77,
+          "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+          "section_path": "a. Ngày làm vi ệ c tiêu chu ẩ n",
+          "element_ids": "e_1151,e_1152,e_1153,e_1154,e_1155,e_1156",
+          "page_start": 77,
+          "title": "giao trinh Luat lao dong CB 2005 (1)",
+          "section": "a. Ngày làm vi ệ c tiêu chu ẩ n",
+          "element_types": "paragraph",
+          "token_count": 735,
+          "page": 77,
+          "doc_id": "giao trinh Luat lao dong CB 2005 (1)",
+          "chunk_strategy": "structure_block_aware"
+        }
+      },
+      {
+        "rank": 3,
+        "score": 0.030835,
+        "distance": 0.0,
+        "content": "Section: a. Ngày làm vi ệ c tiêu chu ẩ n\n---\n### a. Ngày làm vi ệ c tiêu chu ẩ n\n\nNgày làm vi ệ c tiêu chu ẩ n là lo ạ i ngày làm vi ệ c trong đ ó pháp lu ậ t quy đị nh c ụ th ể kho ả n th ờ i gian làm vi ệ c c ủ a ng ườ i lao độ ng trong m ộ t ngày đ êm.\n\nCó hai lo ạ i ngày làm vi ệ c tiêu chu ẩ n đượ c áp d ụ ng cho nh ữ ng đố i t ượ ng c ụ th ể nh ư sau:\n\n(1) Ngày làm vi ệ c bình th ườ ng : đượ c quy đị nh không quá 8 gi ờ m ộ t ngày, áp d ụ ng chung cho công vi ệ c bình th ườ ng. Trong nh ữ ng tr ườ ng h ợ p khác do tính ch ấ t s ả n xu ấ t, công tác, do đ i ề u ki ệ n th ờ i ti ế t, th ờ i v ụ ho ặ c do s ả n xu ấ t theo ca, kíp mà ph ả i phân b ổ l ạ i s ố gi ờ làm vi ệ c trong ngày ho ặ c trong tu ầ n, trong tháng cho thích h ợ p thì ng ườ i s ử d ụ ng lao độ ng ph ả i th ố ng nh ấ t v ớ i công đ oàn c ơ s ở trên c ơ s ở ký k ế t th ỏ a ướ c lao độ ng t ậ p th ể và nguyên t ắ c chung là th ờ i gian làm vi ệ c bình quân không quá 8 gi ờ /ngày ho ặ c 48 gi ờ /tu ầ n 6 .\n\nTh ờ i gi ờ đượ c tính vào th ờ i gi ờ làm vi ệ c có h ưở ng l ươ ng bao g ồ m:\n\n6 Hi ệ n nay gi ờ làm vi ệ c trong khu v ự c nhà n ướ c là 40h /1 tu ầ n.\n\nTh ờ i gi ờ ngh ỉ gi ữ a ca làm vi ệ c;\n\nTh ờ i gi ờ ngh ỉ gi ả i lao theo tính ch ấ t c ủ a công vi ệ c;\n\nTh ờ i gi ờ ngh ỉ c ầ n thi ế t trong quá trình lao độ ng đ ã đượ c tính trong đị nh m ứ c lao độ ng cho nhu c ầ u sinh lý t ự nhiên c ủ a con ng ườ i;\n\nTh ờ i gi ờ ngh ỉ m ỗ i ngày 60 phút đố i v ớ i ng ườ i lao độ ng n ữ nuôi con d ướ i 12 tháng tu ổ i;",
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 76,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_255_chunk_255",
+        "image_urls": [],
+        "metadata": {
+          "total_chunks": 695,
+          "section": "a. Ngày làm vi ệ c tiêu chu ẩ n",
+          "element_types": "paragraph",
+          "element_ids": "e_1141,e_1142,e_1143,e_1144,e_1145,e_1146,e_1147,e_1148,e_1149,e_1150",
+          "token_count": 787,
+          "section_path": "a. Ngày làm vi ệ c tiêu chu ẩ n",
+          "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_255_chunk_255",
+          "page_start": 76,
+          "page": 76,
+          "page_end": 77,
+          "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+          "title": "giao trinh Luat lao dong CB 2005 (1)",
+          "chunk_strategy": "structure_block_aware",
+          "doc_id": "giao trinh Luat lao dong CB 2005 (1)"
+        }
+      },
+      {
+        "rank": 4,
+        "score": 0.030679,
+        "distance": 0.0,
+        "content": "Section: · Các đ i ề u ki ệ n và nguyên t ắ c làm thêm đế n 200 gi ờ trong m ộ t n ă m:\n---\nT ổ ng s ố gi ờ làm thêm trong 4 ngày liên t ụ c không quá 14 gi ờ ; riêng đố i v ớ i ng ườ i lao độ ng làm các ngh ề , công vi ệ c đặ c bi ệ t n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m, thì t ổ ng s ố gi ờ làm thêm trong 4 ngày liên t ụ c không quá 10 gi ờ ;\n\nHàng tu ầ n, ng ườ i lao độ ng đượ c ngh ỉ ít nh ấ t 1 ngày (24 gi ờ liên t ụ c). Trong tr ườ ng h ợ p đặ c bi ệ t do chu k ỳ lao độ ng không th ể b ố trí ngh ỉ hàng tu ầ n thì ph ả i b ả o đả m hàng tháng có ít nh ấ t 4 ngày ngh ỉ cho ng ườ i lao độ ng;\n\nTrong tr ườ ng h ợ p ng ườ i lao độ ng làm thêm trên 2 gi ờ trong ngày, thì tr ướ c khi làm thêm, ph ả i b ố trí cho h ọ đượ c ngh ỉ ít nh ấ t 30 phút tính vào gi ờ làm thêm;\n\nB ố trí cho ng ườ i lao độ ng đượ c ngh ỉ ho ặ c ngh ỉ bù đủ các ngày l ễ , t ế t, ngh ỉ hàng n ă m và các ngày ngh ỉ có h ưở ng l ươ ng khác đ úng theo qui đị nh c ủ a Pháp lu ậ t hi ệ n hành;\n\nTh ự c hi ệ n đ úng các quy đị nh t ạ i Đ i ề u 115, Đ i ề u 122, Đ i ề u 127 c ủ a B ộ lu ậ t Lao độ ng đ ã s ử a đổ i, b ổ sung v ề vi ệ c c ấ m ho ặ c h ạ n ch ế làm thêm gi ờ đố i v ớ i lao độ ng n ữ , lao độ ng ch ư a thành niên, lao độ ng là ng ườ i tàn t ậ t;\n\nTh ự c hi ệ n tr ả l ươ ng và các ch ế độ khác liên quan đế n làm thêm gi ờ đ úng theo quy đị nh c ủ a Pháp lu ậ t hi ệ n hành.",
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 79,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_262_chunk_262",
+        "image_urls": [],
+        "metadata": {
+          "chunk_strategy": "structure_block_aware",
+          "section": "· Các đ i ề u ki ệ n và nguyên t ắ c làm thêm đế n 200 gi ờ trong m ộ t n ă m:",
+          "total_chunks": 695,
+          "element_types": "paragraph",
+          "page_start": 79,
+          "doc_id": "giao trinh Luat lao dong CB 2005 (1)",
+          "page_end": 79,
+          "token_count": 719,
+          "element_ids": "e_1181,e_1182,e_1183,e_1184,e_1185,e_1186",
+          "section_path": "· Các đ i ề u ki ệ n và nguyên t ắ c làm thêm đế n 200 gi ờ trong m ộ t n ă m:",
+          "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_262_chunk_262",
+          "title": "giao trinh Luat lao dong CB 2005 (1)",
+          "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+          "page": 79
+        }
+      },
+      {
+        "rank": 5,
+        "score": 0.027598,
+        "distance": 0.0,
+        "content": "Section: b. Th ờ i gi ờ làm vi ệ c ban đ êm :\n---\n### b. Th ờ i gi ờ làm vi ệ c ban đ êm :\n\nTh ờ i gi ờ làm vi ệ c đượ c tính là làm vi ệ c ban đ êm đượ c pháp lu ậ t lao độ ng n ướ c ta quy đị nh nh ư sau:\n\nT ừ Th ừ a Thiên Hu ế tr ở ra phía B ắ c đượ c tính t ừ 22 gi ờ đế n 6 gi ờ ;\n\nT ừ Đ à N ẵ ng tr ở vào phía Nam đượ c tính t ừ 21 gi ờ đế n 5 gi ờ .\n\nNg ườ i lao độ ng làm vi ệ c vào ban đ êm thì đượ c tr ả thêm ít nh ấ t b ằ ng 30% c ủ a ti ề n l ươ ng làm vi ệ c vào ban ngày.",
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 80,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_265_chunk_265",
+        "image_urls": [],
+        "metadata": {
+          "element_ids": "e_1199,e_1200,e_1201,e_1202,e_1203",
+          "page": 80,
+          "total_chunks": 695,
+          "section_path": "b. Th ờ i gi ờ làm vi ệ c ban đ êm :",
+          "token_count": 258,
+          "page_end": 80,
+          "element_types": "paragraph",
+          "section": "b. Th ờ i gi ờ làm vi ệ c ban đ êm :",
+          "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+          "title": "giao trinh Luat lao dong CB 2005 (1)",
+          "page_start": 80,
+          "chunk_strategy": "structure_block_aware",
+          "doc_id": "giao trinh Luat lao dong CB 2005 (1)",
+          "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_265_chunk_265"
+        }
+      },
+      {
+        "rank": 6,
+        "score": 0.027588,
+        "distance": 0.0,
+        "content": "Section: 4. Tr ả l ươ ng khi làm thêm gi ờ\n---\n### 4. Tr ả l ươ ng khi làm thêm gi ờ\n\nNg ườ i lao độ ng làm thêm gi ờ nói đượ c tr ả l ươ ng làm thêm gi ờ theo đơ n giá ti ề n l ươ ng ho ặ c ti ề n l ươ ng th ự c tr ả c ủ a công vi ệ c đ ang làm nh ư sau:\n\nVào ngày th ườ ng, ít nh ấ t b ằ ng 150%;\n\nVào ngày ngh ỉ hàng tu ầ n quy đị nh t ạ i Đ i ề u 72 c ủ a B ộ lu ậ t Lao độ ng, ít nh ấ t b ằ ng 200%;\n\nVào ngày l ễ , ngày ngh ỉ có h ưở ng l ươ ng quy đị nh t ạ i các Đ i ề u 73, 74, 75 và 78 c ủ a B ộ lu ậ t Lao độ ng, ít nh ấ t b ằ ng 300%.\n\nNg ườ i lao độ ng làm vi ệ c vào ban đ êm quy đị nh t ạ i Đ i ề u 70 c ủ a B ộ lu ậ t Lao độ ng, thì đượ c tr ả thêm ít nh ấ t b ằ ng 30% ti ề n l ươ ng tính theo đơ n giá ti ề n l ươ ng ho ặ c ti ề n l ươ ng c ủ a công vi ệ c đ ang làm vào ban ngày. N ế u làm thêm gi ờ vào ban đ êm, thì ng ườ i lao độ ng còn đượ c tr ả ti ề n l ươ ng làm thêm gi ờ .",
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 59,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_197_chunk_197",
+        "image_urls": [],
+        "metadata": {
+          "chunk_strategy": "structure_block_aware",
+          "element_types": "paragraph",
+          "element_ids": "e_0908,e_0909,e_0910,e_0911,e_0912,e_0913",
+          "token_count": 485,
+          "title": "giao trinh Luat lao dong CB 2005 (1)",
+          "doc_id": "giao trinh Luat lao dong CB 2005 (1)",
+          "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+          "page": 59,
+          "page_start": 59,
+          "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_197_chunk_197",
+          "total_chunks": 695,
+          "page_end": 59,
+          "section": "4. Tr ả l ươ ng khi làm thêm gi ờ",
+          "section_path": "4. Tr ả l ươ ng khi làm thêm gi ờ"
+        }
+      },
+      {
+        "rank": 7,
+        "score": 0.016129,
+        "distance": 0.0,
+        "content": "Section: II. LAO ĐỘ NG CH Ư A THÀNH NIÊN\n---\nLu ậ t b ả o v ệ , ch ă m sóc và giáo d ụ c tr ẻ em ban hành ngày 16-08-1991 quy đị nh c ấ m b ắ t tr ẻ em đ i xin ă n ho ặ c làm nh ữ ng công vi ệ c không lành m ạ nh để ki ế m ti ề n cho ng ườ i l ớ n, ng ườ i ch ư a thành niên khi tham gia quan h ệ lao độ ng ph ả i đượ c s ử d ụ ng vào nh ữ ng công vi ệ c thích h ợ p v ớ i sinh lý và c ơ th ể c ủ a h ọ .\n\nK ế th ừ a nh ữ ng quy đị nh v ừ a nên trên, B ộ lu ậ t Lao độ ng m ộ t m ặ t v ừ a t ổ ng h ợ p các quy đị nh này, v ừ a có nh ữ ng quy đị nh m ớ i đố i v ớ i ng ườ i ch ư a thành niên. B ộ lu ậ t Lao độ ng đ ã dành các đ i ề u t ừ 119 đế n 122 để quy đị nh nh ữ ng ch ế độ lao độ ng này, nh ằ m b ả o v ệ quy ề n và l ợ i ích h ợ p pháp c ủ a nh ữ ng ng ườ i lao độ ng này khi tham gia quan h ệ lao độ ng.\n\nCh ế độ lao độ ng c ủ a ng ườ i ch ư a thành niên và trách nhi ệ m c ủ a ng ườ i s ử d ụ ng lao độ ng đượ c quy đị nh bao g ồ m:\n\nTh ờ i gian làm vi ệ c c ủ a ng ườ i lao độ ng ch ư a thành niên không đượ c quá 7 gi ờ m ộ t ngày ho ặ c 42 gi ờ m ộ t tu ầ n.\n\nNg ườ i s ử d ụ ng lao độ ng ch ỉ đượ c s ử d ụ ng ng ườ i lao độ ng ch ư a thành niên làm thêm gi ờ , làm vi ệ c ban đ êm trong m ộ t s ố ngh ề , công vi ệ c do B ộ Lao độ ng - th ươ ng binh và Xã h ộ i quy đị nh.",
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 144,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_484_chunk_484",
+        "image_urls": [],
+        "metadata": {
+          "page_start": 144,
+          "doc_id": "giao trinh Luat lao dong CB 2005 (1)",
+          "total_chunks": 695,
+          "element_ids": "e_1933,e_1934,e_1935,e_1936,e_1937",
+          "chunk_strategy": "structure_block_aware",
+          "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_484_chunk_484",
+          "section": "II. LAO ĐỘ NG CH Ư A THÀNH NIÊN",
+          "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+          "page_end": 144,
+          "title": "giao trinh Luat lao dong CB 2005 (1)",
+          "element_types": "paragraph",
+          "section_path": "II. LAO ĐỘ NG CH Ư A THÀNH NIÊN",
+          "page": 144,
+          "token_count": 681
+        }
+      },
+      {
+        "rank": 8,
+        "score": 0.015873,
+        "distance": 0.0,
+        "content": "Section: * S ố ngày ngh ỉ hàng n ă m:\n---\n### * S ố ngày ngh ỉ hàng n ă m:\n\nTheo quy đị nh t ạ i Đ i ề u 74 B ộ lu ậ t lao độ ng n ướ c ta thì th ờ i gian ngh ỉ hàng n ă m đượ c chia ra làm 3 m ứ c là : 12, 14 và 16 ngày, c ụ th ể nh ư sau:\n\n12 ngày làm vi ệ c, đố i v ớ i ng ườ i làm công vi ệ c trong đ i ề u ki ệ n bình th ườ ng;\n\n14 ngày làm vi ệ c, đố i v ớ i ng ườ i làm công vi ệ c n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m ho ặ c làm vi ệ c ở nh ữ ng n ơ i có đ i ề u ki ệ n sinh s ố ng kh ắ c nghi ệ t và đố i v ớ i ng ườ i d ướ i 18 tu ổ i;\n\n16 ngày làm vi ệ c, đố i v ớ i ng ườ i làm công vi ệ c đặ c bi ệ t n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m; ng ườ i làm công vi ệ c n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m ở nh ữ ng n ơ i có đ i ề u ki ệ n sinh s ố ng kh ắ c nghi ệ t.\n\nTh ờ i gian đ i đườ ng không tính vào ngày ngh ỉ hàng n ă m. S ố ngày ngh ỉ hàng n ă m c ủ a ng ườ i lao độ ng còn đượ c t ă ng theo thâm niên làm vi ệ c t ạ i m ộ t doanh nghi ệ p, ho ặ c v ớ i m ộ t ng ườ i s ử d ụ ng lao độ ng, c ứ 5 n ă m đượ c ngh ỉ thêm 1 ngày. Trong th ờ i gian ngh ỉ hàng n ă m, ng ườ i lao độ ng đượ c h ưở ng nguyên l ươ ng c ộ ng ph ụ c ấ p l ươ ng. Ngoài ra, ng ườ i lao độ ng còn đượ c thanh toán ti ề n tàu xe đ i và v ề (n ế u có).",
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 82,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_274_chunk_274",
+        "image_urls": [],
+        "metadata": {
+          "element_types": "paragraph",
+          "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+          "doc_id": "giao trinh Luat lao dong CB 2005 (1)",
+          "chunk_strategy": "structure_block_aware",
+          "title": "giao trinh Luat lao dong CB 2005 (1)",
+          "page_end": 83,
+          "total_chunks": 695,
+          "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_274_chunk_274",
+          "page_start": 82,
+          "section": "* S ố ngày ngh ỉ hàng n ă m:",
+          "page": 82,
+          "element_ids": "e_1234,e_1235,e_1236,e_1237,e_1238,e_1239",
+          "token_count": 664,
+          "section_path": "* S ố ngày ngh ỉ hàng n ă m:"
+        }
+      },
+      {
+        "rank": 9,
+        "score": 0.015625,
+        "distance": 0.0,
+        "content": "Section: Tiêu chu ẩ n hóa th ờ i gi ờ làm vi ệ c\n---\n### Tiêu chu ẩ n hóa th ờ i gi ờ làm vi ệ c\n\nTiêu chu ẩ n hóa th ờ i gi ờ làm vi ệ c là vi ệ c quy đị nh s ố gi ờ làm vi ệ c trong m ộ t ngày, trong m ộ t tu ầ n l ễ ; s ố ngày làm vi ệ c trong m ộ t tu ầ n, trong m ộ t tháng và trong m ộ t n ă m. Th ự c ch ấ t tiêu chu ẩ n hóa th ờ i gi ờ làm vi ệ c chính là vi ệ c quy đị nh độ dài ngày hay tu ầ n làm vi ệ c đố i v ớ i ng ườ i lao độ ng.\n\nVi ệ c xác đị nh th ờ i gi ờ làm vi ệ c thông th ườ ng đượ c tính theo đơ n v ị gi ờ và t ừ đơ n v ị gi ờ tình ra độ dài c ủ a ngày, tu ầ n, tháng, n ă m làm vi ệ c.\n\nTrong s ả n xu ấ t kinh doanh, nh ằ m có th ể t ậ n d ụ ng t ố t đ a công su ấ t máy móc, thi ế t b ị , kh ắ c ph ụ c hao mòn vô hình, ho ặ c để đ áp ứ ng nhu c ầ u c ủ a khách hàng, ng ườ i s ử d ụ ng lao độ ng có th ể t ổ ch ứ c m ộ t hay luân phiên nhi ề u ca làm vi ệ c trong m ộ t ngày đ êm. Trong tr ườ ng h ợ p đ ó, độ dài ngày làm vi ệ c đượ c xác đị nh theo ca làm vi ệ c.\n\nĐộ dài tu ầ n làm vi ệ c có th ể tính b ằ ng s ố gi ờ làm vi ệ c trong m ộ t ngày nhân v ớ i s ố ngày làm vi ệ c trong m ộ t tu ầ n. C ũ ng có th ể ấ n đị nh tr ướ c t ổ ng s ố gi ờ làm vi ệ c trong m ộ t tu ầ n làm vi ệ c, sau đ ó m ớ i xác đị nh làm vi ệ c bao nhiêu ngày trong m ộ t tu ầ n để có th ể phân b ố t ổ ng s ố gi ờ này cho các ngày.",
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 76,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_253_chunk_253",
+        "image_urls": [],
+        "metadata": {
+          "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+          "title": "giao trinh Luat lao dong CB 2005 (1)",
+          "section": "Tiêu chu ẩ n hóa th ờ i gi ờ làm vi ệ c",
+          "section_path": "Tiêu chu ẩ n hóa th ờ i gi ờ làm vi ệ c",
+          "page_start": 76,
+          "page_end": 76,
+          "page": 76,
+          "token_count": 707,
+          "total_chunks": 695,
+          "chunk_strategy": "structure_block_aware",
+          "element_ids": "e_1135,e_1136,e_1137,e_1138,e_1139",
+          "element_types": "paragraph"
+        }
+      },
+      {
+        "rank": 10,
+        "score": 0.015385,
+        "distance": 0.0,
+        "content": "Section: b) Ngh ỉ hàng tu ầ n\n---\n### b) Ngh ỉ hàng tu ầ n\n\nM ỗ i tu ầ n l ễ , ng ườ i lao độ ng đượ c ngh ỉ ít nh ấ t m ộ t ngày (24 gi ờ liên t ụ c), th ườ ng là vào ngày ch ủ nh ậ t. Tuy nhiên, đố i v ớ i nh ữ ng c ơ quan, xí nghi ệ p do yêu c ầ u c ủ a s ả n xu ấ t, công tác ho ặ c ph ụ c v ụ nhân dân đ òi h ỏ i ph ả i làm vi ệ c liên t ụ c c ả tu ầ n, k ể c ả ch ủ nh ậ t thì ng ườ i s ử d ụ ng lao độ ng có th ể s ắ p x ế p ngày ngh ỉ hàng tu ầ n vào m ộ t ngày khác trong tu ầ n cho t ừ ng nhóm ng ườ i lao độ ng khác nhau.\n\nTr ườ ng h ợ p do chu k ỳ lao độ ng không th ể ngh ỉ hàng tu ầ n, thì ng ườ i s ử d ụ ng lao độ ng ph ả i đả m b ả o cho ng ườ i lao độ ng ch ế độ ngh ỉ bù th ỏ a đ áng. Tính bình quân m ỗ i tháng, ng ườ i lao độ ng đượ c ngh ỉ ít nh ấ t 4 ngày.",
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 81,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_269_chunk_269",
+        "image_urls": [],
+        "metadata": {
+          "page_start": 81,
+          "doc_id": "giao trinh Luat lao dong CB 2005 (1)",
+          "section": "b) Ngh ỉ hàng tu ầ n",
+          "title": "giao trinh Luat lao dong CB 2005 (1)",
+          "total_chunks": 695,
+          "page": 81,
+          "chunk_strategy": "structure_block_aware",
+          "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_269_chunk_269",
+          "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+          "element_ids": "e_1212,e_1213,e_1214",
+          "element_types": "paragraph",
+          "section_path": "b) Ngh ỉ hàng tu ầ n",
+          "token_count": 421,
+          "page_end": 81
+        }
+      },
+      {
+        "rank": 11,
+        "score": 0.015385,
+        "distance": 0.0,
+        "content": "Section: - Th ự c hi ệ n các quy đị nh c ụ th ể v ề th ờ i gian làm vi ệ c và tr ậ t t ự trong đơ n v ị :\n---\n### - Th ự c hi ệ n các quy đị nh c ụ th ể v ề th ờ i gian làm vi ệ c và tr ậ t t ự trong đơ n v ị :\n\nCác đơ n v ị s ẽ c ă n c ứ vào nh ữ ng quy đị nh chung c ủ a pháp lu ậ t, nh ữ ng quy đị nh v ề th ờ i gian làm vi ệ c cho công ch ứ c viên ch ứ c và nh ữ ng th ỏ a thu ậ n trong th ỏ a ướ c để quy đị nh c ụ th ể v ề th ờ i gian làm vi ệ c trong ngày, trong tu ầ n, trong m ỗ i ca, s ố ngày làm thêm, gi ờ b ắ t đầ u làm vi ệ c, gi ờ ngh ỉ gi ả i lao và th ờ i đ i ể m k ế t thúc ngày, ca làm vi ệ c...Ng ườ i lao độ ng ph ả i th ự c hi ệ n các quy đị nh trên, đả m b ả o ho ạ t độ ng nh ị p nhàng cho quá trình t ổ ch ứ c lao độ ng c ủ a đơ n v ị , ng ườ i lao độ ng ph ả i tuân theo quy đị nh v ề đị a đ i ể m, ph ạ m vi làm vi ệ c, đ i l ạ i, giao ti ế p, ra vào c ổ ng... để gi ữ tr ậ t t ự chung trong c ơ quan, doanh nghi ệ p. Ngh ĩ a v ụ này v ừ a đả m b ả o k ỷ lu ậ t, tr ậ t t ự trong đơ n v ị , v ừ a t ạ o đ i ề u ki ệ n cho ng ườ i lao độ ng s ử d ụ ng h ợ p lý th ờ i gian, nâng cao n ă ng su ấ t lao độ ng, t ă ng thu nh ậ p cho h ọ và hi ệ u qu ả công vi ệ c trong đơ n v ị",
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 87,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_289_chunk_289",
+        "image_urls": [],
+        "metadata": {
+          "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+          "title": "giao trinh Luat lao dong CB 2005 (1)",
+          "section": "- Th ự c hi ệ n các quy đị nh c ụ th ể v ề th ờ i gian làm vi ệ c và tr ậ t t ự trong đơ n v ị :",
+          "section_path": "- Th ự c hi ệ n các quy đị nh c ụ th ể v ề th ờ i gian làm vi ệ c và tr ậ t t ự trong đơ n v ị :",
+          "page_start": 87,
+          "page_end": 87,
+          "page": 87,
+          "token_count": 637,
+          "total_chunks": 695,
+          "chunk_strategy": "structure_block_aware",
+          "element_ids": "e_1285,e_1286",
+          "element_types": "paragraph"
+        }
+      },
+      {
+        "rank": 12,
+        "score": 0.015152,
+        "distance": 0.0,
+        "content": "Section: đ . Các bi ệ n pháp khác\n---\n### đ . Các bi ệ n pháp khác\n\nQuy đị nh v ề th ờ i gi ờ làm vi ệ c h ợ p lý\n\nĐả m b ả o m ố i quan h ệ h ợ p lý gi ữ a th ờ i gi ờ làm vi ệ c và th ờ i gi ờ ngh ỉ ng ơ i cho ng ườ i lao độ ng.\n\nÁp d ụ ng ngày làm vi ệ c rút ng ắ n đố i v ớ i m ộ t s ố công vi ệ c mà m ứ c độ nguy hi ể m, độ c h ạ i cao (ví d ụ : th ợ l ặ n, ng ườ i làm vi ệ c trong h ầ m m ỏ . . . ).\n\nTùy t ừ ng lo ạ i công vi ệ c có m ứ c độ n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m mà quy đị nh độ dài c ủ a ca làm vi ệ c, th ờ i gian ngh ỉ gi ữ a ca cho phù h ợ p.\n\nH ạ n ch ế ho ặ c không áp d ụ ng ch ế độ làm ca đ êm, làm thêm gi ờ đố i v ớ i m ộ t s ố đố i t ượ ng, m ộ t s ố lo ạ i công vi ệ c mà pháp lu ậ t đ ã quy đị nh.\n\nQuy ề n t ừ ch ố i làm vi ệ c, r ờ i kh ỏ i n ơ i làm vi ệ c khi th ấ y xu ấ t hi ệ n nguy c ơ\n\nNg ườ i lao độ ng có quy ề n t ừ ch ố i làm công vi ệ c ho ặ c r ờ i b ỏ n ơ i làm vi ệ c khi th ấ y rõ có nguy c ơ đ e d ọ a nghiêm tr ọ ng tính m ạ ng ho ặ c s ứ c kh ỏ e c ủ a mình (nh ư ng ph ả i báo ngay v ớ i ng ườ i ph ụ trách tr ự c ti ế p) mà không coi là vi ph ạ m k ỷ lu ậ t lao độ ng.",
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 108,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_365_chunk_365",
+        "image_urls": [],
+        "metadata": {
+          "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+          "title": "giao trinh Luat lao dong CB 2005 (1)",
+          "section": "đ . Các bi ệ n pháp khác",
+          "section_path": "đ . Các bi ệ n pháp khác",
+          "page_start": 108,
+          "page_end": 109,
+          "page": 108,
+          "token_count": 631,
+          "total_chunks": 695,
+          "chunk_strategy": "structure_block_aware",
+          "element_ids": "e_1506,e_1507,e_1508,e_1509,e_1510,e_1511,e_1512,e_1513",
+          "element_types": "paragraph"
+        }
+      },
+      {
+        "rank": 13,
+        "score": 0.014925,
+        "distance": 0.0,
+        "content": "Section: a. Th ờ i gi ờ làm thêm\n---\n### a. Th ờ i gi ờ làm thêm\n\nTh ờ i gian làm thêm gi ờ là do có yêu c ầ u c ủ a ng ườ i s ử d ụ ng lao độ ng mà s ố th ờ i gian làm vi ệ c v ượ t quá s ố gi ờ tiêu chu ẩ n đ ã đượ c ấ n đị nh.\n\nNg ườ i s ử d ụ ng lao độ ng và ng ườ i lao độ ng có th ể tho ả thu ậ n làm thêm gi ờ , nh ư ng không quá 4 gi ờ trong m ộ t ngày, 200 gi ờ trong m ộ t n ă m, tr ừ m ộ t s ố tr ườ ng h ợ p đặ c bi ệ t đượ c làm thêm không đượ c quá 300 gi ờ trong m ộ t n ă m.",
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 78,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_260_chunk_260",
+        "image_urls": [],
+        "metadata": {
+          "token_count": 258,
+          "page_end": 78,
+          "total_chunks": 695,
+          "title": "giao trinh Luat lao dong CB 2005 (1)",
+          "element_types": "paragraph",
+          "element_ids": "e_1167,e_1168,e_1169",
+          "doc_id": "giao trinh Luat lao dong CB 2005 (1)",
+          "section": "a. Th ờ i gi ờ làm thêm",
+          "page": 78,
+          "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+          "page_start": 78,
+          "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_260_chunk_260",
+          "chunk_strategy": "structure_block_aware",
+          "section_path": "a. Th ờ i gi ờ làm thêm"
+        }
+      },
+      {
+        "rank": 14,
+        "score": 0.014925,
+        "distance": 0.0,
+        "content": "Section: b) Th ờ i gian đượ c h ưở ng và m ứ c h ưở ng tr ợ c ấ p thai s ả n\n---\n### b) Th ờ i gian đượ c h ưở ng và m ứ c h ưở ng tr ợ c ấ p thai s ả n\n\nTh ờ i gian ngh ỉ vi ệ c tr ướ c và sau khi sinh con đượ c pháp lu ậ t lao độ ng quy đị nh nh ư sau:\n\n4 tháng đố i v ớ i ng ườ i làm vi ệ c trong đ i ề u ki ệ n bình th ườ ng;\n\n5 tháng đố i v ớ i ng ườ i làm các ngh ề ho ặ c công vi ệ c n ặ ng nh ọ c, độ c h ạ i; làm vi ệ c theo ch ế độ 3 ca; làm vi ệ c ở n ơ i có ph ụ c ấ p khu v ự c h ệ s ố 0,5 và 0,7;\n\n6 tháng đố i v ớ i ng ườ i làm vi ệ c ở n ơ i có ph ụ c ấ p khu v ự c h ệ s ố 1,0; ng ườ i làm ngh ề ho ặ c công vi ệ c đặ c bi ệ t theo danh m ụ c do B ộ Lao độ ngTh ươ ng binh và Xã h ộ i ban hành.\n\nN ế u sinh đ ôi tr ở lên, thì tính t ừ con th ứ hai tr ở đ i, c ứ m ỗ i con, ng ườ i m ẹ đượ c ngh ỉ thêm 30 ngày.\n\nTrong tr ườ ng h ợ p khi sinh con, n ế u con d ướ i 60 ngày tu ổ i b ị ch ế t (k ể c ả tr ườ ng h ợ p đẻ thai ch ế t l ư u) thì ng ườ i m ẹ đượ c ngh ỉ vi ệ c 75 ngày tính t ừ ngày sinh; n ế u con t ừ 60 ngày tu ổ i tr ở lên b ị ch ế t thì đượ c ngh ỉ vi ệ c 15 ngày tính t ừ khi con ch ế t, nh ư ng không v ượ t quá th ờ i gian ngh ỉ vi ệ c tr ướ c và sau khi sinh con nh ư đ ã trình bày ở ph ầ n trên.\n\nTr ườ ng h ợ p h ế t th ờ i h ạ n ngh ỉ vi ệ c sinh con nh ư đ ã trình bày ở trên, n ế u có nhu c ầ u thì s ả n ph ụ có th ể ngh ỉ thêm v ớ i đ i ề u ki ệ n đượ c ng ườ i s ử d ụ ng lao độ ng ch ấ p thu ậ n nh ư ng không đượ c h ưở ng tr ợ c ấ p b ả o hi ể m xã h ộ i.",
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 134,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_454_chunk_454",
+        "image_urls": [],
+        "metadata": {
+          "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+          "title": "giao trinh Luat lao dong CB 2005 (1)",
+          "section": "b) Th ờ i gian đượ c h ưở ng và m ứ c h ưở ng tr ợ c ấ p thai s ả n",
+          "section_path": "b) Th ờ i gian đượ c h ưở ng và m ứ c h ưở ng tr ợ c ấ p thai s ả n",
+          "page_start": 134,
+          "page_end": 135,
+          "page": 134,
+          "token_count": 814,
+          "total_chunks": 695,
+          "chunk_strategy": "structure_block_aware",
+          "element_ids": "e_1833,e_1834,e_1835,e_1836,e_1837,e_1838,e_1839,e_1840",
+          "element_types": "paragraph"
+        }
+      },
+      {
+        "rank": 15,
+        "score": 0.014706,
+        "distance": 0.0,
+        "content": "Section: d. B ồ i d ưỡ ng b ằ ng hi ệ n v ậ t\n---\n### d. B ồ i d ưỡ ng b ằ ng hi ệ n v ậ t\n\nNg ườ i lao độ ng không phân bi ệ t gi ớ i tính, tu ổ i tác, n ơ i làm vi ệ c khi làm công vi ệ c có y ế u t ố nguy h ạ i v ượ t tiêu chu ẩ n v ệ sinh cho phép thì đượ c h ưở ng ch ế độ b ồ i d ưỡ ng b ằ ng hi ệ n v ậ t.\n\nKhi áp d ụ ng ch ế độ b ồ i d ưỡ ng b ằ ng hi ệ n v ậ t ph ả i tuân th ủ các nguyên t ắ c sau đ ây:\n\nCông vi ệ c, môi tr ườ ng có y ế u t ố , m ứ c độ độ c h ạ i nh ư nhau thì m ứ c b ồ i d ưỡ ng ngang nhau;\n\nHi ệ n v ậ t dùng để b ồ i d ưỡ ng ph ả i là nh ữ ng lo ạ i th ự c ph ẩ m, hoa qu ả , n ướ c gi ả i khát v.v . . . góp ph ầ n ph ụ c h ồ i s ứ c kh ỏ e, t ă ng s ứ c đề kháng c ủ a c ơ th ể , gi ả m b ớ t kh ả n ă ng xâm nh ậ p c ủ a ch ấ t độ c vào c ơ th ể ho ặ c giúp cho quá trình th ả i nhanh ch ấ t độ c ra ngoài.\n\nC ấ m tr ả ti ề n thay b ồ i d ưỡ ng b ằ ng hi ệ n v ậ t và vi ệ c b ồ i d ưỡ ng ph ả i đượ c th ự c hi ệ n t ạ i ch ỗ theo ca làm vi ệ c.",
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 108,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_364_chunk_364",
+        "image_urls": [],
+        "metadata": {
+          "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+          "title": "giao trinh Luat lao dong CB 2005 (1)",
+          "section": "d. B ồ i d ưỡ ng b ằ ng hi ệ n v ậ t",
+          "section_path": "d. B ồ i d ưỡ ng b ằ ng hi ệ n v ậ t",
+          "page_start": 108,
+          "page_end": 108,
+          "page": 108,
+          "token_count": 553,
+          "total_chunks": 695,
+          "chunk_strategy": "structure_block_aware",
+          "element_ids": "e_1500,e_1501,e_1502,e_1503,e_1504,e_1505",
+          "element_types": "paragraph"
+        }
+      }
+    ]
+  },
+  "chat": {
+    "query": "Theo giáo trình Luật lao động 2005, người làm ca đêm được nghỉ giữa ca ít nhất bao nhiêu phút và thời gian này có tính vào giờ làm việc không?",
+    "answer": "Theo giáo trình Luật lao động 2005, người làm ca đêm (từ 22 giờ đến 6 giờ hoặc từ 21 giờ đến 5 giờ) được nghỉ giữa ca ít nhất 45 phút và thời gian nghỉ này được tính vào giờ làm việc [SOURCE_1].",
+    "citations": [
+      {
+        "source_id": "SOURCE_1",
+        "file": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 81,
+        "section": "a) Th ờ i gi ờ ngh ỉ gi ữ a ca (ngh ỉ gi ả i lao)",
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_268_chunk_268",
+        "rerank_score": 0.5993
+      }
+    ],
+    "image_urls": [],
+    "total_duration_ms": 47826.59,
+    "logs": [
+      {
+        "stage": "hybrid_retrieval",
+        "count": 24,
+        "duration_ms": 3191.62
+      },
+      {
+        "stage": "re_ranking",
+        "passed_threshold": true,
+        "count": 1,
+        "duration_ms": 38123.26
+      },
+      {
+        "stage": "llm_generation",
+        "provider": "GeminiProvider",
+        "duration_ms": 6190.36
+      }
+    ],
+    "debug": {
+      "selected_chunks_count": 1,
+      "source_ids": [
+        "SOURCE_1"
+      ]
+    }
+  }
+}

@@ -8,6 +8,10 @@ import argparse
 import sys
 from pathlib import Path
 
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(
@@ -48,8 +52,8 @@ def load_vector_db(
     print("=" * 60)
     print(f"Loading embedding model: {model_name}")
 
-    import torch
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    from src.rag.device import pick_device
+    device = pick_device()
 
     embeddings = HuggingFaceEmbeddings(
         model_name=model_name,

@@ -23,3 +23,16 @@ data/raw/
 # Frontend build
 frontend/dist/
 frontend/node_modules/
+
+# Extra virtualenvs / backups
+.venv*/
+.kb-backups/
+backups/
+data/backups/
+data/staging/
+data/processed/.load_*/
+
+# OS / misc
+.DS_Store
+:memory:*
+*.ses

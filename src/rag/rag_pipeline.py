@@ -20,28 +20,15 @@ if str(ROOT) not in sys.path:
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 
+from src.env import load_env
 from src.rag.retriever import load_vector_db
-from src.rag.reranker import rerank_documents
-from src.rag.context_builder import build_context
+from src.rag.reranker import DEFAULT_RERANK_THRESHOLD, rerank_documents
+from src.rag.context_builder import build_context, dedupe_with_source_preference, preferred_sources_from_env
 from src.rag.prompt_builder import build_messages
 from src.rag.llm import get_llm_provider
 from src.rag.citation import validate_and_resolve_citations
 
 NO_INFO_FALLBACK = "Dựa trên tài liệu được cung cấp, tôi không tìm thấy thông tin để trả lời câu hỏi này."
-
-
-def _load_env_file():
-    env_path = ROOT / ".env"
-    if env_path.exists():
-        with env_path.open("r", encoding="utf-8") as f:
-            for line in f:
-                line = line.strip()
-                if line and not line.startswith("#") and "=" in line:
-                    parts = line.split("=", 1)
-                    k = parts[0].strip()
-                    v = parts[1].strip().strip("'").strip('"')
-                    if k:
-                        os.environ[k] = v
 
 
 def answer_query(
@@ -57,7 +44,7 @@ def answer_query(
     """
     Thực thi luồng RAG hoàn chỉnh End-to-End.
     """
-    _load_env_file()
+    load_env()
     start_time = time.perf_counter()
     query = query.strip()
 
@@ -73,7 +60,8 @@ def answer_query(
     # Load cấu hình mặc định từ file .env / tham số
     top_k = top_k or int(os.getenv("RETRIEVAL_TOP_K", "15"))
     top_n = top_n or int(os.getenv("RERANK_TOP_N", "5"))
-    threshold = threshold if threshold is not None else float(os.getenv("RERANK_THRESHOLD", "0.05"))
+    if threshold is None:
+        threshold = float(os.getenv("RERANK_THRESHOLD", str(DEFAULT_RERANK_THRESHOLD)))
     max_context_tokens = max_context_tokens or int(os.getenv("MAX_CONTEXT_TOKENS", "4000"))
     embedding_model = embedding_model or os.getenv("EMBEDDING_MODEL", "BAAI/bge-m3")
     vector_dir = vector_dir or (ROOT / "data" / "vectorstore" / "chroma")
@@ -105,13 +93,15 @@ def answer_query(
     # BƯỚC 2 & 3: RE-RANKING & RELEVANCE THRESHOLD
     rerank_start = time.perf_counter()
     reranker_model = os.getenv("RERANKER_MODEL", "BAAI/bge-reranker-v2-m3")
+    # Keep every chunk above the threshold so duplicates do not use up top_n slots.
     reranked_docs, passed_threshold = rerank_documents(
         query=query,
         documents=candidates,
-        top_n=top_n,
+        top_n=max(len(candidates), 1),
         threshold=threshold,
         model_name=reranker_model
     )
+    reranked_docs = dedupe_with_source_preference(reranked_docs, preferred_sources_from_env())[:top_n]
     rerank_ms = (time.perf_counter() - rerank_start) * 1000
     logs.append({"stage": "re_ranking", "passed_threshold": passed_threshold, "count": len(reranked_docs), "duration_ms": round(rerank_ms, 2)})
 
@@ -139,7 +129,12 @@ def answer_query(
     llm = get_llm_provider(provider_name)
     raw_answer = llm.generate(messages)
     llm_ms = (time.perf_counter() - llm_start) * 1000
-    logs.append({"stage": "llm_generation", "provider": llm.__class__.__name__, "duration_ms": round(llm_ms, 2)})
+    logs.append({
+        "stage": "llm_generation",
+        "provider": llm.__class__.__name__,
+        "model": getattr(llm, "model_name", None),
+        "duration_ms": round(llm_ms, 2),
+    })
 
     # BƯỚC 7: CITATION VALIDATION & SOURCE RESOLUTION
     cleaned_answer, citations, image_urls = validate_and_resolve_citations(raw_answer, source_mapping)
@@ -155,7 +150,19 @@ def answer_query(
         "logs": logs,
         "debug": {
             "selected_chunks_count": len(selected_chunks),
-            "source_ids": list(source_mapping.keys())
+            "source_ids": list(source_mapping.keys()),
+            # Every chunk given to the LLM (cited or not), for test traceability.
+            "context_sources": [
+                {
+                    "source_id": sid,
+                    "file": info["source_file"],
+                    "page": info["page"],
+                    "section": info["section"],
+                    "chunk_id": info["chunk_id"],
+                    "rerank_score": info["rerank_score"],
+                }
+                for sid, info in source_mapping.items()
+            ],
         }
     }
 
@@ -163,7 +170,7 @@ def answer_query(
 def main():
     parser = argparse.ArgumentParser(description="Test Full RAG Pipeline End-to-End")
     parser.add_argument("--query", required=True, type=str, help="Question query")
-    parser.add_argument("--provider", type=str, default="gemini", help="LLM provider: gemini | openai | ollama | mock")
+    parser.add_argument("--provider", type=str, default=None, help="LLM provider: gemini | openai | ollama | mock (default: LLM_PROVIDER)")
     args = parser.parse_args()
 
     print(f"\nQUERY: {args.query}\n" + "=" * 60)

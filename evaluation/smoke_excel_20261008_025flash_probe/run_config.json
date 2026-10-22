@@ -1,0 +1,45 @@
+{
+  "input_excel_path": "/Users/hannguyen/Downloads/TC_LuatLD.xlsx",
+  "sheets": [
+    "Luật LĐ"
+  ],
+  "number_testcases": 3,
+  "executed_testcases": 0,
+  "backend_url": "http://127.0.0.1:8001",
+  "judge_model": "models/gemini-2.5-flash",
+  "embedding_model": "models/gemini-embedding-001",
+  "embedding_task": "SEMANTIC_SIMILARITY",
+  "judge_config": {
+    "temperature": 0,
+    "max_output_tokens": 8192
+  },
+  "ragas_version": "0.4.2",
+  "timestamp": "2026-10-08T08:34:55.041719+07:00",
+  "status": "BLOCKED",
+  "pdf_files": [
+    "ILO-VCCI_Labour-Law-Guide-Book-V04-Final.pdf",
+    "Văn-bản-hợp-nhất-18-VBHN-VPQH.pdf",
+    "giao trinh Luat lao dong CB 2005 (1).pdf",
+    "luu-ban-nhap-tu-dong-3-4.pdf",
+    "so-tay-kien-thuc-phap-luat-lao-dong-cdi.pdf"
+  ],
+  "health": {
+    "status": "ok",
+    "device": "cpu"
+  },
+  "pipeline_status": {
+    "pdf_documents": 0,
+    "elements": 0,
+    "chunks": 695,
+    "vectors": 695,
+    "embedding_model": "BAAI/bge-m3",
+    "device": "cpu",
+    "paths": {
+      "raw": "/Users/hannguyen/Desktop/RagPipeline/data/raw",
+      "elements": "/Users/hannguyen/Desktop/RagPipeline/data/processed/elements.jsonl",
+      "pdf_extract": "/Users/hannguyen/Desktop/RagPipeline/data/processed/pdf_extract.jsonl",
+      "chunked": "/Users/hannguyen/Desktop/RagPipeline/data/processed/chunked.jsonl",
+      "vector_db": "/Users/hannguyen/Desktop/RagPipeline/data/vectorstore/chroma"
+    }
+  }
+}

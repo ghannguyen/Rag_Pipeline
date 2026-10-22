@@ -1,0 +1,319 @@
+[
+  {
+    "id": "LAW_001",
+    "reference_chunk": "giao trinh Luat lao dong CB 2005 (1)_sec_104_chunk_104",
+    "reference_pages": [
+      32,
+      32
+    ],
+    "reference_chunk_in_search": false,
+    "rank": null,
+    "chat_logs": [
+      {
+        "stage": "hybrid_retrieval",
+        "count": 27,
+        "duration_ms": 213.23
+      },
+      {
+        "stage": "re_ranking",
+        "passed_threshold": false,
+        "count": 0,
+        "duration_ms": 48107.8
+      }
+    ],
+    "citations": [],
+    "retrieved_sources_pages": [
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 7,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_22_chunk_22"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 197,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_659_chunk_659"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 36,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_115_chunk_115"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 12,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_40_chunk_40"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 2,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_05_chunk_05"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 37,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_119_chunk_119"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 173,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_579_chunk_579"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 28,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_91_chunk_91"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 5,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_17_chunk_17"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 67,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_221_chunk_221"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 148,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_493_chunk_493"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 127,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_426_chunk_426"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 157,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_524_chunk_524"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 52,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_172_chunk_172"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 192,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_643_chunk_643"
+      }
+    ]
+  },
+  {
+    "id": "LAW_002",
+    "reference_chunk": "giao trinh Luat lao dong CB 2005 (1)_sec_268_chunk_268",
+    "reference_pages": [
+      81,
+      81
+    ],
+    "reference_chunk_in_search": true,
+    "rank": 1,
+    "chat_logs": [
+      {
+        "stage": "hybrid_retrieval",
+        "count": 24,
+        "duration_ms": 3191.62
+      },
+      {
+        "stage": "re_ranking",
+        "passed_threshold": true,
+        "count": 1,
+        "duration_ms": 38123.26
+      },
+      {
+        "stage": "llm_generation",
+        "provider": "GeminiProvider",
+        "duration_ms": 6190.36
+      }
+    ],
+    "citations": [
+      {
+        "source_id": "SOURCE_1",
+        "file": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 81,
+        "section": "a) Th ờ i gi ờ ngh ỉ gi ữ a ca (ngh ỉ gi ả i lao)",
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_268_chunk_268",
+        "rerank_score": 0.5993
+      }
+    ],
+    "retrieved_sources_pages": [
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 81,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_268_chunk_268"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 77,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_256_chunk_256"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 76,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_255_chunk_255"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 79,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_262_chunk_262"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 80,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_265_chunk_265"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 59,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_197_chunk_197"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 144,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_484_chunk_484"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 82,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_274_chunk_274"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 76,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_253_chunk_253"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 81,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_269_chunk_269"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 87,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_289_chunk_289"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 108,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_365_chunk_365"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 78,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_260_chunk_260"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 134,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_454_chunk_454"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 108,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_364_chunk_364"
+      }
+    ]
+  },
+  {
+    "id": "LAW_003",
+    "reference_chunk": "giao trinh Luat lao dong CB 2005 (1)_sec_274_chunk_274",
+    "reference_pages": [
+      82,
+      83
+    ],
+    "reference_chunk_in_search": true,
+    "rank": 2,
+    "chat_logs": [
+      {
+        "stage": "hybrid_retrieval",
+        "count": 23,
+        "duration_ms": 1898.14
+      },
+      {
+        "stage": "re_ranking",
+        "passed_threshold": false,
+        "count": 0,
+        "duration_ms": 49003.96
+      }
+    ],
+    "citations": [],
+    "retrieved_sources_pages": [
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 81,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_269_chunk_269"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 82,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_274_chunk_274"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 76,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_255_chunk_255"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 79,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_262_chunk_262"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 77,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_257_chunk_257"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 81,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_270_chunk_270"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 144,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_484_chunk_484"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 76,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_253_chunk_253"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 95,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_321_chunk_321"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 110,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_371_chunk_371"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 133,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_449_chunk_449"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 157,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_524_chunk_524"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 77,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_256_chunk_256"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 78,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_261_chunk_261"
+      },
+      {
+        "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+        "page": 86,
+        "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_284_chunk_284"
+      }
+    ]
+  }
+]

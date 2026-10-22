@@ -1,0 +1,41 @@
+[
+  {
+    "id": "LAW_001",
+    "question": "Theo giáo trình Luật lao động 2005, ba yếu tố cấu thành hợp đồng lao động là gì?",
+    "ground_truth": "Ba yếu tố là: có sự cung ứng một công việc; có sự trả công lao động dưới dạng tiền lương; có sự phụ thuộc về mặt pháp lý của người lao động trước người sử dụng lao động.",
+    "query": "Theo giáo trình Luật lao động 2005, ba yếu tố cấu thành hợp đồng lao động là gì?",
+    "expected_answer": "Ba yếu tố là: có sự cung ứng một công việc; có sự trả công lao động dưới dạng tiền lương; có sự phụ thuộc về mặt pháp lý của người lao động trước người sử dụng lao động.",
+    "evidence": "Section: a. Khái ni ệ m v ề h ợ p đồ ng lao độ ng\n---\n### a. Khái ni ệ m v ề h ợ p đồ ng lao độ ng\n\nĐể thi ế t l ậ p quan h ệ lao độ ng gi ữ a ng ườ i lao độ ng v ớ i ng ườ i s ử d ụ ng lao độ ng, ph ả i có m ộ t hình th ứ c nào đ ó để làm phát sinh m ố i quan h ệ gi ữ a hai bên ch ủ th ể c ủ a quan h ệ lao độ ng, hình th ứ c đ ó chính là h ợ p đồ ng lao độ ng. Th ự c ch ấ t c ủ a h ợ p đồ ng lao độ ng là s ự th ỏ a thu ậ n gi ữ a hai bên, m ộ bên là ng ườ i lao độ ng đ i tìm vi ệ c làm, còn bên kia là ng ườ i s ử d ụ ng lao độ ng c ầ n thuê m ướ n ng ườ i làm công. Trong đ ó ng ườ i lao độ ng không phân bi ệ t gi ớ i tính và qu ố c t ị ch, cam k ế t làm m ộ t công vi ệ c cho ng ườ i s ử d ụ ng lao độ ng, không phân bi ệ t là th ể nhân ho ặ c pháp nhân, công pháp hay t ư pháp, b ằ ng cách t ự nguy ệ n đặ t ho ạ t độ ng ngh ề nghi ệ p c ủ a mình d ướ i quy ề n qu ả n lý c ủ a ng ườ i đ ó để đổ i l ấ y m ộ t s ố ti ề n công lao độ ng g ọ i là ti ề n l ươ ng.\n\nH ợ p đồ ng lao độ ng là s ự th ỏ a thu ậ n gi ữ a ng ườ i lao độ ng và ng ườ i s ử d ụ ng lao độ ng v ề vi ệ c làm có tr ả công, đ i ề u ki ệ n lao độ ng, quy ề n và ngh ĩ a v ụ c ủ a m ỗ i bên trong quan h ệ lao độ ng ( Đ i ề u 26 B ộ lu ậ t lao độ ng).\n\nNh ư v ậ y ta th ấ y có ba y ế u t ố c ấ u thành h ợ p đồ ng lao độ ng :\n\nCó s ự cung ứ ng m ộ t công vi ệ c;\n\nCó s ự tr ả công lao độ ng d ướ i d ạ ng ti ề n l ươ ng;\n\nCó s ự ph ụ thu ộ c v ề m ặ t pháp lý c ủ a ng ườ i lao độ ng tr ướ c ng ườ i s ử d ụ ng lao độ ng.",
+    "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+    "page_start": 32,
+    "page_end": 32,
+    "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_104_chunk_104",
+    "reference_note": "Chỉ chuẩn hóa khoảng trắng tiếng Việt từ chunk gốc; đánh giá theo giáo trình 2005."
+  },
+  {
+    "id": "LAW_002",
+    "question": "Theo giáo trình Luật lao động 2005, người làm ca đêm được nghỉ giữa ca ít nhất bao nhiêu phút và thời gian này có tính vào giờ làm việc không?",
+    "ground_truth": "Người làm ca đêm được nghỉ giữa ca ít nhất 45 phút, tính vào giờ làm việc.",
+    "query": "Theo giáo trình Luật lao động 2005, người làm ca đêm được nghỉ giữa ca ít nhất bao nhiêu phút và thời gian này có tính vào giờ làm việc không?",
+    "expected_answer": "Người làm ca đêm được nghỉ giữa ca ít nhất 45 phút, tính vào giờ làm việc.",
+    "evidence": "Section: a) Th ờ i gi ờ ngh ỉ gi ữ a ca (ngh ỉ gi ả i lao)\n---\n### a) Th ờ i gi ờ ngh ỉ gi ữ a ca (ngh ỉ gi ả i lao)\n\nTheo quy đị nh c ủ a pháp lu ậ t lao độ ng, thì th ờ i gi ờ ngh ỉ gi ữ a ca đượ c tính nh ư sau:\n\nNg ườ i lao độ ng làm vi ệ c 8 gi ờ liên t ụ c trong đ i ề u ki ệ n bình th ườ ng ho ặ c làm vi ệ c 7 gi ờ , 6 gi ờ liên t ụ c trong tr ườ ng h ợ p đượ c rút ng ắ n th ờ i gi ờ làm vi ệ c thì đượ c ngh ỉ ít nh ấ t n ử a gi ờ (30 phút), tính vào gi ờ làm vi ệ c;\n\nNg ườ i làm ca đ êm ( t ừ 22 gi ờ đế n 6 gi ờ ho ặ c t ừ 21 gi ờ đế n 5 gi ờ ) đượ c ngh ỉ gi ữ a ca ít nh ấ t 45 phút, tính vào gi ờ làm vi ệ c;\n\nNg ườ i lao độ ng làm vi ệ c theo ca đượ c ngh ỉ ít nh ấ t 12 gi ờ tr ướ c khi chuy ể n sang ca khác.",
+    "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+    "page_start": 81,
+    "page_end": 81,
+    "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_268_chunk_268",
+    "reference_note": "Chỉ chuẩn hóa khoảng trắng tiếng Việt từ chunk gốc; đánh giá theo giáo trình 2005."
+  },
+  {
+    "id": "LAW_003",
+    "question": "Theo giáo trình Luật lao động 2005, người làm công việc trong điều kiện bình thường được nghỉ hàng năm bao nhiêu ngày làm việc?",
+    "ground_truth": "Người làm công việc trong điều kiện bình thường được nghỉ hàng năm 12 ngày làm việc.",
+    "query": "Theo giáo trình Luật lao động 2005, người làm công việc trong điều kiện bình thường được nghỉ hàng năm bao nhiêu ngày làm việc?",
+    "expected_answer": "Người làm công việc trong điều kiện bình thường được nghỉ hàng năm 12 ngày làm việc.",
+    "evidence": "Section: * S ố ngày ngh ỉ hàng n ă m:\n---\n### * S ố ngày ngh ỉ hàng n ă m:\n\nTheo quy đị nh t ạ i Đ i ề u 74 B ộ lu ậ t lao độ ng n ướ c ta thì th ờ i gian ngh ỉ hàng n ă m đượ c chia ra làm 3 m ứ c là : 12, 14 và 16 ngày, c ụ th ể nh ư sau:\n\n12 ngày làm vi ệ c, đố i v ớ i ng ườ i làm công vi ệ c trong đ i ề u ki ệ n bình th ườ ng;\n\n14 ngày làm vi ệ c, đố i v ớ i ng ườ i làm công vi ệ c n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m ho ặ c làm vi ệ c ở nh ữ ng n ơ i có đ i ề u ki ệ n sinh s ố ng kh ắ c nghi ệ t và đố i v ớ i ng ườ i d ướ i 18 tu ổ i;\n\n16 ngày làm vi ệ c, đố i v ớ i ng ườ i làm công vi ệ c đặ c bi ệ t n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m; ng ườ i làm công vi ệ c n ặ ng nh ọ c, độ c h ạ i, nguy hi ể m ở nh ữ ng n ơ i có đ i ề u ki ệ n sinh s ố ng kh ắ c nghi ệ t.\n\nTh ờ i gian đ i đườ ng không tính vào ngày ngh ỉ hàng n ă m. S ố ngày ngh ỉ hàng n ă m c ủ a ng ườ i lao độ ng còn đượ c t ă ng theo thâm niên làm vi ệ c t ạ i m ộ t doanh nghi ệ p, ho ặ c v ớ i m ộ t ng ườ i s ử d ụ ng lao độ ng, c ứ 5 n ă m đượ c ngh ỉ thêm 1 ngày. Trong th ờ i gian ngh ỉ hàng n ă m, ng ườ i lao độ ng đượ c h ưở ng nguyên l ươ ng c ộ ng ph ụ c ấ p l ươ ng. Ngoài ra, ng ườ i lao độ ng còn đượ c thanh toán ti ề n tàu xe đ i và v ề (n ế u có).",
+    "source": "giao trinh Luat lao dong CB 2005 (1).pdf",
+    "page_start": 82,
+    "page_end": 83,
+    "chunk_id": "giao trinh Luat lao dong CB 2005 (1)_sec_274_chunk_274",
+    "reference_note": "Chỉ chuẩn hóa khoảng trắng tiếng Việt từ chunk gốc; đánh giá theo giáo trình 2005."
+  }
+]

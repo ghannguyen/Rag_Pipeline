@@ -1,0 +1,93 @@
+[
+  {
+    "test_case_id": "LAW_A_001",
+    "expected_page": "3.0",
+    "expected_section": "Bài 1 - Đối tượng điều chỉnh",
+    "retrieved_sources": [
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf"
+    ],
+    "retrieved_pages": [
+      2,
+      3,
+      7,
+      3,
+      210,
+      173,
+      3,
+      113,
+      177,
+      65,
+      12,
+      6,
+      3,
+      1,
+      113
+    ],
+    "expected_page_retrieved": true,
+    "citations": []
+  },
+  {
+    "test_case_id": "LAW_A_002",
+    "expected_page": "3.0",
+    "expected_section": "Bài 1 - Quan hệ lao động",
+    "retrieved_sources": [
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf",
+      "giao trinh Luat lao dong CB 2005 (1).pdf"
+    ],
+    "retrieved_pages": [
+      7,
+      3,
+      2,
+      172,
+      173,
+      13,
+      157,
+      32,
+      158,
+      33,
+      194,
+      1,
+      196,
+      36,
+      172
+    ],
+    "expected_page_retrieved": true,
+    "citations": null
+  },
+  {
+    "test_case_id": "LAW_A_003",
+    "expected_page": "5.0",
+    "expected_section": "Bài 1 - Các quan hệ liên quan",
+    "retrieved_sources": [],
+    "retrieved_pages": [],
+    "expected_page_retrieved": null,
+    "citations": null
+  }
+]

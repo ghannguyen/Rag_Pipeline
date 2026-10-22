@@ -1,0 +1,12 @@
+{
+  "selected": 3,
+  "chat_completed": 1,
+  "scoring_completed": 0,
+  "blocker": "Gemini judge gemini-3.8-flash: 503 UNAVAILABLE high demand; RAGAS metric timed out at 240 seconds",
+  "previous_judge_error": "gemini-2.5-flash: 404 NOT_FOUND no longer available",
+  "cases_2_3": "NOT RUN",
+  "modified_source": [
+    "evaluation/evaluate_rag.py: add existing JSON dataset support"
+  ],
+  "knowledge_base_changed": false
+}

@@ -1,0 +1,30 @@
+{
+  "input_path": "/Users/hannguyen/Downloads/TC_LuatLD.xlsx",
+  "sha256": "195630469b6ee5e223a17c5ac6abc77c4676f33e2dc86e0c4b7fc6420aef8d89",
+  "sheets": [
+    {
+      "sheet": "Luật LĐ",
+      "headers": [
+        "Test Case ID",
+        "Category",
+        "Query",
+        "Expected Answer",
+        null,
+        "Source Page",
+        "Source Section",
+        "Required Keywords / Key Concepts",
+        "Retrieval Difficulty",
+        "Expected Retrieval Type",
+        "Is Answerable",
+        "Expected Behavior",
+        "Notes"
+      ],
+      "nonempty_data_rows": 100
+    }
+  ],
+  "index_sources": {
+    "giao trinh Luat lao dong CB 2005 (1).pdf": 695
+  },
+  "expected_document_column": null,
+  "unnamed_column_E": "Preserved verbatim in excel_fields. Contains evidence text."
+}

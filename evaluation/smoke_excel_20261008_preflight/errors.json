@@ -1,0 +1,36 @@
+[
+  {
+    "id": "LAW_A_001",
+    "stage": "judge",
+    "error": "Metric không có điểm: answer_relevancy, context_precision | TimeoutError:  | ClientConnectorError: Cannot connect to host generativelanguage.googleapis.com:443 ssl:<ssl.SSLContext object at 0x11ee6a3c0> [No route to host]"
+  },
+  {
+    "id": "LAW_A_002",
+    "stage": "chat",
+    "error": "HTTPError: 500 Server Error: Internal Server Error for url: http://127.0.0.1:8001/api/rag/chat"
+  },
+  {
+    "stage": "initial_probe",
+    "error": "HTTP success but MAX_TOKENS and incomplete JSON; runner interrupted and probe validation corrected."
+  },
+  {
+    "stage": "validated_probe",
+    "http_status": 503,
+    "retries": 1,
+    "backoff_seconds": [
+      2
+    ],
+    "outcome": "Complete valid JSON on second attempt"
+  },
+  {
+    "stage": "fallback_probe",
+    "model": "models/gemini-2.5-flash",
+    "http_status": 404,
+    "error": "Model no longer available to new users"
+  },
+  {
+    "id": "LAW_A_003",
+    "stage": "retrieval",
+    "error": "Interrupted before retrieval response was saved; chat and metrics not run."
+  }
+]

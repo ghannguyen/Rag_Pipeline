@@ -1,0 +1,482 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAG evaluation</title><style>
+body{font:15px system-ui,sans-serif;background:#f4f6fa;color:#17243c;margin:0;padding:32px}main{max-width:1440px;margin:auto}h1{margin:0;font-size:30px}p{line-height:1.6;color:#516077}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:24px 0}article{background:white;border:1px solid #dce3ee;border-radius:12px;padding:22px}strong{display:block;font-size:34px;margin:12px 0}small,label{display:block;color:#516077}svg{width:100%;fill:#4576df}svg text{fill:#516077;font-size:11px}table{border-collapse:collapse;width:100%;background:white}td,th{padding:12px;text-align:left;border-bottom:1px solid #e1e7f0;vertical-align:top}th{font-size:12px;color:#516077}.scroll{overflow:auto;border-radius:10px;margin:20px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px system-ui;max-width:700px}summary{cursor:pointer;min-width:260px}h3{font-size:16px}input{padding:12px;border:1px solid #ccd5e5;border-radius:8px;width:min(400px,90%)}.note{background:#fff5de;padding:16px;border-radius:10px}
+</style><main><h1>Excel smoke test — BLOCKED</h1><p class="note">Không có testcase nào đủ 4 metrics. Điểm trung bình bên dưới chỉ dựa trên metric có kết quả của case 1, không đại diện cho 3 testcase. Index có 695 vectors nhưng chỉ chứa nguồn giáo trình. Case 3 đã dừng trước khi có chat response.</p><p>2026-10-08T00:42:18.261483+07:00 · models/gemini-3.6-flash · 3/3 testcase đã xử lý · 0 đủ 4 điểm · 3 có lỗi</p><p class="note">Contexts lấy từ search trước rerank, không đảm bảo trùng context chat thực sự sử dụng. Faithfulness đo với tập context này. Bốn metric không phải bộ chấm riêng cho hành vi từ chối trả lời. Điểm lỗi để trống, không đổi thành 0. Trung bình chỉ tính điểm hợp lệ; OK nghĩa là chấm thành công, không có nghĩa PASS.</p><div class="grid"><article><label>faithfulness</label><strong>0.000</strong><small>1/3 có điểm</small></article><article><label>answer_relevancy</label><strong>—</strong><small>0/3 có điểm</small></article><article><label>context_precision</label><strong>—</strong><small>0/3 có điểm</small></article><article><label>context_recall</label><strong>1.000</strong><small>1/3 có điểm</small></article></div><div class="grid"><article><h3>faithfulness</h3><svg role="img" aria-label="Phân bố điểm faithfulness" viewBox="0 0 420 190"><rect x="35" y="25.0" width="26" height="130.0" rx="3"><title>0.0–0.1: 1 case</title></rect><text x="48" y="18.0" text-anchor="middle">1</text><rect x="71" y="155.0" width="26" height="0.0" rx="3"><title>0.1–0.2: 0 case</title></rect><text x="84" y="148.0" text-anchor="middle">0</text><rect x="107" y="155.0" width="26" height="0.0" rx="3"><title>0.2–0.3: 0 case</title></rect><text x="120" y="148.0" text-anchor="middle">0</text><rect x="143" y="155.0" width="26" height="0.0" rx="3"><title>0.3–0.4: 0 case</title></rect><text x="156" y="148.0" text-anchor="middle">0</text><rect x="179" y="155.0" width="26" height="0.0" rx="3"><title>0.4–0.5: 0 case</title></rect><text x="192" y="148.0" text-anchor="middle">0</text><rect x="215" y="155.0" width="26" height="0.0" rx="3"><title>0.5–0.6: 0 case</title></rect><text x="228" y="148.0" text-anchor="middle">0</text><rect x="251" y="155.0" width="26" height="0.0" rx="3"><title>0.6–0.7: 0 case</title></rect><text x="264" y="148.0" text-anchor="middle">0</text><rect x="287" y="155.0" width="26" height="0.0" rx="3"><title>0.7–0.8: 0 case</title></rect><text x="300" y="148.0" text-anchor="middle">0</text><rect x="323" y="155.0" width="26" height="0.0" rx="3"><title>0.8–0.9: 0 case</title></rect><text x="336" y="148.0" text-anchor="middle">0</text><rect x="359" y="155.0" width="26" height="0.0" rx="3"><title>0.9–1.0: 0 case</title></rect><text x="372" y="148.0" text-anchor="middle">0</text><text x="35" y="180">0</text><text x="370" y="180">1.0</text></svg></article><article><h3>answer_relevancy</h3><svg role="img" aria-label="Phân bố điểm answer_relevancy" viewBox="0 0 420 190"><rect x="35" y="155.0" width="26" height="0.0" rx="3"><title>0.0–0.1: 0 case</title></rect><text x="48" y="148.0" text-anchor="middle">0</text><rect x="71" y="155.0" width="26" height="0.0" rx="3"><title>0.1–0.2: 0 case</title></rect><text x="84" y="148.0" text-anchor="middle">0</text><rect x="107" y="155.0" width="26" height="0.0" rx="3"><title>0.2–0.3: 0 case</title></rect><text x="120" y="148.0" text-anchor="middle">0</text><rect x="143" y="155.0" width="26" height="0.0" rx="3"><title>0.3–0.4: 0 case</title></rect><text x="156" y="148.0" text-anchor="middle">0</text><rect x="179" y="155.0" width="26" height="0.0" rx="3"><title>0.4–0.5: 0 case</title></rect><text x="192" y="148.0" text-anchor="middle">0</text><rect x="215" y="155.0" width="26" height="0.0" rx="3"><title>0.5–0.6: 0 case</title></rect><text x="228" y="148.0" text-anchor="middle">0</text><rect x="251" y="155.0" width="26" height="0.0" rx="3"><title>0.6–0.7: 0 case</title></rect><text x="264" y="148.0" text-anchor="middle">0</text><rect x="287" y="155.0" width="26" height="0.0" rx="3"><title>0.7–0.8: 0 case</title></rect><text x="300" y="148.0" text-anchor="middle">0</text><rect x="323" y="155.0" width="26" height="0.0" rx="3"><title>0.8–0.9: 0 case</title></rect><text x="336" y="148.0" text-anchor="middle">0</text><rect x="359" y="155.0" width="26" height="0.0" rx="3"><title>0.9–1.0: 0 case</title></rect><text x="372" y="148.0" text-anchor="middle">0</text><text x="35" y="180">0</text><text x="370" y="180">1.0</text></svg></article><article><h3>context_precision</h3><svg role="img" aria-label="Phân bố điểm context_precision" viewBox="0 0 420 190"><rect x="35" y="155.0" width="26" height="0.0" rx="3"><title>0.0–0.1: 0 case</title></rect><text x="48" y="148.0" text-anchor="middle">0</text><rect x="71" y="155.0" width="26" height="0.0" rx="3"><title>0.1–0.2: 0 case</title></rect><text x="84" y="148.0" text-anchor="middle">0</text><rect x="107" y="155.0" width="26" height="0.0" rx="3"><title>0.2–0.3: 0 case</title></rect><text x="120" y="148.0" text-anchor="middle">0</text><rect x="143" y="155.0" width="26" height="0.0" rx="3"><title>0.3–0.4: 0 case</title></rect><text x="156" y="148.0" text-anchor="middle">0</text><rect x="179" y="155.0" width="26" height="0.0" rx="3"><title>0.4–0.5: 0 case</title></rect><text x="192" y="148.0" text-anchor="middle">0</text><rect x="215" y="155.0" width="26" height="0.0" rx="3"><title>0.5–0.6: 0 case</title></rect><text x="228" y="148.0" text-anchor="middle">0</text><rect x="251" y="155.0" width="26" height="0.0" rx="3"><title>0.6–0.7: 0 case</title></rect><text x="264" y="148.0" text-anchor="middle">0</text><rect x="287" y="155.0" width="26" height="0.0" rx="3"><title>0.7–0.8: 0 case</title></rect><text x="300" y="148.0" text-anchor="middle">0</text><rect x="323" y="155.0" width="26" height="0.0" rx="3"><title>0.8–0.9: 0 case</title></rect><text x="336" y="148.0" text-anchor="middle">0</text><rect x="359" y="155.0" width="26" height="0.0" rx="3"><title>0.9–1.0: 0 case</title></rect><text x="372" y="148.0" text-anchor="middle">0</text><text x="35" y="180">0</text><text x="370" y="180">1.0</text></svg></article><article><h3>context_recall</h3><svg role="img" aria-label="Phân bố điểm context_recall" viewBox="0 0 420 190"><rect x="35" y="155.0" width="26" height="0.0" rx="3"><title>0.0–0.1: 0 case</title></rect><text x="48" y="148.0" text-anchor="middle">0</text><rect x="71" y="155.0" width="26" height="0.0" rx="3"><title>0.1–0.2: 0 case</title></rect><text x="84" y="148.0" text-anchor="middle">0</text><rect x="107" y="155.0" width="26" height="0.0" rx="3"><title>0.2–0.3: 0 case</title></rect><text x="120" y="148.0" text-anchor="middle">0</text><rect x="143" y="155.0" width="26" height="0.0" rx="3"><title>0.3–0.4: 0 case</title></rect><text x="156" y="148.0" text-anchor="middle">0</text><rect x="179" y="155.0" width="26" height="0.0" rx="3"><title>0.4–0.5: 0 case</title></rect><text x="192" y="148.0" text-anchor="middle">0</text><rect x="215" y="155.0" width="26" height="0.0" rx="3"><title>0.5–0.6: 0 case</title></rect><text x="228" y="148.0" text-anchor="middle">0</text><rect x="251" y="155.0" width="26" height="0.0" rx="3"><title>0.6–0.7: 0 case</title></rect><text x="264" y="148.0" text-anchor="middle">0</text><rect x="287" y="155.0" width="26" height="0.0" rx="3"><title>0.7–0.8: 0 case</title></rect><text x="300" y="148.0" text-anchor="middle">0</text><rect x="323" y="155.0" width="26" height="0.0" rx="3"><title>0.8–0.9: 0 case</title></rect><text x="336" y="148.0" text-anchor="middle">0</text><rect x="359" y="25.0" width="26" height="130.0" rx="3"><title>0.9–1.0: 1 case</title></rect><text x="372" y="18.0" text-anchor="middle">1</text><text x="35" y="180">0</text><text x="370" y="180">1.0</text></svg></article></div><h2>Theo Is Answerable</h2><p>Unknown: sheet không có nhãn hoặc ô trống. Nhóm No cần đọc riêng vì đáp án kỳ vọng là từ chối.</p><div class="scroll"><table><thead><tr><th>Is Answerable</th><th>Cases</th><th>faithfulness</th><th>answer_relevancy</th><th>context_precision</th><th>context_recall</th></tr></thead><tbody><tr><td>Yes</td><td>3</td><td>0.000 (n=1)</td><td>—</td><td>—</td><td>1.000 (n=1)</td></tr><tr><td>No</td><td>0</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>Unknown</td><td>0</td><td>—</td><td>—</td><td>—</td><td>—</td></tr></tbody></table></div><h2>Chi tiết testcase</h2><input id="filter" placeholder="Tìm case, câu hỏi hoặc lỗi"><div class="scroll"><table id="details"><thead><tr><th>Sheet</th><th>ID</th><th>Answerable</th><th>Status</th><th>faithfulness</th><th>answer_relevancy</th><th>context_precision</th><th>context_recall</th><th>Nội dung</th></tr></thead><tbody><tr><td>Luật LĐ</td><td>LAW_A_001</td><td>Yes</td><td>METRIC_ERROR</td><td>0.000</td><td>—</td><td>—</td><td>1.000</td><td><details><summary>Theo giáo trình, đối tượng điều chỉnh của Luật lao động gồm những nhóm quan hệ nào?</summary><h4>Answer</h4><pre>Dựa trên tài liệu được cung cấp, tôi không tìm thấy thông tin để trả lời câu hỏi này.</pre><h4>Ground truth</h4><pre>Gồm quan hệ lao động và các quan hệ liên quan chặt chẽ hoặc phát sinh từ quan hệ lao động.</pre><h4>Contexts</h4><pre>Section: L Ờ I GI Ớ I THI Ệ U
+---
+Giáo trình Lu ậ t Lao độ ng c ơ b ả n đượ c biên so ạ n nh ằ m m ụ c đ ích ph ụ c v ụ vi ệ c h ọ c t ậ p, gi ả ng d ạ y, và nghiên c ứ u cho sinh viên, gi ả ng viên, và cán b ộ làm công tác liên quan đế n l ĩ nh v ự c lao độ ng.
+
+Trong quá trình biên so ạ n ch ắ c không tránh kh ỏ i nh ữ ng h ạ n ch ế nh ấ t đị nh, r ấ t mong nh ậ n đượ c ý ki ế n đ óng góp quý báu c ủ a b ạ n đọ c.
+
+Tác gi ả Th ạ c s ĩ Di ệ p Thành Nguyên ả ng viên Khoa Lu ậ t - Đ H. C ầ n Th ơ
+
+Gi
+
+Section: a - Quan h ệ lao độ ng
+---
+Lao độ ng c ủ a con ng ườ i bao gi ờ c ũ ng n ằ m trong m ộ t hình thái kinh t ế -xã h ộ i nh ấ t đị nh, b ở i vì trong quá trình lao độ ng con ng ườ i không ch ỉ quan h ệ v ớ i thiên nhiên mà còn có quan h ệ v ớ i nhau. Quan h ệ gi ữ a con ng ườ i v ớ i con ng ườ i trong lao độ ng nh ằ m t ạ o ra nh ữ ng giá tr ị v ậ t ch ấ t, tinh th ầ n ph ụ c v ụ chính b ả n thân và xã h ộ i g ọ i là quan h ệ lao độ ng. Quan h ệ lao độ ng này là bi ể u hi ệ n m ộ t Giáo trình Lu ậ t Lao độ ng c ơ b ả n m ặ t c ủ a quan h ệ s ả n xu ấ t và ch ị u s ự chi ph ố i c ủ a quan h ệ s ở h ữ u. Chính vì th ế , trong các ch ế độ xã h ộ i khác nhau, tùy thu ộ c vào đặ c đ i ể m, tính ch ấ t c ủ a các quan h ệ s ở h ữ u th ố ng tr ị mà có nh ữ ng ph ươ ng th ứ c t ổ ch ứ c lao độ ng phù h ợ p, và ở đ âu có t ổ ch ứ c lao độ ng, có h ợ p tác và phân công lao độ ng thì ở đ ó t ồ n t ạ i quan h ệ lao độ ng
+
+Section: Giáo trình Lu ậ t Lao độ ng c ơ b ả n
+---
+### Giáo trình Lu ậ t Lao độ ng c ơ b ả n
+
+cu ộ c đ ình công này do các t ổ ch ứ c, c ơ quan có th ẩ m quy ề n th ự c hi ệ n (tùy t ừ ng lo ạ i tranh ch ấ p mà các c ơ quan có th ẩ m quy ề n là H ộ i đồ ng hòa gi ả i ở c ơ s ở , H ộ i đồ ng tr ọ ng tài lao độ ng c ấ p t ỉ nh hay Tòa án nhân dân), nh ằ m b ả o đả m quy ề n l ợ i cho c ả hai bên, đả m b ả o s ự hài hòa, ổ n đị nh c ủ a quan h ệ lao độ ng. Vì v ậ y, quan h ệ này thu ộ c đố i t ượ ng đ i ề u ch ỉ nh c ủ a Lu ậ t lao độ ng.
+
+Section: 1 - Đố i t ượ ng đ i ề u ch ỉ nh c ủ a lu ậ t lao độ ng
+---
+### 1 - Đố i t ượ ng đ i ề u ch ỉ nh c ủ a lu ậ t lao độ ng
+
+Đố i t ượ ng đ i ề u ch ỉ nh c ủ a m ộ t ngành lu ậ t là nh ữ ng nhóm quan h ệ xã h ộ i cùng lo ạ i có cùng tính ch ấ t c ơ b ả n gi ố ng nhau đượ c các quy ph ạ m c ủ a ngành lu ậ t ấ y đ i ề u ch ỉ nh.
+
+Đố i t ượ ng đ i ề u ch ỉ nh c ủ a Lu ậ t lao độ ng là m ố i quan h ệ xã h ộ i phát sinh gi ữ a m ộ t bên là ng ườ i lao độ ng làm công ă n l ươ ng v ớ i m ộ t bên là cá nhân ho ặ c t ổ ch ứ c s ử d ụ ng, thuê m ướ n có tr ả công cho ng ườ i lao độ ng và các quan h ệ khác có liên quan ch ặ t ch ẽ ho ặ c phát sinh t ừ quan h ệ lao độ ng.
+
+Nh ư v ậ y, đố i t ượ ng đ i ề u ch ỉ nh c ủ a Lu ậ t lao độ ng bao g ồ m hai nhóm quan h ệ xã h ộ i:
+
+Quan h ệ lao độ ng;
+
+Các quan h ệ liên quan đế n quan h ệ lao độ ng (phát sinh trong quá trình s ử d ụ ng lao độ ng).
+
+Section: DANH M Ụ C TÀI LI Ệ U THAM KH Ả O
+---
+Ngh ị đị nh s ố 01/2003/N Đ -CP ngày 09/01/2003 c ủ a Chính ph ủ v ề vi ệ c s ử a đổ i, b ổ sung m ộ t s ố đ i ề u c ủ a Đ i ề u l ệ B ả o hi ể m xã h ộ i ban hành kèm theo Ngh ị đị nh s ố 12/CP ngày 26/01/1995 c ủ a Chính ph ủ ;
+
+Thông t ư s ố 06/L Đ TBXH ngày 04/4/1995 c ủ a B ộ Lao độ ng - Th ươ ng binh và Xã h ộ i h ướ ng d ẫ n thi hành Đ i ề u l ệ B ả o hi ể m xã h ộ i ban hành kèm theo Ngh ị đị nh s ố 12/CP ngày 26/01/1995 c ủ a Chính ph ủ ;
+
+Thông t ư s ố 07/2003/TT-BL Đ TBXH ngày 12/3/2003 h ướ ng d ẫ n thi hành m ộ t s ố đ i ề u c ủ a Ngh ị đị nh s ố 01/2003/N Đ -CP ngày 09/01/2003 c ủ a Chính ph ủ v ề vi ệ c s ử a đổ i, b ổ sung m ộ t s ố đ i ề u c ủ a Đ i ề u l ệ B ả o hi ể m xã h ộ i;
+
+Ngh ị đị nh s ố 23/CP ngày 18/4/1996 c ủ a Chính ph ủ quy đị nh chi ti ế t và h ướ ng d ẫ n thi hành m ộ t s ố Đ i ề u c ủ a B ộ lu ậ t lao độ ng v ề nh ữ ng quy đị nh riêng đố i v ớ i lao độ ng n ữ ;
+
+Ngh ị đị nh s ố 81/CP ngày 23/11/1995 c ủ a Chính ph ủ quy đị nh chi ti ế t và h ướ ng d ẫ n thi hành m ộ t s ố Đ i ề u c ủ a B ộ lu ậ t lao độ ng v ề lao độ ng là ng ườ i tàn t ậ t;
+
+Ngh ị đị nh s ố 81/2003/N Đ -CP ngày 17/7/2003 c ủ a Chính ph ủ quy đị nh chi ti ế t và h ướ ng d ẫ n thi hành B ộ lu ậ t Lao độ ng v ề ng ườ i lao độ ng Vi ệ t Nam làm vi ệ c ở n ướ c ngoài;
+
+Lu ậ t công đ oàn (1990);
+
+Đ i ề u l ệ Công đ oàn Vi ệ t Nam n ă m 2003;
+
+Section: b3) Ch ươ ng trình và tài li ệ u
+---
+### b3) Ch ươ ng trình và tài li ệ u
+
+C ụ c Qu ả n lý Lao độ ng ngoài n ướ c qui đị nh ch ươ ng trình và phát hành tài li ệ u giáo d ụ c, đị nh h ướ ng đố i v ớ i ng ườ i lao độ ng.
+
+Ch ươ ng trình và tài li ệ u đố i v ớ i chuyên gia theo qui đị nh c ủ a B ộ qu ả n lý chuyên ngành.
+
+Ch ươ ng trình và tài li ệ u đố i v ớ i s ĩ quan, thu ỷ th ủ làm vi ệ c trên tàu v ậ n t ả i bi ể n theo qui đị nh c ủ a B ộ giao thông v ậ n t ả i
+
+Section: a - Quan h ệ lao độ ng
+---
+. Các ch ủ th ể khi tham gia quan h ệ này hoàn toàn đượ c t ự do, bình đẳ ng, t ự nguy ệ n, t ự th ỏ a thu ậ n các v ấ n đề liên quan đế n quá trình lao độ ng phù h ợ p v ớ i pháp lu ậ t và hi ệ u qu ả s ả n xu ấ t, kinh doanh c ủ a doanh nghi ệ p. Chính vì th ế , Đ i ề u 1 B ộ lu ậ t Lao độ ng n ă m 1994 n ướ c ta quy đị nh : &#x27;B ộ lu ậ t lao độ ng đ i ề u ch ỉ nh quan h ệ lao độ ng gi ữ a ng ườ i lao độ ng làm công ă n l ươ ng v ớ i ng ườ i s ử d ụ ng lao độ ng và các quan h ệ lao độ ng liên quan tr ự c ti ế p v ớ i quan h ệ lao độ ng&#x27;. Đ ây là lo ạ i quan h ệ lao độ ng tiêu bi ể u và c ũ ng là hình th ứ c s ử d ụ ng lao độ ng ch ủ y ế u, ph ổ bi ế n trong n ề n kinh t ế th ị tr ườ ng. Nh ư v ậ y, khác v ớ i quan h ệ lao độ ng làm công ă n l ươ ng do Lu ậ t lao độ ng đ i ề u ch ỉ nh, quan h ệ lao độ ng c ủ a cán b ộ , công ch ứ c làm vi ệ c trong b ộ máy Nhà n ướ c có nh ữ ng nét đặ c tr ư ng khác bi ệ t, vì v ậ y quan h ệ lao độ ng này tr ướ c h ế t do Lu ậ t hành chính đ i ề u ch ỉ nh
+
+Section: Nhóm V: Các b ệ nh nhi ễ m khu ẩ n ngh ề nghi ệ p
+---
+### Nhóm V: Các b ệ nh nhi ễ m khu ẩ n ngh ề nghi ệ p
+
+Section: 2. Đố i t ượ ng đượ c gia nh ậ p t ổ ch ứ c Công đ oàn Vi ệ t Nam
+---
+### 2. Đố i t ượ ng đượ c gia nh ậ p t ổ ch ứ c Công đ oàn Vi ệ t Nam
+
+Công nhân và lao độ ng làm công h ưở ng l ươ ng theo h ợ p đồ ng lao độ ng có th ờ i h ạ n t ừ 6 tháng tr ở lên ở các c ơ quan, doanh nghi ệ p và các thành ph ầ n kinh t ế , h ợ p tác xã;
+
+Cán b ộ , công ch ứ c, viên ch ứ c;
+
+Nh ữ ng ng ườ i Vi ệ t Nam đượ c Nhà n ướ c Vi ệ t Nam c ử sang làm ch ủ đạ i di ệ n cho quy ề n l ợ i và s ở h ữ u Nhà n ướ c trong các doanh nghi ệ p liên doanh, công ty c ổ ph ầ n.
+
+Ngoài ra các đố i t ượ ng d ướ i đ ây c ũ ng có th ể đượ c xem xét k ế t n ạ p vào công đ oàn, nghi ệ p đ oàn:
+
+Lao độ ng t ự do h ợ p pháp;
+
+Lao độ ng có th ờ i h ạ n t ừ 6 tháng tr ở lên ở n ướ c ngoài theo h ợ p đồ ng lao độ ng đượ c ký k ế t gi ữ a các c ơ quan, doanh nghi ệ p Vi ệ t Nam v ớ i n ướ c ngoài.
+
+Section: b. H ệ th ố ng thang, b ả ng l ươ ng c ủ a ng ườ i lao độ ng trong các doanh nghi ệ p:
+---
+### b. H ệ th ố ng thang, b ả ng l ươ ng c ủ a ng ườ i lao độ ng trong các doanh nghi ệ p:
+
+Xu ấ t phát t ừ quan đ i ể m ti ề n l ươ ng c ủ a ng ườ i lao độ ng trong doanh nghi ệ p (tr ừ nh ữ ng ng ườ i làm trong các doanh nghi ệ p nhà n ướ c đượ c tuy ể n d ụ ng và quy đị nh h ưở ng l ươ ng theo cán b ộ công ch ứ c) ph ụ thu ộ c vào s ự th ỏ a thu ậ n gi ữ a ng ườ i lao độ ng và ng ườ i s ử d ụ ng lao độ ng, do đ ó ti ề n l ươ ng c ủ a nh ữ ng ng ườ i này đượ c quy đị nh riêng và có khác so v ớ i l ươ ng c ủ a cán b ộ , công ch ứ c nhà n ướ c C ă n c ứ xác đị nh m ứ c tr ả công cho ng ườ i lao độ ng trong các doanh nghi ệ p c ũ ng d ự a vào 2 y ế u t ố là m ứ c độ ph ứ c t ạ p c ủ a công vi ệ c th ể hi ệ n qua trình độ c ầ n thi ế t c ủ a ng ườ i lao độ ng để th ự c hi ệ n công vi ệ c và m ứ c tiêu hao lao độ ng. p
+
+H ệ th ố ng thang l ươ ng, b ả ng l ươ ng c ủ a ng ườ i lao độ ng trong doanh nghi ệ g ồ m:
+
+H ệ th ố ng thang l ươ ng c ủ a ng ườ i lao độ ng đượ c xác đị nh theo ngành (ho ặ c m ộ t nhóm ngành kinh t ế k ỹ thu ậ t). Trong đ ó các ngh ề ph ả i có tiêu chu ẩ n k ỹ thu ậ t rõ ràng
+
+B ả ng l ươ ng công nhân tr ự c ti ế p s ả n xu ấ t: áp d ụ ng cho nh ữ ng ngành ngh ề mà tiêu chu ẩ n, c ấ p b ậ c không rõ ràng, không phân chia đượ c nhi ề u m ứ c độ ph ứ c t ạ p rõ r ệ t ho ặ c do đặ c đ i ể m c ủ a công vi ệ c ph ả i b ố trí công nhân theo
+
+4 Kho n 1
+
+Đ
+
+i
+
+b
+
+ậ
+
+c l
+
+ả
+
+u 71 Lu
+
+ậ
+
+ươ
+
+ề
+
+ng cao nh
+
+ấ
+
+t giáo d
+
+ụ
+
+c qui đị
+
+t trong h
+
+ệ
+
+nh: &#x27;Thang, b
+
+ậ
+
+th
+
+ố
+
+ng thang l
+
+ươ
+
+c l
+
+ươ
+
+ng c
+
+ng hành chính s
+
+ủ
+
+a nhà giáo là m
+
+ự
+
+nghi
+
+ộ
+
+t trong nh
+
+ệ
+
+p c
+
+ủ
+
+a Nhà n
+
+ướ
+
+c&#x27;
+
+ữ
+
+Section: 3 - Nguyên t ắ c k ế t h ợ p hài hòa gi ữ a chính sách kinh t ế và chính sách xã h ộ i
+---
+### 3 - Nguyên t ắ c k ế t h ợ p hài hòa gi ữ a chính sách kinh t ế và chính sách xã h ộ i
+
+Ng ườ i lao độ ng là thành viên trong xã h ộ i, tham gia quan h ệ lao độ ng để đả m b ả o cu ộ c s ố ng cho b ả n thân và gia đ ình mình, nên các ch ế độ lao độ ng không ch ỉ liên quan đế n ng ườ i lao độ ng mà còn liên quan đế n toàn b ộ đờ i s ố ng xã h ộ i, do đ ó trong quá trình đ i ề u ch ỉ nh các quan h ệ lao độ ng, Lu ậ t lao độ ng ph ả i k ế t h ợ p hài hòa gi ữ a chính sách kinh t ế và chính sách xã h ộ i.
+
+Section: (4) Quan h ệ v ề b ả o hi ể m xã h ộ i
+---
+### (4) Quan h ệ v ề b ả o hi ể m xã h ộ i
+
+Vi ệ c b ả o đả m đờ i s ố ng cho ng ườ i lao độ ng khi h ọ m ấ t ho ặ c gi ả m kh ả n ă ng lao độ ng, hay h ế t tu ổ i lao độ ng đượ c Nhà n ướ c đả m b ả o b ằ ng nhi ề u lo ạ i qu ỹ khác nhau, trong đ ó có qu ỹ b ả o hi ể m xã h ộ i. Quá trình đả m b ả o các đ i ề u ki ệ n v ậ t ch ấ t cho ng ườ i lao độ ng có liên quan ch ặ t ch ẽ v ớ i quan h ệ lao độ ng, vì v ậ y đượ c các quy ph ạ m pháp lu ậ t lao độ ng đ i ề u ch ỉ nh.
+
+Quan h ệ pháp lu ậ t v ề b ả o hi ể m xã h ộ i g ồ m hai nhóm nh ư sau :
+
+Quan h ệ pháp lu ậ t trong vi ệ c t ạ o thành qu ỹ b ả o hi ể m;
+
+Quan h ệ pháp lu ậ t trong vi ệ c chi tr ả b ả o hi ể m xã h ộ i.
+
+(5) Quan h ệ gi ữ a ng ườ i s ử d ụ ng lao độ ng v ớ i t ổ ch ứ c Công đ oàn, đạ i di ệ n c ủ a t ậ p th ể ng ườ i lao độ ng
+
+Section: a - Quan h ệ lao độ ng
+---
+. Tuy nhiên, d ướ i góc độ là m ộ t quan h ệ s ử d ụ ng lao độ ng, Lu ậ t lao độ ng c ũ ng đ i ề u ch ỉ nh các quan h ệ lao độ ng c ủ a cán b ộ , công ch ứ c trong ph ạ m vi phù h ợ p. Đ i ề u 4 B ộ lu ậ t lao độ ng quy đị nh: &#x27;Ch ế độ lao độ ng đố i v ớ i công ch ứ c, viên ch ứ c Nhà n ướ c, ng ườ i gi ữ các ch ứ c v ụ đượ c b ầ u, c ử ho ặ c b ổ nhi ệ m, ng ườ i thu ộ c l ự c l ượ ng quân độ i nhân dân, công an nhân dân, ng ườ i thu ộ c các đ oàn th ể nhân dân, các t ổ ch ứ c chính tr ị , xã h ộ i khác và xã viên h ợ p tác xã do các v ă n b ả n pháp lu ậ t khác quy đị nh nh ư ng tùy t ừ ng đố i t ượ ng mà
+
+đượ c áp d ụ ng m ộ t s ố uy đị nh trong B ộ lu ậ t này&#x27;.
+
+Section: TRANG
+---
+### TRANG
+
+| L ờ i gi ớ i thi ệ u | ........................................................................................02 |
+|---------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| • Bài 1: Khái ni ệ m Lu ậ t Lao độ ng Vi ệ t Nam..........................................03 | |
+| • Bài 2: Quan h ệ pháp lu ậ t lao độ ng | .......................................................14 |
+| • Bài 3 : Vi ệ c làm và h ọ c ngh ề | ...............................................................21 |
+| • Bài 4 : Tuy ể n d ụ ng lao độ ng | ................................................................29 |
+| • Bài 5: Th ỏ a ướ c lao độ ng t ậ p th ể | ........................................................44 |
+| • Bài 6: Ti ề n l ươ ng | ..................................................................................55 |
+| • Bài 7: Th ờ i gi ờ làm vi ệ c - th ờ i gi ờ ngh ỉ ng ơ | i ......................................69 |
+| • Bài 8: K ỷ lu ậ t lao độ ng và trách nhi ệ m v ậ t ch ấ | t ..................................80 |
+| • Bài 9: An toàn lao độ ng, v ệ sinh lao độ ng - | |
+| Tai n ạ n lao độ ng, b ệ nh ngh ề nghi ệ p | .........................................92 |
+| • Bài 10: B ả o hi ể m xã h ộ i | .....................................................................113 |
+| • Bài 11: Lao độ ng đặ c thù | ...................................................................134 |
+| • Bài 12: Xu ấ t kh ẩ u lao độ ng | ................................................................143 |
+| • Bài 13: Đị a v ị pháp lý c ủ a Công đ oàn trong b ả o v ệ quy ề n và l ợ i ích h ợ p pháp c ủ a ng ườ i lao độ ng | .................................167 |
+| • Bài 14: Gi ả i quy ế t tranh ch ấ p lao độ ng | ..............................................183 |
+| • Danh m ụ c tài li ệ u tham kh ả | o...............................................................200 |
+
+Section: Nhóm IV: Các b ệ nh da ngh ề nghi ệ
+---
+### Nhóm IV: Các b ệ nh da ngh ề nghi ệ
+
+B ệ nh s ạ m da ngh ề nghi ệ p
+
+B ệ nh loét da, loét vách ng ă n m ũ i, viêm da, chàm ti ế p xúc</pre><p>Metric không có điểm: answer_relevancy, context_precision | TimeoutError:  | ClientConnectorError: Cannot connect to host generativelanguage.googleapis.com:443 ssl:&lt;ssl.SSLContext object at 0x11ee6a3c0&gt; [No route to host]</p></details></td></tr><tr><td>Luật LĐ</td><td>LAW_A_002</td><td>Yes</td><td>CHAT_ERROR</td><td>—</td><td>—</td><td>—</td><td>—</td><td><details><summary>Quan hệ lao động được giáo trình mô tả là gì?</summary><h4>Answer</h4><pre></pre><h4>Ground truth</h4><pre>Là quan hệ giữa con người với con người trong lao động nhằm tạo ra các giá trị vật chất, tinh thần phục vụ bản thân và xã hội.</pre><h4>Contexts</h4><pre>Section: Giáo trình Lu ậ t Lao độ ng c ơ b ả n
+---
+### Giáo trình Lu ậ t Lao độ ng c ơ b ả n
+
+cu ộ c đ ình công này do các t ổ ch ứ c, c ơ quan có th ẩ m quy ề n th ự c hi ệ n (tùy t ừ ng lo ạ i tranh ch ấ p mà các c ơ quan có th ẩ m quy ề n là H ộ i đồ ng hòa gi ả i ở c ơ s ở , H ộ i đồ ng tr ọ ng tài lao độ ng c ấ p t ỉ nh hay Tòa án nhân dân), nh ằ m b ả o đả m quy ề n l ợ i cho c ả hai bên, đả m b ả o s ự hài hòa, ổ n đị nh c ủ a quan h ệ lao độ ng. Vì v ậ y, quan h ệ này thu ộ c đố i t ượ ng đ i ề u ch ỉ nh c ủ a Lu ậ t lao độ ng.
+
+Section: a - Quan h ệ lao độ ng
+---
+Lao độ ng c ủ a con ng ườ i bao gi ờ c ũ ng n ằ m trong m ộ t hình thái kinh t ế -xã h ộ i nh ấ t đị nh, b ở i vì trong quá trình lao độ ng con ng ườ i không ch ỉ quan h ệ v ớ i thiên nhiên mà còn có quan h ệ v ớ i nhau. Quan h ệ gi ữ a con ng ườ i v ớ i con ng ườ i trong lao độ ng nh ằ m t ạ o ra nh ữ ng giá tr ị v ậ t ch ấ t, tinh th ầ n ph ụ c v ụ chính b ả n thân và xã h ộ i g ọ i là quan h ệ lao độ ng. Quan h ệ lao độ ng này là bi ể u hi ệ n m ộ t Giáo trình Lu ậ t Lao độ ng c ơ b ả n m ặ t c ủ a quan h ệ s ả n xu ấ t và ch ị u s ự chi ph ố i c ủ a quan h ệ s ở h ữ u. Chính vì th ế , trong các ch ế độ xã h ộ i khác nhau, tùy thu ộ c vào đặ c đ i ể m, tính ch ấ t c ủ a các quan h ệ s ở h ữ u th ố ng tr ị mà có nh ữ ng ph ươ ng th ứ c t ổ ch ứ c lao độ ng phù h ợ p, và ở đ âu có t ổ ch ứ c lao độ ng, có h ợ p tác và phân công lao độ ng thì ở đ ó t ồ n t ạ i quan h ệ lao độ ng
+
+Section: L Ờ I GI Ớ I THI Ệ U
+---
+Giáo trình Lu ậ t Lao độ ng c ơ b ả n đượ c biên so ạ n nh ằ m m ụ c đ ích ph ụ c v ụ vi ệ c h ọ c t ậ p, gi ả ng d ạ y, và nghiên c ứ u cho sinh viên, gi ả ng viên, và cán b ộ làm công tác liên quan đế n l ĩ nh v ự c lao độ ng.
+
+Trong quá trình biên so ạ n ch ắ c không tránh kh ỏ i nh ữ ng h ạ n ch ế nh ấ t đị nh, r ấ t mong nh ậ n đượ c ý ki ế n đ óng góp quý báu c ủ a b ạ n đọ c.
+
+Tác gi ả Th ạ c s ĩ Di ệ p Thành Nguyên ả ng viên Khoa Lu ậ t - Đ H. C ầ n Th ơ
+
+Gi
+
+Section: b2) Giáo d ụ c đị nh h ướ ng
+---
+### b2) Giáo d ụ c đị nh h ướ ng
+
+N ộ i dung h ợ p đồ ng doanh nghi ệ p ký v ớ i doanh nghi ệ p n ướ c ngoài, h ợ p đồ ng đ i làm vi ệ c ở n ướ c ngoài, doanh nghi ệ p s ẽ ký v ớ i ng ườ i lao độ ng, h ợ p đồ ng lao độ ng ng ườ i s ử d ụ ng lao độ ng s ẽ ký v ớ i ng ườ i lao độ ng, quy ề n l ợ i. ngh ĩ a v ụ và trách nhi ệ m c ủ a ng ườ i lao độ ng trong vi ệ c th ự c hi ệ n các đ i ề u kho ả n đ ã ghi trong h ợ p đồ ng.
+
+Nh ữ ng hi ể u bi ế t c ơ b ả n v ề pháp lu ậ t lao độ ng, hình s ự , dân s ự , xu ấ t nh ậ p c ả nh c ủ a Vi ệ t Nam, pháp lu ậ t c ủ a n ướ c nh ậ n lao độ ng, ngh ĩ a v ụ ch ấ p hành và tuân th ủ pháp lu ậ t và các qui đị nh hi ệ n hành c ủ a Nhà n ướ c v ề lao độ ng Vi ệ t Nam làm vi ệ c ở n ướ c ngoài.
+
+Phong t ụ c, t ậ p quán, tôn giáo và sinh ho ạ t c ủ a n ướ c nh ậ n lao độ ng, kinh nghi ệ m giao ti ế p, quan h ệ ứ ng x ử v ớ i ng ườ i s ử d ụ ng lao độ ng và nh ữ ng ng ườ i lao độ ng khác t ạ i n ơ i làm vi ệ c.
+
+K ỷ lu ậ t và tác phong lao độ ng công nghi ệ p, nh ữ ng qui đị nh, qui ph ạ m v ề an toàn, v ệ sinh lao độ ng.
+
+Section: b3) Ch ươ ng trình và tài li ệ u
+---
+### b3) Ch ươ ng trình và tài li ệ u
+
+C ụ c Qu ả n lý Lao độ ng ngoài n ướ c qui đị nh ch ươ ng trình và phát hành tài li ệ u giáo d ụ c, đị nh h ướ ng đố i v ớ i ng ườ i lao độ ng.
+
+Ch ươ ng trình và tài li ệ u đố i v ớ i chuyên gia theo qui đị nh c ủ a B ộ qu ả n lý chuyên ngành.
+
+Ch ươ ng trình và tài li ệ u đố i v ớ i s ĩ quan, thu ỷ th ủ làm vi ệ c trên tàu v ậ n t ả i bi ể n theo qui đị nh c ủ a B ộ giao thông v ậ n t ả i
+
+Section: 3 - Nguyên t ắ c k ế t h ợ p hài hòa gi ữ a chính sách kinh t ế và chính sách xã h ộ i
+---
+Quan h ệ lao độ ng v ừ a có tính kinh t ế , v ừ a có tính xã h ộ i. Khi đ i ề u ti ế t quan h ệ lao độ ng, Nhà n ướ c ph ả i chú ý đế n các bên trong quan h ệ này, nh ấ t là ng ườ i lao độ ng, v ề t ấ t c ả các ph ươ ng di ệ n nh ư : l ợ i ích v ậ t ch ấ t, tinh th ầ n, nhu c ầ u xã h ộ i v. v... và đặ t nh ữ ng v ấ n đề đ ó trong m ố i t ươ ng quan phù h ợ p v ớ i đ i ề u ki ệ n kinh t ế - xã h ộ i c ủ a đấ t n ướ c. Trong Báo cáo chính tr ị t ạ i Đạ i h ộ i Đả ng toàn qu ố c l ầ n th ứ VII đ ã kh ẳ ng đị nh: &#x27; ph ả i có chính sách xã h ộ i là độ ng l ự c để phát tri ể n kinh t ế , nh ư ng đồ ng th ờ i ph ả i có chính sách kinh t ế là c ơ s ở và ti ề n đề để th ự c hi ệ n chính sách xã h ộ i&#x27;. Nh ư v ậ y, bên c ạ nh m ụ c tiêu kinh t ế nh ư l ợ i nhu ậ n, ti ề n l ươ ng, s ự t ă ng tr ưở ng trong s ả n xu ấ t, kinh doanh, Lu ậ t lao độ ng ph ả i gi ả i quy ế t các v ấ n đề xã h ộ i nh ư : vi ệ c làm, công b ằ ng, dân ch ủ , t ươ ng tr ợ c ộ ng đồ ng ngay trong quá trình lao độ ng, ngay t ạ i các doanh nghi ệ p
+
+Section: b) Giai đ o ạ n ho ạ t độ ng xu ấ t kh ẩ u lao độ ng theo c ơ ch ế th ị tr ườ ng (t ừ 1991 đế n nay )
+---
+### b) Giai đ o ạ n ho ạ t độ ng xu ấ t kh ẩ u lao độ ng theo c ơ ch ế th ị tr ườ ng (t ừ 1991 đế n nay )
+
+Đặ c tr ư ng c ủ a giai đ o ạ n này là s ự thay đổ i v ề qui ch ế xu ấ t kh ẩ u lao độ ng và qui mô hoàn toàn ph ụ thu ộ c vào quan h ệ cung - c ầ u c ủ a th ị tr ườ ng lao độ ng. Xu ấ t kh ẩ u lao độ ng ( XKL Đ ) c ủ a ta ph ả i c ạ nh tranh v ớ i các n ướ c XKL Đ trong khu v ự c có ư u th ế h ơ n v ề kh ả n ă ng và kinh t ế chi ế m l ĩ nh th ị tr ườ ng trên nhi ề u khu v ự c khác nhau. Do v ậ y, qui mô XKL Đ trong giai đ o ạ n này gi ả m so v ớ i giai đ o ạ n tr ướ c, m ặ c dù v ẫ n t ă ng theo th ờ i gian.
+
+Section: a. Khái ni ệ m v ề h ợ p đồ ng lao độ ng
+---
+### a. Khái ni ệ m v ề h ợ p đồ ng lao độ ng
+
+Để thi ế t l ậ p quan h ệ lao độ ng gi ữ a ng ườ i lao độ ng v ớ i ng ườ i s ử d ụ ng lao độ ng, ph ả i có m ộ t hình th ứ c nào đ ó để làm phát sinh m ố i quan h ệ gi ữ a hai bên ch ủ th ể c ủ a quan h ệ lao độ ng, hình th ứ c đ ó chính là h ợ p đồ ng lao độ ng. Th ự c ch ấ t c ủ a h ợ p đồ ng lao độ ng là s ự th ỏ a thu ậ n gi ữ a hai bên, m ộ bên là ng ườ i lao độ ng đ i tìm vi ệ c làm, còn bên kia là ng ườ i s ử d ụ ng lao độ ng c ầ n thuê m ướ n ng ườ i làm công. Trong đ ó ng ườ i lao độ ng không phân bi ệ t gi ớ i tính và qu ố c t ị ch, cam k ế t làm m ộ t công vi ệ c cho ng ườ i s ử d ụ ng lao độ ng, không phân bi ệ t là th ể nhân ho ặ c pháp nhân, công pháp hay t ư pháp, b ằ ng cách t ự nguy ệ n đặ t ho ạ t độ ng ngh ề nghi ệ p c ủ a mình d ướ i quy ề n qu ả n lý c ủ a ng ườ i đ ó để đổ i l ấ y m ộ t s ố ti ề n công lao độ ng g ọ i là ti ề n l ươ ng.
+
+H ợ p đồ ng lao độ ng là s ự th ỏ a thu ậ n gi ữ a ng ườ i lao độ ng và ng ườ i s ử d ụ ng lao độ ng v ề vi ệ c làm có tr ả công, đ i ề u ki ệ n lao độ ng, quy ề n và ngh ĩ a v ụ c ủ a m ỗ i bên trong quan h ệ lao độ ng ( Đ i ề u 26 B ộ lu ậ t lao độ ng).
+
+Nh ư v ậ y ta th ấ y có ba y ế u t ố c ấ u thành h ợ p đồ ng lao độ ng :
+
+Có s ự cung ứ ng m ộ t công vi ệ c;
+
+Có s ự tr ả công lao độ ng d ướ i d ạ ng ti ề n l ươ ng;
+
+Có s ự ph ụ thu ộ c v ề m ặ t pháp lý c ủ a ng ườ i lao độ ng tr ướ c ng ườ i s ử d ụ ng lao độ ng.
+
+Section: b) Giai đ o ạ n ho ạ t độ ng xu ấ t kh ẩ u lao độ ng theo c ơ ch ế th ị tr ườ ng (t ừ 1991 đế n nay )
+---
+B ả ng 2 13 : Qui mô xu ấ t kh ẩ u lao độ ng 1991 - 2000 ( đơ n v ị : ng ườ i)
+
+| N ă m | S ố l ượ ng |
+|---------|---------------|
+| 1991 | 1.022 |
+| 1992 | 810 |
+| 1993 | 3.960 |
+| 1994 | 9.230 |
+| 1995 | 10.050 |
+| 1996 | 12.661 |
+| 1997 | 18.469 |
+| 1998 | 12.000 |
+| 1999 | 20.700 |
+| 2000 | 31.468 |
+| T ổ ng | 120.370 |
+
+B ả ng 2 13 : Qui mô xu ấ t kh ẩ u lao độ ng 1991 - 2000 ( đơ n v ị : ng ườ i)
+
+Section: a. Khái ni ệ m v ề h ợ p đồ ng lao độ ng
+---
+Trên th ế gi ớ i, h ợ p đồ ng lao độ ng là m ộ t ch ế đị nh truy ề n th ố ng, ra đờ phát tri ể n cùng v ớ i s ự ra đờ i và phát tri ể n c ủ a lu ậ t lao độ ng. H ợ p đồ ng lao độ là m ộ t ch ươ ng không th ể thi ế u c ủ a h ầ u h ế t các B ộ lu ậ t Lao độ ng c ủ a các n ướ trên th ế gi ớ i. Ở n ướ c ta, ngay t ừ s ắ c l ệ nh s ố 29/SL, ngày 12-03-1947, H ợ p đồ lao độ ng đ ã đượ c quy đị nh v ớ i tên &#x27;kh ế ướ c làm công&#x27;. Tuy nhiên, sau đ trong m ộ t th ờ i gian dài, do hoàn c ả nh đặ c bi ệ t c ủ a đấ t n ướ c, ch ế đị nh tuy ể d ụ ng vào biên ch ế Nhà n ướ c theo ngh ị đị nh 24/CP ngày 13-03-1963 đ ã gi ữ trò ch ủ y ế u trong vi ệ c hình thành quan h ệ lao độ ng trong các xí nghi ệ p, c ơ Nhà n ướ c. H ợ p đồ ng lao độ ng v ẫ n còn t ồ n t ạ i nh ư ng ch ỉ v ớ i ý ngh ĩ a &#x27;ph ụ tr ợ cho ch ế độ tuy ể n vào biên ch ế . Ch ỉ vào gi ữ a nh ữ ng n ă m 1980, khi đấ t n ướ th ự c hi ệ n đổ i m ớ i t ư duy kinh t ế , t ư duy pháp lý, thì h ợ p đồ ng lao độ ng m ớ i d ầ d ầ n đượ c áp d ụ ng. K ể t ừ khi có Pháp l ệ nh h ợ p đồ ng lao độ ng, nh ấ t là t ừ khi tr ở thành m ộ t ch ươ ng trong B ộ lu ậ t Lao độ ng n ă m 1994, thì h ợ p đồ ng lao độ ng m ớ là hình th ứ c tuy ể n d ụ ng lao độ ng ph ổ bi ế n để hình thành nên quan h ệ lao độ trong các doanh nghi ệ p, đơ n v ị thu ộ c m ọ i thành ph ầ n kinh t ế .
+
+Section: b. Đặ c đ i ể m c ủ a tranh ch ấ p lao độ ng
+---
+### b. Đặ c đ i ể m c ủ a tranh ch ấ p lao độ ng
+
+Tranh ch ấ p lao độ ng luôn là nh ữ ng tranh ch ấ p phát sinh t ừ quan h ệ lao độ ng (trong quá trình th ự c hi ệ n quy ề n và ngh ĩ a c ủ a các bên trong quan h ệ lao độ ng).
+
+Tranh ch ấ p lao độ ng không ch ỉ bao g ồ m các tranh ch ấ p v ề quy ề n và ngh ĩ a v ụ c ủ a các bên mà còn g ồ m c ả nh ữ ng tranh ch ấ p v ề l ợ i ích gi ữ a hai bên ch ủ th ể . Tranh ch ấ p lao độ ng có th ể phát sinh mà không có vi ph ạ m pháp lu ậ t.
+
+Tranh ch ấ p lao độ ng là lo ạ i tranh ch ấ p mà quy mô và m ứ c độ tham gia c ủ a các ch ủ th ể có th ể làm thay đổ i c ơ b ả n tính ch ấ t và m ứ c độ c ủ a tranh ch ấ p. (tranh ch ấ p lao độ ng t ậ p th ể khác tranh ch ấ p cá nhân)
+
+Tranh ch ấ p lao độ ng là lo ạ i tranh ch ấ p có tác độ ng tr ự c ti ế p và r ấ t l ớ n đế n b ả n thân và gia đ ình ng ườ i lao độ ng. Th ậ m chí còn có th ể tác độ ng đế n an ninh và tr ậ t t ự công c ộ ng c ũ ng nh ư đờ i s ố ng kinh t ế chính tr ị toàn xã h ộ i.
+
+Section: TRANG
+---
+### TRANG
+
+| L ờ i gi ớ i thi ệ u | ........................................................................................02 |
+|---------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| • Bài 1: Khái ni ệ m Lu ậ t Lao độ ng Vi ệ t Nam..........................................03 | |
+| • Bài 2: Quan h ệ pháp lu ậ t lao độ ng | .......................................................14 |
+| • Bài 3 : Vi ệ c làm và h ọ c ngh ề | ...............................................................21 |
+| • Bài 4 : Tuy ể n d ụ ng lao độ ng | ................................................................29 |
+| • Bài 5: Th ỏ a ướ c lao độ ng t ậ p th ể | ........................................................44 |
+| • Bài 6: Ti ề n l ươ ng | ..................................................................................55 |
+| • Bài 7: Th ờ i gi ờ làm vi ệ c - th ờ i gi ờ ngh ỉ ng ơ | i ......................................69 |
+| • Bài 8: K ỷ lu ậ t lao độ ng và trách nhi ệ m v ậ t ch ấ | t ..................................80 |
+| • Bài 9: An toàn lao độ ng, v ệ sinh lao độ ng - | |
+| Tai n ạ n lao độ ng, b ệ nh ngh ề nghi ệ p | .........................................92 |
+| • Bài 10: B ả o hi ể m xã h ộ i | .....................................................................113 |
+| • Bài 11: Lao độ ng đặ c thù | ...................................................................134 |
+| • Bài 12: Xu ấ t kh ẩ u lao độ ng | ................................................................143 |
+| • Bài 13: Đị a v ị pháp lý c ủ a Công đ oàn trong b ả o v ệ quy ề n và l ợ i ích h ợ p pháp c ủ a ng ườ i lao độ ng | .................................167 |
+| • Bài 14: Gi ả i quy ế t tranh ch ấ p lao độ ng | ..............................................183 |
+| • Danh m ụ c tài li ệ u tham kh ả | o...............................................................200 |
+
+Section: · C ă n c ứ vào quy mô c ủ a tranh ch ấ p
+---
+### · C ă n c ứ vào quy mô c ủ a tranh ch ấ p
+
+T ươ ng ứ ng v ớ i hai lo ạ i quan h ệ lao độ ng: quan h ệ lao độ ng gi ữ a cá nhân ng ườ i lao độ ng v ớ i ng ườ i s ử d ụ ng lao độ ng và quan h ệ gi ữ a t ậ p th ể ng ườ i lao độ ng v ớ i đạ i di ệ n ng ườ i s ử d ụ ng lao độ ng ho ặ c ng ườ i s ử d ụ ng lao độ ng mà có hai lo ạ i tranh ch ấ p lao độ ng là: tranh ch ấ p lao độ ng cá nhân và tranh ch ấ p lao độ ng t ậ p th ể . Cách phân chia này d ự a trên b ả n ch ấ t pháp lý c ủ a hai m ố i quan h ệ lao độ ng cá nhân và t ậ p th ể .
+
+Tranh ch ấ p lao độ ng n ế u ch ỉ phát sinh gi ữ a m ộ t ng ườ i lao độ ng và ng ườ i s ử d ụ ng lao độ ng, ho ặ c đố i t ượ ng tranh ch ấ p ch ỉ liên quan đế n m ộ t ng ườ i - cá nhân ng ườ i lao độ ng, thì đ ó là tranh ch ấ p lao độ ng cá nhân. S ự ả nh h ưở ng c ủ a nó đế n ho ạ t độ ng s ả n xu ấ t c ủ a doanh nghi ệ p ch ỉ ở m ứ c độ h ạ n ch ế .
+
+Tuy nhiên, n ế u tranh ch ấ p x ả y ra gi ữ a t ậ p th ể ng ườ i lao độ ng và ng ườ i s ử d ụ ng lao độ ng trong ph ạ m vi toàn doanh nghi ệ p thì lúc đ ó tranh ch ấ p s ẽ có tác độ ng tiêu c ự c r ấ t l ớ n đế n s ả n xu ấ t và nhi ề u khi còn ả nh h ưở ng đế n c ả an ninh tr ậ t t ự công c ộ ng. Vì th ế h ậ u qu ả pháp lý c ũ ng có nh ữ ng bi ể u hi ệ n khác nhau và vì tính ch ấ t ấ y các quy đị nh áp d ụ ng để gi ả i quy ế t, các c ơ ch ế gi ả i quy ế t c ũ ng có s ự khác nhau.
+
+Section: b. Hình th ứ c c ủ a h ợ p đồ ng lao độ ng
+---
+### b. Hình th ứ c c ủ a h ợ p đồ ng lao độ ng
+
+Có hai hình th ứ c h ợ p đồ ng lao độ ng là h ợ p đồ ng b ằ ng mi ệ ng và h ợ p đồ ng b ằ ng v ă n b ả n.
+
+H ợ p đồ ng b ằ ng mi ệ ng (b ằ ng l ờ i nói) ch ỉ áp d ụ ng v ớ i tính ch ấ t t ạ m th ờ i mà th ờ i h ạ n d ướ i ba tháng, ho ặ c đố i v ớ i lao độ ng giúp vi ệ c gia đ ình. Trong tr ườ ng h ợ p giao k ế t b ằ ng mi ệ ng, n ế u c ầ n ph ả i có ng ườ i th ứ ba ch ứ ng ki ế n thì do hai bên th ỏ a thu ậ n. Đồ ng th ờ i, các bên ph ả i đươ ng nhiên tuân theo các quy đị nh c ủ a pháp lu ậ t lao độ ng.
+
+H ợ p đồ ng lao độ ng b ằ ng v ă n b ả n đượ c giao k ế t hoàn toàn d ự a trên c ơ s ở s ự th ỏ a thu ậ n c ủ a các bên và ph ả i l ậ p b ằ ng v ă n b ả n có ch ữ ký c ủ a các bên. V ă n b ả n h ợ p đồ ng ph ả i theo m ẫ u th ố ng nh ấ t do B ộ Lao độ ng - Th ươ ng binh và Xã h ộ i ban hành và th ố ng nh ấ t qu ả n lý.
+
+H ợ p đồ ng lao độ ng b ằ ng v ă n b ả n đượ c áp d ụ ng cho lo ạ i h ợ p đồ ng không xác đị nh th ờ i h ạ n, h ợ p đồ ng xác đị nh th ờ i h ạ n t ừ 12 tháng đế n 36 tháng, h ợ p đồ ng lao độ ng theo công vi ệ c ho ặ c theo mùa v ụ mà th ờ i h ạ n xác đị nh d ướ i 12 tháng và ph ả i đượ c l ậ p thành hai b ả n, m ỗ i bên gi ữ m ộ t b ả n.
+
+Section: b) Đ ào t ạ o và giáo d ụ c đị nh h ướ ng
+---
+### b) Đ ào t ạ o và giáo d ụ c đị nh h ướ ng</pre><p>HTTPError: 500 Server Error: Internal Server Error for url: http://127.0.0.1:8001/api/rag/chat</p></details></td></tr><tr><td>Luật LĐ</td><td>LAW_A_003</td><td>Yes</td><td>NOT_COMPLETED</td><td>—</td><td>—</td><td>—</td><td>—</td><td><details><summary>Giáo trình liệt kê những quan hệ nào liên quan đến quan hệ lao động?</summary><h4>Answer</h4><pre></pre><h4>Ground truth</h4><pre>Gồm quan hệ về việc làm, học nghề, bồi thường thiệt hại, bảo hiểm xã hội, quan hệ với Công đoàn/đại diện tập thể lao động, giải quyết tranh chấp và đình công, và quản lý lao động.</pre><h4>Contexts</h4><pre></pre><p>Stopped after judge connection errors and case 2 HTTP 500; retrieval interrupted, chat not called.</p></details></td></tr></tbody></table></div><p>OpenAPI SHA256: chưa kết nối</p><h2>Retrieval đối chiếu</h2><pre>[
+  {
+    &quot;test_case_id&quot;: &quot;LAW_A_001&quot;,
+    &quot;expected_page&quot;: &quot;3.0&quot;,
+    &quot;expected_section&quot;: &quot;Bài 1 - Đối tượng điều chỉnh&quot;,
+    &quot;retrieved_sources&quot;: [
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;
+    ],
+    &quot;retrieved_pages&quot;: [
+      2,
+      3,
+      7,
+      3,
+      210,
+      173,
+      3,
+      113,
+      177,
+      65,
+      12,
+      6,
+      3,
+      1,
+      113
+    ],
+    &quot;expected_page_retrieved&quot;: true,
+    &quot;citations&quot;: []
+  },
+  {
+    &quot;test_case_id&quot;: &quot;LAW_A_002&quot;,
+    &quot;expected_page&quot;: &quot;3.0&quot;,
+    &quot;expected_section&quot;: &quot;Bài 1 - Quan hệ lao động&quot;,
+    &quot;retrieved_sources&quot;: [
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;,
+      &quot;giao trinh Luat lao dong CB 2005 (1).pdf&quot;
+    ],
+    &quot;retrieved_pages&quot;: [
+      7,
+      3,
+      2,
+      172,
+      173,
+      13,
+      157,
+      32,
+      158,
+      33,
+      194,
+      1,
+      196,
+      36,
+      172
+    ],
+    &quot;expected_page_retrieved&quot;: true,
+    &quot;citations&quot;: null
+  },
+  {
+    &quot;test_case_id&quot;: &quot;LAW_A_003&quot;,
+    &quot;expected_page&quot;: &quot;5.0&quot;,
+    &quot;expected_section&quot;: &quot;Bài 1 - Các quan hệ liên quan&quot;,
+    &quot;retrieved_sources&quot;: [],
+    &quot;retrieved_pages&quot;: [],
+    &quot;expected_page_retrieved&quot;: null,
+    &quot;citations&quot;: null
+  }
+]</pre></main><script>document.getElementById("filter").addEventListener("input",function(){const q=this.value.toLowerCase();document.querySelectorAll("#details tbody tr").forEach(r=>r.hidden=!r.textContent.toLowerCase().includes(q));});</script></html>

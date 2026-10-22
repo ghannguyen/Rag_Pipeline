@@ -121,12 +121,16 @@ def load_bm25_retriever(input_file: Path = None) -> BM25Retriever:
     if input_file is None:
         input_file = ROOT / "data" / "processed" / "chunked.jsonl"
 
-    cache_key = str(input_file)
-    if cache_key in _BM25_CACHE:
-        return _BM25_CACHE[cache_key]
-
     if not input_file.exists():
         raise FileNotFoundError(f"Input chunked file not found: {input_file}")
+
+    # Rebuild when chunked.jsonl is rewritten (re-chunking via API or CLI).
+    cache_key = str(input_file.resolve())
+    stat = input_file.stat()
+    file_version = (stat.st_mtime_ns, stat.st_size)
+    cached = _BM25_CACHE.get(cache_key)
+    if cached is not None and cached[0] == file_version:
+        return cached[1]
 
     documents = []
     with input_file.open("r", encoding="utf-8") as f:
@@ -136,7 +140,7 @@ def load_bm25_retriever(input_file: Path = None) -> BM25Retriever:
 
     bm25 = BM25Retriever()
     bm25.fit(documents)
-    _BM25_CACHE[cache_key] = bm25
+    _BM25_CACHE[cache_key] = (file_version, bm25)
     print(f"✓ Loaded BM25 Index with {len(documents)} chunks from {input_file.name}")
     return bm25
 

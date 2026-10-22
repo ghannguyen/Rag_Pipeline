@@ -1,0 +1,219 @@
+<!doctype html><html lang="vi"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RAG evaluation</title><style>
+body{font:15px system-ui,sans-serif;background:#f4f6fa;color:#17243c;margin:0;padding:32px}main{max-width:1440px;margin:auto}h1{margin:0;font-size:30px}p{line-height:1.6;color:#516077}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:24px 0}article{background:white;border:1px solid #dce3ee;border-radius:12px;padding:22px}strong{display:block;font-size:34px;margin:12px 0}small,label{display:block;color:#516077}svg{width:100%;fill:#4576df}svg text{fill:#516077;font-size:11px}table{border-collapse:collapse;width:100%;background:white}td,th{padding:12px;text-align:left;border-bottom:1px solid #e1e7f0;vertical-align:top}th{font-size:12px;color:#516077}.scroll{overflow:auto;border-radius:10px;margin:20px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:13px system-ui;max-width:700px}summary{cursor:pointer;min-width:260px}h3{font-size:16px}input{padding:12px;border:1px solid #ccd5e5;border-radius:8px;width:min(400px,90%)}.note{background:#fff5de;padding:16px;border-radius:10px}
+</style><main><h1>RAG evaluation</h1><p>2026-09-24T04:15:15.919054+00:00 · gemini-3.6-flash · 1/1 testcase đã xử lý · 0 đủ 4 điểm · 1 có lỗi</p><p class="note">Contexts lấy từ search trước rerank, không đảm bảo trùng context chat thực sự sử dụng. Faithfulness đo với tập context này. Bốn metric không phải bộ chấm riêng cho hành vi từ chối trả lời. Điểm lỗi để trống, không đổi thành 0. Trung bình chỉ tính điểm hợp lệ; OK nghĩa là chấm thành công, không có nghĩa PASS.</p><div class="grid"><article><label>faithfulness</label><strong>—</strong><small>0/1 có điểm</small></article><article><label>answer_relevancy</label><strong>0.993</strong><small>1/1 có điểm</small></article><article><label>context_precision</label><strong>—</strong><small>0/1 có điểm</small></article><article><label>context_recall</label><strong>—</strong><small>0/1 có điểm</small></article></div><div class="grid"><article><h3>faithfulness</h3><svg role="img" aria-label="Phân bố điểm faithfulness" viewBox="0 0 420 190"><rect x="35" y="155.0" width="26" height="0.0" rx="3"><title>0.0–0.1: 0 case</title></rect><text x="48" y="148.0" text-anchor="middle">0</text><rect x="71" y="155.0" width="26" height="0.0" rx="3"><title>0.1–0.2: 0 case</title></rect><text x="84" y="148.0" text-anchor="middle">0</text><rect x="107" y="155.0" width="26" height="0.0" rx="3"><title>0.2–0.3: 0 case</title></rect><text x="120" y="148.0" text-anchor="middle">0</text><rect x="143" y="155.0" width="26" height="0.0" rx="3"><title>0.3–0.4: 0 case</title></rect><text x="156" y="148.0" text-anchor="middle">0</text><rect x="179" y="155.0" width="26" height="0.0" rx="3"><title>0.4–0.5: 0 case</title></rect><text x="192" y="148.0" text-anchor="middle">0</text><rect x="215" y="155.0" width="26" height="0.0" rx="3"><title>0.5–0.6: 0 case</title></rect><text x="228" y="148.0" text-anchor="middle">0</text><rect x="251" y="155.0" width="26" height="0.0" rx="3"><title>0.6–0.7: 0 case</title></rect><text x="264" y="148.0" text-anchor="middle">0</text><rect x="287" y="155.0" width="26" height="0.0" rx="3"><title>0.7–0.8: 0 case</title></rect><text x="300" y="148.0" text-anchor="middle">0</text><rect x="323" y="155.0" width="26" height="0.0" rx="3"><title>0.8–0.9: 0 case</title></rect><text x="336" y="148.0" text-anchor="middle">0</text><rect x="359" y="155.0" width="26" height="0.0" rx="3"><title>0.9–1.0: 0 case</title></rect><text x="372" y="148.0" text-anchor="middle">0</text><text x="35" y="180">0</text><text x="370" y="180">1.0</text></svg></article><article><h3>answer_relevancy</h3><svg role="img" aria-label="Phân bố điểm answer_relevancy" viewBox="0 0 420 190"><rect x="35" y="155.0" width="26" height="0.0" rx="3"><title>0.0–0.1: 0 case</title></rect><text x="48" y="148.0" text-anchor="middle">0</text><rect x="71" y="155.0" width="26" height="0.0" rx="3"><title>0.1–0.2: 0 case</title></rect><text x="84" y="148.0" text-anchor="middle">0</text><rect x="107" y="155.0" width="26" height="0.0" rx="3"><title>0.2–0.3: 0 case</title></rect><text x="120" y="148.0" text-anchor="middle">0</text><rect x="143" y="155.0" width="26" height="0.0" rx="3"><title>0.3–0.4: 0 case</title></rect><text x="156" y="148.0" text-anchor="middle">0</text><rect x="179" y="155.0" width="26" height="0.0" rx="3"><title>0.4–0.5: 0 case</title></rect><text x="192" y="148.0" text-anchor="middle">0</text><rect x="215" y="155.0" width="26" height="0.0" rx="3"><title>0.5–0.6: 0 case</title></rect><text x="228" y="148.0" text-anchor="middle">0</text><rect x="251" y="155.0" width="26" height="0.0" rx="3"><title>0.6–0.7: 0 case</title></rect><text x="264" y="148.0" text-anchor="middle">0</text><rect x="287" y="155.0" width="26" height="0.0" rx="3"><title>0.7–0.8: 0 case</title></rect><text x="300" y="148.0" text-anchor="middle">0</text><rect x="323" y="155.0" width="26" height="0.0" rx="3"><title>0.8–0.9: 0 case</title></rect><text x="336" y="148.0" text-anchor="middle">0</text><rect x="359" y="25.0" width="26" height="130.0" rx="3"><title>0.9–1.0: 1 case</title></rect><text x="372" y="18.0" text-anchor="middle">1</text><text x="35" y="180">0</text><text x="370" y="180">1.0</text></svg></article><article><h3>context_precision</h3><svg role="img" aria-label="Phân bố điểm context_precision" viewBox="0 0 420 190"><rect x="35" y="155.0" width="26" height="0.0" rx="3"><title>0.0–0.1: 0 case</title></rect><text x="48" y="148.0" text-anchor="middle">0</text><rect x="71" y="155.0" width="26" height="0.0" rx="3"><title>0.1–0.2: 0 case</title></rect><text x="84" y="148.0" text-anchor="middle">0</text><rect x="107" y="155.0" width="26" height="0.0" rx="3"><title>0.2–0.3: 0 case</title></rect><text x="120" y="148.0" text-anchor="middle">0</text><rect x="143" y="155.0" width="26" height="0.0" rx="3"><title>0.3–0.4: 0 case</title></rect><text x="156" y="148.0" text-anchor="middle">0</text><rect x="179" y="155.0" width="26" height="0.0" rx="3"><title>0.4–0.5: 0 case</title></rect><text x="192" y="148.0" text-anchor="middle">0</text><rect x="215" y="155.0" width="26" height="0.0" rx="3"><title>0.5–0.6: 0 case</title></rect><text x="228" y="148.0" text-anchor="middle">0</text><rect x="251" y="155.0" width="26" height="0.0" rx="3"><title>0.6–0.7: 0 case</title></rect><text x="264" y="148.0" text-anchor="middle">0</text><rect x="287" y="155.0" width="26" height="0.0" rx="3"><title>0.7–0.8: 0 case</title></rect><text x="300" y="148.0" text-anchor="middle">0</text><rect x="323" y="155.0" width="26" height="0.0" rx="3"><title>0.8–0.9: 0 case</title></rect><text x="336" y="148.0" text-anchor="middle">0</text><rect x="359" y="155.0" width="26" height="0.0" rx="3"><title>0.9–1.0: 0 case</title></rect><text x="372" y="148.0" text-anchor="middle">0</text><text x="35" y="180">0</text><text x="370" y="180">1.0</text></svg></article><article><h3>context_recall</h3><svg role="img" aria-label="Phân bố điểm context_recall" viewBox="0 0 420 190"><rect x="35" y="155.0" width="26" height="0.0" rx="3"><title>0.0–0.1: 0 case</title></rect><text x="48" y="148.0" text-anchor="middle">0</text><rect x="71" y="155.0" width="26" height="0.0" rx="3"><title>0.1–0.2: 0 case</title></rect><text x="84" y="148.0" text-anchor="middle">0</text><rect x="107" y="155.0" width="26" height="0.0" rx="3"><title>0.2–0.3: 0 case</title></rect><text x="120" y="148.0" text-anchor="middle">0</text><rect x="143" y="155.0" width="26" height="0.0" rx="3"><title>0.3–0.4: 0 case</title></rect><text x="156" y="148.0" text-anchor="middle">0</text><rect x="179" y="155.0" width="26" height="0.0" rx="3"><title>0.4–0.5: 0 case</title></rect><text x="192" y="148.0" text-anchor="middle">0</text><rect x="215" y="155.0" width="26" height="0.0" rx="3"><title>0.5–0.6: 0 case</title></rect><text x="228" y="148.0" text-anchor="middle">0</text><rect x="251" y="155.0" width="26" height="0.0" rx="3"><title>0.6–0.7: 0 case</title></rect><text x="264" y="148.0" text-anchor="middle">0</text><rect x="287" y="155.0" width="26" height="0.0" rx="3"><title>0.7–0.8: 0 case</title></rect><text x="300" y="148.0" text-anchor="middle">0</text><rect x="323" y="155.0" width="26" height="0.0" rx="3"><title>0.8–0.9: 0 case</title></rect><text x="336" y="148.0" text-anchor="middle">0</text><rect x="359" y="155.0" width="26" height="0.0" rx="3"><title>0.9–1.0: 0 case</title></rect><text x="372" y="148.0" text-anchor="middle">0</text><text x="35" y="180">0</text><text x="370" y="180">1.0</text></svg></article></div><h2>Theo Is Answerable</h2><p>Unknown: sheet không có nhãn hoặc ô trống. Nhóm No cần đọc riêng vì đáp án kỳ vọng là từ chối.</p><div class="scroll"><table><thead><tr><th>Is Answerable</th><th>Cases</th><th>faithfulness</th><th>answer_relevancy</th><th>context_precision</th><th>context_recall</th></tr></thead><tbody><tr><td>Yes</td><td>1</td><td>—</td><td>0.993 (n=1)</td><td>—</td><td>—</td></tr><tr><td>No</td><td>0</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>Unknown</td><td>0</td><td>—</td><td>—</td><td>—</td><td>—</td></tr></tbody></table></div><h2>Chi tiết testcase</h2><input id="filter" placeholder="Tìm case, câu hỏi hoặc lỗi"><div class="scroll"><table id="details"><thead><tr><th>Sheet</th><th>ID</th><th>Answerable</th><th>Status</th><th>faithfulness</th><th>answer_relevancy</th><th>context_precision</th><th>context_recall</th><th>Nội dung</th></tr></thead><tbody><tr><td>RAG_TC</td><td>RAG_001</td><td>Yes</td><td>METRIC_ERROR</td><td>—</td><td>0.993</td><td>—</td><td>—</td><td><details><summary>Hallucination trong tài liệu được hiểu là gì?</summary><h4>Answer</h4><pre>Trong tài liệu, &quot;Hallucination&quot; được hiểu là hiện tượng mô hình sinh ra thông tin sai lệch, bịa đặt hoặc không có thực nhưng với văn phong tự tin [SOURCE_1], [SOURCE_2].</pre><h4>Ground truth</h4><pre>Hallucination là hiện tượng mô hình sinh ra thông tin sai lệch, bịa đặt hoặc không có thực nhưng với văn phong tự tin.</pre><h4>Contexts</h4><pre>Section: Mục lục
+---
+| Bảng thuật ngữ | Bảng thuật ngữ |
+|---------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| Thuật ngữ | Mô tả |
+| Hallucination | Hiện tượng mô hình sinh ra thông tin sai lệch, bịa đặt hoặc không có thực nhưng với văn phong tự tin. |
+| Knowledge Cutoff | Mốc thời gian giới hạn của dữ liệu huấn luyện, khiến mô hình không biết các sự kiện xảy ra sau đó. |
+| Fine-tuning | Quá trình huấn luyện tiếp mô hình đã pre-trained trên tập dữ liệu chuyên biệt để cập nhật trọng số. |
+| In-Context Learning | Khả năng LLM học và thực hiện tác vụ dựa trên ngữ cảnh hoặc ví dụ được cung cấp trong prompt mà không cần cập nhật tham số. |
+| Vector Embeddings | Biểu diễn dữ liệu (text, image) dưới dạng vector số thực trong không gian n-chiều. |
+| Semantic Search | Tìm kiếm dựa trên sự tương đồng về ý nghĩa thay vì chỉ khớp từ khóa. |
+| Chunking | Kỹ thuật chia nhỏ văn bản dài thành các đoạn ngắn để tối ưu hóa việc mã hóa và phù hợp với giới hạn Context Window. |
+| Context Window | Giới hạn số lượng tokens (đơn vị văn bản) tối đa mà LLM có thể tiếp nhận và xử lý trong một lần prompt. |
+| Grounding | Kỹ thuật &#x27;neo&#x27; câu trả lời của mô hình vào dữ liệu thực tế được cung cấp để đảm bảo tính xác thực. |
+
+Section: Mục lục
+---
+| Bảng thuật ngữ - Thuật ngữ | Bảng thuật ngữ - Mô tả |
+|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Hallucination | Hiện tượng mô hình sinh ra thông tin sai lệch, bịa đặt hoặc không có thực nhưng với văn phong tự tin. |
+| Recursive Chunking | Phương pháp chia nhỏ văn bản truyền thống dựa trên các ký tự phân tách như xuống dòng, dấu chấm. |
+| Semantic Chunking | Kỹ thuật chia nhỏ văn bản dựa trên sự thay đổi về ngữ nghĩa thay vì cắt theo số lượng ký tự cố định. |
+| ANN | Approximate Nearest Neighbor - Thuật toán tìm kiếm láng giềng gần nhất xấp xỉ, giúp tìm kiếm nhanh chóng vector lớn thay vì duyệt tuần tự. |
+| HNSW | Hierarchical navigable small world - Thuật toán tìm kiếm vector xấp xỉ dựa trên cấu trúc đồ thị phân tầng, giúp cân bằng giữa tốc độ và độ chính xác. |
+| Dense Retrieval | Phương pháp tìm kiếm dựa trên vector embedding, tập trung vào sự tương đồng về ngữ nghĩa. |
+| Sparse Retrieval | Phương pháp tìm kiếm dựa trên từ khóa, tiêu biểu là thuật toán BM25. |
+| BM25 | Best matching 25 - Thuật toán xếp hạng tài liệu dựa trên thống kê tần suất từ khóa, là phiên bản nâng cấp của TF-IDF với cơ chế bão hòa và chuẩn hóa độ dài. |
+| Hybrid Search | Chiến lược kết hợp kết quả từ cả Dense Retrieval và Sparse Retrieval để tận dụng ưu điểm của cả hai. |
+
+Section: lightbulb Ví dụ:
+---
+### lightbulb Ví dụ:
+
+Input (User): &#x27;Quy định mang laptop ra ngoài&#x27;
+
+Hypothetical Document (LLM giả định): &#x27;Theo chính sách bảo mật thông tin, nhân viên muốn mang thiết bị tài sản công ty (laptop, tablet) ra khỏi văn phòng cần điền phiếu &#x27;Đăng ký mang thiết bị&#x27; trên hệ thống và phải được Trưởng bộ phận phê duyệt...&#x27;
+
+→ Vector của đoạn văn giả định này sẽ khớp tốt với tài liệu &#x27;Sổ tay nhân viên&#x27; hoặc &#x27;Quy trình an ninh&#x27; trong database, tốt hơn nhiều so với câu hỏi gốc.
+
+Section: VII.5.3. Thực nghiệm 3: Query Transformations
+---
+### VII.5.3. Thực nghiệm 3: Query Transformations
+
+Hypothetical Document Embedding (HyDE). Đoạn code dưới đây xây dựng lại luồng xử lý RAG theo batch, nhưng thay vì truy vấn trực tiếp bằng câu hỏi gốc, hệ thống trước hết sinh ra một đoạn văn giả định mang tính chuyên ngành nhờ LLM, sau đó dùng đoạn văn này để truy vấn vào Vector Database. Cách làm này giúp embedding của truy vấn gần hơn với không gian ngữ nghĩa của tài liệu, từ đó cải thiện chất lượng retrieval cho các câu hỏi ngắn hoặc thiếu ngữ cảnh.
+
+Section: Mục lục
+---
+| I. | Dẫn nhập . . . . . . . . . . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 1 |
+|-------------------------------------------------------|--------------------------------------------------------------|-----------------------------------|
+| VI.1. | Cross-Encoder . . . . . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 17 |
+| VI.2. | Maximal marginal relevance (MMR) . . . . . . . . | . . . . . . . . . . . . . . . 19 |
+| VII. | Thực hành . . . . . . . . . . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 20 |
+| VII.1. | Định nghĩa bài toán . . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 20 |
+| VII.2. | Bộ công cụ đánh giá - Ragas . . . . . . . . . . . . | . . . . . . . . . . . . . . . 21 |
+| VII.3. | Nguồn dữ liệu và bộ dữ liệu đánh giá . . . . . . . . | . . . . . . . . . . . . . . . 25 |
+| VII.4. | Baseline hệ thống RAG cơ bản . . . . . . . . . . . | . . . . . . . . . . . . . . . 31 |
+| VII.5. | Thực nghiệm . . . . . . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 45 |
+| VII.6. | Tổng kết thực nghiệm . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 72 |
+| VIII. Câu hỏi trắc nghiệm . | . . . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 74 |
+
+| I. | Dẫn nhập . . . . . . . . . . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 1 |
+|-------------------------------------------------------|--------------------------------------------------------------|-----------------------------------|
+| Phụ lục . . . . . . . . . . . . . . . . . . . . . . . | . . . . . . . . | . . . . . . . . . . . . . . . 78 |
+
+Section: V.1. Hypothetical document embeddings (HyDE)
+---
+### V.1. Hypothetical document embeddings (HyDE)
+
+Một trong những thách thức lớn nhất của Vector Search là sự bất cân xứng về ngữ nghĩa giữa câu hỏi và câu trả lời. Câu hỏi thường ngắn và mang tính chất nghi vấn, trong khi tài liệu lại dài và mang tính chất khẳng định, mô tả.
+
+HyDE là kỹ thuật khắc phục điều này bằng cách tận dụng khả năng sáng tạo của LLM. Thay vì tìm kiếm dựa trên câu hỏi, chúng ta yêu cầu LLM đưa ra một câu trả lời giả định, sau đó dùng câu trả lời giả định này để đi tìm tài liệu thật.
+
+Section: Kết quả thực nghiệm với HyDE
+---
+### Kết quả thực nghiệm với HyDE
+
+AI Description:
+a bar chart showing the number of different types of the different types of the different types of the different types
+
+Hình 15: Kết quả đánh giá RAGAS với chiến lược HyDE.
+
+Quan sát Hình 15, ta thấy chiến lược Hypothetical Document Embedding mang lại những thay đổi so với Baseline như sau:
+
+Cải thiện tính trung thực: Chỉ số Faithfulness tăng 0.08 điểm, đạt mức 0.81. Việc tìm kiếm dựa trên văn bản giả định giúp mô hình nắm bắt tốt hơn các thuật ngữ chuyên ngành, tạo tiền đề ngữ cảnh tốt cho quá trình sinh câu trả lời.
+
+Sự sụt giảm ở các chỉ số khác: Answer Relevancy giảm nhẹ 0.03 điểm xuống còn 0.50. Tương tự, Context Recall giảm xuống 0.63 (giảm 0.04 điểm so với baseline).
+
+Nguyên nhân: Do HyDE dựa vào khả năng sáng tạo của LLM để viết câu trả lời giả định. Nếu đoạn văn này chứa thông tin sai lệch, nó sẽ dẫn dắt bộ truy xuất tìm kiếm sai hướng, làm loãng độ chính xác của ngữ cảnh thực tế trong cơ sở dữ liệu.
+
+Decompostion. Với chiến lược Query Decomposition, thay vì hỏi trực tiếp một câu dài hoặc phức tạp, hệ thống nhờ LLM phân tách câu hỏi gốc thành một tập các câu hỏi con đơn giản hơn, sau đó truy vấn từng câu hỏi con để thu thập thêm ngữ cảnh trước khi tổng hợp trả lời. Cách làm này thường giúp cải thiện chất lượng truy vấn đối với các câu hỏi đa bước hoặc chứa nhiều ý nhỏ.
+
+Section: info-circle 1. Faithfulness - Đo lường sự trung thực
+---
+### info-circle 1. Faithfulness - Đo lường sự trung thực
+
+Chỉ số Faithfulness đánh giá mức độ trung thực của câu trả lời so với context được truy xuất, đảm bảo không có hiện tượng hallucination . Một câu trả lời được coi là faithful nếu tất cả các phát biểu trong đó đều có thể được hỗ trợ bởi context đã truy xuất.
+
+Công thức:
+
+Section: lightbulb Ví dụ:
+---
+### lightbulb Ví dụ:
+
+Query: &#x27;Phí hủy dịch vụ là bao nhiêu?&#x27;
+
+Raw Context (300 tokens): &#x27;...Theo điều khoản 7.2 của hợp đồng dịch vụ được ký kết vào ngày... (văn bản pháp lý dài dòng)... trong trường hợp khách hàng muốn chấm dứt hợp đồng trước thời hạn, cần thông báo bằng văn bản trước 30 ngày và chịu khoản phí phạt tương đương 02 tháng cước sử dụng...&#x27;
+
+Compressed Context (20 tokens): &#x27;Điều khoản 7.2: Phí hủy dịch vụ là 02 tháng cước sử dụng.&#x27;
+
+→ LLM chính chỉ cần nhận đoạn ngắn gọn này, giúp trả lời nhanh hơn và giảm thiểu hallucination.
+
+Section: Thực thi RAG
+---
+### Thực thi RAG
+
+Tại bước này, hệ thống sẽ thực hiện inference (tạm dịch: suy luận) dựa trên toàn bộ danh sách câu hỏi từ tập test. Nhờ cơ chế Batch Inference đã thiết lập trong class BatchRAG , quá trình này sẽ diễn ra nhanh chóng hơn nhiều so với việc chạy kết quả tuần tự. Kết quả trả về bao gồm câu trả lời của mô hình (response), và các đoạn văn bản mà mô hình đã tìm kiếm được (retrieved_context), được lưu lại nhằm phục vụ cho bước đánh giá tiếp theo.
+
+Section: Mục lục
+---
+### Mục lục
+
+| I. | Dẫn nhập . . . . . . . . . . . . . | . . . . . . . . . . . . | . . . . . . . . . . . . . . . 1 |
+|-----------------------------------------------------------|-----------------------------------------------------------|----------------------------------------------------------|-----------------------------------|
+| II. | Cơ sở lý thuyết về RAG . . | . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 4 |
+| II.1. | II.1. | Sự chuyển dịch sang In-Context RAG . . . . . . . . | . . . . . . . . . . . . . . . 5 |
+| II.2. | II.2. | Kiến trúc RAG hiện đại . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 5 |
+| II.3. | II.3. | Mở rộng: Phân tích vai trò của các thành phần . . | . . . . . . . . . . . . . . . 15 |
+| III. Thư | | viện LangChain . . . . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 16 |
+| III.1. | III.1. | Giới thiệu . . . . . . . . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 16 |
+| III.2. | III.2. | Các thành phần cốt lõi . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 17 |
+| IV. | Thực hành . . . . . . . . | . . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 21 |
+| IV.1. | IV.1. | Chuẩn bị môi trường và cấu trúc dự án . . . . . . . | . . . . . . . . . . . . . . . 21 |
+
+Section: Kết quả thực nghiệm với Decompostion
+---
+### Kết quả thực nghiệm với Decompostion
+
+AI Description:
+a bar chart showing the number of different types of the different types of the different types of the different types
+
+Hình 16: Kết quả đánh giá RAGAS với chiến lược Decompostion.
+
+Chiến lược phân tách câu hỏi mang lại kết quả ấn tượng nhất về chất lượng nội dung sinh ra trong toàn bộ chuỗi thực nghiệm, như kết quả ở Hình 16:
+
+Đột phá về độ trung thực: Faithfulness tăng mạnh 0.20 điểm, đạt mức 0.93. Đây là mức điểm cao nhất đạt được, cho thấy việc chia nhỏ câu hỏi giúp mô hình tập trung vào các mảnh thông tin xác thực một cách tối ưu.
+
+Cải thiện độ liên quan: Answer Relevancy tăng lên 0.65 (tăng 0.12 điểm). Việc trả lời dựa trên các câu hỏi phụ giúp cấu trúc nội dung đầy đủ và logic hơn.
+
+Thách thức về lọc nhiễu: Context Precision giảm 0.13 điểm xuống còn 0.68.
+
+Nguyên nhân: Do hệ thống phải truy xuất cho nhiều câu hỏi con đồng thời, lượng văn bản đổ về quá lớn khiến mật độ thông tin hữu ích bị loãng bởi các đoạn văn không liên quan trực tiếp đến câu hỏi chính.
+
+Section: Mục lục
+---
+### Mục lục
+
+| I. | Dẫn nhập . . . . . . . . . . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 1 |
+|-------------------------------------------------------|--------------------------------------------------------------|-----------------------------------|
+| II. | Nhắc lại về RAG cơ bản . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 4 |
+| III. | Advanced Indexing . . . . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 5 |
+| III.1. | Semantic Chunking . . . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 5 |
+| III.2. | Tối ưu hóa Vector Database: HNSW Index . . . . . | . . . . . . . . . . . . . . . 8 |
+| IV. | Advanced Retrieval Strategies . . . . . . . . . . . . | . . . . . . . . . . . . . . . 11 |
+| IV.1. | Hạn chế của Vector Search và vai trò của BM25 . . | . . . . . . . . . . . . . . . 11 |
+| IV.2. | Hybrid Search . . . . . . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 13 |
+| IV.3. | Reciprocal rank fusion (RRF) . . . . . . . . . . . . | . . . . . . . . . . . . . . . 13 |
+| V. | Query Transformations . . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 15 |
+| V.1. | Hypothetical document embeddings (HyDE) . . . . | . . . . . . . . . . . . . . . 15 |
+| V.2. | Query Decomposition . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 16 |
+| VI. | Re-ranking . . . . . . . . . . . . . . . . . . . . . . . . . | . . . . . . . . . . . . . . . 17 |
+
+Section: VII.6. Tổng kết thực nghiệm
+---
+### VII.6. Tổng kết thực nghiệm
+
+Bảng 3: Kết quả RAGAS và độ chênh so với Baseline (∆).
+
+| Thực nghiệm | Faithfulness - Score | Faithfulness - ∆ | Answer Relevancy - Score | Answer Relevancy - ∆ | Context Precision - Score | Context Precision - ∆ | Context Recall - Score | Context Recall - ∆ |
+|------------------------------|------------------------|--------------------|----------------------------|------------------------|-----------------------------|-------------------------|--------------------------|----------------------|
+| 1. Fixed Chunking (Baseline) | 0 . 73 | 0 . 00 | 0 . 53 | 0 . 00 | 0 . 81 | 0 . 00 | 0 . 67 | 0 . 00 |
+| 1. Semantic Chunking | 0 . 81 | 0 . 08 | 0 . 61 | 0 . 08 | 0 . 83 | 0 . 02 | 0 . 63 | - 0 . 04 |
+| 2. Sparse Retrieval | 0 . 44 | - 0 . 29 | 0 . 29 | - 0 . 24 | 0 . 36 | - 0 . 45 | 0 . 51 | - 0 . 16 |
+| 2. Hybrid | 0 . 79 | 0 . 06 | 0 . 55 | 0 . 02 | 0 . 57 | - 0 . 24 | 0 . 73 | 0 . 06 |
+| 2. Hybrid + RRF | 0 . 86 | 0 . 13 | 0 . 57 | 0 . 04 | 0 . 80 | - 0 . 01 | 0 . 80 | 0 . 13 |
+| 3. HyDE | 0 . 81 | 0 . 08 | 0 . 50 | - 0 . 03 | 0 . 80 | - 0 . 01 | 0 . 63 | - 0 . 04 |
+| 3. Decomposition | 0 . 93 | 0 . 20 | 0 . 65 | 0 . 12 | 0 . 68 | - 0 . 13 | 0 . 69 | 0 . 02 |
+| 4. Cross-Encoder | 0 . 76 | 0 . 03 | 0 . 61 | 0 . 08 | 0 . 82 | 0 . 01 | 0 . 71 | 0 . 04 |
+| 4. MMR | 0 . 77 | 0 . 04 | 0 . 49 | - 0 . 04 | 0 . 80 | - 0 . 01 | 0 . 60 | - 0 . 07 |
+
+Bảng 3: Kết quả RAGAS và độ chênh so với Baseline (∆).
+
+Dựa trên kết quả tổng hợp từ Bảng 3 và Hình 19, chúng ta có thể đưa ra các đánh giá tổng quát về hiệu năng của các kỹ thuật nâng cao so với hệ thống Baseline như sau:
+
+Section: Kịch bản 3: Loại bỏ LLM (Large Language Model)
+---
+### Kịch bản 3: Loại bỏ LLM (Large Language Model)
+
+Vai trò LLM: Bộ não tổng hợp thông tin, suy luận và sinh câu trả lời dựa trên ngữ cảnh truy vấn.
+
+Cơ chế hoạt động: Hệ thống vẫn có thể truy vân tốt các tài liệu liên quan nhờ Embedding Model và Vector Store, nhưng quy trình dừng ở bước Retrieval. Output trả về chỉ là danh sách các đoạn văn bản (Top-K) kèm điểm số/metadata.
+
+Tác động: Mất khả năng tổng hợp, diễn giải và trả lời trực tiếp theo dạng hội thoại (Question Answering).
+
+Ví dụ: Thay vì trả lời &#x27;Doanh thu là 10 tỷ&#x27;, hệ thống chỉ trả về các đoạn trích từ báo cáo, và người dùng phải tự đọc để rút kết luận.
+
+Hệ quả: Hệ thống trở thành Semantic Search / Retrieval System, mạnh về truy vấn theo ngữ nghĩa, nhưng không còn thành phần Generation, nên chưa phải là chatbot hay hệ RAG hoàn chỉnh.
+
+Bảng 1: Tổng hợp sự thay đổi của hệ thống RAG theo các kịch bản.
+
+| Thành phần thiếu | Hệ thống trở thành | Hạn chế cốt lõi |
+|------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| Embedding Model | Lexical Retrieval-driven RAG RAG dựa trên truy vấn từ khóa | Giảm mạnh truy vấn theo ngữ nghĩa, khó bắt từ đồng nghĩa, và dễ bỏ sót thông tin. |
+| Vector Store/ANN Index | Unscalable Prototype Mô hình khó mở rộng | Độ trễ tăng mạnh ở dữ liệu lớn, khó vận hành hệ thống. |
+| LLM | Semantic Search / Retrieval System Hệ truy vấn ngữ nghĩa | Không thể tổng hợp, diễn giải, và trả lời hội thoại; người dùng phải tự đọc và rút kết luận từ các đoạn trích. |
+
+Bảng 1: Tổng hợp sự thay đổi của hệ thống RAG theo các kịch bản.</pre><p>Metric không có điểm: faithfulness, context_precision, context_recall | GoogleAPIError: 503 UNAVAILABLE. {&#x27;error&#x27;: {&#x27;code&#x27;: 503, &#x27;message&#x27;: &#x27;This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.&#x27;, &#x27;status&#x27;: &#x27;UNAVAILABLE&#x27;}} | GoogleRateLimitError: Error calling model &#x27;gemini-3.6-flash&#x27; (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {&#x27;error&#x27;: {&#x27;code&#x27;: 429, &#x27;message&#x27;: &#x27;You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 42.580743938s.&#x27;, &#x27;status&#x27;: &#x27;RESOURCE_EXHAUSTED&#x27;, &#x27;details&#x27;: [{&#x27;@type&#x27;: &#x27;type.googleapis.com/google.rpc.Help&#x27;, &#x27;links&#x27;: [{&#x27;description&#x27;: &#x27;Learn more about Gemini API quotas&#x27;, &#x27;url&#x27;: &#x27;https://ai.google.dev/gemini-api/docs/rate-limits&#x27;}]}, {&#x27;@type&#x27;: &#x27;type.googleapis.com/google.rpc.QuotaFailure&#x27;, &#x27;violations&#x27;: [{&#x27;quotaMetric&#x27;: &#x27;generativelanguage.googleapis.com/generate_content_free_tier_requests&#x27;, &#x27;quotaId&#x27;: &#x27;GenerateRequestsPerDayPerProjectPerModel-FreeTier&#x27;, &#x27;quotaDimensions&#x27;: {&#x27;location&#x27;: &#x27;global&#x27;, &#x27;model&#x27;: &#x27;gemini-3.6-flash&#x27;}, &#x27;quotaValue&#x27;: &#x27;20&#x27;}]}, {&#x27;@type&#x27;: &#x27;type.googleapis.com/google.rpc.RetryInfo&#x27;, &#x27;retryDelay&#x27;: &#x27;42s&#x27;}]}} | GoogleRateLimitError: Error calling model &#x27;gemini-3.6-flash&#x27; (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {&#x27;error&#x27;: {&#x27;code&#x27;: 429, &#x27;message&#x27;: &#x27;You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 29.116626764s.&#x27;, &#x27;status&#x27;: &#x27;RESOURCE_EXHAUSTED&#x27;, &#x27;details&#x27;: [{&#x27;@type&#x27;: &#x27;type.googleapis.com/google.rpc.Help&#x27;, &#x27;links&#x27;: [{&#x27;description&#x27;: &#x27;Learn more about Gemini API quotas&#x27;, &#x27;url&#x27;: &#x27;https://ai.google.dev/gemini-api/docs/rate-limits&#x27;}]}, {&#x27;@type&#x27;: &#x27;type.googleapis.com/google.rpc.QuotaFailure&#x27;, &#x27;violations&#x27;: [{&#x27;quotaMetric&#x27;: &#x27;generativelanguage.googleapis.com/generate_content_free_tier_requests&#x27;, &#x27;quotaId&#x27;: &#x27;GenerateRequestsPerDayPerProjectPerModel-FreeTier&#x27;, &#x27;quotaDimensions&#x27;: {&#x27;location&#x27;: &#x27;global&#x27;, &#x27;model&#x27;: &#x27;gemini-3.6-flash&#x27;}, &#x27;quotaValue&#x27;: &#x27;20&#x27;}]}, {&#x27;@type&#x27;: &#x27;type.googleapis.com/google.rpc.RetryInfo&#x27;, &#x27;retryDelay&#x27;: &#x27;29s&#x27;}]}} | GoogleRateLimitError: Error calling model &#x27;gemini-3.6-flash&#x27; (RESOURCE_EXHAUSTED): 429 RESOURCE_EXHAUSTED. {&#x27;error&#x27;: {&#x27;code&#x27;: 429, &#x27;message&#x27;: &#x27;You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3.6-flash\nPlease retry in 15.722213716s.&#x27;, &#x27;status&#x27;: &#x27;RESOURCE_EXHAUSTED&#x27;, &#x27;details&#x27;: [{&#x27;@type&#x27;: &#x27;type.googleapis.com/google.rpc.Help&#x27;, &#x27;links&#x27;: [{&#x27;description&#x27;: &#x27;Learn more about Gemini API quotas&#x27;, &#x27;url&#x27;: &#x27;https://ai.google.dev/gemini-api/docs/rate-limits&#x27;}]}, {&#x27;@type&#x27;: &#x27;type.googleapis.com/google.rpc.QuotaFailure&#x27;, &#x27;violations&#x27;: [{&#x27;quotaMetric&#x27;: &#x27;generativelanguage.googleapis.com/generate_content_free_tier_requests&#x27;, &#x27;quotaId&#x27;: &#x27;GenerateRequestsPerDayPerProjectPerModel-FreeTier&#x27;, &#x27;quotaDimensions&#x27;: {&#x27;location&#x27;: &#x27;global&#x27;, &#x27;model&#x27;: &#x27;gemini-3.6-flash&#x27;}, &#x27;quotaValue&#x27;: &#x27;20&#x27;}]}, {&#x27;@type&#x27;: &#x27;type.googleapis.com/google.rpc.RetryInfo&#x27;, &#x27;retryDelay&#x27;: &#x27;15s&#x27;}]}}</p></details></td></tr></tbody></table></div><p>OpenAPI SHA256: c6aa82a2ba405353f00766c75924e4faad7a5ac1b80fdab1b60de2a7d41e667a</p></main><script>document.getElementById("filter").addEventListener("input",function(){const q=this.value.toLowerCase();document.querySelectorAll("#details tbody tr").forEach(r=>r.hidden=!r.textContent.toLowerCase().includes(q));});</script></html>

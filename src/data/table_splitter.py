@@ -1,19 +1,8 @@
-"""
-Table Splitter (Tầng 3: Row-aware Split cho Bảng biểu quá khổ)
+"""Row-aware table splitting with strict token limits."""
 
-Nếu một Bảng (Table Block) quá lớn (> hard_max_tokens ~800 tokens):
-- KHÔNG dùng RecursiveCharacterTextSplitter để tránh làm rách cấu trúc bảng.
-- Thực hiện Row-aware Split (cắt theo từng dòng dữ liệu).
-- BẮT BUỘC lặp lại Header của Bảng (và Caption) ở tất cả các sub-chunk.
-"""
-
-import sys
-from pathlib import Path
-ROOT = Path(__file__).resolve().parents[2]
-if str(ROOT) not in sys.path:
-    sys.path.insert(0, str(ROOT))
-
+from dataclasses import replace
 from typing import List
+
 from src.data.block_normalizer import Block
 from src.data.token_counter import count_tokens
 
@@ -21,87 +10,95 @@ from src.data.token_counter import count_tokens
 def split_large_table(
     block: Block,
     target_tokens: int = 600,
-    hard_max_tokens: int = 800
+    hard_max_tokens: int = 800,
 ) -> List[Block]:
-    """
-    Cắt một bảng quá lớn theo từng hàng dữ liệu, tự động lặp lại Header và Caption trên mỗi sub-chunk.
-    """
-    if block.token_count <= hard_max_tokens:
+    if count_tokens(block.content) <= hard_max_tokens:
         return [block]
 
-    content_lines = block.content.strip().split("\n")
-    if len(content_lines) <= 3:
-        return [block]
-
-    # Phân tách phần Header / Caption với các dòng dữ liệu (Rows)
-    header_lines: List[str] = []
-    row_lines: List[str] = []
+    lines = block.content.splitlines()
+    header = []
+    rows = []
+    table_header_count = 0
     in_table = False
 
-    for line in content_lines:
-        line_str = line.strip()
-        if line_str.startswith("|") and "|" in line_str[1:]:
+    for line in lines:
+        stripped = line.strip()
+        is_table_row = stripped.startswith("|") and stripped.count("|") >= 2
+
+        if is_table_row:
             in_table = True
-            if len(header_lines) < 2:  # Thường line 1 là tên cột, line 2 là |---|---|
-                header_lines.append(line)
+            if table_header_count < 2:
+                header.append(line)
+                table_header_count += 1
             else:
-                row_lines.append(line)
+                rows.append(line)
+        elif not in_table:
+            header.append(line)
         else:
-            if not in_table:
-                header_lines.append(line)  # Lưu Caption / Tiêu đề bảng ở trên
-            else:
-                row_lines.append(line)
+            rows.append(line)
 
-    if not row_lines:
-        return [block]
+    if not rows:
+        raise ValueError(
+            f"Cannot safely split table without rows: {block.block_id}"
+        )
 
-    header_text = "\n".join(header_lines) + "\n"
-    header_tokens = count_tokens(header_text)
+    prefix = "\n".join(header).rstrip()
+    if prefix:
+        prefix += "\n"
 
-    sub_blocks: List[Block] = []
-    current_rows: List[str] = []
-    current_tokens = header_tokens
-    sub_index = 1
+    if count_tokens(prefix) >= hard_max_tokens:
+        raise ValueError(
+            f"Table header exceeds token budget: {block.block_id}"
+        )
 
-    for row in row_lines:
-        row_tok = count_tokens(row)
-        if current_rows and (current_tokens + row_tok > target_tokens or current_tokens + row_tok > hard_max_tokens):
-            # Đóng sub-chunk hiện tại
-            table_text = header_text + "\n".join(current_rows)
-            sub_blocks.append(
-                Block(
-                    block_id=f"{block.block_id}_sub_{sub_index}",
-                    block_type="table",
-                    content=table_text,
-                    section=block.section,
-                    section_path=block.section_path,
-                    page=block.page,
-                    element_ids=block.element_ids,
-                    token_count=count_tokens(table_text),
-                    table_data=block.table_data
-                )
+    chunks = []
+    current = []
+
+    def build_text(selected_rows):
+        return prefix + "\n".join(selected_rows)
+
+    def emit():
+        if not current:
+            return
+        content = build_text(current)
+        tokens = count_tokens(content)
+        if tokens > hard_max_tokens:
+            raise ValueError(
+                f"Table chunk exceeds limit: {block.block_id}, {tokens}"
             )
-            sub_index += 1
-            current_rows = [row]
-            current_tokens = header_tokens + row_tok
-        else:
-            current_rows.append(row)
-            current_tokens += row_tok
-
-    if current_rows:
-        table_text = header_text + "\n".join(current_rows)
-        sub_blocks.append(
-            Block(
-                block_id=f"{block.block_id}_sub_{sub_index}",
-                block_type="table",
-                content=table_text,
-                section=block.section,
-                section_path=block.section_path,
-                page=block.page,
-                element_ids=block.element_ids,
-                token_count=count_tokens(table_text),
-                table_data=block.table_data
+        chunks.append(
+            replace(
+                block,
+                block_id=f"{block.block_id}_sub_{len(chunks) + 1}",
+                content=content,
+                token_count=tokens,
+                element_ids=list(block.element_ids),
             )
         )
 
-    return sub_blocks if sub_blocks else [block]
+    for row in rows:
+        candidate = current + [row]
+
+        if count_tokens(build_text(candidate)) <= min(
+            target_tokens, hard_max_tokens
+        ):
+            current = candidate
+            continue
+
+        if current:
+            emit()
+            current = []
+
+        if count_tokens(build_text([row])) > hard_max_tokens:
+            raise ValueError(
+                f"Single table row exceeds limit: {block.block_id}"
+            )
+
+        current = [row]
+
+    emit()
+
+    if not chunks:
+        raise ValueError(f"No chunks generated for table: {block.block_id}")
+
+    return chunks

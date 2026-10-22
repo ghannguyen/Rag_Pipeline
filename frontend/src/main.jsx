@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 import "./styles.css";
 
-const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:5000";
+const API = import.meta.env.VITE_API_URL || "http://127.0.0.1:8001";
 
 const STAGES = [
   { id: "loading", label: "Loading", subtitle: "PDF → JSONL", icon: FileText },
@@ -60,9 +60,30 @@ function App() {
   );
 
   async function request(url, options) {
-    const response = await fetch(`${API}${url}`, options);
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.detail || "Có lỗi xảy ra.");
+    let response;
+    try {
+      response = await fetch(`${API}${url}`, options);
+    } catch {
+      throw new Error(`Không kết nối được backend (${API}).`);
+    }
+
+    // Error bodies may be plain text (e.g. uvicorn 500) instead of JSON.
+    const raw = await response.text();
+    let data = null;
+    try {
+      data = raw ? JSON.parse(raw) : null;
+    } catch {
+      data = null;
+    }
+
+    if (!response.ok) {
+      let detail = data?.detail;
+      // FastAPI 422 returns a list of {loc, msg} validation errors.
+      if (Array.isArray(detail)) {
+        detail = detail.map((d) => `${(d.loc || []).slice(1).join(".")}: ${d.msg}`).join("; ");
+      }
+      throw new Error(detail || raw || `HTTP ${response.status}`);
+    }
     return data;
   }
 
@@ -167,12 +188,17 @@ function App() {
         id: "embedding",
         label: "Embedding",
         url: "/api/pipeline/embed",
-        body: { reset_db: true },
+        // Incremental: only new or changed chunks are embedded.
+        body: { reset_db: false },
       },
     ];
 
+    // Tracked locally: stageState in this closure is the pre-run snapshot.
+    let activeStep = null;
+
     try {
       for (const step of steps) {
+        activeStep = step;
         markRunning(step.id);
         pushLog(step.id, `Bắt đầu ${step.label}...`);
         const data = await request(step.url, {
@@ -182,11 +208,11 @@ function App() {
         });
         markSuccess(step.id, data);
       }
+      activeStep = null;
       pushLog("pipeline", "Offline pipeline hoàn tất. Có thể chạy Retrieval.", "success");
       await refresh();
     } catch (e) {
-      const active = steps.find((s) => stageState[s.id]?.status === "running");
-      if (active) markError(active.id, e.message);
+      if (activeStep) markError(activeStep.id, e.message);
       else pushLog("pipeline", e.message, "error");
       setError(e.message);
     } finally {
@@ -253,24 +279,16 @@ function App() {
     setError("");
 
     try {
-      const res = await fetch(`${API}/api/rag/chat`, {
+      const data = await request("/api/rag/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        // top_k / top_n / threshold come from the backend .env; the Top-K
+        // slider only controls how many retrieval results are displayed.
         body: JSON.stringify({
           query,
-          top_k: topK,
-          top_n: 5,
-          threshold: 0.35,
           provider: chatProvider
         }),
       });
-
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.detail || "RAG Chat thất bại.");
-      }
-
-      const data = await res.json();
       setRagAnswer(data);
     } catch (err) {
       setError(err.message);

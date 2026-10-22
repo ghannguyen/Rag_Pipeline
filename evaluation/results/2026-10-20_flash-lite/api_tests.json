@@ -1,0 +1,214 @@
+{
+ "base": "http://127.0.0.1:8001",
+ "results": [
+  {
+   "id": "API_01",
+   "title": "Health",
+   "request": "GET /health ",
+   "expected": "200, status=ok",
+   "status": 200,
+   "seconds": 0.0,
+   "result": "PASS",
+   "llm_provider": null,
+   "body": "{\"status\":\"ok\",\"device\":\"not_loaded\"}"
+  },
+  {
+   "id": "API_02",
+   "title": "Index status matches the build",
+   "request": "GET /api/pipeline/status ",
+   "expected": "200, 5 documents, chunks == vectors",
+   "status": 200,
+   "seconds": 1.2,
+   "result": "PASS",
+   "llm_provider": null,
+   "body": "{\"pdf_documents\":5,\"pages\":1428,\"elements\":21527,\"chunks\":4654,\"vectors\":4654,\"embedding_model\":\"BAAI/bge-m3\",\"device\":\"not_loaded\",\"paths\":{\"raw\":\"/Users/hannguyen/Desktop/RagPipeline/data/raw\",\"elements\":\"/Users/hannguyen/Desktop/RagPipeline/data/processed/elements.jsonl\",\"pdf_extract\":\"/Users/hannguyen/Desktop/RagPipeline/data/processed/pdf_extract.jsonl\",\"chunked\":\"/Users/hannguyen/Desktop/RagPipeline/data/processed/chunked.jsonl\",\"vector_db\":\"/Users/hannguyen/Desktop/RagPipeline/data/vectorstore/chroma\"}}"
+  },
+  {
+   "id": "API_03",
+   "title": "Chat without body",
+   "request": "POST /api/rag/chat ",
+   "expected": "422",
+   "status": 422,
+   "seconds": 0.0,
+   "result": "PASS",
+   "llm_provider": null,
+   "body": "{\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\"],\"msg\":\"Field required\",\"input\":null}]}"
+  },
+  {
+   "id": "API_04",
+   "title": "Chat with empty object",
+   "request": "POST /api/rag/chat {}",
+   "expected": "422 (query is required)",
+   "status": 422,
+   "seconds": 0.0,
+   "result": "PASS",
+   "llm_provider": null,
+   "body": "{\"detail\":[{\"type\":\"missing\",\"loc\":[\"body\",\"query\"],\"msg\":\"Field required\",\"input\":{}}]}"
+  },
+  {
+   "id": "API_05",
+   "title": "Malformed JSON",
+   "request": "POST /api/rag/chat {query: ",
+   "expected": "422",
+   "status": 422,
+   "seconds": 0.0,
+   "result": "PASS",
+   "llm_provider": null,
+   "body": "{\"detail\":[{\"type\":\"json_invalid\",\"loc\":[\"body\",1],\"msg\":\"JSON decode error\",\"input\":{},\"ctx\":{\"error\":\"Expecting property name enclosed in double quotes\"}}]}"
+  },
+  {
+   "id": "API_06",
+   "title": "query is not a string",
+   "request": "POST /api/rag/chat {\"query\": 123}",
+   "expected": "422",
+   "status": 422,
+   "seconds": 0.0,
+   "result": "PASS",
+   "llm_provider": null,
+   "body": "{\"detail\":[{\"type\":\"string_type\",\"loc\":[\"body\",\"query\"],\"msg\":\"Input should be a valid string\",\"input\":123}]}"
+  },
+  {
+   "id": "API_07",
+   "title": "top_k = 0",
+   "request": "POST /api/rag/chat {\"query\": \"thời giờ làm việc\", \"top_k\": 0}",
+   "expected": "422 (top_k >= 1)",
+   "status": 422,
+   "seconds": 0.0,
+   "result": "PASS",
+   "llm_provider": null,
+   "body": "{\"detail\":[{\"type\":\"greater_than_equal\",\"loc\":[\"body\",\"top_k\"],\"msg\":\"Input should be greater than or equal to 1\",\"input\":0,\"ctx\":{\"ge\":1}}]}"
+  },
+  {
+   "id": "API_08",
+   "title": "top_k = 31",
+   "request": "POST /api/rag/chat {\"query\": \"thời giờ làm việc\", \"top_k\": 31}",
+   "expected": "422 (top_k <= 30)",
+   "status": 422,
+   "seconds": 0.0,
+   "result": "PASS",
+   "llm_provider": null,
+   "body": "{\"detail\":[{\"type\":\"less_than_equal\",\"loc\":[\"body\",\"top_k\"],\"msg\":\"Input should be less than or equal to 30\",\"input\":31,\"ctx\":{\"le\":30}}]}"
+  },
+  {
+   "id": "API_09",
+   "title": "threshold = 1.5",
+   "request": "POST /api/rag/chat {\"query\": \"thời giờ làm việc\", \"threshold\": 1.5}",
+   "expected": "422 (0 <= threshold <= 1)",
+   "status": 422,
+   "seconds": 0.0,
+   "result": "PASS",
+   "llm_provider": null,
+   "body": "{\"detail\":[{\"type\":\"less_than_equal\",\"loc\":[\"body\",\"threshold\"],\"msg\":\"Input should be less than or equal to 1\",\"input\":1.5,\"ctx\":{\"le\":1.0}}]}"
+  },
+  {
+   "id": "API_10",
+   "title": "top_n = 0",
+   "request": "POST /api/rag/chat {\"query\": \"thời giờ làm việc\", \"top_n\": 0}",
+   "expected": "422 (top_n >= 1)",
+   "status": 422,
+   "seconds": 0.0,
+   "result": "PASS",
+   "llm_provider": null,
+   "body": "{\"detail\":[{\"type\":\"greater_than_equal\",\"loc\":[\"body\",\"top_n\"],\"msg\":\"Input should be greater than or equal to 1\",\"input\":0,\"ctx\":{\"ge\":1}}]}"
+  },
+  {
+   "id": "API_11",
+   "title": "Wrong method",
+   "request": "GET /api/rag/chat ",
+   "expected": "405",
+   "status": 405,
+   "seconds": 0.0,
+   "result": "PASS",
+   "llm_provider": null,
+   "body": "{\"detail\":\"Method Not Allowed\"}"
+  },
+  {
+   "id": "API_12",
+   "title": "Empty query",
+   "request": "POST /api/rag/chat {\"query\": \"\"}",
+   "expected": "400/422 or 200 with a friendly message",
+   "status": 200,
+   "seconds": 0.4,
+   "result": "PASS",
+   "llm_provider": null,
+   "body": "{\"query\":\"\",\"answer\":\"Vui lòng nhập câu hỏi hợp lệ.\",\"citations\":[],\"image_urls\":[],\"logs\":[]}"
+  },
+  {
+   "id": "API_13",
+   "title": "Whitespace-only query",
+   "request": "POST /api/rag/chat {\"query\": \"   \\n  \"}",
+   "expected": "400/422 or 200 with a friendly message",
+   "status": 200,
+   "seconds": 0.0,
+   "result": "PASS",
+   "llm_provider": null,
+   "body": "{\"query\":\"\",\"answer\":\"Vui lòng nhập câu hỏi hợp lệ.\",\"citations\":[],\"image_urls\":[],\"logs\":[]}"
+  },
+  {
+   "id": "API_14",
+   "title": "Unknown provider",
+   "request": "POST /api/rag/chat {\"query\": \"Người lao động được nghỉ hằng năm bao nhiêu ngày?\", \"provider\": \"foo\"}",
+   "expected": "400/422 - must not silently answer with another provider",
+   "status": 200,
+   "seconds": 28.9,
+   "result": "FAIL",
+   "llm_provider": "MockProvider",
+   "body": "{\"query\":\"Người lao động được nghỉ hằng năm bao nhiêu ngày?\",\"answer\":\"Dựa trên tài liệu được cung cấp, hệ thống RAG vận hành theo quy trình gồm 3 giai đoạn chính: Indexing (chuẩn bị dữ liệu), Retrieval (truy xuất ngữ cảnh) và Generation (sinh câu trả lời tự nhiên) [SOURCE_1].\",\"citations\":[{\"source_id\":\"SOURCE_1\",\"file\":\"Văn-bản-hợp-nhất-18-VBHN-VPQH.pdf\",\"page\":42,\"section\":\"Điều 113. Nghỉ hằng năm\",\"chunk_id\":\"Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_238_chunk_238\",\"rerank_score\":0.9983}],\"image_urls\":[],\"total_duration_ms\":28874.73,\"logs\":[{\"stage\":\"hybrid_retrieval\",\"count\":17,\"duration_ms\":1362"
+  },
+  {
+   "id": "API_15",
+   "title": "Client selects the mock provider",
+   "request": "POST /api/rag/chat {\"query\": \"Người lao động được nghỉ hằng năm bao nhiêu ngày?\", \"provider\": \"mock\"}",
+   "expected": "400/403/422 - production must not let clients pick mock",
+   "status": 200,
+   "seconds": 14.1,
+   "result": "FAIL",
+   "llm_provider": "MockProvider",
+   "body": "{\"query\":\"Người lao động được nghỉ hằng năm bao nhiêu ngày?\",\"answer\":\"Dựa trên tài liệu được cung cấp, hệ thống RAG vận hành theo quy trình gồm 3 giai đoạn chính: Indexing (chuẩn bị dữ liệu), Retrieval (truy xuất ngữ cảnh) và Generation (sinh câu trả lời tự nhiên) [SOURCE_1].\",\"citations\":[{\"source_id\":\"SOURCE_1\",\"file\":\"Văn-bản-hợp-nhất-18-VBHN-VPQH.pdf\",\"page\":42,\"section\":\"Điều 113. Nghỉ hằng năm\",\"chunk_id\":\"Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_238_chunk_238\",\"rerank_score\":0.9983}],\"image_urls\":[],\"total_duration_ms\":14120.55,\"logs\":[{\"stage\":\"hybrid_retrieval\",\"count\":17,\"duration_ms\":3935"
+  },
+  {
+   "id": "API_16",
+   "title": "LLM backend unavailable (ollama not running)",
+   "request": "POST /api/rag/chat {\"query\": \"Người lao động được nghỉ hằng năm bao nhiêu ngày?\", \"provider\": \"ollama\"}",
+   "expected": "502/503 with a clear message, not 500",
+   "status": 500,
+   "seconds": 14.2,
+   "result": "FAIL",
+   "llm_provider": null,
+   "body": "{\"detail\":\"RAG Chat lỗi: Không thể kết nối dịch vụ Ollama Local (http://localhost:11434): <urlopen error [Errno 61] Connection refused>\"}"
+  },
+  {
+   "id": "API_17",
+   "title": "5,000-character query",
+   "request": "POST /api/rag/chat {\"query\": \"Người lao động được nghỉ hằng năm bao nhiêu ngày? Người lao động được nghỉ hằng năm bao nhiêu ngày? Người lao",
+   "expected": "200, or 413/422 if a length limit is set; never 500",
+   "status": 200,
+   "seconds": 68.9,
+   "result": "PASS",
+   "llm_provider": "GeminiProvider",
+   "body": "{\"query\":\"Người lao động được nghỉ hằng năm bao nhiêu ngày? Người lao động được nghỉ hằng năm bao nhiêu ngày? Người lao động được nghỉ hằng năm bao nhiêu ngày? Người lao động được nghỉ hằng năm bao nhiêu ngày? Người lao động được nghỉ hằng năm bao nhiêu ngày? Người lao động được nghỉ hằng năm bao nhiêu ngày? Người lao động được nghỉ hằng năm bao nhiêu ngày? Người lao động được nghỉ hằng năm bao nhiêu ngày? Người lao động được nghỉ hằng năm bao nhiêu ngày? Người lao động được nghỉ hằng năm bao nhiêu ngày? Người lao động được nghỉ hằng năm bao nhiêu ngày? Người lao động được nghỉ hằng năm bao nh"
+  },
+  {
+   "id": "API_18",
+   "title": "Response schema on a normal question",
+   "request": "POST /api/rag/chat {\"query\": \"Người lao động làm việc trong điều kiện bình thường được nghỉ hằng năm bao nhiêu ngày?\"}",
+   "expected": "200, keys answer, citations, image_urls, logs, query, total_duration_ms; >= 1 citation with source_id/file/page",
+   "status": 200,
+   "seconds": 16.5,
+   "result": "PASS",
+   "llm_provider": "GeminiProvider",
+   "body": "{\"query\":\"Người lao động làm việc trong điều kiện bình thường được nghỉ hằng năm bao nhiêu ngày?\",\"answer\":\"Người lao động làm việc trong điều kiện bình thường được nghỉ hằng năm **12 ngày làm việc** [SOURCE_1], [SOURCE_2], [SOURCE_3].\",\"citations\":[{\"source_id\":\"SOURCE_1\",\"file\":\"Văn-bản-hợp-nhất-18-VBHN-VPQH.pdf\",\"page\":42,\"section\":\"Điều 113. Nghỉ hằng năm\",\"chunk_id\":\"Văn-bản-hợp-nhất-18-VBHN-VPQH_sec_238_chunk_238\",\"rerank_score\":0.9982},{\"source_id\":\"SOURCE_2\",\"file\":\"so-tay-kien-thuc-phap-luat-lao-dong-cdi.pdf\",\"page\":24,\"section\":\"Trả lời:\",\"chunk_id\":\"so-tay-kien-thuc-phap-luat-lao-do"
+  },
+  {
+   "id": "API_19",
+   "title": "Emoji / special characters",
+   "request": "POST /api/rag/chat {\"query\": \"😀😀 <script>alert(1)</script> ' OR 1=1 --\"}",
+   "expected": "200, no 500",
+   "status": 200,
+   "seconds": 14.2,
+   "result": "PASS",
+   "llm_provider": null,
+   "body": "{\"query\":\"😀😀 <script>alert(1)</script> ' OR 1=1 --\",\"answer\":\"Dựa trên tài liệu được cung cấp, tôi không tìm thấy thông tin để trả lời câu hỏi này.\",\"citations\":[],\"image_urls\":[],\"total_duration_ms\":14176.67,\"logs\":[{\"stage\":\"hybrid_retrieval\",\"count\":11,\"duration_ms\":2633.62},{\"stage\":\"re_ranking\",\"passed_threshold\":false,\"count\":0,\"duration_ms\":11542.97}]}"
+  }
+ ]
+}

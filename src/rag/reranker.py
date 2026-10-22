@@ -5,6 +5,7 @@ Uses BAAI/bge-reranker-v2-m3 Cross-Encoder model to score query-chunk pairs,
 sort by relevance, and apply RERANK_THRESHOLD.
 """
 
+import math
 import os
 import sys
 from pathlib import Path
@@ -19,18 +20,45 @@ if hasattr(sys.stdout, "reconfigure"):
 
 _RERANKER_MODEL_CACHE = None
 
+DEFAULT_RERANK_THRESHOLD = 0.35
+
+
+def sigmoid(x: float) -> float:
+    # Split by sign to avoid math.exp overflow on large logits.
+    if x >= 0:
+        return 1.0 / (1.0 + math.exp(-x))
+    z = math.exp(x)
+    return z / (1.0 + z)
+
 
 def get_reranker_model(model_name: str = "BAAI/bge-reranker-v2-m3"):
     global _RERANKER_MODEL_CACHE
     if _RERANKER_MODEL_CACHE is not None:
         return _RERANKER_MODEL_CACHE
 
-    device = "cpu"
+    from src.rag.device import pick_device
+
+    device = pick_device()
     print(f"Loading Re-ranker model: {model_name} on {device.upper()}...")
 
     try:
         from sentence_transformers import CrossEncoder
-        _RERANKER_MODEL_CACHE = CrossEncoder(model_name, device=device)
+
+        class LogitCrossEncoder:
+            """Return raw logits; the default activation depends on the model's saved config."""
+
+            def __init__(self, mdl):
+                self.model = mdl
+
+            def predict(self, pairs: List[List[str]]) -> List[float]:
+                import torch.nn as nn
+                try:
+                    return self.model.predict(pairs, activation_fn=nn.Identity())
+                except TypeError:
+                    # sentence-transformers < 4 names the argument activation_fct.
+                    return self.model.predict(pairs, activation_fct=nn.Identity())
+
+        _RERANKER_MODEL_CACHE = LogitCrossEncoder(CrossEncoder(model_name, device=device))
         print(f"✓ Re-ranker model loaded successfully on device: {device.upper()}")
         return _RERANKER_MODEL_CACHE
     except Exception as e:
@@ -72,7 +100,7 @@ def rerank_documents(
     query: str,
     documents: List[Dict[str, Any]],
     top_n: int = 5,
-    threshold: float = 0.35,
+    threshold: float = DEFAULT_RERANK_THRESHOLD,
     model_name: str = "BAAI/bge-reranker-v2-m3"
 ) -> Tuple[List[Dict[str, Any]], bool]:
     """
@@ -109,9 +137,8 @@ def rerank_documents(
     for idx, doc in enumerate(documents):
         doc_copy = dict(doc)
         raw_score = float(raw_scores[idx])
-        # Chuẩn hóa score bằng sigmoid nếu raw score thuộc dạng logit
-        import math
-        sig_score = 1.0 / (1.0 + math.exp(-raw_score)) if raw_score < 0 or raw_score > 1 else raw_score
+        # Both reranker backends return logits, so always map them to [0, 1].
+        sig_score = sigmoid(raw_score)
 
         doc_copy["retrieval_score"] = doc.get("score") or doc.get("distance") or 0.0
         doc_copy["rerank_score"] = round(sig_score, 4)

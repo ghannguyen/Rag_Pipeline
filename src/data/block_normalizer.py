@@ -18,6 +18,12 @@ from typing import Any, Dict, List, Literal, Optional
 from src.data.token_counter import count_tokens
 
 
+# Same size filter image_captioner uses to skip decorative images (not imported
+# to avoid loading transformers during chunking).
+MIN_IMAGE_WIDTH = 100
+MIN_IMAGE_HEIGHT = 100
+
+
 @dataclass
 class Block:
     block_id: str
@@ -114,6 +120,13 @@ def normalize_blocks(elements: List[Dict[str, Any]]) -> List[Block]:
                 parts.append(f"AI Description:\n{ai_caption}")
 
             if not parts:
+                width = elem.get("width") or 0
+                height = elem.get("height") or 0
+                if width < MIN_IMAGE_WIDTH or height < MIN_IMAGE_HEIGHT:
+                    # Decorative icon/bullet/stamp with no text: adds only
+                    # "[Image Content]" noise to embeddings and BM25.
+                    idx += 1
+                    continue
                 parts.append("[Image Content]")
 
             image_content = "\n\n".join(parts)

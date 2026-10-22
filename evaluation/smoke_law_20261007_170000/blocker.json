@@ -1,0 +1,17 @@
+{
+  "judge": "gemini-3.6-flash",
+  "minimal_probe": "OK first attempt",
+  "error": "503 UNAVAILABLE high demand during Context Precision and Context Recall",
+  "ragas_retry_config": {
+    "max_retries": 2,
+    "max_wait": 20,
+    "wait": "random exponential",
+    "langchain_max_retries": 1
+  },
+  "note": "Exact underlying HTTP retry count not exposed by existing evaluator. No additional manual scoring retry.",
+  "retrieval_reference_hits": 2,
+  "rag_correct_answers": 1,
+  "rag_responses_saved": 3,
+  "fully_scored_cases": 0,
+  "pipeline_changed": false
+}
